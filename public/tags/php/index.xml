@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/php/</link>
+    <description>Recent content in Php on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Dec 2014 01:56:53 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PHP 坑之 ==</title>
+      <link>http://:1313/tmp/2014/12/php-%E5%9D%91%E4%B9%8B-/</link>
+      <pubDate>Tue, 16 Dec 2014 01:56:53 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2014/12/php-%E5%9D%91%E4%B9%8B-/</guid>
+      <description>&lt;p&gt;PHP 中 “== ”判断两个变量是否相等的时候会进行自动的类型转换。今天&lt;a href=&#34;https://twitter.com/tkh16&#34;&gt;Tom Hessman&lt;/a&gt;，在twitter上提到了PHP用==做判断的时候一种&lt;a href=&#34;https://twitter.com/joswr1ght/status/544548300033363971&#34;&gt;极端情况&lt;/a&gt;（很坑）。&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;co1&#34;&gt;//ok it return true&lt;/span&gt;&lt;br /&gt; &lt;a href=&#34;http://www.php.net/var_dump&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;var_dump&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/md5&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;md5&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;240610708&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;==&lt;/span&gt; &lt;a href=&#34;http://www.php.net/md5&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;md5&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;QNKCDZO&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;a href=&#34;http://www.php.net/var_dump&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;var_dump&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/md5&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;md5&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;240610708&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;//string(32) &#34;0e462097431906509019562988736854&#34;&lt;/span&gt;&lt;br /&gt; &lt;a href=&#34;http://www.php.net/var_dump&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;var_dump&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/md5&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;md5&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;QNKCDZO&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; string&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;0e830400451993494058024219903391&#34;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;PHP把两个字符串转换成科学计数来比较了。。。&lt;/p&gt;
+
+&lt;p&gt;严谨比较还是用 === 这个吧&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP 15 年提交历史可视化展示</title>
+      <link>http://:1313/tmp/2014/01/php-15-%E5%B9%B4%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B1%95%E7%A4%BA/</link>
+      <pubDate>Tue, 28 Jan 2014 05:44:46 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2014/01/php-15-%E5%B9%B4%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B1%95%E7%A4%BA/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://code.google.com/p/gource/&#34;&gt;Gource&lt;/a&gt; 是一个开源的用来做软件版本修改可视化的工作，下面的视频就是用Gource做的PHP 15 年提交历史可视化展示。之所以会提到这个是因为最近半年一直在和数据统计打交道，估计2014大部分时间可能也是做这项工作。其实和数据打交道也蛮好玩的，纯粹！&lt;/p&gt;
+
+&lt;p&gt;上面是我上传的优酷的版本，不是很清晰，有条件的可以看下&lt;a href=&#34;https://www.youtube.com/watch?v=pYjs4DSxgbU&#34;&gt;https://www.youtube.com/watch?v=pYjs4DSxgbU&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;PS：晚上的火车，明天就可以到家了，祝大家新年快乐，马上啥都有～&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP中feof函数有可能造成死循环</title>
+      <link>http://:1313/tmp/2012/12/php%E4%B8%ADfeof%E5%87%BD%E6%95%B0%E6%9C%89%E5%8F%AF%E8%83%BD%E9%80%A0%E6%88%90%E6%AD%BB%E5%BE%AA%E7%8E%AF/</link>
+      <pubDate>Tue, 25 Dec 2012 14:21:52 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/12/php%E4%B8%ADfeof%E5%87%BD%E6%95%B0%E6%9C%89%E5%8F%AF%E8%83%BD%E9%80%A0%E6%88%90%E6%AD%BB%E5%BE%AA%E7%8E%AF/</guid>
+      <description>&lt;p&gt;前段时间公司的一个页面经常报告超时，本来以为是发邮件导致的超时。后来把邮件发送拆成异步之后，超时的问题并没有解决。于是仔细研究了下超时附近的代码段。&lt;/p&gt;
+
+&lt;p&gt;发现有类似一下的代码：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;kw2&#34;&gt;&lt;?php&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$file&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/fopen&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;fopen&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;contacts.csv&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;r&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;!&lt;/span&gt; &lt;a href=&#34;http://www.php.net/feof&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;feof&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$file&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;a href=&#34;http://www.php.net/print_r&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;print_r&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/fgetcsv&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;fgetcsv&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$file&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;a href=&#34;http://www.php.net/fclose&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;fclose&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$file&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;?&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其实上面的代码就是W3scholl的&lt;a href=&#34;http://www.w3school.com.cn/php/func_filesystem_fgetcsv.asp&#34;&gt;示例代码&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;如果没有仔细看过PHP的手册，大概看不出这段代码有什么问题？&lt;/p&gt;
+
+&lt;p&gt;问题的关键就在feof这个函数，手册上有明确的说明：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If the passed file pointer is not valid you may get an infinite loop, because feof() fails to return TRUE.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;详见：&lt;a href=&#34;http://cn2.php.net/feof&#34;&gt;http://cn2.php.net/feof&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;所以上面的代码如果打开的文件失败，就会导致死循环，从而引起页面超时。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>用JS写的PHP VM(让PHP跑着JS上）</title>
+      <link>http://:1313/tmp/2012/07/%E7%94%A8js%E5%86%99%E7%9A%84php-vm%E8%AE%A9php%E8%B7%91%E7%9D%80js%E4%B8%8A/</link>
+      <pubDate>Mon, 30 Jul 2012 14:07:39 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/07/%E7%94%A8js%E5%86%99%E7%9A%84php-vm%E8%AE%A9php%E8%B7%91%E7%9D%80js%E4%B8%8A/</guid>
+      <description>&lt;p&gt;前段时间有个Javasccript Linux让我们看到了Javascript的魅力，前天在twitter看到&lt;a href=&#34;https://twitter.com/niklasvh&#34;&gt;@Niklasvh&lt;/a&gt; 写了一个PHPJS,可以让PHP跑在JS上，很久就期待有这样的一种实现，可以让我在浏览器里运行PHP代码，现在她终于来了，感谢&lt;a href=&#34;https://twitter.com/niklasvh&#34;&gt;@Niklasvh&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;项目主页：&lt;a href=&#34;http://phpjs.hertzen.com/&#34;&gt;http://phpjs.hertzen.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;我在SAE上也搭了一个：&lt;a href=&#34;http://mytools.sinaapp.com/phpjs/&#34;&gt;http://mytools.sinaapp.com/phpjs/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>在什么场景下使用闭包？</title>
+      <link>http://:1313/tmp/2011/12/%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%E4%B8%8B%E4%BD%BF%E7%94%A8%E9%97%AD%E5%8C%85/</link>
+      <pubDate>Wed, 07 Dec 2011 06:38:17 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/12/%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%E4%B8%8B%E4%BD%BF%E7%94%A8%E9%97%AD%E5%8C%85/</guid>
+      <description>&lt;p&gt;在需要把逻辑封装到自己的范围内的情况下，闭包会十分有用。重构旧代码以进行简化并提高可读性就是这样一个例子。查看以下示例，该示例显示了在运行一些 SQL 查询时使用的记录程序。&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;co1&#34;&gt;//记录 SQL 查询的代码&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$db&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/mysqli_connect&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysqli_connect&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;server&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;user&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;pass&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; Logger&lt;span class=&#34;sy0&#34;&gt;::&lt;/span&gt;&lt;a href=&#34;http://www.php.net/log&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;log&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;debug&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;database&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;Connected to database&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$db&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;insert into parts (part, description) values (&#39;&lt;/span&gt;Hammer&lt;span class=&#34;st_h&#34;&gt;&#39;,&#39;&lt;/span&gt;Pounds nails&lt;span class=&#34;st_h&#34;&gt;&#39;); &lt;br /&gt; Logger::log(&#39;&lt;/span&gt;debug&lt;span class=&#34;st_h&#34;&gt;&#39;,&#39;&lt;/span&gt;database&lt;span class=&#34;st_h&#34;&gt;&#39;,&#39;&lt;/span&gt;Insert Hammer into to parts table&lt;span class=&#34;st_h&#34;&gt;&#39;); &lt;br /&gt; $db-&gt;query(&#39;&lt;/span&gt;insert into parts &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;part&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; description&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; values &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;Drill&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;Puts holes in wood&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; Logger&lt;span class=&#34;sy0&#34;&gt;::&lt;/span&gt;&lt;a href=&#34;http://www.php.net/log&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;log&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;debug&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;database&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;Insert Drill into to parts table&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$db&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;insert into parts (part, description) values (&#39;&lt;/span&gt;Saw&lt;span class=&#34;st_h&#34;&gt;&#39;,&#39;&lt;/span&gt;Cuts wood&lt;span class=&#34;st_h&#34;&gt;&#39;); &lt;br /&gt; Logger::log(&#39;&lt;/span&gt;debug&lt;span class=&#34;st_h&#34;&gt;&#39;,&#39;&lt;/span&gt;database&lt;span class=&#34;st_h&#34;&gt;&#39;,&#39;&lt;/span&gt;Insert Saw into to parts table&lt;span class=&#34;st_h&#34;&gt;&#39;);&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;可以看出执行操作的重复程度。对 Logger::log() 执行的每次调用都有相同的前两个实参。为了解决此问题，我们可以把该方法调用放入闭包并转而针对该闭包执行调用。得到的代码如下所示：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;co1&#34;&gt;//记录 SQL 查询的重构代码&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$logdb&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$string&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; Logger&lt;span class=&#34;sy0&#34;&gt;::&lt;/span&gt;&lt;a href=&#34;http://www.php.net/log&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;log&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;debug&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;database&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$string&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$db&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/mysqli_connect&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysqli_connect&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;server&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;user&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;pass&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$logdb&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;Connected to database&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$db&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;insert into parts (part, description) values (&#39;&lt;/span&gt;Hammer&lt;span class=&#34;st_h&#34;&gt;&#39;,&#39;&lt;/span&gt;Pounds nails&lt;span class=&#34;st_h&#34;&gt;&#39;); &lt;br /&gt; $logdb(&#39;&lt;/span&gt;Insert Hammer into to parts table&lt;span class=&#34;st_h&#34;&gt;&#39;); &lt;br /&gt; $db-&gt;query(&#39;&lt;/span&gt;insert into parts &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;part&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; description&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; values &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;Drill&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;Puts holes in wood&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$logdb&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;Insert Drill into to parts table&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$db&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;insert into parts (part, description) values (&#39;&lt;/span&gt;Saw&lt;span class=&#34;st_h&#34;&gt;&#39;,&#39;&lt;/span&gt;Cuts wood&lt;span class=&#34;st_h&#34;&gt;&#39;); &lt;br /&gt; $logdb(&#39;&lt;/span&gt;Insert Saw into to parts table&lt;span class=&#34;st_h&#34;&gt;&#39;);&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;整理自：&lt;a href=&#34;http://www.ibm.com/developerworks/cn/opensource/os-php-5.3new2/&#34;&gt;http://www.ibm.com/developerworks/cn/opensource/os-php-5.3new2/&lt;/a&gt;&lt;br /&gt;
+PS:原文有些不正确的地方，比方说到PHP 5.3.5都不可以通过闭包中的this指针访问类内的成员变量（当然可以通过其他方法实现），文章大部分内容正确，还是“尽信书不如无书”。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>【转载】浅谈PHP中的Session机制</title>
+      <link>http://:1313/tmp/2011/11/%E8%BD%AC%E8%BD%BD%E6%B5%85%E8%B0%88php%E4%B8%AD%E7%9A%84session%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Mon, 28 Nov 2011 11:16:34 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/11/%E8%BD%AC%E8%BD%BD%E6%B5%85%E8%B0%88php%E4%B8%AD%E7%9A%84session%E6%9C%BA%E5%88%B6/</guid>
+      <description>&lt;p&gt;做web开发，必然会涉及到Session，这是由于http协议本身是无状态的（每次响应都是独立的，彼此间没有联系），所以如果需要在页面跳转间保持某个用户的身份，就要在每次连接时告诉服务器端你的唯一标示号，即Session ID。这样，服务器端便可通过Session ID得到所需的数据。&lt;/p&gt;
+
+&lt;p&gt;在PHP中，Session是通过$_SESSION这个全局变量来set/get的，不过在使用之前要先初始化。初始化是通过session_start函数（如果php.ini中将session.auto_start设为1，则会自动初始化），之后PHP会为request自动生成一个唯一随机数作为Session ID，生成算法默认提供了MD5 (128 bits) 和SHA-1 (160 bits)，由php.ini中session.hash_function设定。其实也可以自定义，比如在随机数基础上将来访者的IP地址也加入到算法中，像CodeIgniter1.7.2中代码：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;re0&#34;&gt;$sessid&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/strlen&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;strlen&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$sessid&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;&lt;&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$sessid&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;.=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/mt_rand&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mt_rand&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;a href=&#34;http://www.php.net/mt_getrandmax&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mt_getrandmax&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;// To make the session ID even more secure we&#39;ll combine it with the user&#39;s IP&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$sessid&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;.=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;CI&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;ip_address&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$sessid&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/md5&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;md5&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/uniqid&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;uniqid&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$sessid&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;生成的ID存放在服务器的某一目录下，这由php.ini中session.save_path配置。如果你选择默认的文件式session存储，那么可能会遇到大量session文件导致IO性能下降，这个问题可以通过调节save_path来优化，具体请看&lt;a href=&#34;http://apps.hi.baidu.com/share/detail/27379034&#34;&gt;大量php session临时文件带来的服务器效率问题&lt;/a&gt;。如果要在多个服务器中同步session id，你可以将其存放在数据库或共享缓存中。这需要你自定义一系列Session的读写方法，并在调用session_start函数前先设定好，以下面代码为例(来自php document中的一段示例代码)：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container sql blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;sql codecolorer&#34;&gt;
+          &lt;span class=&#34;kw1&#34;&gt;CREATE&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;TABLE&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;`ws_sessions`&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;`session_id`&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;VARCHAR&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;255&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;BINARY&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;NOT&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;NULL&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;DEFAULT&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;`session_expires`&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;UNSIGNED&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;NOT&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;NULL&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;DEFAULT&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#39;0&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;`session_data`&lt;/span&gt; text&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;PRIMARY&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;KEY&lt;/span&gt; &amp;nbsp;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;`session_id`&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;TYPE&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt;InnoDB;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;14&lt;br /&gt;15&lt;br /&gt;16&lt;br /&gt;17&lt;br /&gt;18&lt;br /&gt;19&lt;br /&gt;20&lt;br /&gt;21&lt;br /&gt;22&lt;br /&gt;23&lt;br /&gt;24&lt;br /&gt;25&lt;br /&gt;26&lt;br /&gt;27&lt;br /&gt;28&lt;br /&gt;29&lt;br /&gt;30&lt;br /&gt;31&lt;br /&gt;32&lt;br /&gt;33&lt;br /&gt;34&lt;br /&gt;35&lt;br /&gt;36&lt;br /&gt;37&lt;br /&gt;38&lt;br /&gt;39&lt;br /&gt;40&lt;br /&gt;41&lt;br /&gt;42&lt;br /&gt;43&lt;br /&gt;44&lt;br /&gt;45&lt;br /&gt;46&lt;br /&gt;47&lt;br /&gt;48&lt;br /&gt;49&lt;br /&gt;50&lt;br /&gt;51&lt;br /&gt;52&lt;br /&gt;53&lt;br /&gt;54&lt;br /&gt;55&lt;br /&gt;56&lt;br /&gt;57&lt;br /&gt;58&lt;br /&gt;59&lt;br /&gt;60&lt;br /&gt;61&lt;br /&gt;62&lt;br /&gt;63&lt;br /&gt;64&lt;br /&gt;65&lt;br /&gt;66&lt;br /&gt;67&lt;br /&gt;68&lt;br /&gt;69&lt;br /&gt;70&lt;br /&gt;71&lt;br /&gt;72&lt;br /&gt;73&lt;br /&gt;74&lt;br /&gt;75&lt;br /&gt;76&lt;br /&gt;77&lt;br /&gt;78&lt;br /&gt;79&lt;br /&gt;80&lt;br /&gt;81&lt;br /&gt;82&lt;br /&gt;83&lt;br /&gt;84&lt;br /&gt;85&lt;br /&gt;86&lt;br /&gt;87&lt;br /&gt;88&lt;br /&gt;89&lt;br /&gt;90&lt;br /&gt;91&lt;br /&gt;92&lt;br /&gt;93&lt;br /&gt;94&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;kw2&#34;&gt;&lt;?php&lt;/span&gt; &lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;class&lt;/span&gt; session &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// session-lifetime &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw2&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$lifeTime&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// mysql-handle &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw2&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$dbHandle&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw2&#34;&gt;function&lt;/span&gt; open&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$savePath&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$sessName&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// get session-lifetime &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;lifeTime&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/get_cfg_var&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;get_cfg_var&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;session.gc_maxlifetime&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// open database-connection &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;re0&#34;&gt;$dbHandle&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;@&lt;/span&gt;&lt;a href=&#34;http://www.php.net/mysql_connect&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_connect&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;server&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;user&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;password&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;re0&#34;&gt;$dbSel&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;@&lt;/span&gt;&lt;a href=&#34;http://www.php.net/mysql_select_db&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_select_db&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;database&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// return success &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$dbHandle&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$dbSel&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$dbHandle&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw2&#34;&gt;function&lt;/span&gt; close&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;gc&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/ini_get&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;ini_get&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;session.gc_maxlifetime&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// close database-connection &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;@&lt;/span&gt;&lt;a href=&#34;http://www.php.net/mysql_close&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_close&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw2&#34;&gt;function&lt;/span&gt; read&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$sessID&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// fetch session-data &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;re0&#34;&gt;$res&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/mysql_query&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_query&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;SELECT session_data AS d FROM ws_sessions &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;WHERE session_id = &#39;&lt;span class=&#34;es4&#34;&gt;$sessID&lt;/span&gt;&#39; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;AND session_expires &gt; &#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt;&lt;a href=&#34;http://www.php.net/time&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;time&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// return data or an empty string at failure &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/mysql_fetch_assoc&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_fetch_assoc&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$res&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$row&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;d&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw2&#34;&gt;function&lt;/span&gt; write&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$sessID&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$sessData&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// new session-expire-time &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;re0&#34;&gt;$newExp&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/time&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;time&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;lifeTime&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// is a session with this id in the database? &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;re0&#34;&gt;$res&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/mysql_query&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_query&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;SELECT * FROM ws_sessions &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;WHERE session_id = &#39;&lt;span class=&#34;es4&#34;&gt;$sessID&lt;/span&gt;&#39;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// if yes, &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/mysql_num_rows&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_num_rows&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$res&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// ...update session-data &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;a href=&#34;http://www.php.net/mysql_query&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_query&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;UPDATE ws_sessions &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;SET session_expires = &#39;&lt;span class=&#34;es4&#34;&gt;$newExp&lt;/span&gt;&#39;, &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;session_data = &#39;&lt;span class=&#34;es4&#34;&gt;$sessData&lt;/span&gt;&#39; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;WHERE session_id = &#39;&lt;span class=&#34;es4&#34;&gt;$sessID&lt;/span&gt;&#39;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// if something happened, return true &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/mysql_affected_rows&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_affected_rows&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// if no session-data was found, &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// create a new row &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;a href=&#34;http://www.php.net/mysql_query&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_query&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;INSERT INTO ws_sessions ( &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;session_id, &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;session_expires, &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;session_data) &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;VALUES( &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&#39;&lt;span class=&#34;es4&#34;&gt;$sessID&lt;/span&gt;&#39;, &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&#39;&lt;span class=&#34;es4&#34;&gt;$newExp&lt;/span&gt;&#39;, &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&#39;&lt;span class=&#34;es4&#34;&gt;$sessData&lt;/span&gt;&#39;)&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// if row was created, return true &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/mysql_affected_rows&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_affected_rows&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// an unknown error occured &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw2&#34;&gt;function&lt;/span&gt; destroy&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$sessID&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// delete session-data &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;a href=&#34;http://www.php.net/mysql_query&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_query&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;DELETE FROM ws_sessions WHERE session_id = &#39;&lt;span class=&#34;es4&#34;&gt;$sessID&lt;/span&gt;&#39;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// if session was deleted, return true, &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/mysql_affected_rows&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_affected_rows&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// ...else return false &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw2&#34;&gt;function&lt;/span&gt; gc&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$sessMaxLifeTime&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// delete old sessions &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;a href=&#34;http://www.php.net/mysql_query&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_query&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;DELETE FROM ws_sessions WHERE session_expires &lt; &#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt;&lt;a href=&#34;http://www.php.net/time&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;time&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;co1&#34;&gt;// return affected rows &lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;a href=&#34;http://www.php.net/mysql_affected_rows&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;mysql_affected_rows&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;dbHandle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$session&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;new&lt;/span&gt; session&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &lt;a href=&#34;http://www.php.net/session_set_save_handler&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;session_set_save_handler&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/array&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;array&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$session&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;open&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;a href=&#34;http://www.php.net/array&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;array&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$session&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;close&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;a href=&#34;http://www.php.net/array&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;array&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$session&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;read&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;a href=&#34;http://www.php.net/array&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;array&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$session&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;write&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;a href=&#34;http://www.php.net/array&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;array&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$session&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;destroy&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;a href=&#34;http://www.php.net/array&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;array&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$session&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;gc&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &lt;a href=&#34;http://www.php.net/session_start&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;session_start&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;// etc... &lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;?&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;除了上述方法外还有其他办法可以保持Session的同步，可以参考&lt;a href=&#34;http://www.fuchaoqun.com/2009/02/php-session-confuse/&#34;&gt;PHP SESSION解惑&lt;/a&gt;一文中第四部分“session的同步”。&lt;/p&gt;
+
+&lt;p&gt;下面再谈谈Session ID的传递方式：Cookie和URL传递。&lt;br /&gt;
+Cookie是比较常用的方式，在这种模式下，启动Session后服务器会在HTTP Response中自动加上header(‘Set-Cookie: session_name()=session_id(); path=/’)，并在以后的请求中加上这个Cookie。当从该页跳转到的新页面并调用session_start()后，PHP将检查与给定ID相关联的服务器端存贮的session数据，如果没找到，则新建一个数据集。但是有一点，这种传递方式必须在用户浏览器开启Cookie的情况下才可用，如果万一用户关闭了Cookie，那么只好选择另外一种通过URL参数传递Session ID。&lt;br /&gt;
+开启URL传递需要在php.ini中设置session.use_trans_sid（文档中提示使用这种方式会有安全风险，因为它显示地将Session ID放在url中，所以除非迫不得已不要选择此方式），并在代码中做如下修改：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;co1&#34;&gt;// 如果客户端使用cookie,可直接传递session到page2.php&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;&lt;br /&gt;&lt;a href=&#34;page2.php&#34;&gt;page 2&lt;/a&gt;&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp;&lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;// 如果客户端禁用cookie&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;&lt;br /&gt;&lt;a href=&#34;page2.php?&#39;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt; SID &lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;&#34;&gt;page 2&lt;/a&gt;&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/*&lt;br /&gt;
+默认php5.2.1下,SID只有在cookie被写入的同时才会有值,如果该session&lt;br /&gt;
+对应的cookie已经存在,那么SID将为(未定义)空&lt;br /&gt;
+*/&lt;br /&gt;
+更新2010－12－28：&lt;br /&gt;
+如果php使用默认的file方式存储session，还要注意lock问题。因为php会lock住session文件直到这个session关闭，所以如果你的应用中涉及iframe、下载、Comet或者用户在同一个浏览器打开多个tab等等多个并行请求都要操作session时，就可能会遇到由于lock影响用户操作的情况。一个简单的解决办法就是在操作完session时，及时调用session_commit()或session_write_close()来关闭session，从而释放锁。（注意在关闭session后不要再调用任何session相关的函数）&lt;/p&gt;
+
+&lt;p&gt;关于Session的内容还有很多，具体可查看&lt;a href=&#34;http://www.php.net/manual/en/book.session.php&#34;&gt;官方手册&lt;/a&gt;，如果有新的总结会继续更新。&lt;br /&gt;
+原文链接：&lt;a href=&#34;http://imdonkey.com/blog/archives/255&#34;&gt;http://imdonkey.com/blog/archives/255&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>rename 函数和 copy 函数注意事项</title>
+      <link>http://:1313/tmp/2011/11/rename-%E5%87%BD%E6%95%B0%E5%92%8C-copy-%E5%87%BD%E6%95%B0%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+      <pubDate>Mon, 21 Nov 2011 12:03:53 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/11/rename-%E5%87%BD%E6%95%B0%E5%92%8C-copy-%E5%87%BD%E6%95%B0%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+      <description>&lt;p&gt;rename 函数和 copy函数都是尝试进行操作。&lt;/p&gt;
+
+&lt;p&gt;rename是尝试重命名文件，copy是尝试复制文件，两者都是成功返回TRUE，失败返回FALSE。&lt;/p&gt;
+
+&lt;p&gt;因为是尝试操作，所有当目录下已经存在同名的文件时并不会去执行操作，从而返回FALSE。&lt;/p&gt;
+
+&lt;p&gt;如果想要尽量执行操作，而忽略同名文件，那么之前可以unlink一下。&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211;END&amp;#8211;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP-FPM一些特点</title>
+      <link>http://:1313/tmp/2011/08/php-fpm%E4%B8%80%E4%BA%9B%E7%89%B9%E7%82%B9/</link>
+      <pubDate>Wed, 03 Aug 2011 16:01:11 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/08/php-fpm%E4%B8%80%E4%BA%9B%E7%89%B9%E7%82%B9/</guid>
+      <description>&lt;p&gt;&lt;big&gt;&lt;strong&gt;PHP-FPM: PHP FastCGI 进程管理器&lt;/strong&gt;&lt;/big&gt;&lt;/p&gt;
+
+&lt;p&gt;PHP-FPM 是一个用以极大地改进 FastCGI SAPI 在生产环境中使用的 PHP4/5 补丁,PHP5.3.3已经包含PHP-FPM的支持。&lt;/p&gt;
+
+&lt;p&gt;今天读到的一个网页，介绍了一些FPM的一些特性。&lt;/p&gt;
+
+&lt;p&gt;文中介绍的Error_Header 、优化上传支持、fastcgi_finish_request、request_slowlog_timeout都很用。&lt;/p&gt;
+
+&lt;p&gt;其中后面的两个可以用来提高网站的响应速度，个人比较感兴趣，有时间要做个试验看看情况。&lt;/p&gt;
+
+&lt;p&gt;详细介绍：&lt;a href=&#34;http://php-fpm.org/wiki/CN:Features&#34;&gt;http://php-fpm.org/wiki/CN:Features&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP 5.4.0 alpha1版本发布</title>
+      <link>http://:1313/tmp/2011/07/php-5.4.0-alpha1%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Sat, 02 Jul 2011 06:11:59 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/07/php-5.4.0-alpha1%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/</guid>
+      <description>&lt;p&gt;以前可能很少关注版本之间的变化，认为只要写好程序就OK了。但是作为一个PHP的忠实粉丝，如果不关心它的成长变化，实在有些说不过去。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.php.net/releases/NEWS_5_4_0_alpha1.txt&#34;&gt;http://www.php.net/releases/NEWS_5_4_0_alpha1.txt&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;上面的链接说明PHP 5.4.0 alpha1的一些变化，我从中发现几个我比较感兴趣的变化，整理如下：&lt;/p&gt;
+
+&lt;p&gt;1）Removed: session_is_registered(), session_register() and session_unregister()&lt;br /&gt;
+functions. (Kalle)&lt;/p&gt;
+
+&lt;p&gt;2)&amp;lt;?= is now always available regardless of the short_tags setting (Rasmus)&lt;/p&gt;
+
+&lt;p&gt;3)Changed default value of &amp;#8220;default_charset&amp;#8221; php.ini option from ISO-8859-1 to&lt;br /&gt;
+UTF-8. (Rasmus)&lt;/p&gt;
+
+&lt;p&gt;4)Moved extensions to PECL: (Johannes)&lt;br /&gt;
+. ext/sqlite.&lt;/p&gt;
+
+&lt;p&gt;5)Added array dereferencing support.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>php怎么能是竹筏船呢？</title>
+      <link>http://:1313/tmp/2011/06/php%E6%80%8E%E4%B9%88%E8%83%BD%E6%98%AF%E7%AB%B9%E7%AD%8F%E8%88%B9%E5%91%A2/</link>
+      <pubDate>Sun, 26 Jun 2011 07:17:30 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/06/php%E6%80%8E%E4%B9%88%E8%83%BD%E6%98%AF%E7%AB%B9%E7%AD%8F%E8%88%B9%E5%91%A2/</guid>
+      <description>&lt;p&gt;php怎么能是竹筏船呢？&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-1086&#34; title=&#34;7f53906ajw1dijc2xsf9oj&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2011/06/7f53906ajw1dijc2xsf9oj.jpg&#34; alt=&#34;&#34; width=&#34;440&#34; height=&#34;1277&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>关于PHP 5.3新特性的总结</title>
+      <link>http://:1313/tmp/2011/06/%E5%85%B3%E4%BA%8Ephp-5.3%E6%96%B0%E7%89%B9%E6%80%A7%E7%9A%84%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Wed, 22 Jun 2011 17:19:00 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/06/%E5%85%B3%E4%BA%8Ephp-5.3%E6%96%B0%E7%89%B9%E6%80%A7%E7%9A%84%E6%80%BB%E7%BB%93/</guid>
+      <description>&lt;p&gt;发现三篇关于PHP 5.3新特性的总结文章：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ibm.com/developerworks/cn/opensource/os-php-5.3new1/&#34;&gt;http://www.ibm.com/developerworks/cn/opensource/os-php-5.3new1/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ibm.com/developerworks/cn/opensource/os-php-5.3new1/&#34;&gt;http://www.ibm.com/developerworks/cn/opensource/os-php-5.3new2/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ibm.com/developerworks/cn/opensource/os-php-5.3new1/&#34;&gt;http://www.ibm.com/developerworks/cn/opensource/os-php-5.3new3/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>命令行中直接执行php代码</title>
+      <link>http://:1313/tmp/2011/06/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%AD%E7%9B%B4%E6%8E%A5%E6%89%A7%E8%A1%8Cphp%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Wed, 22 Jun 2011 11:41:51 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/06/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%AD%E7%9B%B4%E6%8E%A5%E6%89%A7%E8%A1%8Cphp%E4%BB%A3%E7%A0%81/</guid>
+      <description>&lt;p&gt;有时候，我们可能需要快速的验证一段PHP代码是否正确，此时如果去写一个PHP文件，再跑到浏览器那里运行，是不是效率太低了。&lt;/p&gt;
+
+&lt;p&gt;其实如果代码比较短，急需验证结果时，可以使用命令行的方式。&lt;/p&gt;
+
+&lt;p&gt;在linux中的终端中输入：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          php &lt;span class=&#34;sy0&#34;&gt;-&lt;/span&gt;r &lt;span class=&#34;st_h&#34;&gt;&#39;echo 0500;&#39;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;前提是你要配置好自己的PHP命令行运行环境。这样是不是可以很方便的验证一些短代码的效果啊。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP中的换行符预定义常量</title>
+      <link>http://:1313/tmp/2011/06/php%E4%B8%AD%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%A2%84%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F/</link>
+      <pubDate>Sat, 18 Jun 2011 18:06:16 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/06/php%E4%B8%AD%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%A2%84%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F/</guid>
+      <description>&lt;p&gt;很多时候都忘记用这个变量，在这里记一下，加深印象。&lt;/p&gt;
+
+&lt;p&gt;PHP_EOL (string)&lt;/p&gt;
+
+&lt;p&gt;就是这个常量，可以取得运行系统中换行符。&lt;br /&gt;
+&lt;strong&gt;关于换行：&lt;/strong&gt;&lt;br /&gt;
+linux中是\n&lt;br /&gt;
+win中是\r\n&lt;br /&gt;
+mac中是\r&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP提交SVN代码</title>
+      <link>http://:1313/tmp/2011/05/php%E6%8F%90%E4%BA%A4svn%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Wed, 11 May 2011 14:16:59 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/05/php%E6%8F%90%E4%BA%A4svn%E4%BB%A3%E7%A0%81/</guid>
+      <description>&lt;p&gt;代码是从&lt;a href=&#34;http://uicss.cn/working-efficiency/&#34;&gt;崔凯同学&lt;/a&gt;那里抄来的。之所以要拿过来一是因为这种想法很好，我自己在工作中也是这样，经常把PHP当做一个小工具来实现，如果PHP够好的话，还可以在linux底下辅助shell完成一些功能。二是因为代码写的很棒，我这个专门学习PHP的都要惭愧的低下头喽！&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;14&lt;br /&gt;15&lt;br /&gt;16&lt;br /&gt;17&lt;br /&gt;18&lt;br /&gt;19&lt;br /&gt;20&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;kw2&#34;&gt;&lt;?php&lt;/span&gt;&lt;br /&gt; &lt;a href=&#34;http://www.php.net/ob_start&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;ob_start&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/isset&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;isset&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$_GET&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;cleanup&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$cmd&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;svn cleanup /data/html/uicss.cn&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$cmd&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;svn update /data/html/uicss.cn --username cuikai --password 111222333&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$resultado&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/join&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;join&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;&lt;br&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; executa&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$resultado&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;&lt;br&gt;&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;function&lt;/span&gt; executa&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$pathInicial&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kw4&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$resultado&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/array&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;array&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$handle&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/popen&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;popen&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es4&#34;&gt;$cmd&lt;/span&gt; 2&gt;&amp;1&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$read&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/fread&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;fread&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$handle&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;20096&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$resultado&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$read&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.php.net/pclose&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;pclose&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$handle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.php.net/flush&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;flush&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$resultado&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;?&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>php中eval函数使用</title>
+      <link>http://:1313/tmp/2011/05/php%E4%B8%ADeval%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 11 May 2011 13:53:21 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/05/php%E4%B8%ADeval%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;eval 每次都让我联想到evil，所以我很少使用这个函数，不过有时候使用一下，还是能够带来不少的方便的。比如下面的代码：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;re0&#34;&gt;$a&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;1,2,4,5,6&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;a href=&#34;http://www.php.net/eval&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;eval&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es1&#34;&gt;\$&lt;/span&gt;b=array(&lt;span class=&#34;es4&#34;&gt;$a&lt;/span&gt;);&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;co1&#34;&gt;//引号中有一个分号的，不要丢了。&lt;/span&gt;&lt;br /&gt; &lt;a href=&#34;http://www.php.net/print_r&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;print_r&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$b&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;运行一下就知道效果了。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

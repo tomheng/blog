@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Linux系统中的目录和文件权限知识小结 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>Linux系统中的目录和文件权限知识小结</h1>
+			  <small>2010-08-13,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        
+
+<p><span style="color: #ff0000;">这是一篇小白的笔记，高手速闪。</span></p>
+
+<h3 id="一-在linux中如何表示目录权限:1fb4621f9080b2e296068bb0a0357e0d"><strong>一、在Linux中如何表示目录权限</strong></h3>
+
+<p>执行<span style="color: #3366ff;">ls -lh</span> 可以看到目录的权限</p>
+
+<div id="_mcePaste">
+  <span style="font-family: monospace; line-height: 20px; color: #4b4b4b;">d</span><span style="line-height: 20px;"><span style="color: #0000ff;">rwx</span></span><span style="line-height: 20px;"><span style="color: #008000;">r-x</span></span><span style="line-height: 20px;"><span style="color: #00ccff;">r-x</span></span> 1 7155 wheel 6.1K 03-25 04:30  ylwrap
+</div>
+
+<div>
+  Linux中就是用上面标出的彩色部分表示一个目录的权限的。我用三种颜色分了三组，这三组分表对应于所有者的权限，所有者所在用户组的权限和其他用户的权限。每一组权限由三个字符组成，可选的表示字符有：
+</div>
+
+<div>
+  <ul>
+    <li>
+      <span style="font-family: georgia, verdana, Arial, helvetica, sans-seriff; line-height: 20px; color: #4b4b4b;">r(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目 录的权限。</span>
+    </li>
+    <li>
+      <span style="font-family: georgia, verdana, Arial, helvetica, sans-seriff; line-height: 20px; color: #4b4b4b;">w(Write,写入)：对文件而言，具有新增、修改文件内容的权限；对目录来说，具有删除、移动目录内文件的权限。</span>
+    </li>
+    <li>
+      <span style="font-family: georgia, verdana, Arial, helvetica, sans-seriff; line-height: 20px; color: #4b4b4b;">x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。</span>
+    </li>
+    <li>
+      <span style="font-family: georgia, verdana, Arial, helvetica, sans-seriff; line-height: 20px; color: #4b4b4b;">－：表示不具有该项权限。</span>
+    </li>
+  </ul>
+</div>
+
+<p>所以在上面输出中第一组用户所有者的权限为：rwx 表示，它具体写入，读取和执行的权限。</p>
+
+<h3 id="二-权限的数字表示:1fb4621f9080b2e296068bb0a0357e0d">二、权限的数字表示</h3>
+
+<p>用rwx三个字符可以表示目录和文件的权限，Linux中还提供另一种表示文件和目录权限的方式&#8211;数字字符。rwx三个权限可以用二进制表示，1表示有此权限，0代表无此权限。</p>
+
+<p>举例：</p>
+
+<p>rwx:  111             -rw: 011</p>
+
+<p>接下来我们可以把三位二进制数转化成十进制数：</p>
+
+<p>rwx:  111  7      -rw:011   3</p>
+
+<p>我们可以把rwx-四个字符对应到十进制数子字符</p>
+
+<ul>
+<li><span style="font-family: monospace; line-height: 20px; color: #4b4b4b;"> r: 4</span></li>
+<li><span style="font-family: monospace; line-height: 20px; color: #4b4b4b;"> w: 2</span></li>
+<li><span style="font-family: monospace; line-height: 20px; color: #4b4b4b;"> x：1</span></li>
+<li><span style="font-family: monospace; line-height: 20px; color: #4b4b4b;">－：0</span></li>
+</ul>
+
+<h3 id="三-更改目录的权限:1fb4621f9080b2e296068bb0a0357e0d">三、更改目录的权限</h3>
+
+<p>1）更改文件的所有者 ：<span style="color: #3366ff;">chown tomheng hello.dir </span>，把hello.dir的所有权改用tomheng这个用户</p>
+
+<p>2）用数字字符 ：<span style="line-height: 20px;"><span style="color: #3366ff;">chmod 777 hello.dir</span></span></p>
+
+<p><span style="font-family: monospace; line-height: 20px; color: #4b4b4b;">3）</span><span style="line-height: 20px;"><span style="color: #000000;">用字符表示</span></span><span style="font-family: monospace; line-height: 20px; color: #4b4b4b;">:</span></p>
+
+<ul>
+<li><span style="font-family: monospace; line-height: 20px; color: #4b4b4b;"> </span><span style="line-height: 20px;"><span style="color: #3366ff;">chmod +r hello.dir <span style="color: #000000;">目录添加r权限</span></span></span></li>
+<li><span style="line-height: 20px; color: #3366ff;"> chmod -w hello.dir <span style="color: #000000;">目录去除w权限</span></span></li>
+</ul>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/linux">Linux</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

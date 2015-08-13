@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> CyanogenMod源码目录简介 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>CyanogenMod源码目录简介</h1>
+			  <small>2014-06-08,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>简单说明下，CyanogenMod的目录结构，方便大家编译自己的ROM。</p>
+
+<p><strong>bionic/</strong></p>
+
+<p>主要是一些Android 定制的<a href="http://en.wikipedia.org/wiki/C_standard_library">libc</a> 库文件，一般情况下无需修改此目录的文件。</p>
+
+<p><strong>build/</strong></p>
+
+<p>编译过程回用到的脚本和各种文件。如果对<a href="http://www.ibm.com/developerworks/cn/opensource/os-cn-android-build/">Android编译</a>过程和各种Make 命令有兴趣，可以研究下这个目录。</p>
+
+<p><strong>bootable/</strong></p>
+
+<p><span style="color: #000000;"> ClockworkMod recovery的目录。</span></p>
+
+<p><strong>dalvik/</strong><br />
+运行Java程序的虚拟机dalvik。</p>
+
+<p><strong>art/</strong></p>
+
+<p>在Android 4.4中引入的新的Java运行环境，旨在替代dalvik，通过预编译APP提高运行速度。</p>
+
+<p><strong>device/</strong></p>
+
+<p>具体手机适配的文件相关的目录，目录一般组织为device/<vendor>/<codename>。比如小米2s的可以这样device/xiaomi/aries。做适配的时候大多都在这里进行。</p>
+
+<p><strong>doc/</strong></p>
+
+<p>包括 <a href="http://source.android.com/">Android Open Source</a> 网站的源码。</p>
+
+<p><strong>external/</strong></p>
+
+<p>被Android 或 CyanogenMod 引用，在编译过中可能会用到的，但不是Android体系内的一部分工具。</p>
+
+<p><strong>frameworks/</strong></p>
+
+<p>Android frameworks的核心部件。Android frameworks是Android架构中比较上层的一部分，主要的UI和编程所需要的接口大部分在这一层提供。当然还包括CyanogenMode为Qualcomm、OMA和其他架构所做的优化。</p>
+
+<p><strong>hardware/</strong></p>
+
+<p>平台和硬件相关的库文件。</p>
+
+<p><strong>kernel/</strong></p>
+
+<p>内核相关的部分，目录的组织结构类似device。</p>
+
+<p><strong>ndk/</strong></p>
+
+<p>支持可以用c 编写app，更多细节参考<a href="http://developer.android.com/tools/sdk/ndk/index.html">这里</a>。</p>
+
+<p><strong>out/</strong></p>
+
+<p>编译的最终产出物都会放在这个目录。Android ROM相关的在out/target/product/<codename>目录下，包括system.img、recovery.img、boot.img 等。</p>
+
+<p><strong>packages/</strong></p>
+
+<p>Android app 的源码文件在packages/apps下。</p>
+
+<p><strong>prebuilt/</strong></p>
+
+<p>包括跨平台编译Android的工具链。</p>
+
+<p><strong>system/</strong></p>
+
+<p>Linux 底层的系统，包括shell、netd、fastboot等。</p>
+
+<p><strong>vendor/</strong></p>
+
+<p>存放从设备中提取的二进制资源文件（<b style="color: #000000;">proprietary blobs</b><span style="color: #000000;"> ）。</span></p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/android">Android</a> &nbsp;
+				      
+				         <a href="/tags/cyanogenmod">CyanogenMod</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

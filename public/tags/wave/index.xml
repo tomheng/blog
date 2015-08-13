@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wave on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/wave/</link>
+    <description>Recent content in Wave on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Nov 2009 10:55:29 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/wave/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>迟来的wave邀请，我得到了8个wave邀请名额</title>
+      <link>http://:1313/tmp/2009/11/%E8%BF%9F%E6%9D%A5%E7%9A%84wave%E9%82%80%E8%AF%B7%E6%88%91%E5%BE%97%E5%88%B0%E4%BA%868%E4%B8%AAwave%E9%82%80%E8%AF%B7%E5%90%8D%E9%A2%9D/</link>
+      <pubDate>Fri, 13 Nov 2009 10:55:29 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/11/%E8%BF%9F%E6%9D%A5%E7%9A%84wave%E9%82%80%E8%AF%B7%E6%88%91%E5%BE%97%E5%88%B0%E4%BA%868%E4%B8%AAwave%E9%82%80%E8%AF%B7%E5%90%8D%E9%A2%9D/</guid>
+      <description>&lt;p&gt;坚持写博客真的不容易，最近忙着做网站，N久没有更新&lt;a class=&#34;wpgallery&#34; title=&#34;趣味互联网&#34; href=&#34;http://blog.webfuns.net&#34; target=&#34;_blank&#34;&gt;趣味互联网&lt;/a&gt;了。今天抽出些时间，随便写点什么。希望以后可以多写一些东西，长时间的不写东西，脑子都快成木头了。&lt;/p&gt;
+
+&lt;p&gt;今天打开google wave发现我也能发送wave邀请了，不过现在wave邀请都快成白菜价了，也不是什么稀罕物件了，如果有网友需要的话，可以&lt;a class=&#34;wpgallery&#34; title=&#34;tomheng&#34; href=&#34;http://blog.webfuns.net/about-tomheng-profile&#34; target=&#34;_blank&#34;&gt;联系我&lt;/a&gt;索要wave邀请。&lt;img class=&#34;alignright&#34; title=&#34;wave&#34; src=&#34;http://www.ignitesocialmedia.com/uploads/Image/google-wave-logo.png&#34; alt=&#34;&#34; width=&#34;256&#34; height=&#34;256&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;拿到wave邀请是半个月前的事情了，使用了一段时间，现在说一下我的感觉吧！&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;（1）wave-&lt;strong&gt;实时聊天&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这是我最感兴趣的，这个功能用网页来实现确实不容易。因为现在http的链接都是无状态的，只有浏览器主动发送请求，服务器才会作出响应。而实现即时聊天的关键就是要服务器主动向浏览器推送消息，所以用浏览器实现即时聊天，虽然说有很多方法，但是成本都比较高。不知道wave是如何实现的，等忙过这一段时间，就去好好了解一些&lt;a href=&#34;http://blog.webfuns.net/archives/240.html&#34;&gt;wave&lt;/a&gt;的原理。&lt;/p&gt;
+
+&lt;p&gt;（2）wave-&lt;strong&gt;javascript&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;打开waves网页的源文件你会发现大部分都是javascript代码，google历来是非常偏爱javascript,最近还开放了javascript代码库。&lt;/p&gt;
+
+&lt;p&gt;(3)wave-&lt;strong&gt;htm5和css3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;wave中运用了大量的html5和css3的新特性，在这两个可以改变互联网的新标准还没有完成的时候，waves就已经让我们看到了他们巨大的威力，相信当html5和css3真正到来的时候，必将巨大的提升互联网的功用，给我们带来全新的上网体验。&lt;/p&gt;
+
+&lt;p&gt;（4）wave-&lt;strong&gt;速度慢&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;waves还是会经常卡死，速度也很慢，不过这都没有关系，任何一个产品都需要一个不断完善的过程，waves已经给我描绘了一个未来网络的美好画面，我们有理由相信wave会做的更好。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

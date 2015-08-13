@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vps on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/vps/</link>
+    <description>Recent content in Vps on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Jun 2013 06:12:48 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/vps/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>DigitalOcean SSD Cloud  VPS Server 你值得拥有</title>
+      <link>http://:1313/tmp/2013/06/digitalocean-ssd-cloud--vps-server-%E4%BD%A0%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89/</link>
+      <pubDate>Mon, 17 Jun 2013 06:12:48 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2013/06/digitalocean-ssd-cloud--vps-server-%E4%BD%A0%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89/</guid>
+      <description>&lt;p&gt;时至今日，博客断断续续坚持四年有余了。这中间博客换了很多空间，涵盖“古今中外”。最近两年一直是用的&lt;a title=&#34;比较稳定可靠的空间-HostMoster&#34; href=&#34;http://blog.webfuns.net/hostmonster&#34; target=&#34;_blank&#34;&gt;HostMoste&lt;/a&gt;r的空间，有方便的&lt;a href=&#34;http://cpanel.net/&#34; target=&#34;_blank&#34;&gt;CPanel&lt;/a&gt; 操作面板可以省却不少麻烦事，这对于普通用户确实是个好事，但是对我像我这样混互联网的来说，如今还在用这种空间未免有些“不误正业”，怎么着也得搞个靠谱的VPS玩玩啊 :)。&lt;/p&gt;
+
+&lt;p&gt;正好前段时间有朋友问我Linode如何，于是铁下心来这次要搞一个了。到官网看了下价格，再看看自己的口袋，不胜唏嘘啊！后来又找了一下，发下了一个性价比更高的VPS，就是今天的主角了&lt;a title=&#34;DigitalOcean SSD Cloud  VPS Server&#34; href=&#34;http://blog.webfuns.net/dovm&#34; target=&#34;_blank&#34;&gt;DigitalOcean&lt;/a&gt;。DigitalOcean 的VPS最便宜的每个月最多5美金，并且是按小时扣费的，配置20G的SSD 硬盘、512M的内存，1TB的流量，简直就是VPS中的性价比之王。&lt;/p&gt;
+
+&lt;p&gt;具体到速度什么的，大家可以看一下我的博客就好了，经过综合考察如果决定购买的话，有几点是需要注意的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;一、&lt;a title=&#34;DigitalOcean SSD Cloud  VPS Server&#34; href=&#34;http://blog.webfuns.net/dovm&#34; target=&#34;_blank&#34;&gt;DigitalOcean&lt;/a&gt;现在有推广活动。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在注册完成以后，先到&lt;a href=&#34;https://www.digitalocean.com/user_payment_profiles&#34;&gt;https://www.digitalocean.com/user_payment_profiles&lt;/a&gt;添加信用卡（&lt;strong&gt;不要先用paypal充值&lt;/strong&gt;），添加行用卡的时候，可以看到有个地方可以填写promo code。在那里填上**VPSERS10 **他们会送10美金到账户，相当于可以免费使用两个月。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-1696&#34; alt=&#34;digitalocean-promo-code&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2013/06/digitalocean-promo-code.png&#34; width=&#34;600&#34; height=&#34;423&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;二、可以使用财付通的&lt;a href=&#34;https://www.tenpay.com/v2/account/interna/index.shtml?ADTAG=TENPAY_V2.CFTACCOUNT.SIDERBAR_MID.INTERNA&#34;&gt;虚拟运通账号&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;鉴于Linode之前曾经泄露过一次信用卡信息，这个地方如果想保险的话，可以使用财付通的&lt;a href=&#34;https://www.tenpay.com/v2/account/interna/index.shtml?ADTAG=TENPAY_V2.CFTACCOUNT.SIDERBAR_MID.INTERNA&#34;&gt;虚拟运通账号&lt;/a&gt;来填写信用卡信息（没有信用卡的也可以这样搞）。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;三、数据备份&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;之前&lt;a href=&#34;http://www.v2ex.com/t/69667&#34;&gt;他们曾经弄丢过一次数据&lt;/a&gt;，后来补偿了每个用户50$。但是对于我们来说，数据事第一位的，自己要做好备份。&lt;/p&gt;
+
+&lt;p&gt;前两天&lt;strong&gt;&lt;a title=&#34;DigitalOcean SSD Cloud  VPS Server&#34; href=&#34;http://blog.webfuns.net/dovm&#34; target=&#34;_blank&#34;&gt;DigitalOcean&lt;/a&gt;&lt;/strong&gt;还发了一封感谢邮件，据Netcraft报告说，过去6个月&lt;a title=&#34;DigitalOcean SSD Cloud  VPS Server&#34; href=&#34;http://blog.webfuns.net/dovm&#34; target=&#34;_blank&#34;&gt;DigitalOcean&lt;/a&gt;规模增长了50多倍，看起来发展的不错*&lt;strong&gt;&lt;em&gt;。&lt;/em&gt;&lt;/strong&gt;*激动的&lt;a title=&#34;DigitalOcean SSD Cloud  VPS Server&#34; href=&#34;http://blog.webfuns.net/dovm&#34; target=&#34;_blank&#34;&gt;DigitalOcean&lt;/a&gt;在邮件结尾说了5个thank you ~， 有感兴趣的朋友可以搞一个玩玩，我觉着挺靠谱滴……&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>【转载】高性价比 Ubuntu VPS</title>
+      <link>http://:1313/tmp/2011/06/%E8%BD%AC%E8%BD%BD%E9%AB%98%E6%80%A7%E4%BB%B7%E6%AF%94-ubuntu-vps/</link>
+      <pubDate>Mon, 27 Jun 2011 17:22:48 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/06/%E8%BD%AC%E8%BD%BD%E9%AB%98%E6%80%A7%E4%BB%B7%E6%AF%94-ubuntu-vps/</guid>
+      <description>&lt;p&gt;现如今，VPS (Virtual Private Server &amp;#8211; 虚拟专用服务器) 已越来越成为主流的主机方案了，相比虚拟共享主机而言， VPS 具备更多灵活性及可控性。而且在价格方面，一些低配置的 VPS 方案已经与虚拟共享主机非常接近，甚至于更低。所以对于 Ubuntu 用户来说，如果你想自已建站或更好的学习 Linux 系统管理的话，个人建议购买 VPS 。下面，就介绍几个支持 Ubuntu 的高性价比 VPS 服务商。&lt;/p&gt;
+
+&lt;p&gt;( 注：以下介绍中都带有引荐链接 &lt;Referral Link&gt; ，如果你愿意支持本站的话，请点击这些链接进入购买，谢谢！）&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.photonvps.com/billing/aff.php?aff=1855&#34;&gt;PhotonVPS&lt;/a&gt; (**10% 优惠码 tenoff **): 这家 VPS 商的服务器位于加州洛杉矶机房，前段时间推出了直达国内的线路，所以访问速度比较不错。它提供了 OpenVZ、XEN 及 Hyper-V 等技术架构的 VPS 方案。提供 Ubuntu 8.10 ,9.04 , 10.04 及 10.10 版本，另外还提供 CentOS，Fedora , Gentoo , Debain ,Suse ,SlackWare 等多种 Linux 发行版，比较全面。另外，如果你选 XEN 技术架构的话，还可以安装 FreeBSD , OpenBSD 等 Unix 发行版，这是比较少有的。&lt;br /&gt;
+还有就是，这家服务商提供中文 Ticket 服务。同时， 除了支持PayPal 外，还支持支付宝付款。在这里特别提一下，本站就是架设于这家的 VPS 主机上，所以你可以通过访问本站来测试他们的网络速度。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.yardvps.com/billing/aff.php?aff=704&#34;&gt;YardVPS&lt;/a&gt; : 这家与 PhotonVPS 同属于一家公司，与 PhotonVPS 的差别在于它提供无管理的 VPS 方案，另外支持的 Linux 发行版也相对较少，但支持 Ubuntu 全系列版本，所以在同样配置下价格相对比较更低。特别要说的是，它有一款 128Mb 内存/ 10G 硬盘 /500G 带宽，基于 OpvnVZ 的低价服务器方案，价格为 15美元/ 年，非常适合初学者练手用。它同样支持 PayPal 及支付宝付款方式。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://service.burst.net/aff.php?aff=1648&#34;&gt;BurstNet&lt;/a&gt; : 这是一家比较老牌的 VPS 服务商，国内也有大量用户在用这家的主机。它成立于1996年，被评为美国INC500强企业（即最具成长价值，发展速度最快企业），拥有自己的机房，但 Linux vps 只提供 Openvz 架构的，没有 XEN 的。最便宜的 Linux vps 配置为1G cpu、512Mb 内存、20G 硬盘、1000G 流量和 2 个ip地址，价格仅为 5.95美元，支持 PayPal 付款。它提供 Ubuntu 8.10 到 10.04 各版本，除此之外还提供 CentOS ， Debian ， Gentoo ，Fedora 等 Linux 发行版。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.linode.com/?r=8f172925d426d78cd6f6119de00b34f209a66abd&#34;&gt;Linode&lt;/a&gt; : 自于美国的专注于提供 Linux VPS 的虚拟服务器提供商， 全部 VPS 方案都是采用 XEN 虚拟技术架设，Linode 共提供了 6 个 VPS 方案，每个方案都提供 4 核 CPU ，一个独立 IP ，完全的 SSH 访问和 root 权限，每个方案之间的差别在于内存、容量及流量方面的不同。最便宜的方案为 Linode 512 ，配置为 512 MB 内存，16G空间，200G，价格为 19.95 美元/每月（相当于人民币 130 左右），支持月付，不过只支持信用卡支付方式，当然你也可以按年或2年购买，这样可以分别节省 10% 及 20%。个人认为 512 这个方案对于跑个人 Blog 已完全够用。详细介绍见&lt;a href=&#34;http://wowubuntu.com/linode.html&#34;&gt;这里&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;PS： 如果你对价格不太在意的话，建议购买用 XEN 技术虚拟的主机，因为在 I/O 读写等性能方面要比采用 OpenVZ 技术的 VPS 更好，同时也不容易超售。另外，如果你也有好的 VPS 推荐的话，请留言。&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&#34;http://wowubuntu.com/vps.html&#34;&gt;http://wowubuntu.com/vps.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

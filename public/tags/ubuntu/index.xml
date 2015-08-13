@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Jun 2014 05:47:07 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ubuntu 过热关机保护的问题</title>
+      <link>http://:1313/tmp/2014/06/ubuntu-%E8%BF%87%E7%83%AD%E5%85%B3%E6%9C%BA%E4%BF%9D%E6%8A%A4%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 06 Jun 2014 05:47:07 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2014/06/ubuntu-%E8%BF%87%E7%83%AD%E5%85%B3%E6%9C%BA%E4%BF%9D%E6%8A%A4%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;不知道Ubuntu 从哪个版本开始加上的CPU的过热保护机制，就是CPU一旦到达指定温度（我的是90度），啪就自己关机。&lt;/p&gt;
+
+&lt;p&gt;这对于我那个用了快5年的v460简直悲剧，运行进程多了、或者像现在天气热了，分分钟自己关掉。在网上找了半天，终于找到如何关掉这个闹人的过热保护机制了。&lt;/p&gt;
+
+&lt;p&gt;打开/etc/default/grub.cfg文件，找到 GRUB_CMDLINE_LINUX_DEFAULT,改成GRUB_CMDLINE_LINUX_DEFAULT=&amp;#8221;quiet splash thermal.nocrt=1&amp;#8243;。然后sudo update-grub,重启让自己的本本疯狂燃烧吧~&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;注：毕竟这个设置是对CPU的一种保护，去掉之后有可能把本本烧残。&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 升级到13.10后Chromium 的 extension 都不工作了</title>
+      <link>http://:1313/tmp/2013/10/ubuntu-%E5%8D%87%E7%BA%A7%E5%88%B013.10%E5%90%8Echromium-%E7%9A%84-extension-%E9%83%BD%E4%B8%8D%E5%B7%A5%E4%BD%9C%E4%BA%86/</link>
+      <pubDate>Sun, 27 Oct 2013 13:27:22 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2013/10/ubuntu-%E5%8D%87%E7%BA%A7%E5%88%B013.10%E5%90%8Echromium-%E7%9A%84-extension-%E9%83%BD%E4%B8%8D%E5%B7%A5%E4%BD%9C%E4%BA%86/</guid>
+      <description>&lt;p&gt;Canonical 前段时间刚发布了&lt;a href=&#34;http://releases.ubuntu.com/saucy/&#34;&gt; Ubuntu 13.10 (Saucy)&lt;/a&gt; , 作为Ubuntu的死忠赶紧升级到最新版本，但是悲剧接着就发生了，&lt;a href=&#34;http://www.chromium.org/&#34; title=&#34;The Chromium Projects&#34;&gt;Chromium &lt;/a&gt; 的所有扩展(extension)都不能用了，找了大半天也没有找到很好的解决方案。&lt;/p&gt;
+
+&lt;p&gt;最后只好换了&lt;a href=&#34;https://www.google.com/intl/en/chrome/browser/&#34;&gt;Google Chrome&lt;/a&gt;，搞定之后发现还是chrome要好用些。&lt;/p&gt;
+
+&lt;p&gt;通过下面的命令就可以安装：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container bash blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;bash codecolorer&#34;&gt;
+          &lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt; add key&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;wget&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-q&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-O&lt;/span&gt; - https:&lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt;dl-ssl.google.com&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;linux&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;linux_signing_key.pub &lt;span class=&#34;sy0&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;apt-key add&lt;/span&gt; -&lt;br /&gt; &lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt; add it to the repository&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;sh&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-c&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;echo &#34;deb http://dl.google.com/linux/chrome/deb/ stable main&#34; &gt;&gt; /etc/apt/sources.list.d/google-chrome.list&#39;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt; update&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;apt-get update&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;install&lt;/span&gt; google chrome&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;apt-get install&lt;/span&gt; google-chrome-stable
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;也可以直接去chrome官网下载deb包，直接安装就好了。&lt;/p&gt;
+
+&lt;p&gt;PS：&lt;a href=&#34;https://code.google.com/p/chromium/wiki/ChromiumBrowserVsGoogleChrome&#34;&gt;Chrome 和 Chromium 的区别&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ubuntu更换网卡后无法联网,提示no such divice</title>
+      <link>http://:1313/tmp/2012/05/ubuntu%E6%9B%B4%E6%8D%A2%E7%BD%91%E5%8D%A1%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E6%8F%90%E7%A4%BAno-such-divice/</link>
+      <pubDate>Mon, 14 May 2012 05:05:17 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/05/ubuntu%E6%9B%B4%E6%8D%A2%E7%BD%91%E5%8D%A1%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E6%8F%90%E7%A4%BAno-such-divice/</guid>
+      <description>&lt;p&gt;今天在virtualbox中新建了一个系统，虚拟硬盘使用的是已有的虚拟硬盘，创建完启动后，无法联网！这是因为/etc/udev/rules.d/70-persistent-net.rules文件中保存了网卡的相关信息没有更新，而是把新系统的网卡作为一个新设备(比如：eth2)放到此文件中，但是你系统中仍然使用的是以前的那块网卡（比如eth1)。&lt;/p&gt;
+
+&lt;p&gt;所以解决的方法有两个：&lt;/p&gt;
+
+&lt;p&gt;1）删除/etc/udev/rules.d/70-persistent-net.rules文件，然后重启就可以了&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;sudo rm  /etc/udev/rules.d/70-persistent-net.rules  &amp;amp;&amp;amp; sudo reboot&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;2）修改/etc/network/interface中的网卡为新加入的网卡&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ubuntu 运行apt-get 时遇到“ Hash Sum mismatch ”</title>
+      <link>http://:1313/tmp/2012/05/ubuntu-%E8%BF%90%E8%A1%8Capt-get-%E6%97%B6%E9%81%87%E5%88%B0-hash-sum-mismatch-/</link>
+      <pubDate>Sat, 05 May 2012 01:01:16 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/05/ubuntu-%E8%BF%90%E8%A1%8Capt-get-%E6%97%B6%E9%81%87%E5%88%B0-hash-sum-mismatch-/</guid>
+      <description>&lt;p&gt;今天升级ubuntu到12.04的时候，运行apt-get update遇到了“Hash Sum mismatch”错误，通过一下方法得到了解决：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container bash blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;bash codecolorer&#34;&gt;
+          &lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt;先运行&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;apt-get clean&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy0&#34;&gt;//&lt;/span&gt;再运行&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;apt-get update&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;--fix-missing&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ubuntu 下连接cisco vpn</title>
+      <link>http://:1313/tmp/2011/11/ubuntu-%E4%B8%8B%E8%BF%9E%E6%8E%A5cisco-vpn/</link>
+      <pubDate>Wed, 16 Nov 2011 05:52:07 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/11/ubuntu-%E4%B8%8B%E8%BF%9E%E6%8E%A5cisco-vpn/</guid>
+      <description>&lt;p&gt;命令方式连接&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container bash blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;14&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;bash codecolorer&#34;&gt;
+          &lt;span class=&#34;co0&#34;&gt;#1）安装vpnc&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;apt-get install&lt;/span&gt; vpnc&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#2) 添加配置文件(/etc/vpnc目录下有example.conf示例配置文件)&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#配置文件示例：&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#IPSec gateway 192.168.1.0&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#IPSec ID groupname&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#IPSec secret group_password&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#Xauth username &amp;nbsp;username&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#Xauth password &amp;nbsp;userpassword&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;vim&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;vpnc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;myvpn.conf&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#3）启动&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; vpnc &lt;span class=&#34;re5&#34;&gt;--enable-1des&lt;/span&gt; vpnc&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;hvpn&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#4）断开连接&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;sudo&lt;/span&gt; vpnc-disconnect
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上面是通过配置文件连接VPN,当然也可以通过sudo vpnc &amp;#8211;enable-1des直接启动，然后根据提示输入相关信息。&lt;/p&gt;
+
+&lt;p&gt;参考：&lt;a href=&#34;http://www.linuxplanet.com/linuxplanet/tutorials/6773/1/&#34;&gt;http://www.linuxplanet.com/linuxplanet/tutorials/6773/1/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>误删ubuntu 11.04的默认控制面板，处理方法</title>
+      <link>http://:1313/tmp/2011/06/%E8%AF%AF%E5%88%A0ubuntu-11.04%E7%9A%84%E9%BB%98%E8%AE%A4%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 16 Jun 2011 01:35:30 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/06/%E8%AF%AF%E5%88%A0ubuntu-11.04%E7%9A%84%E9%BB%98%E8%AE%A4%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;p&gt;因为昨天那个默认的网卡管理器不管用，想要删除它，但是一不小心把整个默认得面板都给删除了。不过还好再往上找到了一个恢复的方法。&lt;/p&gt;
+
+&lt;p&gt;在终端中依次输入如下三行命令即可：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container text blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;text codecolorer&#34;&gt;
+          gconftool --recursive-unset /apps/panel&lt;br /&gt; &lt;br /&gt; rm -rf ~/.gconf/apps/panel&lt;br /&gt; &lt;br /&gt; pkill gnome-panel
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;ok问题解决。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 11.04无线网卡无法使用问题的解决办法</title>
+      <link>http://:1313/tmp/2011/06/ubuntu-11.04%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Wed, 15 Jun 2011 15:37:26 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/06/ubuntu-11.04%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>&lt;p&gt;在试用的时候发现这个问题，确实是11.04的无线网卡管理器存在问题，方法就是换用另外的管理程序wicd。&lt;/p&gt;
+
+&lt;p&gt;1）直接通过命令安装sudo apt-get install wicd&lt;/p&gt;
+
+&lt;p&gt;2）当然你也可以通过ubuntu软件中心搜索安装wicd程序&lt;/p&gt;
+
+&lt;p&gt;安装完成以后，启动程序，就可以看到搜索到的无线信号了。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,84 @@
+html, body {
+    line-height: 1.5em;
+    min-height: 100%;
+	min-width:100%;
+	width:100%;
+	background-color: #e6e6e6;
+	margin:0;
+	padding:0;
+}
+#wrapper{
+	width:100%;
+    margin: 0 auto;
+}
+.box .header{
+	border-bottom: 3px double #eee;
+	padding-bottom:1em;
+}
+.box .main{
+	margin:2em 0;
+}
+.box .content{
+	min-height:618px;
+}
+.box{
+	background-color:#fff;
+	width:auto;
+}
+.typo h1, .typo-h1{
+	font-size:1.618em;
+	margin-top:1em;
+}
+.typo h2, .typo-h2 {
+	font-size:1.4em;
+}
+.typo h3, .typo-h3 {
+  font-size: 1.3em;
+}
+
+.typo h4, .typo-h4,.typo h5, .typo h6, .typo-h5, .typo-h6 {
+  font-size: 1.2em;
+}
+.footer{
+	margin-bottom:2em;
+}
+/*大屏幕*/
+@media screen and (min-width: 670px) {
+	.box{
+		padding: .618em 4em;
+		border-radius: 2px;
+		box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+		max-width: 670px;
+		margin:.618em auto;
+		min-height:880px;
+	}
+}
+/*小屏幕*/
+@media screen and (max-width: 670px) {
+	.box{
+		padding: .618em;
+	}
+	.typo p {
+		font-size:14px;
+	}
+}
+.typo a:visited {
+    color: #9f9f9f;
+}
+.typo a:hover{
+	color:#0f3647;
+}
+.typo a {
+    text-decoration: none;
+    color: #21759b;
+    cursor: pointer;
+	border:none;
+}
+.typo p {
+	line-height: 1.75em;
+}
+.typo img{
+	border-radius: 3px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	height: auto;
+}

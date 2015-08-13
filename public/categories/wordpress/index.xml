@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wordpress on 趣味互联网</title>
+    <link>http://:1313/tmp/categories/wordpress/</link>
+    <description>Recent content in Wordpress on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Dec 2010 13:19:10 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/categories/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SAE上的wordpress rewrite规则</title>
+      <link>http://:1313/tmp/2010/12/sae%E4%B8%8A%E7%9A%84wordpress-rewrite%E8%A7%84%E5%88%99/</link>
+      <pubDate>Sun, 12 Dec 2010 13:19:10 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/12/sae%E4%B8%8A%E7%9A%84wordpress-rewrite%E8%A7%84%E5%88%99/</guid>
+      <description>&lt;p&gt;如果你有一个&lt;a href=&#34;http://sae.sina.com.cn/&#34;&gt;SAE&lt;/a&gt;的账号，那么可以在上面搭建一个&lt;a href=&#34;http://www.wordpress.org&#34;&gt;wordpress&lt;/a&gt;博客,搭建过程很简单。&lt;br /&gt;
+&lt;a href=&#34;http://code.google.com/p/wp4sae/&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://code.google.com/p/wp4sae/&#34;&gt;wp4sae&lt;/a&gt;下载和安装说明 &lt;a href=&#34;http://code.google.com/p/wp4sae/&#34;&gt;http://code.google.com/p/wp4sae/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;安装之后有个问题，SAE是nigix的而worpress的url重写规则是基于apache的，所以直接把.htaccess放在根目录是不起作用的。&lt;/p&gt;
+
+&lt;p&gt;所以我们需要一个可以在SAE上的规则使得wordpress可以正常运行。&lt;/p&gt;
+
+&lt;p&gt;规则如下：&lt;/p&gt;
+
+&lt;div id=&#34;_mcePaste&#34;&gt;
+  &lt;span style=&#34;color: #0000ff;&#34;&gt;&amp;#8212;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;_mcePaste&#34;&gt;
+  &lt;span style=&#34;color: #0000ff;&#34;&gt;name: seo123&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;_mcePaste&#34;&gt;
+  &lt;span style=&#34;color: #0000ff;&#34;&gt;version: 2&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;_mcePaste&#34;&gt;
+  &lt;span style=&#34;color: #0000ff;&#34;&gt;handle:&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;_mcePaste&#34;&gt;
+  &lt;span style=&#34;color: #0000ff;&#34;&gt;&amp;#8211; rewrite: if(!is_file()&amp;&amp;!is_dir()) goto &amp;#8220;index.php?%{QUERY_STRING}&amp;#8221;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;seo123是SAE项目的名字&lt;/p&gt;
+
+&lt;p&gt;version是活动版本&lt;/p&gt;
+
+&lt;p&gt;这两项都是SAE自己生产的，不用改动，关键是第三项：&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; rewrite: if(!is_file()&amp;amp;&amp;amp;!is_dir()) goto &amp;#8220;index.php?%{QUERY_STRING}&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;这个就是对应的规则，注意这一行的&lt;span style=&#34;color: #ff0000;&#34;&gt;开头必须有两个空格&lt;/span&gt;，&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress投稿插件ucan-post介绍</title>
+      <link>http://:1313/tmp/2010/11/wordpress%E6%8A%95%E7%A8%BF%E6%8F%92%E4%BB%B6ucan-post%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Thu, 04 Nov 2010 10:33:33 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/11/wordpress%E6%8A%95%E7%A8%BF%E6%8F%92%E4%BB%B6ucan-post%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://blog.webfuns.net/archives/category/wordpress&#34;&gt;WordPress&lt;/a&gt;投稿插件目前发现有submit posts和ucan post两个。&lt;a href=&#34;http://blog.webfuns.net/archives/889.html&#34;&gt;submit posts插件&lt;/a&gt;功能有些弱，所以我还是推荐大家使用ucan post这个插件。&lt;/p&gt;
+
+&lt;p&gt;作为投稿插件ucan post比较优秀，基本的功能很完善，初步使用很好。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;插件预览：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.wuxianle.com/welcome-submit&#34;&gt;http://www.wuxianle.com/welcome-submit&lt;/a&gt; （&lt;span style=&#34;color: #ff0000;&#34;&gt;大家不要在这个页面测试&lt;/span&gt;）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ucan post主要特点：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1）可以授权不同用户投递稿件&lt;/p&gt;
+
+&lt;p&gt;2）可以设置验证码&lt;/p&gt;
+
+&lt;p&gt;3）投稿页面有一个比较完善的编辑器&lt;/p&gt;
+
+&lt;p&gt;4）可以接受邮件提醒&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;其他&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;因为是国外开发的所有没有提供中文的语言包，我特地做了一个语言文件，大家可以下载然后添加到&lt;span style=&#34;color: #800080;&#34;&gt;ucan-post.1.0.06\ucan-post\i18n&lt;/span&gt;目录下即可。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://u.115.com/file/f8106af878&#34;&gt;ucan-post 投稿插件中文语言包&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;另外这里是一个我的修改的插件完整文件包，主要是简单修改了一下样式。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://u.115.com/file/f86b56c5d2&#34;&gt;ucan-post 投稿插件修改版（含中文语言包）&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wordpress.org/extend/plugins/ucan-post/&#34;&gt;ucan-post 投稿插件主页&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JavaScript函数闭包的实例程序</title>
+      <link>http://:1313/tmp/2010/08/javascript%E5%87%BD%E6%95%B0%E9%97%AD%E5%8C%85%E7%9A%84%E5%AE%9E%E4%BE%8B%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Fri, 06 Aug 2010 13:01:30 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/08/javascript%E5%87%BD%E6%95%B0%E9%97%AD%E5%8C%85%E7%9A%84%E5%AE%9E%E4%BE%8B%E7%A8%8B%E5%BA%8F/</guid>
+      <description>&lt;p&gt;最近在学习JavaScript，一直感觉这个语言很诡异，和其他的语言有些不同。最近暑假期间补充知识，正好来学习一下。今天提供一个关于JavaScript中函数闭包的一个实例程序。先来解释下什么是函数闭包:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;函数闭包&lt;/strong&gt;-即函数定义和函数表达式位于另一个函数的函数体内。而且，这些内部函数可以访问它们所在的外部函数中声明的所有局部变量、参数和声明的其他内部函数。当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。也就是说，内部函数会在外部函数返回后被执行。而当这个内部函数执行时，它仍然必需访问其外部函数的局部变量、参数以及其他内部函数。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;
+  下面的两个实例程序的作用是给一组标签添加鼠标事件函数，当点击一个节点是，弹出一个对话框显示节点的序号。
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;strong&gt;实例一&lt;/strong&gt;：未利用函数闭包错误的实例
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;div&gt;
+    var add_the_handlers=function (nodes){
+  &lt;/div&gt;
+  
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt;var i;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt;for(i=0;i&lt;nodes.length;i++){
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt; nodes[i].onclick=function(e){
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt;alert(i);&lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt; };
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt;}
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    }
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    add_the_handlers(document.getElementsByTagName(&amp;#8220;div&amp;#8221;));
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;strong&gt;实例二：&lt;/strong&gt;利用函数闭包正确的实例
+  &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;div&gt;
+  &lt;div&gt;
+    var add_the_handlers=function (nodes){
+  &lt;/div&gt;
+  
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt;var i;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt;for(i=0;i&lt;nodes.length;i++){
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt; nodes[i].onclick=&lt;span style=&#34;color: #ff0000;&#34;&gt;function(i){&lt;/span&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; //alert(i);&lt;/span&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; return function (e){&lt;/span&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; alert(i);&lt;/span&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; };&lt;/span&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; }(i);&lt;/span&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    &lt;span style=&#34;white-space: pre;&#34;&gt; &lt;/span&gt;}
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    }
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;_mcePaste&#34;&gt;
+    add_the_handlers(document.getElementsByTagName(&amp;#8220;div&amp;#8221;));
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;span style=&#34;color: #3366ff;&#34;&gt;PS:学习笔记只用，不做深入解释（&lt;span style=&#34;color: #808080;&#34;&gt;功力不够，继续修炼&lt;/span&gt;）。&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress 3.0 正式版发布</title>
+      <link>http://:1313/tmp/2010/06/wordpress-3.0-%E6%AD%A3%E5%BC%8F%E7%89%88%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Fri, 18 Jun 2010 14:25:28 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/06/wordpress-3.0-%E6%AD%A3%E5%BC%8F%E7%89%88%E5%8F%91%E5%B8%83/</guid>
+      <description>&lt;p&gt;WordPress 3.0终于来了。这个版本真的可以称得上是一个革命性的版本，有很多重大的更新。WordPress开始正式的向一个CMS系统转变，在这次更新中有很多体现。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;首先默认的tabline 由Just another WordPress blog变成 Just another WordPress site&lt;/li&gt;
+&lt;li&gt;general 菜单中的很多选项都有blog变成了site。比如原先的blog title 变成了site title ;原先的blog address 变成了site address等&lt;/li&gt;
+&lt;li&gt;增加了多站点设置，正式把wordpress mu并入&lt;/li&gt;
+&lt;li&gt;支持自定义菜单和自定义类型&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;除了这些之外，WordPress 3.0 在用户体验上也做了很多的努力，很多细节都可以体现出来。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;比如在主题编辑和插件编辑中支持使用Tab键，相信这是一个很好的改变，以后我们可以更方便的修改WordPress了&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #3366ff;&#34;&gt;Settings-&amp;gt;Miscellaneous&lt;span style=&#34;color: #000000;&#34;&gt;菜单消失，这个我一直认为很鸡肋，现在终于并入media菜单了&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;默认主题对手机的浏览也有很好的支持&lt;/li&gt;
+&lt;li&gt;函数命名规则的优化，放弃使用驼峰变量命名，全部使用小写加下划线方式。比如get_usernumposts()变成 count_user_posts() ，有很多这种变化，这样可以使得WordPress的代码更加可读性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;WordPress 3.0确实给我带来了一些新的东西。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>用WordPress搭建一个SEO友好的网站基本步骤</title>
+      <link>http://:1313/tmp/2010/05/%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAseo%E5%8F%8B%E5%A5%BD%E7%9A%84%E7%BD%91%E7%AB%99%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4/</link>
+      <pubDate>Mon, 03 May 2010 09:53:48 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/05/%E7%94%A8wordpress%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAseo%E5%8F%8B%E5%A5%BD%E7%9A%84%E7%BD%91%E7%AB%99%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4/</guid>
+      <description>&lt;p&gt;做了几个网站以后，发现有必要总结一下这个步骤，这样不至于以后用WordPress做站手忙脚乱。&lt;/p&gt;
+
+&lt;p&gt;1）&lt;strong&gt;选关键词&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;包括主关键词。选关键词就是一个网站定位的过程，在关键词选取的过程中我们会发现一些额外的需求或者创意。这个时候可以不用选择此关键词和长尾关键词，他们可以在后续的步骤中选择。&lt;/p&gt;
+
+&lt;p&gt;2）&lt;strong&gt;选域名&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;有了主关键词就有了网站的定位，那么接下来就是要选择一个好的域名，可以采用拼音式或者使用英文单词策略来选择一个好的符合自己需求的域名。&lt;/p&gt;
+
+&lt;p&gt;3）&lt;strong&gt;选主机&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这个时候就要选一个好的主机商了，这个也是比较头疼的一个步骤，选不好可能会影响网站，说实话主机销售领域内的奸商还是很多，大家选购时要慎重。&lt;/p&gt;
+
+&lt;p&gt;4）&lt;strong&gt;搭建网站&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这个步骤包括域名绑定，选择合适的主题和插件。此时难免会对主题进行一些必要的修改，尽管WordPress有如此丰富的主题，但是到目前为止我还没有发现一个主题，能够让我拿来即用。细分步骤如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;域名绑定&lt;/li&gt;
+&lt;li&gt;安装WordPress&lt;/li&gt;
+&lt;li&gt;选择主题&lt;/li&gt;
+&lt;li&gt;安装必要的插件（以后会总结）&lt;/li&gt;
+&lt;li&gt;确定永久链接，这个要想好，确定以后就不要轻易修改了，否则·····&lt;/li&gt;
+&lt;li&gt;对主题中样式错误或者其他内容进行必要的修改，如果对中文支持不好，最好简单汉化一下&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;5）&lt;strong&gt;网站结构和关键词布局的确定&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;根据自己的需求确定是用tag、category还是page页来做此关键词，在这里还要对网站中SEO不友好的部分进行修改。&lt;/p&gt;
+
+&lt;p&gt;6）&lt;strong&gt;填充少量内容&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;目的有两个，一个是进一步测试网站是否存在错误，二是为下一步提交网站做准备&lt;/p&gt;
+
+&lt;p&gt;7）&lt;strong&gt;提交网站到搜索引擎&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;尽量多的提交到搜索引擎，Google提交时最好使用&lt;a href=&#34;http://www.google.com/webmasters/tools&#34;&gt;网站管理员工具&lt;/a&gt;{.wpgallery}提交Sitemap。&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt;以上是我建立WordPress网站的大体步骤，其实每一步中都有很多的事情要做。建立一个网站是一件容易的事情，但是要把一个网站做起来，运营好却是一件很不容易的事情。&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>在cPanel建立WordPress时关于域名绑定的问题</title>
+      <link>http://:1313/tmp/2010/04/%E5%9C%A8cpanel%E5%BB%BA%E7%AB%8Bwordpress%E6%97%B6%E5%85%B3%E4%BA%8E%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 29 Apr 2010 14:37:08 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/04/%E5%9C%A8cpanel%E5%BB%BA%E7%AB%8Bwordpress%E6%97%B6%E5%85%B3%E4%BA%8E%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;域名绑定是建立WordPress网站的重要步骤。由于对一些概念理解不到位，有些朋友在这方面遇到了困难，今天把域名绑定的步骤重新说明一下，希望对大家有用。&lt;/p&gt;
+
+&lt;p&gt;以用这个域名&lt;a href=&#34;http://www.yholiday.com，在wpc空间或者其他支持Cpanel的美国空间建立一个WordPress博客为例，&#34;&gt;http://www.yholiday.com，在wpc空间或者其他支持Cpanel的美国空间建立一个WordPress博客为例，&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;进行说明。&lt;/p&gt;
+
+&lt;p&gt;无论是把域名安装在根目录还是子目录都要先对域名进行正确的解析，如果你使用的是wpc的空间，那么请将域名的dns改成两个就可以啦。或者也可以添加A记录，指向到你的空间所在地ip（通过PING命令可以得到你空间的IP，例如ping &lt;a href=&#34;http://host1.tuikr.com）&#34;&gt;http://host1.tuikr.com）&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;建立数据库的步骤就省略了。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第一种情况：把WordPress博客安装到根目录&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1）把WordPress程序所有文件上传到cpanel空间的根目录一般是public_html&lt;/p&gt;
+
+&lt;p&gt;此时public_html目录下应该直接包含WordPress的所有文件&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.chinaz.com/upimg/allimg/100429/1304030.jpg&#34; border=&#34;0&#34; alt=&#34;&#34; width=&#34;299&#34; height=&#34;430&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2）绑定域名&lt;/p&gt;
+
+&lt;p&gt;因为我们的WordPress是安装在根目录的，所以域名应该绑定在根目录才可以&lt;/p&gt;
+
+&lt;p&gt;在cpanel空间点击附加域（add on domain）菜单，在出现的界面中填入如下内容&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.chinaz.com/upimg/allimg/100429/1304031.jpg&#34; border=&#34;0&#34; alt=&#34;&#34; width=&#34;564&#34; height=&#34;295&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3）如果添加不出错误，那么现在就可以访问你的域名&lt;/p&gt;
+
+&lt;p&gt;进行安装啦。&lt;/p&gt;
+
+&lt;p&gt;4）安装完成之后，在WordPress后台的设置菜单中把博客的安装地址和博客地址&lt;/p&gt;
+
+&lt;p&gt;都改成你的域名：&lt;a href=&#34;http://www.yholiday.com&#34;&gt;http://www.yholiday.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第二种情况：在子目录安装WordPress博客&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1）例如，我们可以在cpanel空间建立如下所示的子目录wp2：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.chinaz.com/upimg/allimg/100429/1304032.jpg&#34; border=&#34;0&#34; alt=&#34;&#34; width=&#34;302&#34; height=&#34;447&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2）把域名绑定wordpress的安装目录即wp2&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.chinaz.com/upimg/allimg/100429/1304033.jpg&#34; border=&#34;0&#34; alt=&#34;&#34; width=&#34;638&#34; height=&#34;317&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;后续步骤同上&lt;/p&gt;
+
+&lt;p&gt;说明：示例只是一个简单说明，希望大家认真理解，可以举一反三，多加尝试。只要操作步骤正确，一般是不会遇到问题的。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>本站更换主题-zbench</title>
+      <link>http://:1313/tmp/2010/04/%E6%9C%AC%E7%AB%99%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98-zbench/</link>
+      <pubDate>Wed, 28 Apr 2010 15:48:50 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/04/%E6%9C%AC%E7%AB%99%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98-zbench/</guid>
+      <description>&lt;p&gt;一直在使用Inove这个主题，感觉不错。近来又发现一个很漂亮的主题Zbench。这个主题同样也是国人开发的，超喜欢这个主题，很适合我的性格。今天忙活了3个多小时，终于把这个主题弄好了。&lt;/p&gt;
+
+&lt;p&gt;Zbench虽然是国人开发似乎对中文没有特别的支持，今天特意进行了汉化（修改了部分小错误）。如果大家有喜欢这个主题的话，在此留言我可以提供汉化好的主题包。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>javascript数组-DOM节点数组</title>
+      <link>http://:1313/tmp/2010/04/javascript%E6%95%B0%E7%BB%84-dom%E8%8A%82%E7%82%B9%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Sun, 18 Apr 2010 01:06:05 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/04/javascript%E6%95%B0%E7%BB%84-dom%E8%8A%82%E7%82%B9%E6%95%B0%E7%BB%84/</guid>
+      <description>&lt;p&gt;最近发现JavaScript还是一门很有意思的语言，值得好好学习一下。前些天调试一个简单程序时，发现一个问题或者说自己犯了一个简单的错误。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;下面我举一个简单的例子说明一下遇到的问题：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;我有个HTML文档如下&lt;/p&gt;
+
+&lt;pre class=&#34;brush: html; first-line: 1&#34;&gt;&lt;table&gt;
+  
+  
+  
+  &lt;tr&gt;
+    &lt;td&gt;
+      tomheng
+    &lt;/td&gt;
+    
+  &lt;/tr&gt;
+  
+  
+&lt;/table&gt;
+
+
+&lt;table&gt;
+  
+  
+  
+  &lt;tr&gt;
+    &lt;td&gt;
+      住在&lt;a href=&#34;http://blog.webfuns.net/&#34;&gt;webfuns 趣味互联网&lt;/a&gt;
+    &lt;/td&gt;
+    
+  &lt;/tr&gt;
+  
+  
+&lt;/table&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;我想要删除里面的table节点元素，注意HTML文档中有两个以上的Table节点于是写了如下的代码。&lt;/p&gt;
+
+&lt;pre class=&#34;brush: javascript; first-line: 1&#34;&gt;tb=document.getElementsByTagName(&#34;table&#34;);
+  for(var i=0;i=tb.length;i++){
+      document.body.removeChild(tb[i]);
+  }&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;问题分析&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff00ff;&#34;&gt;有没有发现问题啊？上面的代码是没有错误的，但是就是不能实现我想要的效果，上面的代码不能删除最后一个元素。如果元素多了，你能想出他是怎样删除的吗？&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;我们都知道数组的复制在大多数语言中都是引用传值的，在JavaScript中也不例外，而且数组的存储结构一般都是采用栈的形式，所以上面的问题就很好解释了。tb变量实质上得到的是DOM中的Table节点数组的引用，我们在For循环中删除Table节点元素同样也会反应在tb这个数组中，这样以来，每删除一个元素数组的长度就会发生变化，根据栈结构的特点，元素自动向上弹出，所以我们使用这样的删除方式只能删除索引为奇数的元素。既然知道的了原因，那么解决起来就比较简单了。&lt;/p&gt;
+
+&lt;p&gt;** 正确代码如下：**&lt;/p&gt;
+
+&lt;pre class=&#34;brush:javascript;firt-line:1&#34;&gt;tb=document.getElementsByTagName(&#34;table&#34;);
+  while(tb.length){
+     document.body.removeChild(tb[0]);
+ }
+/*充分利用栈结构的特点，总是删除第一个元素，直到为空*/&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>关于SEO搜索引擎优化的一些思考和探索</title>
+      <link>http://:1313/tmp/2010/04/%E5%85%B3%E4%BA%8Eseo%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83%E5%92%8C%E6%8E%A2%E7%B4%A2/</link>
+      <pubDate>Thu, 15 Apr 2010 03:04:59 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/04/%E5%85%B3%E4%BA%8Eseo%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83%E5%92%8C%E6%8E%A2%E7%B4%A2/</guid>
+      <description>&lt;p&gt;最近一段时间在关注和学习&lt;a class=&#34;wpgallery&#34; title=&#34;搜索引擎优化&#34; href=&#34;http://blog.webfuns.net/archives/tag/seo&#34; target=&#34;_blank&#34;&gt;SEO&lt;/a&gt;，有些有关搜索引擎的问题和思考的结论需要整理一下，特此记录，以备查询。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;一、SEO是什么？是一种技术还是忽悠人的东西？&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;SEO中文译作搜索引擎优化，在国外已经比较成熟，在国内还处于成长期。正因为处于成长期，所以现在做SEO培训的应该是很有前景的一个项目。那么SEO究竟是什么呢？有人把它当技术来学习，有人把它看做一种思想或者观念，有的人甚至认为SEO就是忽悠人的东西。我暂时还没有资格去评价哪种观点正确。但是我可以表明我的观点，通过最近的学习和思考，在我眼中，SEO在浅层上和操作上确有些忽悠人的成分，但是在深层上和思想上却是很智慧的。之所以这样说是因为SEO在实现上，技术成分不多，或者说SEO做的都是一些细节的东西，是网站设计人员和网站编码人员所没有考虑到的地方；但是SEO需要一种思想，就是在网站建设和运营中要时刻记住网站内容的对象不但是用户，还有搜索引擎。我们不但要重视用户体验的提升，同时也要考虑对搜索引擎也是有好的。这两者应该在管理和规划中并重，更深层上来说网站最终是要对用户友好的，因为搜索引擎背后就是我们的用户，搜索引擎所面对和服务的也是用户，我们就是要通过优化从搜索引擎的广大用户群中发现我们自己的潜在用户，所以我们最终要思考的还是用户体验，但是这种体验有一部分是通过搜索引擎传递到我们的潜在用户那里的。所以一种搜索引擎手法到底对还是不对，最终评价的对象还是用户，只不过我们有时要靠搜索引擎代理用户来完成这个评价，如果这种手法对用户是有价值的，那么可以有90%的置信区间认为我们的手法是正确的；如果一种手法对用户没有价值或者妨碍了用户获取信息，那么这种手法有足够的理由遭到搜索引擎的惩罚。搜索引擎、用户、网站、SEO之间的关系式很微妙的，这个在这里就不去总结了（其实我也没有完全搞清楚）。&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff00ff&#34;&gt;PS:SEO搜索引擎优化应该是网站质量建设中的一小部分，我们应该更多的从网站质量建设的角度去理解搜索引擎优化。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;二、SEO技术细节的思考&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1）keywords和 description的重要性不容质疑，我不同意这两个因素被削弱的观点&lt;/p&gt;
+
+&lt;p&gt;2）SEO主要工作是防止内容重复、&lt;a class=&#34;wpgallery&#34; title=&#34;死链的检测查询工具和解决方法&#34; href=&#34;http://blog.webfuns.net/archives/560.html&#34; target=&#34;_blank&#34;&gt;减少网站死链&lt;/a&gt;、外链建设、站内优化&lt;/p&gt;
+
+&lt;p&gt;3）title属性（不是title标签）鼓励用但不宜滥用，用在链接的时候要和锚文本不同&lt;/p&gt;
+
+&lt;p&gt;4）内容为王，网站质量建设要重视内容建设&lt;/p&gt;
+
+&lt;p&gt;5）优化要有策略和计划，不可盲目行动&lt;/p&gt;
+
+&lt;p&gt;6）先做流量后做营销&lt;/p&gt;
+
+&lt;p&gt;7）网站内容既是给用户看的，也是给搜索引擎看的。应该在不影响搜索引擎的收录的情况下，更多的重视用户体验&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;三、最后总结一句&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;****&lt;span style=&#34;color: #ff00ff&#34;&gt;SEO是一种细节上的智慧,是网站质量建设的一部分。&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>设置页面内的所有链接在新页面打开（blank）</title>
+      <link>http://:1313/tmp/2010/04/%E8%AE%BE%E7%BD%AE%E9%A1%B5%E9%9D%A2%E5%86%85%E7%9A%84%E6%89%80%E6%9C%89%E9%93%BE%E6%8E%A5%E5%9C%A8%E6%96%B0%E9%A1%B5%E9%9D%A2%E6%89%93%E5%BC%80blank/</link>
+      <pubDate>Sun, 11 Apr 2010 14:17:36 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/04/%E8%AE%BE%E7%BD%AE%E9%A1%B5%E9%9D%A2%E5%86%85%E7%9A%84%E6%89%80%E6%9C%89%E9%93%BE%E6%8E%A5%E5%9C%A8%E6%96%B0%E9%A1%B5%E9%9D%A2%E6%89%93%E5%BC%80blank/</guid>
+      <description>&lt;p&gt;今天遇到一个需求，原先页面设计的时候，设计的一个页面是在同一个网页中打开，可是后来发生变化，要求页面中所有链接在新页面中打开。可是如果逐个修改页面中链接效率是极其底的，于是想到能否通过向css样式一样的方式来实现页内的所有链接全部在新页面内打开，在搜索引擎中搜索一下，果然有这样的解决方案。&lt;/p&gt;
+
+&lt;p&gt;最终发现了一个这样神奇的标签，只需在网页head加入如下代码。网页中所有的链接就可以在新页面中打开了。&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff00ff;&#34;&gt;&lt;base target=&amp;#8221;_blank&amp;#8221;/&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #000000;&#34;&gt;经测试，这个方法在Firefox，Chrome，IE（ie6）内核的浏览器中都有效。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff00ff;&#34;&gt;&lt;strong&gt;&lt;span style=&#34;color: #000000;&#34;&gt;总结：&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #000000;&#34;&gt;就是如此简单的&lt;a href=&#34;http://www.w3school.com.cn/tags/tag_base.asp&#34;&gt;base标签&lt;/a&gt;，就可以实现我所要实现的效果，着实减轻了我的负担。HTML中还是有很多标签功能是很强大的，过段时间有必要自习复习一下HTML中的标签。看来每一项看似简单的技术，真的要做的极致，确实是需要长时间学习的。&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>减少网页在IE中的错误--养成良好的编码习惯</title>
+      <link>http://:1313/tmp/2010/04/%E5%87%8F%E5%B0%91%E7%BD%91%E9%A1%B5%E5%9C%A8ie%E4%B8%AD%E7%9A%84%E9%94%99%E8%AF%AF--%E5%85%BB%E6%88%90%E8%89%AF%E5%A5%BD%E7%9A%84%E7%BC%96%E7%A0%81%E4%B9%A0%E6%83%AF/</link>
+      <pubDate>Sat, 03 Apr 2010 11:32:17 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/04/%E5%87%8F%E5%B0%91%E7%BD%91%E9%A1%B5%E5%9C%A8ie%E4%B8%AD%E7%9A%84%E9%94%99%E8%AF%AF--%E5%85%BB%E6%88%90%E8%89%AF%E5%A5%BD%E7%9A%84%E7%BC%96%E7%A0%81%E4%B9%A0%E6%83%AF/</guid>
+      <description>&lt;p&gt;相信凡是稍有实战经验的前端开发者，都对IE恨之入骨吧。虽然我不是专做前端的，但是也写过一些网页，调试过一些网页中常见的错误。IE的bug之多，我是领教过的。尽管如此，但是我们不能把我们在网页中的错误都归结于IE之过。毕竟IE早期的版本，开发的时间比较早，那时候网页开发的标准还不是很完善。有时候我们多注意些自身问题，也许就不会打开过多的IEbug的潘多拉魔盒。&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;strong&gt;总结的经验：&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;1）&lt;strong&gt;标签要正确的结束&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在其他现代浏览器Firefox 、chrome等，如果网页中有未正确关闭的标签通常是不会破坏网页的布局的，但是在IE6中，如果有的标签没有正确的关闭，那么布局就会被打乱。所以如果遇到一个样式，无论自己怎么操作，IE6都置之不理的话，那么很可能就是标签未正确关闭所引起的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2）尽量少的添加注释&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在IE6中注释有可能触发一些样式错误，最常见的应该是li标签重复。所以添加注释虽然是一个很好的习惯，但是在HTML中添加注释的时候要小心一些。同时如果发现一些样式不是按自己的想法展现的，那么记住HTML中注释有可能触发IE6中的某些bug，从而引起样式的混乱。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3）body 中尽量不要添加内联样式&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;内联样式&lt;/p&gt;
+
+&lt;p&gt;&lt;style type=&amp;#8221;text/css&amp;#8221;&gt;&lt;/p&gt;
+
+&lt;p&gt;.webfuns.net{color:red;clear:both;}&lt;/p&gt;
+
+&lt;p&gt;&lt;/style&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff00ff;&#34;&gt;以上这些IE错误我都遇到过，在这里总结出来。希望可以对刚进入前端开发的同学有些许帮助,尽量减少网页在IE中的错误。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;参考文章：&lt;/p&gt;
+
+&lt;p&gt;1）&lt;a class=&#34;wpgallery&#34; title=&#34;Internet Explorer杯具历史&#34; href=&#34;http://zh.wikipedia.org/zh-cn/Internet_Explorer&#34; target=&#34;_blank&#34;&gt;Internet Explorer杯具历史&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2）&lt;a href=&#34;http://msdn.microsoft.com/zh-cn/library/aa291894(VS.71).aspx&#34; target=&#34;_blank&#34;&gt;级联式&lt;em&gt;样式表&lt;/em&gt;(&lt;em&gt;CSS&lt;/em&gt;) 介绍&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ps：&lt;/p&gt;
+
+&lt;p&gt;同志们都积极的换IE8吧，因为做网页的需要我这里一直没有机会升级到IE8。&lt;/p&gt;
+
+&lt;p&gt;让我祈祷IE6早些死掉吧&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>wordpress 插件SEO Smart Links是否支持中文</title>
+      <link>http://:1313/tmp/2010/03/wordpress-%E6%8F%92%E4%BB%B6seo-smart-links%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87/</link>
+      <pubDate>Sat, 27 Mar 2010 14:02:05 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/03/wordpress-%E6%8F%92%E4%BB%B6seo-smart-links%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87/</guid>
+      <description>&lt;p&gt;wordpress 插件&lt;a class=&#34;wpgallery&#34; title=&#34;SEO Smart Links&#34; href=&#34;http://www.prelovac.com/vladimir/wordpress-plugins/seo-smart-links&#34; target=&#34;_blank&#34;&gt;SEO Smart Links&lt;/a&gt; 的作用是为文章添加内部链接，是国外的开发者开发的，所以对英文的支持是很好的。但是因为中英文之间的差异，可能这个插件对中文的支持不是很好，甚至完全不支持都是有可能的。这篇文章的目的就是测试SEO Smart Links插件对中文的支持情况如何。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;简单说一下这个插件的主要功能和特点。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1）&lt;span style=&#34;color: #99ccff;&#34;&gt;完全自动添加内部链接&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;2）&lt;span style=&#34;color: #99ccff;&#34;&gt;可以限定每篇文章自动添加的内链数目&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;3）&lt;span style=&#34;color: #99ccff;&#34;&gt;自定义搜索关键词和链接地址&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;4）&lt;span style=&#34;color: #99ccff;&#34;&gt;可以设定能够忽略的关键词&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;5）&lt;span style=&#34;color: #99ccff;&#34;&gt;设定链接打开方式和nofollow属性&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #99ccff;&#34;&gt;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8211;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;SEO smart Links 插件中文支持情况测试开始：&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;准备&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在SEO Smart Links 后台添加特定关键词和对应的链接。设定的为每个关键词只能添加一次链接。&lt;/p&gt;
+
+&lt;div id=&#34;attachment_542&#34; style=&#34;width: 541px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+  &lt;a href=&#34;http://blog.webfuns.net/wp-content/uploads/2010/03/tom1.jpg&#34;&gt;&lt;img class=&#34;size-full wp-image-542 &#34; title=&#34;这是一张图片，不影响测试。&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2010/03/tom1.jpg&#34; alt=&#34;&#34; width=&#34;531&#34; height=&#34;145&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    这是一张图片，不影响测试。
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  &lt;p style=&#34;text-align: center;&#34;&gt;
+    &lt;p&gt;
+      &lt;span style=&#34;color: #ff00ff;&#34;&gt;示例：&lt;/span&gt;
+    &lt;/p&gt;
+    
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;
+  &amp;lt;span style=&amp;quot;color: #000000;&amp;quot;&amp;gt;tom heng 是一位 PHP 开发者,   百度  是一个中文搜索引擎。如果你不知道&amp;lt;span style=&amp;quot;color: #ff6600;&amp;quot;&amp;gt;php&amp;lt;/span&amp;gt;是什么的话，请到&amp;lt;span style=&amp;quot;color: #ff6600;&amp;quot;&amp;gt;百度&amp;lt;/span&amp;gt;中搜索相关关键词查询。用Google查询关于tomheng的相关信息。&amp;lt;/span&amp;gt;
+&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;
+  结论：
+&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;
+  SEO Smart Links 插件是不支持中文的。即使我再中文关键词两侧故意添加空格，这个插件也不能够识别中文关键词。但在中英文混合的情况下仍然能够分离出英文。所以目前这个插件应用在英文战中比较合适。
+&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;
+  &amp;lt;a href=&amp;quot;http://downloads.wordpress.org/plugin/seo-automatic-links.zip&amp;quot;&amp;gt;Download: SEO Smart Links&amp;lt;/a&amp;gt;
+&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;
+  &amp;lt;span style=&amp;quot;color: #808080;&amp;quot;&amp;gt;脚印：&amp;lt;/span&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;a title=&amp;quot;编辑 “QQREADERCD84270303C310ED”&amp;quot; href=&amp;quot;http://blog.webfuns.net/wp-admin/post.php?action=edit&amp;amp;post=546&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color: #808080;&amp;quot;&amp;gt;QQREADERCD84270303C310ED&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/strong&amp;gt;
+&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>wordpress主题制作入门教程系列之开篇 (worpress教程网）</title>
+      <link>http://:1313/tmp/2010/03/wordpress%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8B%E5%BC%80%E7%AF%87-worpress%E6%95%99%E7%A8%8B%E7%BD%91/</link>
+      <pubDate>Thu, 25 Mar 2010 12:20:59 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/03/wordpress%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8B%E5%BC%80%E7%AF%87-worpress%E6%95%99%E7%A8%8B%E7%BD%91/</guid>
+      <description>
+
+&lt;p&gt;这一个版本是发布在WordPress教程网的，转载一下。&lt;/p&gt;
+
+&lt;p&gt;原文链接：wordpress主题制作入门教程系列之开篇&lt;/p&gt;
+
+&lt;h3 id=&#34;简单说明:2b27e2d7f40b4f25f1e2f9eeea976836&#34;&gt;简单说明&lt;/h3&gt;
+
+&lt;p&gt;为了能使WordPress fans制作富有个性的主题，经过精心的准备，&lt;a class=&#34;cflabel&#34; title=&#34;WordPress教程网&#34; href=&#34;http://www.wpcourse.com&#34; target=&#34;_blank&#34;&gt;wpc&lt;/a&gt;终于推出了这套WordPress主题制作入门教程！&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&#34;cflabel&#34; title=&#34;wordpress&#34; href=&#34;http://wordpress.org&#34; target=&#34;_blank&#34;&gt;WordPress&lt;/a&gt;是一个很优秀的开源博客程序，受到全世界网民的追捧。它不但是一个简洁易用的博客应用程序，同时也是个学习的好工具。通过主题的制作你可以学习网页设计相关知识，学习插件开发则可以提高你php编程的能力，如果更深入的了解一下WordPress的框架结构，那对你架构设计能力也是一种提高。我们提供的这套入门教程旨在普及WordPress主题制作的基础知识，面向最基础的入门用户，让大家认识到制作WordPress主题是简单的，有趣的（&lt;span style=&#34;color: #0000ff;&#34;&gt;It is easy ,it is fun这是我们的口号&lt;/span&gt;)。我们的教程会讲解如何制作WordPress 主题，但是我们的教程不会告诉您如何制作漂亮的主题。&lt;/p&gt;
+
+&lt;p&gt;学习我们的教程需要您首先的是一个WordPress的熟练的用户，如果你还不是很熟悉如何使用WordPress，请移步WordPress教程网查看&lt;a class=&#34;cflabel&#34; title=&#34;Wordpress视频教程 &#34; href=&#34;http://www.wpcourse.com/menu&#34; target=&#34;_blank&#34;&gt;WordPress的基本的使用教程&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;教程开始之前还是要说一些网页设计的基本的规范以及一些基本的php常识：&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;font-weight: normal;&#34;&gt;&lt;strong&gt;（1）&lt;/strong&gt;&lt;/span&gt;&lt;strong&gt;所有html 标签必须关闭&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;&lt;/ul&gt;
+
+&lt;p&gt;（2）&lt;strong&gt;Html标签的不能交叉嵌套&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;&lt;span&gt;&lt;/div&gt;&lt;/span&gt; &lt;span style=&#34;color: #ff0000;&#34;&gt;这样是不允许的&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt; &lt;span style=&#34;color: #ff0000;&#34;&gt;这样是正确的&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;（3）&lt;strong&gt;凡是在&amp;lt;?php ···?&amp;gt;或者在&amp;lt;? ···?&amp;gt;里的内容都是php代码&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;（4）&lt;strong&gt;Php 的两种注释方法&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;// 单行注释&lt;/p&gt;
+
+&lt;p&gt;/**/ 跨行注释&lt;/p&gt;
+
+&lt;p&gt;即以/*开头到*/终止的中间部分全部为注释代码&lt;/p&gt;
+
+&lt;p&gt;5）&lt;strong&gt;css 样式文件的注释方法 只有一种既 /&lt;/strong&gt;/ 跨行注释**&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;推荐一些工具和网站&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;1）php不懂得问题去。&lt;a class=&#34;cflabel&#34; title=&#34;php&#34; href=&#34;http://php.net/&#34; target=&#34;_blank&#34;&gt;Php.net&lt;/a&gt;查询&lt;/p&gt;
+
+&lt;p&gt;2）与css，html有关的问题去：&lt;a class=&#34;cflabel&#34; title=&#34;w3school&#34; href=&#34;http://www.w3school.com.cn/&#34; target=&#34;_blank&#34;&gt;w3school&lt;/a&gt;查询&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>wordpress主题制作入门教程电子书发布</title>
+      <link>http://:1313/tmp/2010/03/wordpress%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E7%94%B5%E5%AD%90%E4%B9%A6%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Wed, 03 Mar 2010 11:47:38 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/03/wordpress%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E7%94%B5%E5%AD%90%E4%B9%A6%E5%8F%91%E5%B8%83/</guid>
+      <description>&lt;p&gt;原先发布在&lt;a href=&#34;http://www.wpcourse.com&#34; target=&#34;_blank&#34;&gt;WordPress教程网&lt;/a&gt;的wordpress主题制作入门教程现在已经整理成了电子书发布了出来，大家可以下载下来查看，这样更有利于学习WordPress主题制作的相关知识。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;a href=&#34;http://www.wpcourse.com/bbs/read-htm-tid-193.html&#34; target=&#34;_blank&#34;&gt;&lt;span style=&#34;color: #ff8000;&#34;&gt;wordpress主题制作入门教程电子书&lt;/span&gt;&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SEO搜索引擎优化中的网站质量评估和测试准则</title>
+      <link>http://:1313/tmp/2010/01/seo%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96%E4%B8%AD%E7%9A%84%E7%BD%91%E7%AB%99%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BC%B0%E5%92%8C%E6%B5%8B%E8%AF%95%E5%87%86%E5%88%99/</link>
+      <pubDate>Tue, 12 Jan 2010 13:30:12 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/01/seo%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96%E4%B8%AD%E7%9A%84%E7%BD%91%E7%AB%99%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BC%B0%E5%92%8C%E6%B5%8B%E8%AF%95%E5%87%86%E5%88%99/</guid>
+      <description>
+
+&lt;p&gt;这些都是我们信息资源规划中关于网站质量评估的一些准则，个人感觉这些准则对SEO搜索引擎优化也有一些关联。现整理出来，以备以后学习时使用。&lt;/p&gt;
+
+&lt;h4 id=&#34;下载时间:e8d81cb7e9c08bbcd13a843881dd3bdd&#34;&gt;下载时间&lt;/h4&gt;
+
+&lt;p&gt;1）&lt;strong&gt;网页中的元素的数量&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;网站中的元素可以理解为网页中的标签的数量。显然网页中标签的数量越少，那么浏览器渲染起来就会更快。&lt;/p&gt;
+
+&lt;p&gt;2）&lt;strong&gt;页面之间重复元素的数量&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;3）&lt;strong&gt;页面的大小&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;4）&lt;strong&gt;到达页面的可用路径数量&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这个不明白为什么和加载时间有关系，不过对提高网站的可用性确实是一个重要的衡量指标&lt;/p&gt;
+
+&lt;h4 id=&#34;可访问性:e8d81cb7e9c08bbcd13a843881dd3bdd&#34;&gt;可访问性&lt;/h4&gt;
+
+&lt;p&gt;这个和网站的导航结构具有很大的关系。&lt;/p&gt;
+
+&lt;p&gt;1）&lt;strong&gt;确定网站上到达每个页面的最短路径&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这个指标和网站导航结构的设计以及链接的规划相关。当前最常用的就是链接跟踪式，即网站把用户访问网站的路径串成一个链接链的形式。&lt;/p&gt;
+
+&lt;table cellspacing=&#34;0&#34; cellpadding=&#34;2&#34; width=&#34;545&#34; border=&#34;1&#34;&gt;
+  &lt;tr&gt;
+    &lt;td valign=&#34;top&#34; width=&#34;543&#34;&gt;
+      &lt;font color=&#34;#0080ff&#34;&gt;&lt;/font&gt;&lt;a href=&#34;http://blog.webfuns.net&#34; target=&#34;_blank&#34;&gt;趣味互联网&lt;/a&gt;》&lt;font color=&#34;#0080ff&#34;&gt;&lt;a href=&#34;http://blog.webfuns.net/archives/category/wordpress&#34; target=&#34;_blank&#34;&gt;WordPress&lt;/a&gt;&lt;/font&gt;》&lt;font color=&#34;#0080ff&#34;&gt;插件制作&lt;/font&gt;》&lt;a href=&#34;http://blog.webfuns.net/archives/313.html&#34; target=&#34;_blank&#34;&gt;Ecall插件已经更新到最新版本&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;还有就是固定边栏和导航条的形式，就是无论用户到达什么网页都提供一个固定的边栏和导航条，以方便用户自由穿梭于网站的链接中。&lt;/p&gt;
+
+&lt;p&gt;2）&lt;strong&gt;下载时间和用户做出选择的次数&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;用户选择方面应该尽量使用户不要做出不必要的选择，让用户见名知意最好了。关于这个可以参考&lt;a href=&#34;http://cdc.tencent.com/?p=2122&#34; target=&#34;_blank&#34;&gt;多按钮共存的设计分析&lt;/a&gt;这篇文章。&lt;/p&gt;
+
+&lt;h4 id=&#34;新鲜度:e8d81cb7e9c08bbcd13a843881dd3bdd&#34;&gt;新鲜度&lt;/h4&gt;
+
+&lt;p&gt;1）&lt;strong&gt;网页的最后更新时间&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这个对静态网页有意义，但是对动态网页没有实际的意义。&lt;/p&gt;
+
+&lt;p&gt;2）&lt;strong&gt;网站的更新频度&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

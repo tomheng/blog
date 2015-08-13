@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Inotify on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/inotify/</link>
+    <description>Recent content in Inotify on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Mar 2013 14:12:16 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/inotify/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>『转』通过C示例代码来认识Inotify</title>
+      <link>http://:1313/tmp/2013/03/%E8%BD%AC%E9%80%9A%E8%BF%87c%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%E6%9D%A5%E8%AE%A4%E8%AF%86inotify/</link>
+      <pubDate>Mon, 25 Mar 2013 14:12:16 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2013/03/%E8%BD%AC%E9%80%9A%E8%BF%87c%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%E6%9D%A5%E8%AE%A4%E8%AF%86inotify/</guid>
+      <description>
+
+&lt;p&gt;原文：&lt;a href=&#34;http://www.thegeekstuff.com/2010/04/inotify-c-program-example/&#34;&gt;Inotify Example: Introduction to Inotify with a C Program Example&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;inotify utility is an effective tool to monitor and notify filesystem changes.  You can specify a list of files and directories that needs to be monitored by inotify. This library is used by various other programs. For example, CPAN module Linux::Inotify is developed based on this library.&lt;/p&gt;
+
+&lt;h3 id=&#34;inotify-execution-flow:990f4d68c03b417e53ec20ae07b0223d&#34;&gt;iNotify Execution Flow&lt;/h3&gt;
+
+&lt;p&gt;On a high-level, you do the following with inotify utility.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create inotify monitoring list.&lt;/strong&gt; Add the desired directories/files to the inotify monitoring list. Monitoring list can be changed as and when needed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Request Inotify to report specific event changes&lt;/strong&gt; to the monitoring list of files and directories. For example, request inotify to report ON ACCESS, ON OPEN, ON WRITING, ON CLOSE,etc.,&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Following are the inotify functions and their corresponding roles.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create the inotify instance by &lt;strong&gt;inotify_init&lt;/strong&gt;().&lt;/li&gt;
+&lt;li&gt;Add all the directories to be monitored to the inotify list using &lt;strong&gt;inotify_add_watch&lt;/strong&gt;() function.&lt;/li&gt;
+&lt;li&gt;To determine the events occurred, do the &lt;strong&gt;read()&lt;/strong&gt; on the inotify instance. This read will get blocked till the change event occurs. It is recommended to perform selective read on this inotify instance using &lt;strong&gt;select()&lt;/strong&gt; call.&lt;/li&gt;
+&lt;li&gt;Read returns list of events occurred on the monitored directories. Based on the return value of read(), we will know exactly what kind of changes occurred.&lt;/li&gt;
+&lt;li&gt;In case of removing the watch on directories / files, call &lt;strong&gt;inotify_rm_watch()&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Be careful when using this module with NFS filesystem. It might not determine the events changes to the monitoring list that contains files/directories from the NFS filesystem.&lt;/p&gt;
+
+&lt;h3 id=&#34;inotify-events:990f4d68c03b417e53ec20ae07b0223d&#34;&gt;Inotify Events&lt;/h3&gt;
+
+&lt;p&gt;Following are the available inotify events:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;IN_ACCESS – File was accessed&lt;/li&gt;
+&lt;li&gt;IN_ATTRIB – Metadata changed (permissions, timestamps, extended attributes, etc.)&lt;/li&gt;
+&lt;li&gt;IN_CLOSE_WRITE – File opened for writing was closed&lt;/li&gt;
+&lt;li&gt;IN_CLOSE_NOWRITE – File not opened for writing was closed&lt;/li&gt;
+&lt;li&gt;IN_CREATE – File/directory created in watched directory&lt;/li&gt;
+&lt;li&gt;IN_DELETE – File/directory deleted from watched directory&lt;/li&gt;
+&lt;li&gt;IN_DELETE_SELF – Watched file/directory was itself deleted&lt;/li&gt;
+&lt;li&gt;IN_MODIFY – File was modified&lt;/li&gt;
+&lt;li&gt;IN_MOVE_SELF – Watched file/directory was itself moved&lt;/li&gt;
+&lt;li&gt;IN_MOVED_FROM – File moved out of watched directory&lt;/li&gt;
+&lt;li&gt;IN_MOVED_TO – File moved into watched directory&lt;/li&gt;
+&lt;li&gt;IN_OPEN – File was opened&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;recommended-modules-libraries-for-inotify:990f4d68c03b417e53ec20ae07b0223d&#34;&gt;Recommended modules / libraries for iNotify&lt;/h3&gt;
+
+&lt;p&gt;Make sure libc6 2.3.6 module is installed on your system. If you have a previous version of libc module installed, you will get the following error message while compiling the inotify monitoring c program.&lt;/p&gt;
+
+&lt;pre&gt;error: linux/inotify.h: No such file or directory&lt;/pre&gt;
+
+&lt;p&gt;Check the libc6 version on your system and upgrade it if required.&lt;/p&gt;
+
+&lt;pre&gt;# dpkg -l libc6&lt;/pre&gt;
+
+&lt;h3 id=&#34;sample-c-program-for-monitoring-of-file-directory-changes-event:990f4d68c03b417e53ec20ae07b0223d&#34;&gt;Sample C program for Monitoring of File/directory changes event&lt;/h3&gt;
+
+&lt;div class=&#34;codecolorer-container c blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;14&lt;br /&gt;15&lt;br /&gt;16&lt;br /&gt;17&lt;br /&gt;18&lt;br /&gt;19&lt;br /&gt;20&lt;br /&gt;21&lt;br /&gt;22&lt;br /&gt;23&lt;br /&gt;24&lt;br /&gt;25&lt;br /&gt;26&lt;br /&gt;27&lt;br /&gt;28&lt;br /&gt;29&lt;br /&gt;30&lt;br /&gt;31&lt;br /&gt;32&lt;br /&gt;33&lt;br /&gt;34&lt;br /&gt;35&lt;br /&gt;36&lt;br /&gt;37&lt;br /&gt;38&lt;br /&gt;39&lt;br /&gt;40&lt;br /&gt;41&lt;br /&gt;42&lt;br /&gt;43&lt;br /&gt;44&lt;br /&gt;45&lt;br /&gt;46&lt;br /&gt;47&lt;br /&gt;48&lt;br /&gt;49&lt;br /&gt;50&lt;br /&gt;51&lt;br /&gt;52&lt;br /&gt;53&lt;br /&gt;54&lt;br /&gt;55&lt;br /&gt;56&lt;br /&gt;57&lt;br /&gt;58&lt;br /&gt;59&lt;br /&gt;60&lt;br /&gt;61&lt;br /&gt;62&lt;br /&gt;63&lt;br /&gt;64&lt;br /&gt;65&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;c codecolorer&#34;&gt;
+          &lt;span class=&#34;coMULTI&#34;&gt;/*This is the sample program to notify us for the file creation and file deletion takes place in “/tmp” directory*/&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co2&#34;&gt;#include &lt;stdio.h&gt;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co2&#34;&gt;#include &lt;stdlib.h&gt;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co2&#34;&gt;#include &lt;errno.h&gt;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co2&#34;&gt;#include &lt;sys/types.h&gt;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co2&#34;&gt;#include &lt;linux/inotify.h&gt;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;co2&#34;&gt;#define EVENT_SIZE &amp;nbsp;( sizeof (struct inotify_event) )&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co2&#34;&gt;#define EVENT_BUF_LEN &amp;nbsp; &amp;nbsp; ( 1024 * ( EVENT_SIZE + 16 ) )&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt; main&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt; length&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; i &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt; fd&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt; wd&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;kw4&#34;&gt;char&lt;/span&gt; buffer&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;EVENT_BUF_LEN&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;coMULTI&#34;&gt;/*creating the INOTIFY instance*/&lt;/span&gt;&lt;br /&gt; &amp;nbsp; fd &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; inotify_init&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;coMULTI&#34;&gt;/*checking for error*/&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; fd &lt;span class=&#34;sy0&#34;&gt;&lt;&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.opengroup.org/onlinepubs/009695399/functions/perror.html&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;perror&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;inotify_init&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;coMULTI&#34;&gt;/*adding the “/tmp” directory into watch list. Here, the suggestion is to validate the existence of the directory before adding into monitoring list.*/&lt;/span&gt;&lt;br /&gt; &amp;nbsp; wd &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; inotify_add_watch&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; fd&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;/tmp&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; IN_CREATE &lt;span class=&#34;sy0&#34;&gt;|&lt;/span&gt; IN_DELETE &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;coMULTI&#34;&gt;/*read to determine the event change happens on “/tmp” directory. Actually this read blocks until the change event occurs*/&lt;/span&gt; &lt;br /&gt; &lt;br /&gt; &amp;nbsp; length &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; read&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; fd&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; buffer&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; EVENT_BUF_LEN &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &lt;br /&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;coMULTI&#34;&gt;/*checking for error*/&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; length &lt;span class=&#34;sy0&#34;&gt;&lt;&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.opengroup.org/onlinepubs/009695399/functions/perror.html&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;perror&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;read&#34;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &amp;nbsp;&lt;br /&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;coMULTI&#34;&gt;/*actually read return the list of change events happens. Here, read the change event one by one and process it accordingly.*/&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; i &lt;span class=&#34;sy0&#34;&gt;&lt;&lt;/span&gt; length &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw4&#34;&gt;struct&lt;/span&gt; inotify_event &lt;span class=&#34;sy0&#34;&gt;*&lt;/span&gt;event &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;struct&lt;/span&gt; inotify_event &lt;span class=&#34;sy0&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt;buffer&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt; i &lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; event&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;len &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; event&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;mask &lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt; IN_CREATE &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; event&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;mask &lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt; IN_ISDIR &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.opengroup.org/onlinepubs/009695399/functions/printf.html&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;printf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;New directory %s created.&lt;span class=&#34;es1&#34;&gt;\n&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; event&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;name &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.opengroup.org/onlinepubs/009695399/functions/printf.html&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;printf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;New file %s created.&lt;span class=&#34;es1&#34;&gt;\n&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; event&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;name &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; event&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;mask &lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt; IN_DELETE &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; event&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;mask &lt;span class=&#34;sy0&#34;&gt;&amp;&lt;/span&gt; IN_ISDIR &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.opengroup.org/onlinepubs/009695399/functions/printf.html&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;printf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;Directory %s deleted.&lt;span class=&#34;es1&#34;&gt;\n&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; event&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;name &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.opengroup.org/onlinepubs/009695399/functions/printf.html&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;printf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;File %s deleted.&lt;span class=&#34;es1&#34;&gt;\n&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; event&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;name &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; i &lt;span class=&#34;sy0&#34;&gt;+=&lt;/span&gt; EVENT_SIZE &lt;span class=&#34;sy0&#34;&gt;+&lt;/span&gt; event&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;len&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;coMULTI&#34;&gt;/*removing the “/tmp” directory from the watch list.*/&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp;inotify_rm_watch&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; fd&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; wd &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;coMULTI&#34;&gt;/*closing the INOTIFY instance*/&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp;close&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt; fd &lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&amp;#8212;&lt;br /&gt;
+此外还有一片中文的补充介绍也值得一读。&lt;br /&gt;
+&lt;a href=&#34;http://cunsheng.sinaapp.com/?p=334&#34;&gt;http://cunsheng.sinaapp.com/?p=334&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

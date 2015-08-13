@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Apache mod_rewrite规则重写的标志一览 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>Apache mod_rewrite规则重写的标志一览</h1>
+			  <small>2010-05-28,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>Apache mod_rewrite确实很强大，不过也是需要下些功夫才能学好的东西，通过它可以实现很多有趣的功能。下面是Apache mod_rewrite的学习笔记。</p>
+
+<p><strong>一、Apache mod_rewrite规则重写的标志一览</strong></p>
+
+<ol>
+<li>R[=code](force redirect) 强制外部重定向强制在替代字符串加上<a href="http://thishost[:thisport]/前缀重定向到外部的URL.如果code不指定，将用缺省的302">http://thishost[:thisport]/前缀重定向到外部的URL.如果code不指定，将用缺省的302</a> HTTP状态码。</li>
+<li>F(force URL to be forbidden)禁用URL,返回403HTTP状态码。</li>
+<li>G(force URL to be gone) 强制URL为GONE，返回410HTTP状态码。</li>
+<li>P(force proxy) 强制使用代理转发。</li>
+<li>L(last rule) 表明当前规则是最后一条规则，停止分析以后规则的重写。</li>
+<li>N(next round) 重新从第一条规则开始运行重写过程。</li>
+<li>C(chained with next rule) 与下一条规则关联如果规则匹配则正常处理，该标志无效，如果不匹配，那么下面所有关联的规则都跳过。</li>
+<li>T=MIME-type(force MIME type) 强制MIME类型</li>
+<li>NS (used only if no internal sub-request) 只用于不是内部子请求</li>
+<li>NC(no case) 不区分大小写</li>
+<li>QSA(query string append) 追加请求字符串</li>
+<li>NE(no URI escaping of output) 不在输出转义特殊字符　　例如：RewriteRule /foo/(.*) /bar?arg=P1\%3d$1 [R,NE] 将能正确的将/foo/zoo转换/bar?arg=P1=zed</li>
+<li>PT(pass through to next handler) 传递给下一个处理　　例如：RewriteRule ^/abc(.*) /def$1 [PT] # 将会交给/def规则处理Alias /def /ghi</li>
+<li>S=num(skip next rule(s)) 跳过num条规则</li>
+<li>E=VAR:VAL(set environment variable) 设置环境变量</li>
+</ol>
+
+<p><strong>二、实例分析：</strong></p>
+
+<p><span style="color: #0000ff;"> # BEGIN WordPress</span></p>
+
+<p>RewriteRule &#8220;^/dir/ ([^./]*) .html&#8221; &#8220;/dir/script.cgi?doc=$1&#8243; [PT]<br />
+RewriteEngine On<br />
+RewriteBase /wordpress/<br />
+RewriteCond %{REQUEST_FILENAME} !-f<br />
+RewriteCond %{REQUEST_FILENAME} !-d</p>
+
+<p><strong>三、解释：</strong></p>
+
+<p>1）RewriteRule &#8220;^/dir/ ([^./]*) .html&#8221; &#8220;/dir/script.cgi?doc=$1&#8243; [PT]</p>
+
+<p>PT(pass through to next handler) 传递给下一个处理<br />
+将形如：/dir/abc.html 定向到/dir/script.cgi?doc=abc 并且将重定向的结果传递给下一条规则使用</p>
+
+<p>2）RewriteEngine On<br />
+开启url rewrite</p>
+
+<p>3)RewriteBase /wordpress/<br />
+设定重写的目录</p>
+
+<p>4)<br />
+RewriteCond %{REQUEST_FILENAME} !-f<br />
+RewriteCond %{REQUEST_FILENAME} !-d</p>
+
+<p>这两句的意思是如果请求的url中有在服务器能找到的文件那么就直接访问文件，有能找到的目录就直接访问目录 ，并停止执行下面的重写规则</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/apache">Apache</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

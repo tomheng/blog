@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>插件 on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/%E6%8F%92%E4%BB%B6/</link>
+    <description>Recent content in 插件 on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Dec 2009 00:26:14 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/%E6%8F%92%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>wordpress插件开发建议</title>
+      <link>http://:1313/tmp/2009/12/wordpress%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE/</link>
+      <pubDate>Mon, 21 Dec 2009 00:26:14 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/12/wordpress%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE/</guid>
+      <description>&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;本文属于翻译文章&lt;/span&gt;&lt;br /&gt;
+&lt;span style=&#34;color: #ff6600;&#34;&gt;原文&lt;/span&gt;：&lt;a class=&#34;wp-oembed&#34; title=&#34;Plugin Development Suggestions&#34; href=&#34;http://codex.wordpress.org/Writing_a_Plugin&#34; target=&#34;_blank&#34;&gt;Plugin Development Suggestions&lt;/a&gt; &lt;/p&gt;
+
+&lt;p&gt;（1）&lt;a class=&#34;wpGallery&#34; title=&#34;wordpress&#34; href=&#34;http://wordpress.org&#34; target=&#34;_blank&#34;&gt;wordpress&lt;/a&gt;插件的代码都应该遵循wordpress的代码规范。&lt;/p&gt;
+
+&lt;p&gt;请同时考虑内置文档规范。&lt;/p&gt;
+
+&lt;p&gt;（2）插件中所有函数的命名都需要区别wordpress核心代码，其他插件和主题中函数的命名。鉴于此，对插件中的所有函数使用一个唯一的函数名前缀是一种好的做法；此外，还可以把函数定义在类内（同样需要一个唯一的名字）&lt;/p&gt;
+
+&lt;p&gt;（3）在插件中不要对数据库表的前缀进行硬编码（例如&amp;#8221;wp_&amp;#8221;)，一定要使用$wpdb-&amp;gt;prefix变量来替代。&lt;/p&gt;
+
+&lt;p&gt;（4）数据库的读操作是廉价的，但写操作是昂贵的。数据库最擅长的就是取出数据，然后返回给你，这些操作都是很轻快的。然而对数据库的改变却是一个复杂的过程，并且需要昂贵的计算。所以，要尽量减少对数据库的写入操作。在代码中尽量做好准备，当你需要的时候你可以专注与这些写操作。&lt;/p&gt;
+
+&lt;p&gt;（5）只获得你所需要的数据。尽管数据库返回数据非常迅速，但是你仍然需要通过只获取自己需要的内容来尽量减轻数据库的负担。如果需要统计数据表中数据的行数，不要使用“SELECT * FORM ”这种语句，因为每一行的每一个数据都要被取出来，很消耗内存。同样，如果你在插件中仅需要post_id和post_author,那么就只取出这些字段就可以啦，尽量减轻数据库的负担。记住：在同一时刻有成千上万的其他的进程在访问数据库。数据库和服务器要把他们仅有的资源分散到所有的进程中。学会如何减少对数据库的访问将确保你的插件不会被指责成滥用资源的插件。&lt;/p&gt;
+
+&lt;p&gt;（6）消除插件中的所有错误。在wp-config.php中添加 define(&amp;#8216;WP_DEBUG&amp;#8217;, true)。测试插件中的每一个功能来检查插件中是否存在错误或者警告。修复这些错误，继续调试直到所有的错误被消除。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>wordpress invocation plugin-Ecall</title>
+      <link>http://:1313/tmp/2009/12/wordpress-invocation-plugin-ecall/</link>
+      <pubDate>Fri, 18 Dec 2009 05:27:08 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/12/wordpress-invocation-plugin-ecall/</guid>
+      <description>&lt;div id=&#34;_mcePaste&#34; style=&#34;position: absolute; left: -10000px; top: 0px; width: 1px; height: 1px; overflow-x: hidden; overflow-y: hidden;&#34;&gt;
+  The plugin make it easy   to invoke  articles of your blog .  Just insert an simple javascript code in the  web page  if other sites want to invoke your blog posts . Meanwhile help you let more webizen surf your blog.
+&lt;/div&gt;
+
+&lt;p&gt;The plugin make it easy to invoke articles of your blog . Just insert an simple javascript code in the web page if other sites want to invoke your blog posts . Meanwhile help you let more webizen surf your blog.&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;&lt;a class=&#34;wpgallery&#34; href=&#34;http://wordpress.org/extend/plugins/ecall&#34; target=&#34;_blank&#34;&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;&lt;strong&gt;download&lt;/strong&gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;**Installation **&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Upload `ecall` to the `/wp-content/plugins/` directory&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Activate the plugin through the &amp;#8216;Plugins&amp;#8217; menu in WordPress&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;** Frequently Asked Questions **&lt;/p&gt;
+
+&lt;p&gt;how we can invoke article externally?&lt;/p&gt;
+
+&lt;p&gt;you will have a security key which can be found in the plugin panel,external site can insert below javascript&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;script type=&amp;#8217;text/javascript&amp;#8217; src=&amp;#8217;http://blog.webfuns.cn/api.php?key=7d8d7ebdc2f95b59dcc5d9a81c50c9f4&amp;cid=7&amp;row=6&amp;#8242;&gt;&lt;/script&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;localhost: your blog domain&lt;/p&gt;
+
+&lt;p&gt;key：the authenrition key the plugin generate(check in plugin management panel)&lt;/p&gt;
+
+&lt;p&gt;cid: the catagory id&lt;/p&gt;
+
+&lt;p&gt;rows:how many row to show optional&lt;/p&gt;
+
+&lt;p&gt;** Ecall features **&lt;/p&gt;
+
+&lt;p&gt;1.make templates for invocation at will&lt;/p&gt;
+
+&lt;p&gt;2.use cache&lt;/p&gt;
+
+&lt;p&gt;3.hide categories you do not want them to be invoked&lt;/p&gt;
+
+&lt;p&gt;4.Authorization mechanism to prevent malicious calls&lt;/p&gt;
+
+&lt;p&gt;5.use javascript for invocation&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress外部调用插件（js方式）-Ecall插件更新至1.12.15</title>
+      <link>http://:1313/tmp/2009/12/wordpress%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8%E6%8F%92%E4%BB%B6js%E6%96%B9%E5%BC%8F-ecall%E6%8F%92%E4%BB%B6%E6%9B%B4%E6%96%B0%E8%87%B31.12.15/</link>
+      <pubDate>Mon, 14 Dec 2009 09:43:00 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/12/wordpress%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8%E6%8F%92%E4%BB%B6js%E6%96%B9%E5%BC%8F-ecall%E6%8F%92%E4%BB%B6%E6%9B%B4%E6%96%B0%E8%87%B31.12.15/</guid>
+      <description>&lt;p&gt;&lt;a class=&#34;wpgallery&#34; title=&#34;wordpress插件Ecall-js方式外部调用wordpress文章&#34; href=&#34;http://blog.webfuns.net/archives/313.html&#34; target=&#34;_self&#34;&gt;wordpress外部调用插件-Ecall插件主页&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;（1）主要更新：改变外部调用的方式&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;原先是在根目录下建立一个文件，外部调用这个文件来实现文章的外部调用。这种方式有很多的弊端，首先是有的虚拟机主机可能目录权限不够，导致程序不能把api.php文件拷贝至根目录，只能手动来拷贝文件。另外还可能产生安全性和效率上的问题。&lt;/p&gt;
+
+&lt;p&gt;现在采用的hook方式，截获url，分析如果是外部调用的url则进行处理，否则放行，由WordPress进行正常的处理。&lt;/p&gt;
+
+&lt;p&gt;现在的调用方式改为：&lt;/p&gt;
+
+&lt;script type=&amp;#8217;text/javascript&amp;#8217; src=&amp;#8217;http://domain/index.php?key=15e3f539603bee92e0d5c6f2718a02e3&amp;cid=0&amp;rows=6&amp;len=4&amp;#8242;&gt;&lt;/script&gt;
+
+&lt;p&gt;或者&lt;/p&gt;
+
+&lt;script type=&amp;#8217;text/javascript&amp;#8217; src=&amp;#8217;http://domain/?key=15e3f539603bee92e0d5c6f2718a02e3&amp;cid=0&amp;rows=6&amp;len=4&amp;#8242;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;（2）调用代码支持使用len参数来控制标题的字符数目&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Len是个可选的参数可以不添加，默认值为120个字节。截取字符支持单字节和双字节混合截取。&lt;/p&gt;
+
+&lt;p&gt;可以再调用的代码后面加len=?来控制标题字符的显示数目&lt;/p&gt;
+
+&lt;script type=&amp;#8217;text/javascript&amp;#8217; src=&amp;#8217;http://domain/index.php?key=15e3f539603bee92e0d5c6f2718a02e3&amp;cid=0&amp;rows=6&amp;len=4&amp;#8242;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>js方式外部调用wordpress文章插件Ecall更新1.12.7版本</title>
+      <link>http://:1313/tmp/2009/12/js%E6%96%B9%E5%BC%8F%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8wordpress%E6%96%87%E7%AB%A0%E6%8F%92%E4%BB%B6ecall%E6%9B%B4%E6%96%B01.12.7%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Sun, 06 Dec 2009 17:35:59 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/12/js%E6%96%B9%E5%BC%8F%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8wordpress%E6%96%87%E7%AB%A0%E6%8F%92%E4%BB%B6ecall%E6%9B%B4%E6%96%B01.12.7%E7%89%88%E6%9C%AC/</guid>
+      <description>&lt;p&gt;js方式外部调用&lt;a class=&#34;wpgallery&#34; title=&#34;wordpress&#34; href=&#34;http://wordpress.org&#34; target=&#34;_blank&#34;&gt;wordpress&lt;/a&gt;文章插件Ecall已更新到1.12.7版本&lt;/p&gt;
+
+&lt;p&gt;下载 &lt;a class=&#34;wpgallery&#34; title=&#34;js外部调用wordpress文章&#34; href=&#34;http://wordpress.org/extend/plugins/ecall/&#34; target=&#34;_blank&#34;&gt;wordpress Ecall&lt;/a&gt; &lt;a title=&#34;wordpress插件Ecall-js方式外部调用wordpress文章&#34; href=&#34;http://blog.webfuns.net/archives/313.html&#34; target=&#34;_blank&#34;&gt;插件主页&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;&lt;strong&gt;更新日志&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;（1）&lt;strong&gt;调整了cid为0时的bug。修改后cid=0和隐藏分类组合可以使wordpress站外调用更灵活&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;目前cid有以下几种用法。&lt;/p&gt;
+
+&lt;p&gt;A)&lt;span style=&#34;color: #008080;&#34;&gt;cid=某个分类的id&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;示例：&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;script type=&amp;#8217;text/javascript&amp;#8217; src=&amp;#8217;http://blog.webfuns.net/api.php?key=b32154b43d6332afcb130b3a633c6ce4&amp;cid=7&amp;rows=6&amp;#8242;&gt;&lt;/script&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;这样可以实现站外调用某个具体分类下的文章&lt;/p&gt;
+
+&lt;p&gt;B)&lt;span style=&#34;color: #008080;&#34;&gt;cid=0 不隐藏任何分类&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;script type=&amp;#8217;text/javascript&amp;#8217; src=&amp;#8217;http://blog.webfuns.net/api.php?key=b32154b43d6332afcb130b3a633c6ce4&amp;cid=0&amp;rows=6&amp;#8242;&gt;&lt;/script&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;这样可以站外调用所有的分类下的文章&lt;/p&gt;
+
+&lt;p&gt;C)&lt;span style=&#34;color: #008080;&#34;&gt;cid=0 隐藏某些分类&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;以趣味互联网为例：&lt;/p&gt;
+
+&lt;p&gt;Google(cid=1)&lt;/p&gt;
+
+&lt;p&gt;WordPress(cid=2）&lt;/p&gt;
+
+&lt;p&gt;LAMP（cid=3)&lt;/p&gt;
+
+&lt;p&gt;My Project(cid=4)&lt;/p&gt;
+
+&lt;p&gt;如果把Google隐藏了，&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;script type=&amp;#8217;text/javascript&amp;#8217; src=&amp;#8217;http://blog.webfuns.net/api.php?key=b32154b43d6332afcb130b3a633c6ce4&amp;cid=0&amp;rows=6&amp;#8242;&gt;&lt;/script&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;这样站外调用将显示Wordpress、LAMP、My Project三个分类下的文章&lt;/p&gt;
+
+&lt;p&gt;如果再把Wordpress隐藏了，就显示LAMP、My Project两个分类下的文章，以此类推，如果全部隐藏了，就不会显示任何调用。&lt;/p&gt;
+
+&lt;p&gt;2)  &lt;strong&gt;增加了错误提示&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;3)  &lt;strong&gt;修复了Cache time 无法设置为空的问题&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;4）&lt;strong&gt;修复了隐藏目录不能全部同时取消的问题&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;5）&lt;strong&gt;模板中不再支持content调用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;原因是大文本调用容易出现不可预测的字符，从而导致js调用出错，此外大文本的外部调用浪费系统资源且价值不是很大。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>js方式外部调用wordpress文章插件Ecall更新1.11.27版本</title>
+      <link>http://:1313/tmp/2009/11/js%E6%96%B9%E5%BC%8F%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8wordpress%E6%96%87%E7%AB%A0%E6%8F%92%E4%BB%B6ecall%E6%9B%B4%E6%96%B01.11.27%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Fri, 27 Nov 2009 11:35:49 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/11/js%E6%96%B9%E5%BC%8F%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8wordpress%E6%96%87%E7%AB%A0%E6%8F%92%E4%BB%B6ecall%E6%9B%B4%E6%96%B01.11.27%E7%89%88%E6%9C%AC/</guid>
+      <description>&lt;p&gt;&lt;a class=&#34;wpgallery&#34; title=&#34;wordpress插件Ecall-js方式外部调用wordpress文章&#34; href=&#34;http://blog.webfuns.net/archives/313.html&#34; target=&#34;_blank&#34;&gt;js方式外部调用wordpress文章插件Ecall&lt;/a&gt;刚刚发布没几天，还有许多不完善的地方，今天更新了一下，版本为1.11.27。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;主要更新&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;（1）插件安装后即可得到授权key。&lt;/p&gt;
+
+&lt;p&gt;（2）js调用中cid=0的时候调用所有分类的文章。&lt;/p&gt;
+
+&lt;p&gt;（3）输出的数据都支持其他wordpress插件的过滤&lt;/p&gt;
+
+&lt;p&gt;（4）显示时间格式变为：2009-11-27&lt;/p&gt;
+
+&lt;p&gt;（5）优化了右侧说明内容和调用示例的显示方式&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;补充：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;****关于wordpress js外部调用插件Ecall版本号的说明：a.b.c其中a代表插件发布第几年，b代表月份，c代表日期，比如1.11.27代表插件发布第一年11.27的更新版本。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>wordpress插件Ecall-js方式外部调用wordpress文章</title>
+      <link>http://:1313/tmp/2009/11/wordpress%E6%8F%92%E4%BB%B6ecall-js%E6%96%B9%E5%BC%8F%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8wordpress%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Thu, 26 Nov 2009 03:12:16 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/11/wordpress%E6%8F%92%E4%BB%B6ecall-js%E6%96%B9%E5%BC%8F%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8wordpress%E6%96%87%E7%AB%A0/</guid>
+      <description>&lt;p&gt;在使用&lt;a title=&#34;wordpress&#34; href=&#34;http://wordpress.org&#34; target=&#34;_blank&#34;&gt;wordpress&lt;/a&gt;的过程中我也曾想wordpress能不能像discuzz或者&lt;a title=&#34;phpwind&#34; href=&#34;http://www.phpwind.com&#34; target=&#34;_blank&#34;&gt;phpwind&lt;/a&gt;一样用js的方式调用博客的文章，&lt;a class=&#34;wpgallery&#34; title=&#34;wordpress教程网&#34; href=&#34;http://www.wpcourse.com&#34; target=&#34;_blank&#34;&gt;wodpress教程网&lt;/a&gt;的用户也有问过这个问题，wordpress插件Ecall就是为了解决这个问题而写的，&lt;span style=&#34;background-color: #ffffff;&#34;&gt;有了这个插件你就可以从任何一个站点调用定制的wordpress文章内容了。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;下载&lt;/span&gt;：&lt;a class=&#34;wpgallery&#34; title=&#34;wordpress 插件ecall&#34; href=&#34;http://wordpress.org/extend/plugins/ecall/&#34; target=&#34;_blank&#34;&gt;Ecall&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;wordpress外部调用插件Ecall更新日志&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a style=&#34;color: #2970a6; text-decoration: none; padding: 0px; margin: 0px;&#34; rel=&#34;bookmark&#34; href=&#34;http://blog.webfuns.net/archives/358.html&#34;&gt;&lt;strong&gt;WordPress外部调用插件（js方式）-Ecall插件更新至1.12.15&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a style=&#34;color: #2970a6; text-decoration: underline; padding: 0px; margin: 0px;&#34; title=&#34;js方式外部调用wordpress文章插件Ecall更新1.12.7版本&#34; href=&#34;http://blog.webfuns.net/archives/341.html&#34;&gt;js方式外部调用wordpress文章插件Ecall更新1.12.7版本&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a style=&#34;color: #2970a6; text-decoration: underline; padding: 0px; margin: 0px;&#34; title=&#34;js方式外部调用wordpress文章插件Ecall更新1.11.27版本&#34; href=&#34;http://blog.webfuns.net/archives/327.html&#34;&gt;js方式外部调用wordpress文章插件Ecall更新1.11.27版本&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;wordpress插件Ecall的主要特点：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;background-color: #ffffff;&#34;&gt;（1）自由定制模版&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;background-color: #ffffff;&#34;&gt;（2）缓存加速&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;background-color: #ffffff;&#34;&gt;（3）隐藏分类&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;background-color: #ffffff;&#34;&gt;（4）授权机制，防止恶意调用&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;background-color: #ffffff;&#34;&gt;（5）文章的js调用方式&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;(6)&lt;a class=&#34;wp-oembed&#34; title=&#34;WordPress插件开发建议&#34; href=&#34;http://blog.webfuns.net/archives/392.html&#34; target=&#34;_blank&#34;&gt;遵循WordPress插件开发规范&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;wordpress插件Ecall使用说明：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;(1)你可以在任意网站加入如下代码：&lt;/p&gt;
+
+&lt;script type=&amp;#8217;text/javascript&amp;#8217; src=&amp;#8221;http://wpcourse.com/api.php?key=123&amp;cid=1&amp;rows=2&amp;#8243;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wpcourse.com:代表博客域名&#34;&gt;http://wpcourse.com:代表博客域名&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;key：代表插件生成的授权密钥（在插件管理页面）&lt;/p&gt;
+
+&lt;p&gt;cid:代表目录的id&lt;/p&gt;
+
+&lt;p&gt;rows:代表显示的数据调试 可选参数&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;wordpress插件Ecall注意事项&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;(1)可能由于某种原因，在网站根目录没有api.php文件，你可以手动到插件安装的目录把api_temp.php复制到根目录，然后重命名为api.php&lt;/p&gt;
+
+&lt;p&gt;在1.12.15以后的版本已经不再使用api.php文件&lt;/p&gt;
+
+&lt;p&gt;/*&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;-分割线&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8211;*/&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ps:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;（1）由于插件刚刚发布，存在很多欠缺的地方，大家如果有什么问题和建议可以联系&lt;a title=&#34;tomheng&#34; href=&#34;http://blog.webfuns.net/about-tomheng-profile&#34; target=&#34;_blank&#34;&gt;tomheng&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;（2）在插件开发中也遇到了很多问题，主要是svn不是很熟悉，版本没有控制好。前100多个下载的用户可能都是有问题的版本，实在是对不起大家了。&lt;/p&gt;
+
+&lt;p&gt;（3）如果你觉着这个插件有用并且值得继续维护下去，可以通过捐款的方式来支持插件的开发。&lt;/p&gt;
+
+&lt;p style=&#34;line-height: 39px; height: 39px;&#34;&gt;
+  （支付宝和paypal)帐号：&lt;a rel=&#34;attachment wp-att-315&#34; href=&#34;http://blog.webfuns.net/archives/313.html/donate-tomheng-2&#34;&gt;&lt;img class=&#34;size-full wp-image-315 alignnone&#34; title=&#34;donate-tomheng&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2009/11/donate-tomheng1.jpg&#34; alt=&#34;donate-tomheng&#34; width=&#34;264&#34; height=&#34;39&#34; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a rel=&#34;attachment wp-att-315&#34; href=&#34;http://blog.webfuns.net/archives/313.html/donate-tomheng-2&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a rel=&#34;attachment wp-att-315&#34; href=&#34;http://blog.webfuns.net/archives/313.html/donate-tomheng-2&#34;&gt;&lt;span style=&#34;background-color: #ffffff;&#34;&gt;&lt;br /&gt; &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a rel=&#34;attachment wp-att-315&#34; href=&#34;http://blog.webfuns.net/archives/313.html/donate-tomheng-2&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Codeguard on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/codeguard/</link>
+    <description>Recent content in Codeguard on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 May 2011 12:15:03 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/codeguard/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>codeguard 网站自动备份服务终于出来了</title>
+      <link>http://:1313/tmp/2011/05/codeguard-%E7%BD%91%E7%AB%99%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD%E6%9C%8D%E5%8A%A1%E7%BB%88%E4%BA%8E%E5%87%BA%E6%9D%A5%E4%BA%86/</link>
+      <pubDate>Wed, 25 May 2011 12:15:03 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/05/codeguard-%E7%BD%91%E7%AB%99%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD%E6%9C%8D%E5%8A%A1%E7%BB%88%E4%BA%8E%E5%87%BA%E6%9D%A5%E4%BA%86/</guid>
+      <description>&lt;p&gt;相信很多做过网站的童鞋，都有一个常识，要给自己的网站做好备份。否则的话，你总有苦头吃的···&lt;/p&gt;
+
+&lt;p&gt;很多时候，小网站的备份通常是手动来做的，服务商尽管承诺有备份服务，&lt;/p&gt;
+
+&lt;p&gt;但是你可不要指望他们的备份，看看他们的协议就知道了。&lt;/p&gt;
+
+&lt;p&gt;所以一直很期待有一个这这样的服务，可以自动的备份网站数据。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.codeguard.com/&#34;&gt;CodeGuard&lt;/a&gt;就是来干这件事情的。&lt;/p&gt;
+
+&lt;p&gt;有时间要试用下，看看安全性和可靠性怎么样,还有点他们只是备份文件，数据库并没有备份。&lt;/p&gt;
+
+&lt;p&gt;不知道什么时候国内可以山寨一个···&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.codeguard.com/&#34;&gt;https://www.codeguard.com/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

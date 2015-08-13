@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html Entities on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/html-entities/</link>
+    <description>Recent content in Html Entities on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Jul 2013 05:18:07 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/html-entities/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SimplePie 将中文编码成 HTML Entities 的解决方法</title>
+      <link>http://:1313/tmp/2013/07/simplepie-%E5%B0%86%E4%B8%AD%E6%96%87%E7%BC%96%E7%A0%81%E6%88%90-html-entities-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Tue, 16 Jul 2013 05:18:07 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2013/07/simplepie-%E5%B0%86%E4%B8%AD%E6%96%87%E7%BC%96%E7%A0%81%E6%88%90-html-entities-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;p&gt;闲来折腾一个玩具&lt;a href=&#34;http://126.am/fbooks&#34; title=&#34;将阅读进行到底&#34;&gt;五车书&lt;/a&gt;的过程中，需要用到解析RSS的地方，于是找到了&lt;a href=&#34;http://simplepie.org/&#34; title=&#34;SimplePie is a very fast and easy-to-use feed parser, written in PHP, that puts the &#39;simple&#39; back into &#39;really simple syndication&#39;.&#34;&gt;强大的SimplePid&lt;/a&gt;。在使用的过程中遇到了一些问题，比如前段时间遇到的&lt;a href=&#34;http://blog.webfuns.net/archives/1681.html&#34;&gt;This XML document is invalid&lt;/a&gt;的问题，其实在这问题前还有一个问题，就是今天说的这个中文被编码的问题。&lt;/p&gt;
+
+&lt;p&gt;经过一番折腾之后，终于搞明白了怎么回事并找到了BT的解决方案。&lt;/p&gt;
+
+&lt;p&gt;SimplePie 在library/Sanitize.php文件的sanitize方法中使用DOMDocument对数据进行了一次加工，正式这次加工把中文编码成了HTML Entities。&lt;/p&gt;
+
+&lt;p&gt;那么为什么会这样呢？php.net上在关于&lt;a href=&#34;http://www.php.net/manual/en/domdocument.loadhtml.php&#34;&gt;DOMDocument::loadHTML&lt;/a&gt;说明下面已经有高人讨论到了此问题。&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container html4strict blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;14&lt;br /&gt;15&lt;br /&gt;16&lt;br /&gt;17&lt;br /&gt;18&lt;br /&gt;19&lt;br /&gt;20&lt;br /&gt;21&lt;br /&gt;22&lt;br /&gt;23&lt;br /&gt;24&lt;br /&gt;25&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;html4strict codecolorer&#34;&gt;
+          If you use loadHTML() to process utf HTML string (eg in Vietnamese), you may experience result in garbage text, while some files were OK. Even your HTML already have meta charset &amp;nbsp;like&lt;br /&gt; &lt;br /&gt; &amp;nbsp; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/meta.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;meta&lt;/span&gt;&lt;/a&gt; &lt;span class=&#34;kw3&#34;&gt;http-equiv&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;content-type&#34;&lt;/span&gt; &lt;span class=&#34;kw3&#34;&gt;content&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;text/html; charset=utf-8&#34;&lt;/span&gt;&gt;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; I have discovered that, to help loadHTML() process utf file correctly, the meta tag should come first, before any utf string appear. For example, this HTML file&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/html.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;html&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &amp;nbsp;&lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/head.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;head&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/meta.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;meta&lt;/span&gt;&lt;/a&gt; &lt;span class=&#34;kw3&#34;&gt;http-equiv&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;content-type&#34;&lt;/span&gt; &lt;span class=&#34;kw3&#34;&gt;content&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;text/html; charset=utf-8&#34;&lt;/span&gt;&gt;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/title.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;title&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt; Vietnamese - Tiếng Việt&lt;span class=&#34;sc2&#34;&gt;&lt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;a href=&#34;http://december.com/html/4/element/title.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;title&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;a href=&#34;http://december.com/html/4/element/head.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;head&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/body.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;body&lt;/span&gt;&lt;/a&gt;&gt;&lt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;a href=&#34;http://december.com/html/4/element/body.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;body&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;a href=&#34;http://december.com/html/4/element/html.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;html&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; will be OK with loadHTML() when &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/meta.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;meta&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt; tag appear &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/title.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;title&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt; tag.&lt;br /&gt; &lt;br /&gt; But the file below will not regcornize by loadHTML() because &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/title.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;title&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt; tag contains utf string appear before &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/meta.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;meta&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt; tag.&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/html.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;html&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &amp;nbsp;&lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/head.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;head&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/title.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;title&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt; Vietnamese - Tiếng Việt&lt;span class=&#34;sc2&#34;&gt;&lt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;a href=&#34;http://december.com/html/4/element/title.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;title&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/meta.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;meta&lt;/span&gt;&lt;/a&gt; &lt;span class=&#34;kw3&#34;&gt;http-equiv&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;content-type&#34;&lt;/span&gt; &lt;span class=&#34;kw3&#34;&gt;content&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;text/html; charset=utf-8&#34;&lt;/span&gt;&gt;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;a href=&#34;http://december.com/html/4/element/head.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;head&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;a href=&#34;http://december.com/html/4/element/body.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;body&lt;/span&gt;&lt;/a&gt;&gt;&lt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;a href=&#34;http://december.com/html/4/element/body.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;body&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sc2&#34;&gt;&lt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;&lt;a href=&#34;http://december.com/html/4/element/html.html&#34;&gt;&lt;span class=&#34;kw2&#34;&gt;html&lt;/span&gt;&lt;/a&gt;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;SimplePie其实已经通过的Santinize的preprocess方法加上了合理charset，按照上面的说明中文就不应该被编码了。看起来凶手另有其人啊，仔细看代码后发现，问题出现在SimplePie在saveHTML之前为了原样取回数据进行了一个处理，代码如下。&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;re0&#34;&gt;$real_body&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$document&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;body&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;childNodes&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$document&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;replaceChild&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$real_body&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$document&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;firstChild&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样处理的结果就像重新load一次HTML一样，但是因为这次每页charset设置，所以中文在这里被编码成了HTML Entities。&lt;/p&gt;
+
+&lt;p&gt;知道了原因就好办了，我是这样搞定她滴～。&lt;br /&gt;
+如下修改library/Sanitize.php文件即可。&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;14&lt;br /&gt;15&lt;br /&gt;16&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;co1&#34;&gt;//修复开始&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$unique_tag&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;#&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt;&lt;a href=&#34;http://www.php.net/uniqid&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;uniqid&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;#&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$data&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$unique_tag&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$unique_tag&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;//修复结束&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$data&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;preprocess&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$type&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy0&#34;&gt;...&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy0&#34;&gt;...&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;// Move everything from the body to the root&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;//注释掉下面紧邻的两行&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;//$real_body = $document-&gt;getElementsByTagName(&#39;body&#39;)-&gt;item(0)-&gt;childNodes-&gt;item(0);&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;//$document-&gt;replaceChild($real_body, $document-&gt;firstChild);&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;// Finally, convert to a HTML string&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$data&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/trim&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;trim&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$document&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;-&gt;&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;saveHTML&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;//添加此行&lt;/span&gt;&lt;br /&gt; &lt;a href=&#34;http://www.php.net/list&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;list&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/explode&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;explode&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$unique_tag&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

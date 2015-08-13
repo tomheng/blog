@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Golang 使用心得-正确关闭channel &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>Golang 使用心得-正确关闭channel</h1>
+			  <small>2015-06-02,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>相信很多同学都是因为Golang有相当简单的并发模型才转过来的。Golang的并发模型主要由三部分构成：Goroutine、Channel和Select。</p>
+
+<p>其中Channel是Goroutine之间通信的桥梁，简单优雅的解决了并行开发中的同步问题。</p>
+
+<p>但是初学者（比如我）通常会遇到** send on closed channel**的错误，这是因为我们向一个已经关闭channle推送数据造成的。通常这个错误是发生在生成消费模型中。channel用来传送需要执行的任务，channel一端是生产者，另一端是消费者。</p>
+
+<p>如下代码：</p>
+
+<div class="codecolorer-container go blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="go codecolorer">
+          <span class="kw1">package</span> main<br /> <br /> <span class="kw1">import</span> <span class="sy1">(</span><br /> &nbsp; &nbsp; <span class="st0">"fmt"</span><br /> &nbsp; &nbsp; <span class="st0">"sync"</span><br /> <span class="sy1">)</span><br /> <br /> <span class="kw4">func</span> main<span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; jobs <span class="sy2">:=</span> <span class="kw3">make</span><span class="sy1">(</span><span class="kw4">chan</span> <span class="kw4">int</span><span class="sy1">)</span><br /> &nbsp; &nbsp; <span class="kw1">var</span> wg sync<span class="sy3">.</span>WaitGroup<br /> &nbsp; &nbsp; wg<span class="sy3">.</span>Add<span class="sy1">(</span><span class="nu0">10</span><span class="sy1">)</span><br /> &nbsp; &nbsp; <span class="kw1">go</span> <span class="kw4">func</span><span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">for</span> <span class="nu2">i</span> <span class="sy2">:=</span> <span class="nu0"></span><span class="sy1">;</span> <span class="nu2">i</span> < <span class="nu0">10</span><span class="sy1">;</span> <span class="nu2">i</span><span class="sy2">++</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jobs <<span class="sy3">-</span> <span class="nu2">i</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fmt<span class="sy3">.</span>Println<span class="sy1">(</span><span class="st0">"produce:"</span><span class="sy1">,</span> <span class="nu2">i</span><span class="sy1">)</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">}</span> &nbsp; <br /> &nbsp; &nbsp; <span class="sy1">}()</span> <br /> &nbsp; &nbsp; <span class="kw1">go</span> <span class="kw4">func</span><span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">for</span> <span class="nu2">i</span> <span class="sy2">:=</span> <span class="kw1">range</span> jobs <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fmt<span class="sy3">.</span>Println<span class="sy1">(</span><span class="st0">"consume:"</span><span class="sy1">,</span> i<span class="sy1">)</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; wg<span class="sy3">.</span><span class="me1">Done</span><span class="sy1">()</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">}</span> &nbsp; <br /> &nbsp; &nbsp; <span class="sy1">}()</span> <br /> &nbsp; &nbsp; wg<span class="sy3">.</span><span class="me1">Wait</span><span class="sy1">()</span><br /> <span class="sy1">}</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>注意上面的代码我们没有主动关闭channel，因为我一开始就知道执行的任务数，所以直接等待任务完成即可，没有必要主动关闭channel。</p>
+
+<p>假设我们的场景中，生产者没有生成数量的限制，只有一个时间限制。那么代码演变成下面这样：</p>
+
+<div class="codecolorer-container go blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="go codecolorer">
+          <span class="kw1">package</span> main<br /> <br /> <span class="kw1">import</span> <span class="sy1">(</span><br /> &nbsp; &nbsp; <span class="st0">"fmt"</span><br /> &nbsp; &nbsp; <span class="st0">"sync"</span><br /> &nbsp; &nbsp; <span class="st0">"time"</span><br /> <span class="sy1">)</span><br /> <br /> <span class="kw4">func</span> main<span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; jobs <span class="sy2">:=</span> <span class="kw3">make</span><span class="sy1">(</span><span class="kw4">chan</span> <span class="kw4">int</span><span class="sy1">)</span><br /> &nbsp; &nbsp; <span class="kw1">var</span> wg sync<span class="sy3">.</span>WaitGroup<br /> &nbsp; &nbsp; <span class="kw1">go</span> <span class="kw4">func</span><span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; time<span class="sy3">.</span>Sleep<span class="sy1">(</span>time<span class="sy3">.</span>Second <span class="sy3">*</span> <span class="nu0">3</span><span class="sy1">)</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">close</span><span class="sy1">(</span>jobs<span class="sy1">)</span><br /> &nbsp; &nbsp; <span class="sy1">}()</span> <br /> &nbsp; &nbsp; <span class="kw1">go</span> <span class="kw4">func</span><span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">for</span> <span class="nu2">i</span> <span class="sy2">:=</span> <span class="nu0"></span><span class="sy1">;</span> <span class="sy1">;</span> <span class="nu2">i</span><span class="sy2">++</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jobs <<span class="sy3">-</span> <span class="nu2">i</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fmt<span class="sy3">.</span>Println<span class="sy1">(</span><span class="st0">"produce:"</span><span class="sy1">,</span> <span class="nu2">i</span><span class="sy1">)</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">}</span> &nbsp; <br /> &nbsp; &nbsp; <span class="sy1">}()</span> <br /> &nbsp; &nbsp; wg<span class="sy3">.</span>Add<span class="sy1">(</span><span class="nu0">1</span><span class="sy1">)</span><br /> &nbsp; &nbsp; <span class="kw1">go</span> <span class="kw4">func</span><span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">defer</span> wg<span class="sy3">.</span>Done<span class="sy1">()</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">for</span> <span class="nu2">i</span> <span class="sy2">:=</span> <span class="kw1">range</span> jobs <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fmt<span class="sy3">.</span>Println<span class="sy1">(</span><span class="st0">"consume:"</span><span class="sy1">,</span> i<span class="sy1">)</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">}</span> &nbsp; <br /> &nbsp; &nbsp; <span class="sy1">}()</span> <br /> &nbsp; &nbsp; wg<span class="sy3">.</span><span class="me1">Wait</span><span class="sy1">()</span><br /> <span class="sy1">}</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>这时程序就会因为<strong>send on closed channel</strong>而崩溃。那么首先想到的解决方案可能是在放入jobs的时候检查jobs是否已关闭。幸好Golang有办法来检测channel是否被关闭，但是非常不好用。Golang中可以用comma ok的方式检测channel是否关闭，如下：</p>
+
+<p>i, ok := &lt;- jobs 如果channel关闭那么ok返回的是false，但是这样的话，如果jobs没有关闭，那么就会漏掉一个job。当然你可以想办好hack掉漏掉的这个job。但是这样的代码不是很优雅，也是那么直观合理。 在实践中我是用的如下代码处理这个问题。</p>
+
+<div class="codecolorer-container go blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />31<br />32<br />33<br />34<br />35<br />36<br />37<br />38<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="go codecolorer">
+          <span class="kw1">package</span> main<br /> <br /> <span class="kw1">import</span> <span class="sy1">(</span><br /> &nbsp; &nbsp; <span class="st0">"fmt"</span><br /> &nbsp; &nbsp; <span class="st0">"sync"</span><br /> &nbsp; &nbsp; <span class="st0">"time"</span><br /> <span class="sy1">)</span><br /> <br /> <span class="kw4">func</span> main<span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; jobs <span class="sy2">:=</span> <span class="kw3">make</span><span class="sy1">(</span><span class="kw4">chan</span> <span class="kw4">int</span><span class="sy1">)</span><br /> &nbsp; &nbsp; <span class="kw1">var</span> wg sync<span class="sy3">.</span>WaitGroup<br /> &nbsp; &nbsp; timeout <span class="sy2">:=</span> <span class="kw3">make</span><span class="sy1">(</span><span class="kw4">chan</span> <span class="kw4">bool</span><span class="sy1">)</span><br /> &nbsp; &nbsp; <span class="kw1">go</span> <span class="kw4">func</span><span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; time<span class="sy3">.</span>Sleep<span class="sy1">(</span>time<span class="sy3">.</span>Second <span class="sy3">*</span> <span class="nu0">3</span><span class="sy1">)</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; timeout <<span class="sy3">-</span> <span class="kw2">true</span><br /> &nbsp; &nbsp; <span class="sy1">}()</span> <br /> &nbsp; &nbsp; <span class="kw1">go</span> <span class="kw4">func</span><span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">for</span> <span class="nu2">i</span> <span class="sy2">:=</span> <span class="nu0"></span><span class="sy1">;</span> <span class="sy1">;</span> <span class="nu2">i</span><span class="sy2">++</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">select</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">case</span> <<span class="sy3">-</span>timeout<span class="sy1">:</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">close</span><span class="sy1">(</span>jobs<span class="sy1">)</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">default</span><span class="sy1">:</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jobs <<span class="sy3">-</span> <span class="nu2">i</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fmt<span class="sy3">.</span>Println<span class="sy1">(</span><span class="st0">"produce:"</span><span class="sy1">,</span> <span class="nu2">i</span><span class="sy1">)</span><br /> <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">}</span> &nbsp; <br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">}</span> &nbsp; <br /> &nbsp; &nbsp; <span class="sy1">}()</span> <br /> &nbsp; &nbsp; wg<span class="sy3">.</span>Add<span class="sy1">(</span><span class="nu0">1</span><span class="sy1">)</span><br /> &nbsp; &nbsp; <span class="kw1">go</span> <span class="kw4">func</span><span class="sy1">()</span> <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">defer</span> wg<span class="sy3">.</span>Done<span class="sy1">()</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">for</span> <span class="nu2">i</span> <span class="sy2">:=</span> <span class="kw1">range</span> jobs <span class="sy1">{</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fmt<span class="sy3">.</span>Println<span class="sy1">(</span><span class="st0">"consume:"</span><span class="sy1">,</span> i<span class="sy1">)</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">}</span> &nbsp; <br /> &nbsp; &nbsp; <span class="sy1">}()</span> <br /> &nbsp; &nbsp; wg<span class="sy3">.</span><span class="me1">Wait</span><span class="sy1">()</span><br /> <span class="sy1">}</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>实际情况可能还要复杂很多，比如会有多个生产者，这个时候代码又该如何处理呢？大家可以想一想。。。</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/golang">Golang</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

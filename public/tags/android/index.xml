@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/android/</link>
+    <description>Recent content in Android on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Jun 2014 05:05:16 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CyanogenMod源码目录简介</title>
+      <link>http://:1313/tmp/2014/06/cyanogenmod%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Sun, 08 Jun 2014 05:05:16 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2014/06/cyanogenmod%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95%E7%AE%80%E4%BB%8B/</guid>
+      <description>&lt;p&gt;简单说明下，CyanogenMod的目录结构，方便大家编译自己的ROM。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;bionic/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;主要是一些Android 定制的&lt;a href=&#34;http://en.wikipedia.org/wiki/C_standard_library&#34;&gt;libc&lt;/a&gt; 库文件，一般情况下无需修改此目录的文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;build/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;编译过程回用到的脚本和各种文件。如果对&lt;a href=&#34;http://www.ibm.com/developerworks/cn/opensource/os-cn-android-build/&#34;&gt;Android编译&lt;/a&gt;过程和各种Make 命令有兴趣，可以研究下这个目录。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;bootable/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #000000;&#34;&gt; ClockworkMod recovery的目录。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;dalvik/&lt;/strong&gt;&lt;br /&gt;
+运行Java程序的虚拟机dalvik。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;art/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在Android 4.4中引入的新的Java运行环境，旨在替代dalvik，通过预编译APP提高运行速度。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;device/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;具体手机适配的文件相关的目录，目录一般组织为device/&lt;vendor&gt;/&lt;codename&gt;。比如小米2s的可以这样device/xiaomi/aries。做适配的时候大多都在这里进行。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;doc/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;包括 &lt;a href=&#34;http://source.android.com/&#34;&gt;Android Open Source&lt;/a&gt; 网站的源码。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;external/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;被Android 或 CyanogenMod 引用，在编译过中可能会用到的，但不是Android体系内的一部分工具。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;frameworks/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Android frameworks的核心部件。Android frameworks是Android架构中比较上层的一部分，主要的UI和编程所需要的接口大部分在这一层提供。当然还包括CyanogenMode为Qualcomm、OMA和其他架构所做的优化。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;hardware/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;平台和硬件相关的库文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;kernel/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;内核相关的部分，目录的组织结构类似device。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ndk/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;支持可以用c 编写app，更多细节参考&lt;a href=&#34;http://developer.android.com/tools/sdk/ndk/index.html&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;out/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;编译的最终产出物都会放在这个目录。Android ROM相关的在out/target/product/&lt;codename&gt;目录下，包括system.img、recovery.img、boot.img 等。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;packages/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Android app 的源码文件在packages/apps下。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;prebuilt/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;包括跨平台编译Android的工具链。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;system/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Linux 底层的系统，包括shell、netd、fastboot等。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;vendor/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;存放从设备中提取的二进制资源文件（&lt;b style=&#34;color: #000000;&#34;&gt;proprietary blobs&lt;/b&gt;&lt;span style=&#34;color: #000000;&#34;&gt; ）。&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>websharing wifi网页文件共享- android软件推荐</title>
+      <link>http://:1313/tmp/2010/10/websharing-wifi%E7%BD%91%E9%A1%B5%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB--android%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</link>
+      <pubDate>Wed, 27 Oct 2010 12:48:29 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/10/websharing-wifi%E7%BD%91%E9%A1%B5%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB--android%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</guid>
+      <description>&lt;p&gt;我现在用的手机是三星的5700 Android手机，Android系统果然魅力非凡，可玩性很高。最近发现一个特别好玩的软件&lt;strong&gt;websharing&lt;/strong&gt; ，他是如何的强大呢？先看看介绍吧！&lt;/p&gt;
+
+&lt;div&gt;
+  &lt;span style=&#34;color: #3366ff;&#34;&gt;网页共享(WebSharing)可以通过&lt;a href=&#34;http://www.wuxianle.com/category/zhuan-ti/wifi &#34;&gt;WIFI&lt;/a&gt;无线局域网共享你手机上的文件、音乐、视频、图像等，你只需要在电脑输入一个地址就能访问和播放。&lt;/p&gt; 
+  
+  &lt;p&gt;
+    你还可以自定义端口和使用手机网络分享手机文件，除此之外软件还提供了两个账户，分别拥有不同的权限，最大限度保证了你的资料的安全
+  &lt;/p&gt;
+  
+  &lt;div id=&#34;attachment_869&#34; style=&#34;width: 656px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+    &lt;img class=&#34;size-full wp-image-869&#34; title=&#34; web sharing&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2010/10/QQ截图未命名.jpg&#34; alt=&#34; web sharing&#34; width=&#34;646&#34; height=&#34;316&#34; /&gt;
+    
+    &lt;p class=&#34;wp-caption-text&#34;&gt;
+      web sharing
+    &lt;/p&gt;
+  &lt;/div&gt;
+  
+
+&lt;p&gt;&lt;p&gt;
+    &lt;strong&gt; 主要功能:&lt;/strong&gt;
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    *批量上传/下载:传输整个文件夹/相册
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    *传输音乐支持在电脑播放手机音乐
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    *查看照片
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    *观赏影片
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    &lt;/span&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
+  &amp;lt;span style=&amp;quot;color: #000000;&amp;quot;&amp;gt;这个最大的特点就是让我们摆脱了线路的困扰，其实很久以前我就有这个想法，不过一直没有去实现。手机带上Wi-Fi后可想象的空间很多。如果 Wi-Fi Direct 成为现实,那么可以实现用wifi网络来玩一些局域网游戏，比如斗地主，大家在一起玩的时候就不用扑克牌了，直接用手机的Wi-Fi加入同一个局域网，就可以实现通过手机斗地主。&amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Apache安装- 80端口占用问题解决方法 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>Apache安装- 80端口占用问题解决方法</h1>
+			  <small>2010-07-22,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>学习PHP首先要安装LAMP运行环境，安装中经常会遇到的问题就是Apache 所使用的80端口被其他程序占用。出现这种情况，首先要看看不守妇道的迅雷，它有时会占用80端口，这个可以在迅雷的配置中查看，如果占有的话，把端口配置改为随机即可。如果不是迅雷那么可以通过下面的方法解决。</p>
+
+<p>** 一、更改Apache所使用的端口**</p>
+
+<p>这个问题<a class="wpgallery" href="http://www.baidu.com/s?bs=taskkill%C3%FC%C1%EE&f=8&wd=%B8%FC%B8%C4Apache+%B5%C4%B6%CB%BF%DA" target="_blank">答案</a>搜索一下便可以了，但是这样有一个不好的地方就是每次访问都要带上端口号，不是很实用。</p>
+
+<p><strong>二、DOS命令查杀占用的进程</strong></p>
+
+<p><span style="color: #008000;"><span style="color: #808080;">step1. </span> <span style="color: #ff0000;"><span style="color: #008000;">netstat -aon</span> </span></span></p>
+
+<p><span style="color: #008000;"><span style="color: #0000ff;">TCP    0.0.0.0:80             0.0.0.0:0              LISTENING       <span style="color: #ff0000;">1656</span></span></span></p>
+
+<p><span style="color: #ff0000;">这里就是列出的占用80端口的进程，最后的1656是进程号。</span></p>
+
+<p><span style="color: #ff0000;"><span style="color: #808080;">step2.</span> <span style="color: #008000;">taskkill -pid</span> 1656</span></p>
+
+<p><span style="color: #ff0000;">杀死该进程</span></p>
+
+<p><span style="color: #ff0000;"><span style="color: #000000;">如果进程是自启动的，那么还需要查找进程对应的程序，这个可以通过任务管理器或者tasklist命令找到对应的程序，然后修改启动项即可。如果感觉这样麻烦的话，可以使用<a class="wpgallery" href="http://bfidc.onlinedown.net/down/IceSword122cn.zip " target="_blank">兵刃</a>来查杀占用端口的程序。</span></span></p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xml on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/xml/</link>
+    <description>Recent content in Xml on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Jun 2013 13:24:13 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/xml/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>This XML document is invalid 错误处理</title>
+      <link>http://:1313/tmp/2013/06/this-xml-document-is-invalid-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+      <pubDate>Fri, 14 Jun 2013 13:24:13 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2013/06/this-xml-document-is-invalid-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
+      <description>&lt;p&gt;在做XML解析的时候很可能遇到This XML document is invalid这种错误。&lt;/p&gt;
+
+&lt;p&gt;在PHP中根据使用的解析函数（字符串编码为UTF-8）不同可能的提示有以下两种：&lt;/p&gt;
+
+&lt;p&gt;1）xml_parser*函数错误提示&lt;/p&gt;
+
+&lt;p&gt;This XML document is invalid, likely due to invalid characters. XML error: Invalid character at line 30, column 25&lt;/p&gt;
+
+&lt;p&gt;2）XMLReader类 或 simplexml_load*函数&lt;/p&gt;
+
+&lt;p&gt;error on line 30 at column 25: Input is not proper UTF-8, indicate encoding !&lt;br /&gt;
+Bytes: 0x1D 0xE7 0xBB 0x&lt;/p&gt;
+
+&lt;p&gt;搜索了好久没有找到完美的解决方案，最后分析发现出现这种问题一般是因为出现了不可见字符。于是就试了试能不能通过去除不可见字符的方式来绕过这个错误提示，从而使解析继续下去。经过实验在我的测试中是可以的，所以分享出来，希望对遇到同样问题的朋友能节约一些时间。&lt;/p&gt;
+
+&lt;p&gt;可以通过如下方式去除字符串中的不可见字符。&lt;/p&gt;
+
+&lt;p&gt;preg_replace(&amp;#8216;/[^\P{C}\n]+/u&amp;#8217;, &amp;#8221;, $utf8_data）&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/github/</link>
+    <description>Recent content in Github on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Feb 2012 11:38:21 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>初识Git</title>
+      <link>http://:1313/tmp/2012/02/%E5%88%9D%E8%AF%86git/</link>
+      <pubDate>Tue, 07 Feb 2012 11:38:21 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/02/%E5%88%9D%E8%AF%86git/</guid>
+      <description>
+
+&lt;h3 id=&#34;git-1:a215bbfe2f03ec7a8d41c377cae8166d&#34;&gt;&lt;a href=&#34;http://git-scm.com/&#34;&gt;Git&lt;/a&gt; ?&lt;/h3&gt;
+
+&lt;p&gt;Git 是一个分布式的版本控制系统。Git现在应用很广，很多开源项目都使用Git（&lt;a href=&#34;http://github.com&#34; title=&#34;social coding&#34;&gt;GitHub&lt;/a&gt;）进行代码管理。Git不同于SVN，Git所有版本信息可以保存在本地，所以可以离线使用，这样就避免了像SVN这样有中心服务器带来的单点问题，而且速度很快。&lt;/p&gt;
+
+&lt;p&gt;Git诞生在Linux环境中，不过同样可以在window系统中使用，目前有两个开源项目在做这个个工作&lt;a href=&#34;https://code.google.com/p/msysgit/&#34;&gt;Msysgit&lt;/a&gt; 和 &lt;a href=&#34;https://code.google.com/p/tortoisegit/&#34;&gt;Tortoisegit&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://code.google.com/p/msysgit/&#34;&gt;https://code.google.com/p/msysgit/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://code.google.com/p/tortoisegit/&#34;&gt;https://code.google.com/p/tortoisegit/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;命令说明:a215bbfe2f03ec7a8d41c377cae8166d&#34;&gt;命令说明？&lt;/h3&gt;
+
+&lt;h3 id=&#34;img-class-wp-image-1388-title-关于git很重要到一张图-src-http-blog-webfuns-net-wp-content-uploads-2012-02-local-remote-png-alt-关于git很重要到一张图-width-664-height-545:a215bbfe2f03ec7a8d41c377cae8166d&#34;&gt;&lt;img class=&#34; wp-image-1388&#34; title=&#34;关于Git很重要到一张图&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2012/02/local-remote.png&#34; alt=&#34;关于Git很重要到一张图&#34; width=&#34;664&#34; height=&#34;545&#34; /&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;参考资料：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://zh-cn.whygitisbetterthanx.com/&#34;&gt;http://zh-cn.whygitisbetterthanx.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://article.yeeyan.org/view/219474/204402&#34;&gt;http://article.yeeyan.org/view/219474/204402&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://files.cnblogs.com/phphuaibei/git%E6%90%AD%E5%BB%BA.pdf&#34;&gt;http://files.cnblogs.com/phphuaibei/git%E6%90%AD%E5%BB%BA.pdf&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://icyleaf.com/2010/09/apps-auto-deploy-with-git/&#34;&gt;http://icyleaf.com/2010/09/apps-auto-deploy-with-git/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://artori.us/git-github-usage/&#34;&gt;http://artori.us/git-github-usage/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://nathanj.github.com/gitguide/tour.html&#34;&gt;http://nathanj.github.com/gitguide/tour.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://nvie.com/posts/a-successful-git-branching-model/&#34;&gt;http://nvie.com/posts/a-successful-git-branching-model/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rogerdudler.github.com/git-guide/&#34;&gt;http://rogerdudler.github.com/git-guide/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://progit.org/&#34;&gt;http://progit.org&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

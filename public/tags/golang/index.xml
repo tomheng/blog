@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/golang/</link>
+    <description>Recent content in Golang on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jul 2015 06:41:12 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Golang中空字符表示</title>
+      <link>http://:1313/tmp/2015/07/golang%E4%B8%AD%E7%A9%BA%E5%AD%97%E7%AC%A6%E8%A1%A8%E7%A4%BA/</link>
+      <pubDate>Wed, 15 Jul 2015 06:41:12 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/07/golang%E4%B8%AD%E7%A9%BA%E5%AD%97%E7%AC%A6%E8%A1%A8%E7%A4%BA/</guid>
+      <description>&lt;p&gt;空字符（Null character）又称结束符，缩写NUL，是一个数值为0的控制字符。在C语言中空字符用来表示字符串的结束。&lt;/p&gt;
+
+&lt;p&gt;在C语言中也可以直接插入空字符：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container c blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;c codecolorer&#34;&gt;
+          &lt;span class=&#34;co2&#34;&gt;#include &lt;stdio.h&gt;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt; main&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;kw4&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.opengroup.org/onlinepubs/009695399/functions/puts.html&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;puts&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;hello&lt;span class=&#34;es5&#34;&gt;\0&lt;/span&gt;world&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;但是在Go中，类似的代码是不行的：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container go blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;go codecolorer&#34;&gt;
+          &lt;span class=&#34;kw1&#34;&gt;package&lt;/span&gt; main&lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;fmt&#34;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; main&lt;span class=&#34;sy1&#34;&gt;(){&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; fmt&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Println&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;hello\0world&#34;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co1&#34;&gt;//print: /tmp/g.go:4: non-octal character in escape sequence: w&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;查看文档：&lt;a href=&#34;https://golang.org/ref/spec#String_literals&#34;&gt;https://golang.org/ref/spec#String_literals&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;修改一下即可：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container go blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;go codecolorer&#34;&gt;
+          &lt;span class=&#34;kw1&#34;&gt;package&lt;/span&gt; main&lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;fmt&#34;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; main&lt;span class=&#34;sy1&#34;&gt;(){&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; fmt&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Println&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;hello&lt;span class=&#34;es2&#34;&gt;\000&lt;/span&gt;world&#34;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang多版本共存方案</title>
+      <link>http://:1313/tmp/2015/06/golang%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Fri, 12 Jun 2015 08:35:04 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/06/golang%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98%E6%96%B9%E6%A1%88/</guid>
+      <description>&lt;p&gt;如果你是一个狂热的Golang爱好者，也许你会同时使用两个或两个以上的Golang版本。那么这时候怎么实现呢？&lt;/p&gt;
+
+&lt;p&gt;这里提供一个Russ cox的方案。这个方案是在Google Group里看到的，但是我现在已经找不到具体是哪个链接了。&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container bash blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;bash codecolorer&#34;&gt;
+          &lt;span class=&#34;co0&#34;&gt;#file:/usr/bin/go1.4&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#!/bin/bash&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw3&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;re2&#34;&gt;GOROOT&lt;/span&gt;=&lt;span class=&#34;re1&#34;&gt;$HOME&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;go1.4&lt;br /&gt; &lt;span class=&#34;kw3&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;re2&#34;&gt;PATH&lt;/span&gt;=&lt;span class=&#34;re1&#34;&gt;$HOME&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;go1.4&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;bin:&lt;span class=&#34;re1&#34;&gt;$PATH&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw3&#34;&gt;exec&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$GOROOT&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;bin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;go &lt;span class=&#34;st0&#34;&gt;&#34;$@&#34;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;历史稳定版本可以这样处理，然后把开发版本作为默认的。&lt;/p&gt;
+
+&lt;p&gt;all done.&lt;/p&gt;
+
+&lt;p&gt;另：&lt;a href=&#34;https://twitter.com/_rsc&#34;&gt;Russ cox &lt;/a&gt;已经成为我的偶像啦&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>分享自己用Golang写的一个Web bench 工具</title>
+      <link>http://:1313/tmp/2015/06/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E7%94%A8golang%E5%86%99%E7%9A%84%E4%B8%80%E4%B8%AAweb-bench-%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 10 Jun 2015 12:49:08 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/06/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E7%94%A8golang%E5%86%99%E7%9A%84%E4%B8%80%E4%B8%AAweb-bench-%E5%B7%A5%E5%85%B7/</guid>
+      <description>&lt;p&gt;最近一直在学习Golang，业余时间开了个Web bench 工具awb，awb是another web bench的缩写，基本功能已完成，兼容ab的参数。&lt;/p&gt;
+
+&lt;p&gt;初步测试并发性比ab要好一些。感觉Golang除了在服务端开发方面有很大的优势以外，在写各类工具方面也是挺方便顺手的。估计未来会有很多写的运维工具使用Golang 编写。&lt;/p&gt;
+
+&lt;p&gt;总体上来说Go非常符合我的胃口。既有PHP的简洁、高效，在性能、并发、异步方面又有很好的系统级别的支持。整体上很有当年第一次看到PHP的时候的感觉。。。心动不已啊 &lt;img src=&#34;http://blog.webfuns.net/wp-includes/images/smilies/simple-smile.png&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; style=&#34;height: 1em; max-height: 1em;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/tomheng/awb&#34;&gt;https://github.com/tomheng/awb&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[转]How does the Go runtime work?</title>
+      <link>http://:1313/tmp/2015/06/%E8%BD%AChow-does-the-go-runtime-work/</link>
+      <pubDate>Wed, 10 Jun 2015 10:25:02 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/06/%E8%BD%AChow-does-the-go-runtime-work/</guid>
+      <description>&lt;p&gt;(This answer is for the Go compiler from golang.org. It is not about gccgo.)&lt;/p&gt;
+
+&lt;p&gt;The Go runtime is a Go package, which appears (in the documentation, the build process, the things it exports) to be like any other Go package. It is written in a combination of Go, C, and assembly. In order for it to do all the low level things it needs to do, there are special adaptations (hacks?) in the build system and in the compiler that are activated when compiling it. The runtime has architecture- and OS-specific things in it, which are compiled in according the the target platform.&lt;/p&gt;
+
+&lt;p&gt;At linking time, the linker creates a statically linked ELF (or PE or MachO) file which includes the runtime, your program, and every package that your program references. The starting address in the ELF header points into the runtime. It arranges for it&amp;#8217;s own data structures to be initialized, then calls the initializers of all the packages (ordering of init is probably figured out at link time by the linker). It then transfers control to main.main, and your program is running. (There are situations where Go creates dynamically linked executables, but the majority of the code is still statically linked.)&lt;/p&gt;
+
+&lt;p&gt;When your program does things that could cause a crash, like a cast, or accessing an item in an array, the compiler emits calls into the runtime, which checks the data type with run time type info, or checks the bounds of the array. Likewise for memory allocation and for creating new goroutines, the runtime gets control. The runtime has a user-space scheduler in it, which implements cooperative multitasking; if a goroutine goes into a tight loop without calling any routines that would block (thereby giving the scheduler control) it can starve all the other goroutines. The runtime spawns a new system thread when needed to prevent the system from blocking on system calls. There can be fewer system threads in a Go system than the number of goroutines that are active.&lt;/p&gt;
+
+&lt;p&gt;The final aspect of the Go runtime that is very interesting is the per-goroutine stack. The runtime, together with the linker, arranges for the hardware stack to be non-contiguous, able to grow and shrink according to demand. As the stack shrinks after growing, it is freed and is available to be realloced as other types of objects by the memory allocator. This allows Go stacks to start very small (8 k), meaning that a Go program can launch hundreds of thousands of Goroutines without running out of address space. (The stack is becoming continuous in Go 1.5 but it can still be reallocated and moved when it runs out.)&lt;/p&gt;
+
+&lt;p&gt;When programming Go, the runtime is not in the front of your mind. You interact with the system library, and the runtime supports your code more or less silently. This is why the majority of information you&amp;#8217;ll see about Go is how to use the libraries and how to use the channels to implement concurrent programming, and little about the runtime itself.&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&#34;http://www.quora.com/How-does-the-Go-runtime-work&#34;&gt;http://www.quora.com/How-does-the-Go-runtime-work&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang 使用心得-正确关闭channel</title>
+      <link>http://:1313/tmp/2015/06/golang-%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97-%E6%AD%A3%E7%A1%AE%E5%85%B3%E9%97%ADchannel/</link>
+      <pubDate>Tue, 02 Jun 2015 13:48:36 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/06/golang-%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97-%E6%AD%A3%E7%A1%AE%E5%85%B3%E9%97%ADchannel/</guid>
+      <description>&lt;p&gt;相信很多同学都是因为Golang有相当简单的并发模型才转过来的。Golang的并发模型主要由三部分构成：Goroutine、Channel和Select。&lt;/p&gt;
+
+&lt;p&gt;其中Channel是Goroutine之间通信的桥梁，简单优雅的解决了并行开发中的同步问题。&lt;/p&gt;
+
+&lt;p&gt;但是初学者（比如我）通常会遇到** send on closed channel**的错误，这是因为我们向一个已经关闭channle推送数据造成的。通常这个错误是发生在生成消费模型中。channel用来传送需要执行的任务，channel一端是生产者，另一端是消费者。&lt;/p&gt;
+
+&lt;p&gt;如下代码：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container go blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;14&lt;br /&gt;15&lt;br /&gt;16&lt;br /&gt;17&lt;br /&gt;18&lt;br /&gt;19&lt;br /&gt;20&lt;br /&gt;21&lt;br /&gt;22&lt;br /&gt;23&lt;br /&gt;24&lt;br /&gt;25&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;go codecolorer&#34;&gt;
+          &lt;span class=&#34;kw1&#34;&gt;package&lt;/span&gt; main&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;&#34;fmt&#34;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;&#34;sync&#34;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; main&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; jobs &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;kw3&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kw4&#34;&gt;chan&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;var&lt;/span&gt; wg sync&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;WaitGroup&lt;br /&gt; &amp;nbsp; &amp;nbsp; wg&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Add&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;go&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt; &lt; &lt;span class=&#34;nu0&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; jobs &lt;&lt;span class=&#34;sy3&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fmt&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Println&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;produce:&#34;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt; &amp;nbsp; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}()&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;go&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;range&lt;/span&gt; jobs &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fmt&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Println&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;consume:&#34;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; i&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; wg&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;Done&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt; &amp;nbsp; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}()&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; wg&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;Wait&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;注意上面的代码我们没有主动关闭channel，因为我一开始就知道执行的任务数，所以直接等待任务完成即可，没有必要主动关闭channel。&lt;/p&gt;
+
+&lt;p&gt;假设我们的场景中，生产者没有生成数量的限制，只有一个时间限制。那么代码演变成下面这样：&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container go blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;14&lt;br /&gt;15&lt;br /&gt;16&lt;br /&gt;17&lt;br /&gt;18&lt;br /&gt;19&lt;br /&gt;20&lt;br /&gt;21&lt;br /&gt;22&lt;br /&gt;23&lt;br /&gt;24&lt;br /&gt;25&lt;br /&gt;26&lt;br /&gt;27&lt;br /&gt;28&lt;br /&gt;29&lt;br /&gt;30&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;go codecolorer&#34;&gt;
+          &lt;span class=&#34;kw1&#34;&gt;package&lt;/span&gt; main&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;&#34;fmt&#34;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;&#34;sync&#34;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;&#34;time&#34;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; main&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; jobs &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;kw3&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kw4&#34;&gt;chan&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;var&lt;/span&gt; wg sync&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;WaitGroup&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;go&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; time&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Sleep&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;time&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Second &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw3&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;jobs&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}()&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;go&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; jobs &lt;&lt;span class=&#34;sy3&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fmt&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Println&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;produce:&#34;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt; &amp;nbsp; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}()&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; wg&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Add&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;go&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;defer&lt;/span&gt; wg&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Done&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;range&lt;/span&gt; jobs &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fmt&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Println&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;consume:&#34;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; i&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt; &amp;nbsp; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}()&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; wg&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;Wait&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这时程序就会因为&lt;strong&gt;send on closed channel&lt;/strong&gt;而崩溃。那么首先想到的解决方案可能是在放入jobs的时候检查jobs是否已关闭。幸好Golang有办法来检测channel是否被关闭，但是非常不好用。Golang中可以用comma ok的方式检测channel是否关闭，如下：&lt;/p&gt;
+
+&lt;p&gt;i, ok := &amp;lt;- jobs 如果channel关闭那么ok返回的是false，但是这样的话，如果jobs没有关闭，那么就会漏掉一个job。当然你可以想办好hack掉漏掉的这个job。但是这样的代码不是很优雅，也是那么直观合理。 在实践中我是用的如下代码处理这个问题。&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container go blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;14&lt;br /&gt;15&lt;br /&gt;16&lt;br /&gt;17&lt;br /&gt;18&lt;br /&gt;19&lt;br /&gt;20&lt;br /&gt;21&lt;br /&gt;22&lt;br /&gt;23&lt;br /&gt;24&lt;br /&gt;25&lt;br /&gt;26&lt;br /&gt;27&lt;br /&gt;28&lt;br /&gt;29&lt;br /&gt;30&lt;br /&gt;31&lt;br /&gt;32&lt;br /&gt;33&lt;br /&gt;34&lt;br /&gt;35&lt;br /&gt;36&lt;br /&gt;37&lt;br /&gt;38&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;go codecolorer&#34;&gt;
+          &lt;span class=&#34;kw1&#34;&gt;package&lt;/span&gt; main&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;&#34;fmt&#34;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;&#34;sync&#34;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;st0&#34;&gt;&#34;time&#34;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; main&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; jobs &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;kw3&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kw4&#34;&gt;chan&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;var&lt;/span&gt; wg sync&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;WaitGroup&lt;br /&gt; &amp;nbsp; &amp;nbsp; timeout &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;kw3&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kw4&#34;&gt;chan&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;bool&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;go&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; time&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Sleep&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;time&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Second &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; timeout &lt;&lt;span class=&#34;sy3&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;true&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}()&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;go&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;case&lt;/span&gt; &lt;&lt;span class=&#34;sy3&#34;&gt;-&lt;/span&gt;timeout&lt;span class=&#34;sy1&#34;&gt;:&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw3&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;jobs&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;:&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; jobs &lt;&lt;span class=&#34;sy3&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fmt&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Println&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;produce:&#34;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt; &amp;nbsp; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt; &amp;nbsp; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}()&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; wg&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Add&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;go&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;defer&lt;/span&gt; wg&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Done&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;range&lt;/span&gt; jobs &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fmt&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;Println&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;consume:&#34;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; i&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt; &amp;nbsp; &lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}()&lt;/span&gt; &lt;br /&gt; &amp;nbsp; &amp;nbsp; wg&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;me1&#34;&gt;Wait&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;()&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;实际情况可能还要复杂很多，比如会有多个生产者，这个时候代码又该如何处理呢？大家可以想一想。。。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[转]Go Data Structures</title>
+      <link>http://:1313/tmp/2015/04/%E8%BD%ACgo-data-structures/</link>
+      <pubDate>Thu, 30 Apr 2015 14:46:43 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/04/%E8%BD%ACgo-data-structures/</guid>
+      <description>
+
+&lt;p class=&#34;lp&#34;&gt;
+  When explaining Go to new programmers, I&amp;#8217;ve found that it often helps to explain what Go values look like in memory, to build the right intuition about which operations are expensive and which are not. This post is about basic types, structs, arrays, and slices.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-types:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;Basic types&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;#8217;s start with some simple examples:&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  &lt;img class=&#34;aligncenter size-full wp-image-1913&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata1.png&#34; alt=&#34;godata1&#34; width=&#34;409&#34; height=&#34;303&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  The variable &lt;em&gt;i&lt;/em&gt; has type &lt;em&gt;int&lt;/em&gt;, represented in memory as a single 32-bit word. (All these pictures show a 32-bit memory layout; in the current implementations, only the pointer gets bigger on a 64-bit machine—&lt;em&gt;int&lt;/em&gt; is still 32 bits—though an implementation could choose to use 64 bits instead.)
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  The variable &lt;em&gt;j&lt;/em&gt; has type &lt;em&gt;int32&lt;/em&gt;, because of the explicit conversion. Even though &lt;em&gt;i&lt;/em&gt; and &lt;em&gt;j&lt;/em&gt; have the same memory layout, they have different types: the assignment &lt;em&gt;i = j&lt;/em&gt; is a type error and must be written with an explicit conversion: &lt;em&gt;i = int(j)&lt;/em&gt;.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  The variable &lt;em&gt;f&lt;/em&gt; has type &lt;em&gt;float&lt;/em&gt;, which the current implementations represent as a 32-bit floating-point value. It has the same memory footprint as the &lt;em&gt;int32&lt;/em&gt; but a different internal layout.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;structs-and-pointers:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;Structs and pointers&lt;/h2&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Now things start to pick up. The variable &lt;em&gt;bytes&lt;/em&gt; has type &lt;em&gt;[5]byte&lt;/em&gt;, an array of 5 &lt;em&gt;byte&lt;/em&gt;s. Its memory representation is just those 5 bytes, one after the other, like a C array. Similarly, &lt;em&gt;primes&lt;/em&gt;is an array of 4 &lt;em&gt;int&lt;/em&gt;s.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Go, like C but unlike Java, gives the programmer control over what is and is not a pointer. For example, this type definition:
+&lt;/p&gt;
+
+&lt;pre class=&#34;indent&#34;&gt;type Point struct { X, Y int }
+&lt;/pre&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  defines a simple struct type named &lt;em&gt;Point&lt;/em&gt;, represented as two adjacent &lt;em&gt;int&lt;/em&gt;s in memory.
+&lt;/p&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  &lt;img class=&#34;aligncenter size-full wp-image-1914&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata1a.png&#34; alt=&#34;godata1a&#34; width=&#34;285&#34; height=&#34;151&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  The &lt;a href=&#34;http://golang.org/doc/go_spec.html#Composite_literals&#34;&gt;composite literal syntax&lt;/a&gt; &lt;em&gt;Point{10, 20}&lt;/em&gt; denotes an initialized &lt;em&gt;Point&lt;/em&gt;. Taking the address of a composite literal denotes a pointer to a freshly allocated and initialized &lt;em&gt;Point&lt;/em&gt;. The former is two words in memory; the latter is a pointer to two words in memory.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Fields in a struct are laid out side by side in memory.
+&lt;/p&gt;
+
+&lt;pre class=&#34;indent&#34;&gt;type Rect1 struct { Min, Max Point }
+type Rect2 struct { Min, Max *Point }&lt;/pre&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-1915&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata1b.png&#34; alt=&#34;godata1b&#34; width=&#34;443&#34; height=&#34;151&#34; /&gt;&lt;/p&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  &lt;em&gt;Rect1&lt;/em&gt;, a struct with two &lt;em&gt;Point&lt;/em&gt; fields, is represented by two &lt;em&gt;Point&lt;/em&gt;s—four ints—in a row. &lt;em&gt;Rect2&lt;/em&gt;, a struct with two &lt;em&gt;*Point&lt;/em&gt; fields, is represented by two &lt;em&gt;*Point&lt;/em&gt;s.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Programmers who have used C probably won&amp;#8217;t be surprised by the distinction between &lt;em&gt;Point&lt;/em&gt; fields and &lt;em&gt;*Point&lt;/em&gt; fields, while programmers who have only used Java or Python (or &amp;#8230;) may be surprised by having to make the decision. By giving the programmer control over basic memory layout, Go provides the ability to control the total size of a given collection of data structures, the number of allocations, and the memory access patterns, all of which are important for building systems that perform well.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;strings:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;Strings&lt;/h2&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  With those preliminaries, we can move on to more interesting data types.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  &lt;img class=&#34;aligncenter size-full wp-image-1916&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata2.png&#34; alt=&#34;godata2&#34; width=&#34;264&#34; height=&#34;151&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  (The gray arrows denote pointers that are present in the implementation but not directly visible in programs.)
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  A &lt;em&gt;string&lt;/em&gt; is represented in memory as a 2-word structure containing a pointer to the string data and a length. Because the &lt;em&gt;string&lt;/em&gt; is immutable, it is safe for multiple strings to share the same storage, so &lt;a href=&#34;http://www.blogger.com/post-edit.g?blogID=8082954141980125536&amp;postID=65253524121904390&#34;&gt;slicing&lt;/a&gt; &lt;em&gt;s&lt;/em&gt; results in a new 2-word structure with a potentially different pointer and length that still refers to the same byte sequence. This means that slicing can be done without allocation or copying, making string slices as efficient as passing around explicit indexes.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  (As an aside, there is a &lt;a href=&#34;http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4513622&#34;&gt;well-known gotcha&lt;/a&gt; in Java and other languages that when you slice a string to save a small piece, the reference to the original keeps the entire original string in memory even though only a small amount is still needed. Go has this gotcha too. The alternative, which we tried &lt;a href=&#34;http://code.google.com/p/go/source/detail?r=70fa38e5a5bb&#34;&gt;and rejected&lt;/a&gt;, is to make string slicing so expensive—an allocation and a copy—that most programs avoid it.)
+&lt;/p&gt;
+
+&lt;h2 id=&#34;slices:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;Slices&lt;/h2&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-1917&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata3.png&#34; alt=&#34;godata3&#34; width=&#34;470&#34; height=&#34;151&#34; /&gt;&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  A &lt;a href=&#34;http://golang.org/doc/effective_go.html#slices&#34;&gt;slice&lt;/a&gt; is a reference to a section of an array. In memory, it is a 3-word structure contaning a pointer to the first element, the length of the slice, and the capacity. The length is the upper bound for indexing operations like &lt;em&gt;x[i]&lt;/em&gt; while the capacity is the upper bound for slice operations like &lt;em&gt;x[i:j]&lt;/em&gt;.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Like slicing a string, slicing an array does not make a copy: it only creates a new structure holding a different pointer, length, and capacity. In the example, evaluating the composite literal&lt;em&gt;[]int{2, 3, 5, 7, 11}&lt;/em&gt; creates a new array containing the five values and then sets the fields of the slice &lt;em&gt;x&lt;/em&gt; to describe that array. The slice expression &lt;em&gt;x[1:3]&lt;/em&gt; does not allocate more data: it just writes the fields of a new slice structure to refer to the same backing store. In the example, the length is 2—&lt;em&gt;y[0]&lt;/em&gt; and &lt;em&gt;y[1]&lt;/em&gt; are the only valid indexes—but the capacity is 4—&lt;em&gt;y[0:4]&lt;/em&gt; is a valid slice expression. (See &lt;a href=&#34;http://golang.org/doc/effective_go.html#slices&#34;&gt;Effective Go&lt;/a&gt; for more about length and capacity and how slices are used.)
+&lt;/p&gt;
+
+&lt;p&gt;Because slices are multiword structures, not pointers, the slicing operation does not need to allocate memory, not even for the slice header, which can usually be kept on the stack. This representation makes slices about as cheap to use as passing around explicit pointer and length pairs in C. Go originally represented a slice as a pointer to the structure shown above, but doing so meant that every slice operation allocated a new memory object. Even with a fast allocator, that creates a lot of unnecessary work for the garbage collector, and we found that, as was the case with strings above, programs avoided slicing operations in favor of passing explicit indices. Removing the indirection and the allocation made slices cheap enough to avoid passing explicit indices in most cases.&lt;/p&gt;
+
+&lt;h2 id=&#34;new-and-make:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;New and Make&lt;/h2&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Go has two data structure creation functions: &lt;em&gt;new&lt;/em&gt; and &lt;em&gt;make&lt;/em&gt;. The distinction is a common early point of confusion but seems to quickly become natural. The basic distinction is that&lt;em&gt;new(T)&lt;/em&gt; returns a &lt;em&gt;*T&lt;/em&gt;, a pointer that Go programs can dereference implicitly (the black pointers in the diagrams), while &lt;em&gt;make(T, &lt;/em&gt;&lt;i&gt;args&lt;/i&gt;&lt;em&gt;)&lt;/em&gt; returns an ordinary &lt;em&gt;T&lt;/em&gt;, not a pointer. Often that &lt;em&gt;T&lt;/em&gt; has inside it some implicit pointers (the gray pointers in the diagrams). &lt;em&gt;New&lt;/em&gt; returns a pointer to zeroed memory, while &lt;em&gt;make&lt;/em&gt; returns a complex structure.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  &lt;img class=&#34;aligncenter size-full wp-image-1918&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata4.png&#34; alt=&#34;godata4&#34; width=&#34;470&#34; height=&#34;627&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;There is a way to unify these two, but it would be a significant break from the C and C++ tradition: define &lt;em&gt;make(*T)&lt;/em&gt; to return a pointer to a newly allocated &lt;em&gt;T&lt;/em&gt;, so that the current&lt;em&gt;new(Point)&lt;/em&gt; would be written &lt;em&gt;make(*Point)&lt;/em&gt;. We tried this for a few days but decided it was too different from what people expected of an allocation function.&lt;/p&gt;
+
+&lt;h2 id=&#34;coming-soon-8230:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;Coming soon&amp;#8230;&lt;/h2&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  This has already gotten a bit long. Interface values, maps, and channels will have to wait for future posts.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  原文：http://research.swtch.com/godata
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[转]The Go scheduler</title>
+      <link>http://:1313/tmp/2015/04/%E8%BD%ACthe-go-scheduler/</link>
+      <pubDate>Tue, 14 Apr 2015 03:02:09 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/04/%E8%BD%ACthe-go-scheduler/</guid>
+      <description>
+
+&lt;p&gt;One of the big features for Go 1.1 is the new scheduler, contributed by Dmitry Vyukov. The new scheduler has given a dramatic increase in performance for parallel Go programs and with nothing better to do, I figured I&amp;#8217;d write something about it.&lt;/p&gt;
+
+&lt;p&gt;Most of what&amp;#8217;s written in this blog post is already described in the &lt;a href=&#34;https://docs.google.com/document/d/1TTj4T2JO42uD5ID9e89oa0sLKhJYD0Y_kqxDv3I3XMw&#34; target=&#34;_blank&#34;&gt;original design doc&lt;/a&gt;. It&amp;#8217;s a fairly comprehensive document, but pretty technical.&lt;/p&gt;
+
+&lt;p&gt;All you need to know about the new scheduler is in that design document but this post has pictures, so it&amp;#8217;s clearly superior.&lt;/p&gt;
+
+&lt;h1 id=&#34;TOC_2.:a4b9c3dd7f374cf509714d9eef378dda&#34;&gt;What does the Go runtime need with a scheduler?&lt;/h1&gt;
+
+&lt;p&gt;But before we look at the new scheduler, we need to understand why it&amp;#8217;s needed. Why create a userspace scheduler when the operating system can schedule threads for you?&lt;/p&gt;
+
+&lt;p&gt;The POSIX thread API is very much a logical extension to the existing Unix process model and as such, threads get a lot of the same controls as processes. Threads have their own signal mask, can be assigned CPU affinity, can be put into cgroups and can be queried for which resources they use. All these controls add overhead for features that are simply not needed for how Go programs use goroutines and they quickly add up when you have 100,000 threads in your program.&lt;/p&gt;
+
+&lt;p&gt;Another problem is that the OS can&amp;#8217;t make informed scheduling decisions, based on the Go model. For example, the Go garbage collector requires that all threads are stopped when running a collection and that memory must be in a consistent state. This involves waiting for running threads to reach a point where we know that the memory is consistent.&lt;/p&gt;
+
+&lt;p&gt;When you have many threads scheduled out at random points, chances are that you&amp;#8217;re going to have to wait for a lot of them to reach a consistent state. The Go scheduler can make the decision of only scheduling at points where it knows that memory is consistent. This means that when we stop for garbage collection, we only have to wait for the threads that are being actively run on a CPU core.&lt;/p&gt;
+
+&lt;h1 id=&#34;TOC_3.:a4b9c3dd7f374cf509714d9eef378dda&#34;&gt;Our Cast of Characters&lt;/h1&gt;
+
+&lt;p&gt;There are 3 usual models for threading. One is N:1 where several userspace threads are run on one OS thread. This has the advantage of being very quick to context switch but cannot take advantage of multi-core systems. Another is 1:1 where one thread of execution matches one OS thread. It takes advantage of all of the cores on the machine, but context switching is slow because it has to trap through the OS.&lt;/p&gt;
+
+&lt;p&gt;Go tries to get the best of both worlds by using a M:N scheduler. It schedules an arbitrary number of goroutines onto an arbitrary number of OS threads. You get quick context switches and you take advantage of all the cores in your system. The main disadvantage of this approach is the complexity it adds to the scheduler.&lt;/p&gt;
+
+&lt;p&gt;To acomplish the task of scheduling, the Go Scheduler uses 3 main entities:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-1887&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/our-cast.jpg&#34; alt=&#34;our-cast&#34; width=&#34;391&#34; height=&#34;103&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The triangle represents an OS thread. It&amp;#8217;s the thread of execution managed by the OS and works pretty much like your standard POSIX thread. In the runtime code, it&amp;#8217;s called &lt;strong&gt;M&lt;/strong&gt; for machine.&lt;/p&gt;
+
+&lt;p&gt;The circle represents a goroutine. It includes the stack, the instruction pointer and other information important for scheduling goroutines, like any channel it might be blocked on. In the runtime code, it&amp;#8217;s called a &lt;strong&gt;G&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The rectangle represents a context for scheduling. You can look at it as a localized version of the scheduler which runs Go code on a single thread. It&amp;#8217;s the important part that lets us go from a N:1 scheduler to a M:N scheduler. In the runtime code, it&amp;#8217;s called &lt;strong&gt;P&lt;/strong&gt; for processor. More on this part in a bit.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-1888&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/in-motion.jpg&#34; alt=&#34;in-motion&#34; width=&#34;400&#34; height=&#34;391&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here we see 2 threads (&lt;strong&gt;M&lt;/strong&gt;), each holding a context (&lt;strong&gt;P&lt;/strong&gt;), each running a goroutine (&lt;strong&gt;G&lt;/strong&gt;). In order to run goroutines, a thread must hold a context.&lt;/p&gt;
+
+&lt;p&gt;The number of contexts is set on startup to the value of the GOMAXPROCS environment variable or through the runtime function GOMAXPROCS(). Normally this doesn&amp;#8217;t change during execution of your program. The fact that the number of contexts is fixed means that only GOMAXPROCS are running Go code at any point. We can use that to tune the invocation of the Go process to the individual computer, such at a 4 core PC is running Go code on 4 threads.&lt;/p&gt;
+
+&lt;p&gt;The greyed out goroutines are not running, but ready to be scheduled. They&amp;#8217;re arranged in lists called runqueues. Goroutines are added to the end of a runqueue whenever a goroutine executes a go statement. Once a context has run a goroutine until a scheduling point, it pops a goroutine off its runqueue, sets stack and instruction pointer and begins running the goroutine.&lt;/p&gt;
+
+&lt;p&gt;To bring down mutex contention, each context has its own local runqueue. A previous version of the Go scheduler only had a global runqueue with a mutex protecting it. Threads were often blocked waiting for the mutex to unlocked. This got really bad when you had 32 core machines that you wanted to squeeze as much performance out of as possible.&lt;/p&gt;
+
+&lt;p&gt;The scheduler keeps on scheduling in this steady state as long as all contexts have goroutines to run. However, there are a couple of scenarios that can change that.&lt;/p&gt;
+
+&lt;h1 id=&#34;TOC_4.:a4b9c3dd7f374cf509714d9eef378dda&#34;&gt;Who you gonna (sys)call?&lt;/h1&gt;
+
+&lt;p&gt;You might wonder now, why have contexts at all? Can&amp;#8217;t we just put the runqueues on the threads and get rid of contexts? Not really. The reason we have contexts is so that we can hand them off to other threads if the running thread needs to block for some reason.&lt;/p&gt;
+
+&lt;p&gt;An example of when we need to block, is when we call into a syscall. Since a thread cannot both be executing code and be blocked on a syscall, we need to hand off the context so it can keep scheduling.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-1889&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/syscall.jpg&#34; alt=&#34;syscall&#34; width=&#34;550&#34; height=&#34;400&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here we see a thread giving up its context so that another thread can run it. The scheduler makes sure there are enough threads to run all contexts. &lt;strong&gt;M1&lt;/strong&gt; in the illustration above might be created just for the purpose of handling this syscall or it could come from a thread cache. The syscalling thread will hold on to the goroutine that made the syscall since it&amp;#8217;s technically still executing, albeit blocked in the OS.&lt;/p&gt;
+
+&lt;p&gt;When the syscall returns, the thread must try and get a context in order to run the returning goroutine. The normal mode of operation is to steal a context from one of the other threads. If it can&amp;#8217;t steal one, it will put the goroutine on a global runqueue, put itself on the thread cache and go to sleep.&lt;/p&gt;
+
+&lt;p&gt;The global runqueue is a runqueue that contexts pull from when they run out of their local runqueue. Contexts also periodically check the global runqueue for goroutines. Otherwise the goroutines on global runqueue could end up never running because of starvation.&lt;/p&gt;
+
+&lt;p&gt;This handling of syscalls is why Go programs run with multiple threads, even when GOMAXPROCS is 1. The runtime uses goroutines that call syscalls, leaving threads behind.&lt;/p&gt;
+
+&lt;h1 id=&#34;TOC_5.:a4b9c3dd7f374cf509714d9eef378dda&#34;&gt;Stealing work&lt;/h1&gt;
+
+&lt;p&gt;Another way that the steady state of the system can change is when a context runs out of goroutines to schedule to. This can happen if the amount of work on the contexts&amp;#8217; runqueues is unbalanced. This can cause a context to end up exhausting it&amp;#8217;s runqueue while there is still work to be done in the system. To keep running Go code, a context can take goroutines out of the global runqueue but if there are no goroutines in it, it&amp;#8217;ll have to get them from somewhere else.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-1890&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/steal.jpg&#34; alt=&#34;steal&#34; width=&#34;550&#34; height=&#34;400&#34; /&gt;&lt;/p&gt;
+
+&lt;div class=&#34;article&#34;&gt;
+  &lt;p&gt;
+    That somewhere is the other contexts. When a context runs out, it will try to steal about half of the runqueue from another context. This makes sure there is always work to do on each of the contexts, which in turn makes sure that all threads are working at their maximum capacity.
+  &lt;/p&gt;
+  
+  &lt;h1 id=&#34;TOC_6.&#34;&gt;
+    Where to go?
+  &lt;/h1&gt;
+  
+  &lt;p&gt;
+    There are many more details to the scheduler, like cgo threads, the LockOSThread() function and integration with the network poller. These are outside the scope of this post, but still merit study. I might write about these later. There are certainly plenty of interesting constructions to be found in the Go runtime library.
+  &lt;/p&gt;
+  
+  &lt;p class=&#34;author&#34;&gt;
+    By Daniel Morsing
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&#34;http://morsmachine.dk/go-scheduler&#34;&gt;http://morsmachine.dk/go-scheduler&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[转]How to write benchmarks in Go</title>
+      <link>http://:1313/tmp/2015/04/%E8%BD%AChow-to-write-benchmarks-in-go/</link>
+      <pubDate>Tue, 14 Apr 2015 02:41:24 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/04/%E8%BD%AChow-to-write-benchmarks-in-go/</guid>
+      <description>&lt;p&gt;This post continues a series on the testing package I started a few weeks back. You can read the previous article on writing table driven tests here. You can find the code mentioned below in the &lt;a href=&#34;https://github.com/davecheney/fib&#34;&gt;https://github.com/davecheney/fib&lt;/a&gt; repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The Go testing package contains a benchmarking facility that can be used to examine the performance of your Go code. This post explains how to use the testing package to write a simple benchmark.&lt;/p&gt;
+
+&lt;p&gt;You should also review the introductory paragraphs of Profiling Go programs, specifically the section on configuring power management on your machine. For better or worse, modern CPUs rely heavily on active thermal management which can add noise to benchmark results.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Writing a benchmark&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We’ll reuse the Fib function from the previous article.&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container go blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;go codecolorer&#34;&gt;
+          &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; Fib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;n &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; n &lt; &lt;span class=&#34;nu0&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; n&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; Fib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;n&lt;span class=&#34;sy3&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy3&#34;&gt;+&lt;/span&gt; Fib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;n&lt;span class=&#34;sy3&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Benchmarks are placed inside _test.go files and follow the rules of their Test counterparts. In this first example we’re going to benchmark the speed of computing the 10th number in the Fibonacci series.&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container go blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;go codecolorer&#34;&gt;
+          &lt;span class=&#34;co1&#34;&gt;// from fib_test.go&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; BenchmarkFib10&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;co1&#34;&gt;// run the Fib function b.N times&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; n &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; n &lt; b&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;N&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; n&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Fib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Writing a benchmark is very similar to writing a test as they share the infrastructure from the testing package. Some of the key differences are&lt;/p&gt;
+
+&lt;p&gt;Benchmark functions start with Benchmark not Test.&lt;br /&gt;
+Benchmark functions are run several times by the testing package. The value of b.N will increase each time until the benchmark runner is satisfied with the stability of the benchmark. This has some important ramifications which we’ll investigate later in this article.&lt;br /&gt;
+Each benchmark must execute the code under test b.N times. The for loop in BenchmarkFib10 will be present in every benchmark function.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Running benchmarks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Now that we have a benchmark function defined in the tests for the fib package, we can invoke it with go test -bench=.&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container bash blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;bash codecolorer&#34;&gt;
+          &lt;span class=&#34;sy0&#34;&gt;%&lt;/span&gt; go &lt;span class=&#34;kw3&#34;&gt;test&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-bench&lt;/span&gt;=.&lt;br /&gt; PASS&lt;br /&gt; BenchmarkFib10 &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;5000000&lt;/span&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;509&lt;/span&gt; ns&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;op&lt;br /&gt; ok &amp;nbsp; &amp;nbsp; &amp;nbsp;github.com&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;davecheney&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;fib &amp;nbsp; &amp;nbsp; &amp;nbsp; 3.084s
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Breaking down the text above, we pass the -bench flag to go test supplying a regular expression matching everything. You must pass a valid regex to -bench, just passing -bench is a syntax error. You can use this property to run a subset of benchmarks.&lt;/p&gt;
+
+&lt;p&gt;The first line of the result, PASS, comes from the testing portion of the test driver, asking go test to run your benchmarks does not disable the tests in the package. If you want to skip the tests, you can do so by passing a regex to the -run flag that will not match anything. I usually use&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container bash blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;bash codecolorer&#34;&gt;
+          go &lt;span class=&#34;kw3&#34;&gt;test&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-run&lt;/span&gt;=XXX &lt;span class=&#34;re5&#34;&gt;-bench&lt;/span&gt;=.
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The second line is the average run time of the function under test for the final value of b.N iterations. In this case, my laptop can execute Fib(10) in 509 nanoseconds. If there were additional Benchmark functions that matched the -bench filter, they would be listed here.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Benchmarking various inputs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;As the original Fib function is the classic recursive implementation, we’d expect it to exhibit exponential behavior as the input grows. We can explore this by rewriting our benchmark slightly using a pattern that is very common in the Go standard library.&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container go blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;go codecolorer&#34;&gt;
+          &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; benchmarkFib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; n &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; n &lt; b&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;N&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; n&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Fib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu2&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; BenchmarkFib1&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &amp;nbsp;&lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt; benchmarkFib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; b&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; BenchmarkFib2&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &amp;nbsp;&lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt; benchmarkFib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; b&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; BenchmarkFib3&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &amp;nbsp;&lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt; benchmarkFib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; b&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; BenchmarkFib10&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt; benchmarkFib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; b&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; BenchmarkFib20&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt; benchmarkFib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; b&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; BenchmarkFib40&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt; benchmarkFib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;,&lt;/span&gt; b&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Making benchmarkFib private avoids the testing driver trying to invoke it directly, which would fail as its signature does not match func(*testing.B). Running this new set of benchmarks gives these results on my machine.&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container bash blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;bash codecolorer&#34;&gt;
+          BenchmarkFib1 &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;1000000000&lt;/span&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;2.84&lt;/span&gt; ns&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;op&lt;br /&gt; BenchmarkFib2 &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;500000000&lt;/span&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;nu0&#34;&gt;7.92&lt;/span&gt; ns&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;op&lt;br /&gt; BenchmarkFib3 &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;100000000&lt;/span&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;13.0&lt;/span&gt; ns&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;op&lt;br /&gt; BenchmarkFib10 &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;5000000&lt;/span&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;447&lt;/span&gt; ns&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;op&lt;br /&gt; BenchmarkFib20 &amp;nbsp; &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;50000&lt;/span&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;55668&lt;/span&gt; ns&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;op&lt;br /&gt; BenchmarkFib40 &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;2&lt;/span&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;942888676&lt;/span&gt; ns&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;op
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Apart from confirming the exponential behavior of our simplistic Fib function, there are some other things to observe in this benchmark run.&lt;/p&gt;
+
+&lt;p&gt;Each benchmark is run for a minimum of 1 second by default. If the second has not elapsed when the Benchmark function returns, the value of b.N is increased in the sequence 1, 2, 5, 10, 20, 50, … and the function run again.&lt;br /&gt;
+The final BenchmarkFib40 only ran two times with the average was just under a second for each run. As the testing package uses a simple average (total time to run the benchmark function over b.N) this result is statistically weak. You can increase the minimum benchmark time using the -benchtime flag to produce a more accurate result.&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container bash blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;bash codecolorer&#34;&gt;
+          &lt;span class=&#34;sy0&#34;&gt;%&lt;/span&gt; go &lt;span class=&#34;kw3&#34;&gt;test&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-bench&lt;/span&gt;=Fib40 &lt;span class=&#34;re5&#34;&gt;-benchtime&lt;/span&gt;=20s&lt;br /&gt; PASS&lt;br /&gt; BenchmarkFib40 &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span class=&#34;nu0&#34;&gt;50&lt;/span&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;nu0&#34;&gt;944501481&lt;/span&gt; ns&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;op
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Traps for young players&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Above I mentioned the for loop is crucial to the operation of the benchmark driver. Here are two examples of a faulty Fib benchmark.&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container go blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;go codecolorer&#34;&gt;
+          &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; BenchmarkFibWrong&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; n &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; n &lt; b&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;N&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; n&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Fib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;n&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; BenchmarkFibWrong2&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Fib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;N&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;On my system BenchmarkFibWrong never completes. This is because the run time of the benchmark will increase as b.N grows, never converging on a stable value. BenchmarkFibWrong2 is similarly affected and never completes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A note on compiler optimisations&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Before concluding I wanted to highlight that to be completely accurate, any benchmark should be careful to avoid compiler optimisations eliminating the function under test and artificially lowering the run time of the benchmark.&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container go blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;go codecolorer&#34;&gt;
+          &lt;span class=&#34;kw1&#34;&gt;var&lt;/span&gt; result &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt;&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;kw4&#34;&gt;func&lt;/span&gt; BenchmarkFibComplete&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;b &lt;span class=&#34;sy3&#34;&gt;*&lt;/span&gt;testing&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;B&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;var&lt;/span&gt; r &lt;span class=&#34;kw4&#34;&gt;int&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;for&lt;/span&gt; n &lt;span class=&#34;sy2&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; n &lt; b&lt;span class=&#34;sy3&#34;&gt;.&lt;/span&gt;N&lt;span class=&#34;sy1&#34;&gt;;&lt;/span&gt; n&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;{&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;co1&#34;&gt;// always record the result of Fib to prevent&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;co1&#34;&gt;// the compiler eliminating the function call.&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; r &lt;span class=&#34;sy2&#34;&gt;=&lt;/span&gt; Fib&lt;span class=&#34;sy1&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nu0&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;sy1&#34;&gt;)&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;co1&#34;&gt;// always store the result to a package level variable&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;co1&#34;&gt;// so the compiler cannot eliminate the Benchmark itself.&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; result &lt;span class=&#34;sy2&#34;&gt;=&lt;/span&gt; r&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The benchmarking facility in Go works well, and is widely accepted as a reliable standard for measuring the performance of Go code. Writing benchmarks in this manner is an excellent way of communicating a performance improvement, or a regression, in a reproducible way.&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&#34;http://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go&#34;&gt;http://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

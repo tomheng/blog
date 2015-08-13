@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Svn on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/svn/</link>
+    <description>Recent content in Svn on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Feb 2015 07:30:54 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/svn/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>通过浏览器更新SVN</title>
+      <link>http://:1313/tmp/2015/02/%E9%80%9A%E8%BF%87%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9B%B4%E6%96%B0svn/</link>
+      <pubDate>Tue, 03 Feb 2015 07:30:54 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/02/%E9%80%9A%E8%BF%87%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9B%B4%E6%96%B0svn/</guid>
+      <description>&lt;p&gt;简单脚本实现通过浏览器更新SVN。&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;a href=&#34;http://www.php.net/header&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;header&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;Cache-Control:no-cache,must-revalidate&#34;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &amp;nbsp;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$handle&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/popen&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;popen&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;export LC_CTYPE=en_US.UTF-8 &amp;&amp; /usr/bin/svn up --username user_test --password pass_test /data1/svn_repo 2&gt;&amp;1&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &amp;nbsp;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$read&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/stream_get_contents&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;stream_get_contents&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$handle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;co1&#34;&gt;//需要 PHP5 或更高版本 &amp;nbsp;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&lt;pre&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &amp;nbsp;&lt;br /&gt; &lt;a href=&#34;http://www.php.net/printf&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;printf&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$read&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &amp;nbsp;&lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;st0&#34;&gt;&#34;&lt;/pre&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt; &amp;nbsp;&lt;br /&gt; &lt;a href=&#34;http://www.php.net/pclose&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;pclose&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$handle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;途中踩了两个坑：&lt;/p&gt;
+
+&lt;p&gt;1.svn 有中文文件名&lt;br /&gt;
+export LC_CTYPE=en_US.UTF-8 解决此问题&lt;/p&gt;
+
+&lt;p&gt;2.命令返回1，但是没有错误显示&lt;/p&gt;
+
+&lt;p&gt;2&amp;gt;&amp;amp;1 解决此问题&lt;/p&gt;
+
+&lt;p&gt;3.运行此命令要保证运行PHP的服务程序用户具有读写权限&lt;/p&gt;
+
+&lt;p&gt;省事的做法是通过此程序直接checkout一份。&lt;/p&gt;
+
+&lt;p&gt;参考：&lt;a href=&#34;http://zyan.cc/post/371/&#34;&gt;http://zyan.cc/post/371/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP提交SVN代码</title>
+      <link>http://:1313/tmp/2011/05/php%E6%8F%90%E4%BA%A4svn%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Wed, 11 May 2011 14:16:59 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/05/php%E6%8F%90%E4%BA%A4svn%E4%BB%A3%E7%A0%81/</guid>
+      <description>&lt;p&gt;代码是从&lt;a href=&#34;http://uicss.cn/working-efficiency/&#34;&gt;崔凯同学&lt;/a&gt;那里抄来的。之所以要拿过来一是因为这种想法很好，我自己在工作中也是这样，经常把PHP当做一个小工具来实现，如果PHP够好的话，还可以在linux底下辅助shell完成一些功能。二是因为代码写的很棒，我这个专门学习PHP的都要惭愧的低下头喽！&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container php blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;11&lt;br /&gt;12&lt;br /&gt;13&lt;br /&gt;14&lt;br /&gt;15&lt;br /&gt;16&lt;br /&gt;17&lt;br /&gt;18&lt;br /&gt;19&lt;br /&gt;20&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;php codecolorer&#34;&gt;
+          &lt;span class=&#34;kw2&#34;&gt;&lt;?php&lt;/span&gt;&lt;br /&gt; &lt;a href=&#34;http://www.php.net/ob_start&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;ob_start&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;a href=&#34;http://www.php.net/isset&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;isset&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$_GET&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;st_h&#34;&gt;&#39;cleanup&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$cmd&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;svn cleanup /data/html/uicss.cn&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;kw1&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$cmd&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;svn update /data/html/uicss.cn --username cuikai --password 111222333&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;re0&#34;&gt;$resultado&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/join&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;join&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;&lt;br&gt;&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; executa&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw1&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$resultado&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;&lt;br&gt;&#39;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;function&lt;/span&gt; executa&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$cmd&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$pathInicial&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kw4&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$resultado&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/array&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;array&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$handle&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/popen&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;popen&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;st0&#34;&gt;&#34;&lt;span class=&#34;es4&#34;&gt;$cmd&lt;/span&gt; 2&gt;&amp;1&#34;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;st_h&#34;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$read&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;a href=&#34;http://www.php.net/fread&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;fread&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$handle&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nu0&#34;&gt;20096&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;re0&#34;&gt;$resultado&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#93;&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$read&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.php.net/pclose&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;pclose&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;re0&#34;&gt;$handle&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;a href=&#34;http://www.php.net/flush&#34;&gt;&lt;span class=&#34;kw3&#34;&gt;flush&lt;/span&gt;&lt;/a&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&#34;kw1&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;re0&#34;&gt;$resultado&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;br0&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;sy1&#34;&gt;?&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

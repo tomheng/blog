@@ -1,0 +1,3 @@
+[submodule "themes/isay"]
+	path = themes/isay
+	url = git@github.com:tomheng/isay

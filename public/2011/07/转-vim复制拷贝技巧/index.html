@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> 转: vim复制拷贝技巧 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>转: vim复制拷贝技巧</h1>
+			  <small>2011-07-16,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p><strong>如何用vi 复制第5行到第10行并粘贴到第12行之后？</strong></p>
+
+<p>方法1：<br />
+光标放到第五行，<br />
+输入：y6y<br />
+光标放到第12行，<br />
+输入：p</p>
+
+<p>方法2：<br />
+命令行模式下输入<br />
+:5,10 co 12</p>
+
+<p>方法3：<br />
+我一般都是<br />
+先移到第五行 d6<br />
+p<br />
+再移到12行<br />
+p</p>
+
+<p>延伸一下, 有时候不想费劲看多少行或复制大量行时，可以使用标签来替代</p>
+
+<p>光标移到起始行，输入ma<br />
+光标移到结束行，输入mb<br />
+光标移到粘贴行，输入mc</p>
+
+<p>然后 :&#8217;a,&#8217;b co &#8216;c</p>
+
+<p>把 co 改成 m 就成剪切了</p>
+
+<p>那删除呢</p>
+
+<p>是不是5,10 de<br />
+刚才试了试，的确可以</p>
+
+<p><strong>也可以把大量的代码保存到一个文件，然后在另一个文件里打开需要拷贝的代码。</strong></p>
+
+<p>在文件一：<br />
+光标移到起始行，输入ma<br />
+光标移到结束行，输入mb<br />
+然后:&#8217;a, &#8216;b w filename</p>
+
+<p>在文件二：<br />
+光标移到需要赋值的行，输入：<br />
+:r filename</p>
+
+<p><strong>行拷贝还有一个比较简单的方法：</strong><br />
+操作如下：<br />
+找到要复制的行，键盘按下shift+v， 然后用方向键上下或j h 移动想要copy的行，然后按下y</p>
+
+<p>在移动到目的行，按下p即完成拷贝多行。这种方法适合没有行号的多行copy。</p>
+
+<p><strong>Vi 提供了文本移动和复制命令，用户利用这些指令可以方便的复制字符、文字、行还有文本块。</strong><br />
+有关的命令如下：<br />
+yy 将当前行复制到缓冲区<br />
+yw 将当前单词复制到缓冲区<br />
+y1 将光标处的一个字符复制到缓冲区<br />
+p 将缓冲区的信息粘贴到光标的后面<br />
+：行号1 ，行号2 copy 行号3                                  将行号1到行号2的内容复制到行号3所在行的后面。<br />
+：行号1 ，行号2 move 行号3                                     将行号1到行号2的文本内容移动到行号3所在行的后面。</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/linux">Linux</a> &nbsp;
+				      
+				         <a href="/tags/vim">vim</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

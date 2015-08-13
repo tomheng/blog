@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> php检测服务器运行状况（ping和http） &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>php检测服务器运行状况（ping和http）</h1>
+			  <small>2009-06-09,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        
+
+<h2 id="一-概况:c5a4cd33adf1f35f9fb04972527afd83">一、概况：</h2>
+
+<p>*名称*：websiteMonitor1.0</p>
+
+<p>*作者*：tomheng</p>
+
+<p>*时间*：2009-6-2</p>
+
+<p>*功能*：通过http 和ping的方式检测服务器的运行情况，并且记录文档。</p>
+
+<p>下载：<a href="http://sharecode2php.googlecode.com/files/monitor.rar">地址</a></p>
+
+<h2 id="二-实现分析:c5a4cd33adf1f35f9fb04972527afd83">二、实现分析：</h2>
+
+<p>1）主要用到了php的两个函数：exec()和fscockopen()。</p>
+
+<p>string exec ( string command [, array output [, int return_var]])。函数的具体使用说明参阅php手册，这个函数可以向服务器发送一个可执行的命令，在此处我们向服务器发送了一个ping指令，exec()将执行的结果返回过来，这里有一点很重要就是他有两个地方可以发返回结果，</p>
+
+<p>$result=exec($cd,$output,$status);$result是返回的最后一行结果，$output返回的是所有的结果：比如：ping测试的结果如下：</p>
+
+<div id=&#8221;part1&#8243;>
+
+Reply from 203.208.37.104: bytes=32 time=35ms TTL=239
+
+Reply from 203.208.37.104: bytes=32 time=239ms TTL=239
+
+Reply from 203.208.37.104: bytes=32 time=234ms TTL=239
+
+Reply from 203.208.37.104: bytes=32 time=209ms TTL=239
+
+ 
+
+Ping statistics for 203.208.37.104:
+
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+
+Approximate round trip times in milli-seconds:
+
+</div>
+
+<div id=&#8221;part2&#8243;>
+
+Minimum = 35ms, Maximum = 239ms, Average = 179ms
+
+</div>
+
+<p>$result=#part1</p>
+
+<p>$output=#part2</p>
+
+<p>Fsockopen()没有什么特别的，此处就是打开一个http连接并且读取返回的状态代码：</p>
+
+<p>2)这应该算是一个cron或者守护进程，计划任务之类的东西，因此这个网页一旦打开，只要服务器（指放置此代码的服务器）不down掉，他就一直运行下去。所以一旦打开运行此程序，我们无法关闭此程序，记录日志的文件将一直增加，但你可以通过删除日志文件的方法来减少磁盘的占用。</p>
+
+<h2 id="三-基本用法:c5a4cd33adf1f35f9fb04972527afd83">三、基本用法：</h2>
+
+<p>把此代码放在一个支持php的服务器上，然后填写另一个主机(您想检测的）的ip或者域名就可以实现对另一台主机的检测。</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

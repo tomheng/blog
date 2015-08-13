@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Wordpress外部调用插件（js方式）-Ecall插件">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> WordPress外部调用插件（js方式）-Ecall插件更新至1.12.15 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>WordPress外部调用插件（js方式）-Ecall插件更新至1.12.15</h1>
+			  <small>2009-12-14,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p><a class="wpgallery" title="wordpress插件Ecall-js方式外部调用wordpress文章" href="http://blog.webfuns.net/archives/313.html" target="_self">wordpress外部调用插件-Ecall插件主页</a></p>
+
+<p><strong>（1）主要更新：改变外部调用的方式</strong></p>
+
+<p>原先是在根目录下建立一个文件，外部调用这个文件来实现文章的外部调用。这种方式有很多的弊端，首先是有的虚拟机主机可能目录权限不够，导致程序不能把api.php文件拷贝至根目录，只能手动来拷贝文件。另外还可能产生安全性和效率上的问题。</p>
+
+<p>现在采用的hook方式，截获url，分析如果是外部调用的url则进行处理，否则放行，由WordPress进行正常的处理。</p>
+
+<p>现在的调用方式改为：</p>
+
+<script type=&#8217;text/javascript&#8217; src=&#8217;http://domain/index.php?key=15e3f539603bee92e0d5c6f2718a02e3&cid=0&rows=6&len=4&#8242;></script>
+
+<p>或者</p>
+
+<script type=&#8217;text/javascript&#8217; src=&#8217;http://domain/?key=15e3f539603bee92e0d5c6f2718a02e3&cid=0&rows=6&len=4&#8242;></script>
+
+<p><strong>（2）调用代码支持使用len参数来控制标题的字符数目</strong></p>
+
+<p>Len是个可选的参数可以不添加，默认值为120个字节。截取字符支持单字节和双字节混合截取。</p>
+
+<p>可以再调用的代码后面加len=?来控制标题字符的显示数目</p>
+
+<script type=&#8217;text/javascript&#8217; src=&#8217;http://domain/index.php?key=15e3f539603bee92e0d5c6f2718a02e3&cid=0&rows=6&len=4&#8242;></script>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/javascript">JavaScript</a> &nbsp;
+				      
+				         <a href="/tags/%E6%8F%92%E4%BB%B6">插件</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

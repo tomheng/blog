@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Csdn on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/csdn/</link>
+    <description>Recent content in Csdn on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Dec 2011 12:25:14 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/csdn/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>关于CSDN用户数据泄露的一些思考</title>
+      <link>http://:1313/tmp/2011/12/%E5%85%B3%E4%BA%8Ecsdn%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</link>
+      <pubDate>Thu, 22 Dec 2011 12:25:14 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/12/%E5%85%B3%E4%BA%8Ecsdn%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</guid>
+      <description>&lt;p&gt;&amp;#8220;有很多用户的密码在网上飘荡，而且它还是明文的&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;CSDN 600万的用户信息（用户名、密码和邮箱）泄露了，而且密码是明文存储的。之后又爆出了人人、多玩等众多网站的用户信息也被泄露了。当然这只是黑客门放出的一部分信息，只是冰山一角，不过管中窥豹可以知道现在互联网是多么的不安全，多么的没有隐私，翻开手机看看手机里的那些垃圾短息吧！还有接到的那些很多莫名其妙的电话。&lt;/p&gt;
+
+&lt;p&gt;毋庸置疑互联网时代安全是一个大问题，但是互联网的安全性和开放性始终一对矛盾，在一个开发的系统中想实现绝对的安全似乎是不可能的。在2011年的尾巴上的这次信息泄露事件，从另一侧面来看反而是一件好事，无论对于网站开发人员还是最终用户，大家的安全意识应该在这次事件中有一个提高。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;如何保证信息的安全?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;(1) 加密算法的选择&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://zh.wikipedia.org/wiki/MD5#Security&#34;&gt;MD5&lt;/a&gt;、&lt;a href=&#34;http://zh.wikipedia.org/wiki/SHA%E5%AE%B6%E6%97%8F&#34;&gt;SHA&lt;/a&gt;、&lt;a href=&#34;http://coolshell.cn/articles/2078.html&#34;&gt;Bcrypt() &lt;/a&gt;、PHK、SRP等究竟应该选择哪一个算法比较安全。&lt;a href=&#34;http://chargen.matasano.com/chargen/2007/9/7/enough-with-the-rainbow-tables-what-you-need-to-know-about-s.html&#34; title=&#34;Enough With The Rainbow Tables: What You Need To Know About Secure Password Schemes&#34;&gt;这里&lt;/a&gt;做了一个关于Bcrypt 、PHK、SRP的讨论，作者指出一个越快的加密算法越不安全，快即意味着破解或者攻击所需要的时间也会减少，所以选择加密算法加密速度是一个考虑的因素，作者最后推荐的加密算法是Bcrypt。&lt;/p&gt;
+
+&lt;p&gt;牛逼、并且最靠谱的方法可能是自己开发一个加密算法、当然开发的算法强度至少要达到MD5，然后要严格保密这种加密算法（这又是个问题），那么被破解的概率就要小很多了。&lt;/p&gt;
+
+&lt;p&gt;还有一点就是选择常用的加密方法，虽然是一个笨得思路，但也许能起到一些作用。毕竟现在最完备的字典应该是MD5的，如果采用非MD5的加密方法，那么被字典攻击的时间消耗就要更长一些。&lt;/p&gt;
+
+&lt;p&gt;更多关于加密算法选择的讨论：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/2235158/php-sha1-vs-md5-vs-sha256-which-to-use-for-a-php-login&#34;&gt;(PHP) SHA1 vs md5 vs SHA256: which to use for a PHP login?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://codahale.com/how-to-safely-store-a-password/&#34;&gt;How To Safely Store A Password&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;（2）如何加密&lt;/p&gt;
+
+&lt;p&gt;对于用户密码来说一般都是单向加密，加密时一定要加salt，而且要每一个用户一个salt，这样就会大大的增加字典破解的难度，如果选用MD5这种快速加密方法，推荐至少加密两次。&lt;/p&gt;
+
+&lt;p&gt;(3)强制用户使用复杂密码，这一招也很有用&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;用户应该怎样管理自己的密码&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;2009年的时候写过一篇关于&lt;a href=&#34;http://blog.webfuns.net/archives/409.html&#34;&gt;密码管理&lt;/a&gt;的文章，这里不再重复了。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;关于安全问题的讨论&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/4795385/how-do-you-use-bcrypt-for-hashing-passwords-in-php&#34;&gt;How do you use bcrypt for hashing passwords in PHP?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://hi.baidu.com/caoz/blog/item/edcc36d3f812891e3af3cf28.html&#34;&gt;谈谈近期的安全事件&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div&gt;
+  &lt;strong&gt;相关网站&lt;/strong&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a title=&#34;OWASP Guide Project&#34; href=&#34;https://www.owasp.org/index.php/Category:OWASP_Guide_Project&#34;&gt;OWASP&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a title=&#34;自由平等的漏洞报告平台&#34; href=&#34;http://www.wooyun.org/&#34;&gt;WooYun&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;div&gt;
+    PS:
+  &lt;/div&gt;
+  
+
+&lt;p&gt;&lt;div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        今天又发现天涯4000万的用户数据，又是明文存储。不过事件的发展越来越阴谋论了，互联网在这里真好玩。（update: 2011-12-25)
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;未完待续···&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

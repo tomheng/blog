@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>规范 on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/%E8%A7%84%E8%8C%83/</link>
+    <description>Recent content in 规范 on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Apr 2010 11:32:17 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/%E8%A7%84%E8%8C%83/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>减少网页在IE中的错误--养成良好的编码习惯</title>
+      <link>http://:1313/tmp/2010/04/%E5%87%8F%E5%B0%91%E7%BD%91%E9%A1%B5%E5%9C%A8ie%E4%B8%AD%E7%9A%84%E9%94%99%E8%AF%AF--%E5%85%BB%E6%88%90%E8%89%AF%E5%A5%BD%E7%9A%84%E7%BC%96%E7%A0%81%E4%B9%A0%E6%83%AF/</link>
+      <pubDate>Sat, 03 Apr 2010 11:32:17 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/04/%E5%87%8F%E5%B0%91%E7%BD%91%E9%A1%B5%E5%9C%A8ie%E4%B8%AD%E7%9A%84%E9%94%99%E8%AF%AF--%E5%85%BB%E6%88%90%E8%89%AF%E5%A5%BD%E7%9A%84%E7%BC%96%E7%A0%81%E4%B9%A0%E6%83%AF/</guid>
+      <description>&lt;p&gt;相信凡是稍有实战经验的前端开发者，都对IE恨之入骨吧。虽然我不是专做前端的，但是也写过一些网页，调试过一些网页中常见的错误。IE的bug之多，我是领教过的。尽管如此，但是我们不能把我们在网页中的错误都归结于IE之过。毕竟IE早期的版本，开发的时间比较早，那时候网页开发的标准还不是很完善。有时候我们多注意些自身问题，也许就不会打开过多的IEbug的潘多拉魔盒。&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;strong&gt;总结的经验：&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;1）&lt;strong&gt;标签要正确的结束&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在其他现代浏览器Firefox 、chrome等，如果网页中有未正确关闭的标签通常是不会破坏网页的布局的，但是在IE6中，如果有的标签没有正确的关闭，那么布局就会被打乱。所以如果遇到一个样式，无论自己怎么操作，IE6都置之不理的话，那么很可能就是标签未正确关闭所引起的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2）尽量少的添加注释&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在IE6中注释有可能触发一些样式错误，最常见的应该是li标签重复。所以添加注释虽然是一个很好的习惯，但是在HTML中添加注释的时候要小心一些。同时如果发现一些样式不是按自己的想法展现的，那么记住HTML中注释有可能触发IE6中的某些bug，从而引起样式的混乱。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3）body 中尽量不要添加内联样式&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;内联样式&lt;/p&gt;
+
+&lt;p&gt;&lt;style type=&amp;#8221;text/css&amp;#8221;&gt;&lt;/p&gt;
+
+&lt;p&gt;.webfuns.net{color:red;clear:both;}&lt;/p&gt;
+
+&lt;p&gt;&lt;/style&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff00ff;&#34;&gt;以上这些IE错误我都遇到过，在这里总结出来。希望可以对刚进入前端开发的同学有些许帮助,尽量减少网页在IE中的错误。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;参考文章：&lt;/p&gt;
+
+&lt;p&gt;1）&lt;a class=&#34;wpgallery&#34; title=&#34;Internet Explorer杯具历史&#34; href=&#34;http://zh.wikipedia.org/zh-cn/Internet_Explorer&#34; target=&#34;_blank&#34;&gt;Internet Explorer杯具历史&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2）&lt;a href=&#34;http://msdn.microsoft.com/zh-cn/library/aa291894(VS.71).aspx&#34; target=&#34;_blank&#34;&gt;级联式&lt;em&gt;样式表&lt;/em&gt;(&lt;em&gt;CSS&lt;/em&gt;) 介绍&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ps：&lt;/p&gt;
+
+&lt;p&gt;同志们都积极的换IE8吧，因为做网页的需要我这里一直没有机会升级到IE8。&lt;/p&gt;
+
+&lt;p&gt;让我祈祷IE6早些死掉吧&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>互联网时代的困惑密码管理.</title>
+      <link>http://:1313/tmp/2009/12/%E4%BA%92%E8%81%94%E7%BD%91%E6%97%B6%E4%BB%A3%E7%9A%84%E5%9B%B0%E6%83%91%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86./</link>
+      <pubDate>Sat, 26 Dec 2009 15:41:52 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/12/%E4%BA%92%E8%81%94%E7%BD%91%E6%97%B6%E4%BB%A3%E7%9A%84%E5%9B%B0%E6%83%91%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86./</guid>
+      <description>&lt;p&gt;&lt;span style=&#34;color: #c0c0c0;&#34;&gt;岁末了，我把我管理的几个重要的密码更新了一下。以下是我对密码管理发的一些牢骚。&lt;/span&gt;&lt;/p&gt;
+
+&lt;div id=&#34;attachment_412&#34; style=&#34;width: 281px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+  &lt;a href=&#34;http://blog.webfuns.net/wp-content/uploads/2009/12/BA14096230_1309101600673_20091016142138.jpg&#34;&gt;&lt;img class=&#34;size-medium wp-image-412 &#34; title=&#34;BA14096230_1309101600673_20091016142138&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2009/12/BA14096230_1309101600673_20091016142138-271x300.jpg&#34; alt=&#34;&#34; width=&#34;271&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    OMG 我的密码
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;一年又一年。越长大时间过得越快，真如我高中物理老师所说的时间是会随着心境的不同会产生不同的加速度；人越忙越充实的时候，时间是加速的；无聊徘徊的时候，时间是减速的。一转眼就到了岁末啦，该做点事什么呢？&lt;/p&gt;
+
+&lt;p&gt;不同的人，年终会去做不同的事，比如有的人会去扫黄；有的人回去给你“要债”；有的人会做做总结，总结自己一年以来做了什么；有的人会展望一下明年，畅想一下明年的美好。互联网时代的我们应该做些什么呢？&lt;/p&gt;
+
+&lt;p&gt;OMG数字时代一个困惑而又浮躁的时代。数字时代的知识管理，时间管理，财务管理都不同于传统的管理，对一个刚刚踏入互联网的人，就是一团乱麻，一场噩梦。我就是一个这样的可怜虫，在互联网的世界里，在这一团乱麻中。这其中密码管理就是一个令我很头痛的事情。&lt;/p&gt;
+
+&lt;p&gt;在互联网上每一年都会产生一些新的应用。作为一个互联网的爱好者，我会去试用这些服务，然后就是注册一个用户名，设置一个密码。当你注册和使用的多个密码的时候，你就发现自己被搞糊涂了，密码和账号对不上。盘点一下你现在在使用多少服务，在管理多少密码吧。&lt;a class=&#34;wpgallery&#34; title=&#34;twitter&#34; href=&#34;http://www.twitter.com&#34; target=&#34;_blank&#34;&gt;twitter&lt;/a&gt;、 &lt;a class=&#34;wpgallery&#34; title=&#34;豆瓣&#34; href=&#34;http://www.douban.com&#34; target=&#34;_blank&#34;&gt;豆瓣&lt;/a&gt; 、&lt;a class=&#34;wpgallery&#34; title=&#34;gmail&#34; href=&#34;http://www.gmail.com&#34; target=&#34;_blank&#34;&gt;gmail&lt;/a&gt;、&lt;a class=&#34;wpgallery&#34; title=&#34;google wave&#34; href=&#34;http://www.wave.com&#34; target=&#34;_blank&#34;&gt;wave&lt;/a&gt;、&lt;a class=&#34;wpgallery&#34; title=&#34;人人&#34; href=&#34;http://www.renren.com&#34; target=&#34;_blank&#34;&gt;人人&lt;/a&gt;、&lt;a class=&#34;wpgallery&#34; title=&#34;开心网&#34; href=&#34;http://www.kaixin001.com&#34; target=&#34;_blank&#34;&gt;开心&lt;/a&gt;；还有网银密码、&lt;a class=&#34;wpgallery&#34; title=&#34;支付宝&#34; href=&#34;http://www.alipay.com&#34; target=&#34;_blank&#34;&gt;支付宝&lt;/a&gt;密码；还有&lt;a class=&#34;wpgallery&#34; title=&#34;落伍者论坛&#34; href=&#34;http://im286.com&#34; target=&#34;_blank&#34;&gt;落伍者&lt;/a&gt;、&lt;a class=&#34;wpgallery&#34; title=&#34;嬴政&#34; href=&#34;http://bbs.winzheng.com/&#34; target=&#34;_blank&#34;&gt;嬴政&lt;/a&gt;等论坛；还有银行卡密码，手机密码、等等等。今年我就有一个痛苦的经历，我去工行开通了网上银行，可回到宿舍就忘了我设定的密码，真是杯具啊。所以如何去管理好这些密码确实是一个问题。&lt;/p&gt;
+
+&lt;p&gt;对于一个互联网老手，处理这些密码有几个方法：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1）密码分层次管理只&lt;/strong&gt;&lt;span style=&#34;text-decoration: line-through;&#34;&gt;设置几个关键的密码&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;对不同的服务进行分类管理，重要服务用一类密码；比如支付宝，网银可能会使用相同的密码。一些不重要的服务使用另一个密码；比如各种论坛的账号密码可能是一样的。纵然是这样加上现实中的各种密码，恐怕可能也要管理三五个密码。好像还是麻烦，在现实中我们也经常遇到有人忘记密码，并且由此而带来的麻烦事。&lt;span style=&#34;color: #ff00ff;&#34;&gt;我可不推荐所有的账号用同一个密码，想象一下吧，如果有一个服务的数据库不安全，把你的密码泄露了；亦或者你的电脑有什么&lt;/span&gt;&lt;a class=&#34;wpgallery&#34; title=&#34;病毒&#34; href=&#34;http://baike.baidu.com/view/2584.htm&#34; target=&#34;_blank&#34;&gt;&lt;span style=&#34;color: #ff00ff;&#34;&gt;病毒&lt;/span&gt;&lt;/a&gt;&lt;span style=&#34;color: #ff00ff;&#34;&gt;、蠕虫。一旦被别人拿到了你的密码，你的所有的一切都被别人知道了，到时候信春哥恐怕也不管用 了吧。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2）使用&lt;a class=&#34;wpgallery&#34; title=&#34;openid&#34; href=&#34;http://openid.net/&#34; target=&#34;_blank&#34;&gt;openid&lt;/a&gt;一类的服务&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;简单说就是使用一个平台的账号可以不用注册就登录其他的网站。这中服务做的最好的应该是&lt;a class=&#34;wpgallery&#34; title=&#34;facebook&#34; href=&#34;http://www.facebook.com&#34; target=&#34;_self&#34;&gt;Facebook&lt;/a&gt;，现在已经支持很多的第三方网站的登录。这种解决方案看起来很优雅很方便，可是还是同样存在同一账号密码下的安全问题，一旦被突破，你就裸奔在互联网上吧。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3）还有一类的密码代管理平台&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;你把你的所有的密码托管在哪里，这要去他们的网站。登录一次他们的网站，如果你想登陆其他的网站访问，他们会使用你托管给他们的密码为你代理登陆其他的网站。比如&lt;a class=&#34;wpgallery&#34; title=&#34;在线密码管理-- 一键登录密码管理好帮手-- 豌豆网&#34; href=&#34;http://www.onedoor.cn/&#34; target=&#34;_blank&#34;&gt;豌豆网&lt;/a&gt;。不过这种方式的安全性同样不能令人信服。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4)密码管理软件&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;比如&lt;a href=&#34;http://keepass.info/&#34;&gt;keepass&lt;/a&gt;，这种类似于第三种，只不过是通过软件管理密码，依然存在单一入口的问题。当然使用这种要比使用单一密码要安全很多，起码你使用的一个网站被爆库之后，其他使用的网站还比较安全。&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;&lt;strong&gt;总结&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff00ff;&#34;&gt;其实任何的第三方平台都是不安全，我们不能信任他们&lt;/span&gt;。指不定他们会拿我们的私人信息去干什么，说不定那天你的手机就会受到色情短信、放贷短息等等一些你需要的或者不需要的信息。目前我没有使用openid一类的服务，也不信任任何代管密码的平台，依然采用最笨的人脑记忆法来管理自己密码。应该算是第一种方法吧。&lt;/p&gt;
+
+&lt;p&gt;还有一点无论哪种密码管理方式，推荐一年更新一次密码。&lt;/p&gt;
+
+&lt;p&gt;update:2011-12-12&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>wordpress插件开发建议</title>
+      <link>http://:1313/tmp/2009/12/wordpress%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE/</link>
+      <pubDate>Mon, 21 Dec 2009 00:26:14 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/12/wordpress%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%BB%BA%E8%AE%AE/</guid>
+      <description>&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;本文属于翻译文章&lt;/span&gt;&lt;br /&gt;
+&lt;span style=&#34;color: #ff6600;&#34;&gt;原文&lt;/span&gt;：&lt;a class=&#34;wp-oembed&#34; title=&#34;Plugin Development Suggestions&#34; href=&#34;http://codex.wordpress.org/Writing_a_Plugin&#34; target=&#34;_blank&#34;&gt;Plugin Development Suggestions&lt;/a&gt; &lt;/p&gt;
+
+&lt;p&gt;（1）&lt;a class=&#34;wpGallery&#34; title=&#34;wordpress&#34; href=&#34;http://wordpress.org&#34; target=&#34;_blank&#34;&gt;wordpress&lt;/a&gt;插件的代码都应该遵循wordpress的代码规范。&lt;/p&gt;
+
+&lt;p&gt;请同时考虑内置文档规范。&lt;/p&gt;
+
+&lt;p&gt;（2）插件中所有函数的命名都需要区别wordpress核心代码，其他插件和主题中函数的命名。鉴于此，对插件中的所有函数使用一个唯一的函数名前缀是一种好的做法；此外，还可以把函数定义在类内（同样需要一个唯一的名字）&lt;/p&gt;
+
+&lt;p&gt;（3）在插件中不要对数据库表的前缀进行硬编码（例如&amp;#8221;wp_&amp;#8221;)，一定要使用$wpdb-&amp;gt;prefix变量来替代。&lt;/p&gt;
+
+&lt;p&gt;（4）数据库的读操作是廉价的，但写操作是昂贵的。数据库最擅长的就是取出数据，然后返回给你，这些操作都是很轻快的。然而对数据库的改变却是一个复杂的过程，并且需要昂贵的计算。所以，要尽量减少对数据库的写入操作。在代码中尽量做好准备，当你需要的时候你可以专注与这些写操作。&lt;/p&gt;
+
+&lt;p&gt;（5）只获得你所需要的数据。尽管数据库返回数据非常迅速，但是你仍然需要通过只获取自己需要的内容来尽量减轻数据库的负担。如果需要统计数据表中数据的行数，不要使用“SELECT * FORM ”这种语句，因为每一行的每一个数据都要被取出来，很消耗内存。同样，如果你在插件中仅需要post_id和post_author,那么就只取出这些字段就可以啦，尽量减轻数据库的负担。记住：在同一时刻有成千上万的其他的进程在访问数据库。数据库和服务器要把他们仅有的资源分散到所有的进程中。学会如何减少对数据库的访问将确保你的插件不会被指责成滥用资源的插件。&lt;/p&gt;
+
+&lt;p&gt;（6）消除插件中的所有错误。在wp-config.php中添加 define(&amp;#8216;WP_DEBUG&amp;#8217;, true)。测试插件中的每一个功能来检查插件中是否存在错误或者警告。修复这些错误，继续调试直到所有的错误被消除。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

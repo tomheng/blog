@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssh on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/ssh/</link>
+    <description>Recent content in Ssh on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Mar 2012 15:08:56 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SSH实现免密码登录</title>
+      <link>http://:1313/tmp/2012/03/ssh%E5%AE%9E%E7%8E%B0%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</link>
+      <pubDate>Mon, 26 Mar 2012 15:08:56 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/03/ssh%E5%AE%9E%E7%8E%B0%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</guid>
+      <description>&lt;p&gt;如果用登录远程服务器每次都要输入密码，效率会很低。那么怎么实现SSH的免密码登陆呢？&lt;/p&gt;
+
+&lt;p&gt;方法很简单，先用ssh-keygen生成一对私钥和公钥，然后把公钥添加到远程主机的authorized_keys里就行了。&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container bash blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;6&lt;br /&gt;7&lt;br /&gt;8&lt;br /&gt;9&lt;br /&gt;10&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;bash codecolorer&#34;&gt;
+          &lt;span class=&#34;co0&#34;&gt;#生成私钥和公钥，默认放在~/.ssh/文件夹下，也可以自定义，提示输入passphare时，直接回车&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#顺利的话就会在~/.ssh/文件夹下生成id_rsa.pub和id_rsa两个文件&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;ssh-keygen&lt;/span&gt; &lt;span class=&#34;re5&#34;&gt;-t&lt;/span&gt; rsa&lt;br /&gt; &lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#把id_rsa.pub上传到远程主机，方法很多，ssh-copy-id只是其中一种&lt;/span&gt;&lt;br /&gt; ssh-copy-id username&lt;span class=&#34;sy0&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;kw2&#34;&gt;hostname&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#如果id_rsa.pub在其他文件夹下&lt;/span&gt;&lt;br /&gt; ssh-copy-id &lt;span class=&#34;re5&#34;&gt;-i&lt;/span&gt; &lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;path&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;to&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;id_rsa.pub username&lt;span class=&#34;sy0&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;kw2&#34;&gt;hostname&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#以后直接使用下面的命令登陆&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw2&#34;&gt;ssh&lt;/span&gt; &lt;span class=&#34;kw2&#34;&gt;hostname&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;摘录自：&lt;a href=&#34;http://blog.leezhong.com/tech/2010/08/28/ssh-tips.html&#34; title=&#34;SSH小技巧&#34;&gt;http://blog.leezhong.com/tech/2010/08/28/ssh-tips.html&lt;/a&gt;&lt;br /&gt;
+参考：&lt;a title = &#39;小工具：ssh-copy-id&#39; tithref=&#34;http://hi.baidu.com/thinkinginlamp/blog/item/e74ab051102c5f12367abef6.html&#34;&gt;&lt;a href=&#34;http://hi.baidu.com/thinkinginlamp/blog/item/e74ab051102c5f12367abef6.html&#34;&gt;http://hi.baidu.com/thinkinginlamp/blog/item/e74ab051102c5f12367abef6.html&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

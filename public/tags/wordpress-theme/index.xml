@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wordpress Theme on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/wordpress-theme/</link>
+    <description>Recent content in Wordpress Theme on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Oct 2009 08:49:56 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/wordpress-theme/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>wordpress 主题制作教程系列（4）之default主题index.php</title>
+      <link>http://:1313/tmp/2009/10/wordpress-%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%974%E4%B9%8Bdefault%E4%B8%BB%E9%A2%98index.php/</link>
+      <pubDate>Sat, 24 Oct 2009 08:49:56 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/10/wordpress-%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%974%E4%B9%8Bdefault%E4%B8%BB%E9%A2%98index.php/</guid>
+      <description>&lt;p&gt;&lt;span style=&#34;color: #ff00ff;&#34;&gt;Ii is easy,it is fun.&lt;/span&gt;这是我们wordpress 主题制作教程的口号，事实就是这样的，慢慢体会吧。&lt;/p&gt;
+
+&lt;p&gt;在我们“&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;a class=&#34;wpgallery&#34; title=&#34;wordpress主题制作入门教程系列(3)之default主题的组织结构&#34; href=&#34;http://blog.webfuns.net/archives/174.html&#34; target=&#34;_blank&#34;&gt;教程的wordpress主题制作入门教程系列(3)之default主题的组织结构&lt;/a&gt;”&lt;/span&gt;这一讲中对教程做了概要说明，并且简要分析了style.css文件。这一讲我们主要分析一下index.php和header.php ，index.php是一个很重要的文件，通过一讲的内容不能够讲明白，我打算在本讲中将一部分内容剩余的内容在剩余的教程中穿插讲解。&lt;/p&gt;
+
+&lt;p&gt;default 主题分析 （index.php )&lt;/p&gt;
+
+&lt;p&gt;打开index.php文件，我们看到如下代码。不要头大，这些代码其实很简单，庖丁解牛，慢慢搞定它。&lt;/p&gt;
+
+&lt;pre class=&#34;brush:php html;first-line:1&#34;&gt;/**
+
+&lt;?php
+/**
+ * @package WordPress
+ * @subpackage Default_Theme
+ */
+
+get_header(); ?&gt;
+
+    
+
+&lt;div id=&#34;content&#34; class=&#34;narrowcolumn&#34; role=&#34;main&#34;&gt;
+  &lt;?php //include(&#39;g.php&#39;);?&gt;
+    
+  
+  &lt;?php if (have_posts()) : ?&gt;
+  
+        
+  
+  &lt;?php while (have_posts()) : the_post(); ?&gt;
+  
+            &amp;lt;div 
+  
+  &lt;?php post_class() ?&gt; id=&#34;post-
+  
+  &lt;?php the_ID(); ?&gt;&#34;&gt;
+                
+  
+  &lt;h2&gt;
+    &lt;a href=&#34;&lt;?php the_permalink() ?&gt;&#34; rel=&#34;bookmark&#34; title=&#34;Permanent Link to &lt;?php the_title_attribute(); ?&gt;&#34;&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;
+  &lt;/h2&gt;
+                
+  
+  &lt;small&gt;&lt;?php the_time(&#39;F jS, Y&#39;) ?&gt; 
+  
+  &lt;!-- by &lt;?php the_author() ?&gt; --&gt;&lt;/small&gt;
+  
+                
+  
+  &lt;div class=&#34;entry&#34;&gt;
+    &lt;?php the_content(&#39;Read the rest of this entry &amp;raquo;&#39;); ?&gt;
+                    
+  &lt;/div&gt;
+  
+                
+  
+  &lt;p class=&#34;postmetadata&#34;&gt;
+    &lt;?php the_tags(&#39;Tags: &#39;, &#39;, &#39;, &#39;&lt;br /&gt;&#39;); ?&gt; Posted in 
+    
+    &lt;?php the_category(&#39;, &#39;) ?&gt; | 
+    
+    &lt;?php edit_post_link(&#39;Edit&#39;, &#39;&#39;, &#39; | &#39;); ?&gt;  
+    
+    &lt;?php comments_popup_link(&#39;No Comments &amp;#187;&#39;, &#39;1 Comment &amp;#187;&#39;, &#39;% Comments &amp;#187;&#39;); ?&gt;
+  &lt;/p&gt;
+            
+&lt;/div&gt;
+
+        
+
+&lt;?php endwhile; ?&gt;
+
+        
+
+&lt;div class=&#34;navigation&#34;&gt;
+  &lt;div class=&#34;alignleft&#34;&gt;
+    &lt;?php next_posts_link(&#39;&amp;laquo; Older Entries&#39;) ?&gt;
+  &lt;/div&gt;
+            
+  
+  &lt;div class=&#34;alignright&#34;&gt;
+    &lt;?php previous_posts_link(&#39;Newer Entries &amp;raquo;&#39;) ?&gt;
+  &lt;/div&gt;
+        
+&lt;/div&gt;
+
+    
+
+&lt;?php else : ?&gt;
+
+        
+
+&lt;h2 class=&#34;center&#34;&gt;
+  Not Found
+&lt;/h2&gt;
+        
+
+&lt;p class=&#34;center&#34;&gt;
+  Sorry, but you are looking for something that isn&#39;t here.
+&lt;/p&gt;
+        
+
+&lt;?php get_search_form(); ?&gt;
+
+    
+
+&lt;?php endif; ?&gt;
+
+    &amp;lt;/div&gt;
+
+
+
+&lt;?php get_sidebar(); ?&gt;
+
+
+
+&lt;?php get_footer(); ?&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;我们把这一段冗长的代码分成四部分来逐个分析，也许这样会更加容易理解一些。&lt;/p&gt;
+
+&lt;p&gt;第一部分：&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;?php&lt;/p&gt;
+
+&lt;p&gt;/**&lt;/p&gt;
+
+&lt;p&gt;* @package WordPress&lt;/p&gt;
+
+&lt;p&gt;* @subpackage Default_Theme&lt;/p&gt;
+
+&lt;p&gt;*/&lt;/p&gt;
+
+&lt;p&gt;get_header();&lt;/p&gt;
+
+&lt;p&gt;?&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;这一段代码相对较简单一些，包括注释和一个函数get_header() （这个函数是一个典型是一个wp 模版函数）。他的作用是加载头部文件即header.php，相当于php中的include 函数的作用。这个函数的原型在wp-includes/general-template.php，有一定php基础的朋友可以看一下函数的具体定义实现方法，第三部分（）get_sitebar()函数和第四部分（）get_footer()，实现的原理和get_header()一样，他们的作用通过他们的名字就可一猜出来的。&lt;/p&gt;
+
+&lt;p&gt;剩下代码就是第二部分啦，是index.php的主要代码，暂时先不做分析。接下来我们看看这四个部分的关系，和他们在WordPress页面中的位置和作用，请看下面的这一图片。&lt;/p&gt;
+
+&lt;div id=&#34;attachment_180&#34; style=&#34;width: 325px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+  &lt;a rel=&#34;attachment wp-att-180&#34; href=&#34;http://blog.webfuns.net/archives/179.html/wpdesign02&#34;&gt;&lt;img class=&#34;size-full wp-image-180&#34; title=&#34;wpdesign02&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2009/10/wpdesign02.gif&#34; alt=&#34;wpdesign02&#34; width=&#34;315&#34; height=&#34;420&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    default主题四部分之间的关系
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  有任何问题可以在此留言或者im 我都可以！我会及时做出回复！也欢迎的大家对教程提出意见和建议，我们将做出及时的调整。
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>wordpress主题制作入门教程系列之主题制作基本流程 (worpress教程网）</title>
+      <link>http://:1313/tmp/2009/10/wordpress%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B-worpress%E6%95%99%E7%A8%8B%E7%BD%91/</link>
+      <pubDate>Tue, 06 Oct 2009 12:24:23 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/10/wordpress%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%BB%E9%A2%98%E5%88%B6%E4%BD%9C%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B-worpress%E6%95%99%E7%A8%8B%E7%BD%91/</guid>
+      <description>
+
+&lt;p&gt;原文链接：wordpress主题制作入门教程系列之主题制作基本流程&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff00ff&#34;&gt;Is is easy ,it is fun.&lt;/span&gt;没错制作主题教程是简单的也是有趣的。上一讲我们简单的做了个说明，现在就让我们先来配置一下我们的开发环境吧。&lt;/p&gt;
+
+&lt;h3 id=&#34;主题制作基本流程:44e3301350932a99558d67aeca1b462b&#34;&gt;主题制作基本流程&lt;/h3&gt;
+
+&lt;p&gt;(1)&lt;strong&gt;在自己的电脑安装WordPress运行的环境&lt;/strong&gt;（&lt;a class=&#34;cflabel&#34; title=&#34;WordPress入门视频教程2 在本机搭建WordPress的安装环境&#34; href=&#34;http://www.wpcourse.com/wordpress-lesson2-setup-wordpress-environment-in-localhost.html&#34; target=&#34;_blank&#34;&gt;在本机搭建WordPress的安装环境XAMPP&lt;/a&gt;===&lt;a class=&#34;cflabel&#34; title=&#34;WordPress教程总目录&#34; href=&#34;http://www.wpcourse.com/menu&#34; target=&#34;_blank&#34;&gt;WordPress教程网教程系列&lt;/a&gt; ）；&lt;/p&gt;
+
+&lt;p&gt;安装过程中可能会遇到一些问题，一般就是迅雷等如见占用80端口。所以安装之前最好把迅雷给关了。另外phpnow ,appserve ,nertrigo等都可以完成xampp的工作。&lt;/p&gt;
+
+&lt;p&gt;(2)&lt;strong&gt;在 本机服务器安装WordPress&lt;/strong&gt;（&lt;a class=&#34;cflabel&#34; title=&#34;WordPress入门视频教程2 在本机搭建WordPress的安装环境&#34; href=&#34;http://www.wpcourse.com/wordpress-lesson3-install-wordpress-in-localhost.html&#34; target=&#34;_blank&#34;&gt; 在本机安装WordPress全过程&lt;/a&gt; ===&lt;a title=&#34;WordPress教程总目录&#34; href=&#34;http://www.wpcourse.com/menu&#34; target=&#34;_blank&#34;&gt;WordPress教程网教程系列&lt;/a&gt; ）。&lt;/p&gt;
+
+&lt;p&gt;这个相对简单一些，如果一切顺利这时侯，在自己的浏览器输入&lt;a href=&#34;http://localhost就可以看到自己装的WordPress啦。&#34;&gt;http://localhost就可以看到自己装的WordPress啦。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;(3)&lt;strong&gt;推荐：&lt;/strong&gt;准备一些软件，dreamwerver ，fireworks,最好装两个以上的浏览器（包含ie,fireworks)当然这些不一定用的着，只是推荐而已，大家根据自己的知识水平准备一下就可以啦。&lt;/p&gt;
+
+&lt;h3 id=&#34;现在万事俱备-接下来就开始介绍教程制作的相关知识:44e3301350932a99558d67aeca1b462b&#34;&gt;现在万事俱备，接下来就开始介绍教程制作的相关知识。&lt;/h3&gt;
+
+&lt;p&gt;(1)&lt;strong&gt;主题的存放位置&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;所有的主题都存在于：你的博客所在目录/wp-content/themes下，每一个文件夹就是一个主题。所以我们制作主题的第一步就是在这个目录建立一个文件夹，文件夹的名字可以用主题的名字，您还得先为主题取个好听的名字奥。比如我们就建立一个叫wpc-tomheng的文件夹。&lt;/p&gt;
+
+&lt;p&gt;到wordpress后台看一下是不是存在我们的主题。令人失望的是没有看到我们的主题，这是什么问题呢？其实建立一个文件夹只是给我们的主题买了块地皮而已，我们还需要在上面建立一些东西，才能在后台看到的。要在后台看到我们的主题最主要的一步就是在主题目录（我这里是wpc-tomheng,要根据自己的具体情况在相应的目录里，以后我们就直接以wpc-tomheng作为说明，您在操作的时候要具体转化为自己的目录。）建立一个叫style.css的文件。&lt;/p&gt;
+
+&lt;p&gt;这个文件是用来存放css样式文件，这里面也包含了关于主题的一些信息。与主题相关的信息都是放在/*主题相关的信息*/里面。我们在里面写入最简单的一个信息-关于主题的名称。在style.css文件里写入如下信息&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff&#34;&gt;/*&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff&#34;&gt;Theme Name: wpc-tomheng&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff&#34;&gt;*/&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff00ff&#34;&gt;说明&lt;/span&gt;：在这里可以填入更多的相关信息，但是都要符合&lt;a class=&#34;cflabel&#34; href=&#34;http://codex.wordpress.org/Theme_Development&#34; target=&#34;_blank&#34;&gt;WordPress的规范&lt;/a&gt;才行这些信息不是必要，但是我们最好填写一些必备的信息（如：主题的名字，作者，等信息），这样看起来更规范。保存文件。到后台看一下，我们依然没有发现我们的主题，我们的主题却被列入了已损坏的主题里面，提示信息为：缺失模版文件。是的我们的主题确实小但是五脏并未俱全，接下来再建立一个模版文件就好啦。在wpc-tomheng 目录建立一个index.php的文件，这时候我们的主题能在后台的主题选项目录看到，同时我们的主题也可以安装了。&lt;/p&gt;
+
+&lt;p&gt;这就是一个新的主题必须具有的最基本的结构（style.css 和index.php文件)。现在我们安装上自己制作的主题，但是我们到前台查看自己的博客时候，什么内容也没有看到。这是为什么呢？&lt;/p&gt;
+
+&lt;p&gt;当然，我们的工作刚刚起步。我们还需要给我们的主题继续的添加东西，才可以在前台有个完美的展示。在index.php里写入任何的html标签或者简单的文本都可以在前台显示出来。You may wan to try it .&lt;/p&gt;
+
+&lt;p&gt;但是我们怎么把我们在博客里的文章或者其他的信息显示出来呢，这就要靠我们的WordPress template tags (&lt;a href=&#34;http://codex.wordpress.org/Template_Tags&#34;&gt;http://codex.wordpress.org/Template_Tags&lt;/a&gt; )。我们在这里先介绍一个最简单的tag，（在开始的几讲里我们只是介绍一下主题的最基本知识和相关的流程，关于更详细的教程我们会在后续的章节发布出来，请密切关注wpc的动向）。&lt;/p&gt;
+
+&lt;p&gt;在index.php里写入如下代码：&lt;/p&gt;
+
+&lt;p&gt;&lt;html&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;body&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;?php&lt;/p&gt;
+
+&lt;p&gt;bloginfo(&amp;#8216;name&amp;#8217;);&lt;/p&gt;
+
+&lt;p&gt;?&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/body&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/html&gt;&lt;/p&gt;
+
+&lt;p&gt;现在在博客的首页应该可以看到自己博客的名字了，这就是tag的一个最简单的应用。&lt;/p&gt;
+
+&lt;p&gt;现在wp-tomehng 应该算是一个完整的主题，但绝不是一个完美的主题。因为他基本没有展现我们博客的内容，也没有漂亮的外观。展现博客的内容要靠template tags（例如bloginfo())来完成,改变外观要靠style.css来完成。这也是制作主题的关键，最能展示个人创意的地方。&lt;/p&gt;
+
+&lt;p&gt;接下来，如果您愿意把自己制作的主题release出来的话，就可以打包成.zip文件，然后提交到WordPress。&lt;/p&gt;
+
+&lt;p&gt;恩，现在是不是对WordPress主题制作有个基本的了解了，接下来我们会详细的讲解template tags的相关的知识。&lt;/p&gt;
+
+&lt;p&gt;有任何问题可以在此留言或者im 我都可以！我会及时做出回复！也欢迎的大家对教程提出意见和建议，我们将做出及时的调整！&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,14 @@
+baseurl="http://blog.webfuns.net"
+languageCode = "en-us"
+title="趣味互联网"
+Paginate=10
+PaginatePath="page"
+[permalinks]
+  post= "/:year/:month/:title/"
+[params]
+  SubTitle= "她简单到只有0和1，却丰富了整个世界。"
+  AuthorName= "Tom Heng"
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"

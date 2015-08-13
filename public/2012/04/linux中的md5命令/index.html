@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Linux中的md5命令 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>Linux中的md5命令</h1>
+			  <small>2012-04-01,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>今天想生成一个字符串的MD5, shell中有一个md5sum命令，但是这个适合用来验证MD5,如果要生成字符串的MD5可以这样</p>
+
+<p>echo -n &#8216;123456&#8217; | md5sum</p>
+
+<p>这样不是很方便，so我写了个超简单的shell脚本</p>
+
+<div class="codecolorer-container bash blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="bash codecolorer">
+          <span class="co0">#!/bin/bash</span><br /> <span class="kw3">echo</span> <span class="re5">-n</span> <span class="re4">$1</span> <span class="sy0">|</span> md5sum <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{print $1}'</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p><a href="https://gist.github.com/2271597">https://gist.github.com/2271597</a></p>
+
+<p>将上面的代码写入/user/bin/md5文件，并且给文件加上执行权限。</p>
+
+<p>于是世界变得美好了；</p>
+
+<div class="codecolorer-container bash blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="bash codecolorer">
+          md5 <span class="nu0">123456</span><br /> <br /> <span class="co0">#print e10adc3949ba59abbe56e057f20f883e</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/shell">shell</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

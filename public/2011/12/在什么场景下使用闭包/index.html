@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> 在什么场景下使用闭包？ &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>在什么场景下使用闭包？</h1>
+			  <small>2011-12-07,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>在需要把逻辑封装到自己的范围内的情况下，闭包会十分有用。重构旧代码以进行简化并提高可读性就是这样一个例子。查看以下示例，该示例显示了在运行一些 SQL 查询时使用的记录程序。</p>
+
+<div class="codecolorer-container php blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="php codecolorer">
+          <span class="co1">//记录 SQL 查询的代码&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br /> <span class="re0">$db</span> <span class="sy0">=</span> <a href="http://www.php.net/mysqli_connect"><span class="kw3">mysqli_connect</span></a><span class="br0">&#40;</span><span class="st0">"server"</span><span class="sy0">,</span><span class="st0">"user"</span><span class="sy0">,</span><span class="st0">"pass"</span><span class="br0">&#41;</span><span class="sy0">;</span> <br /> Logger<span class="sy0">::</span><a href="http://www.php.net/log"><span class="kw3">log</span></a><span class="br0">&#40;</span><span class="st_h">'debug'</span><span class="sy0">,</span><span class="st_h">'database'</span><span class="sy0">,</span><span class="st_h">'Connected to database'</span><span class="br0">&#41;</span><span class="sy0">;</span> <br /> <span class="re0">$db</span><span class="sy0">-></span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'insert into parts (part, description) values ('</span>Hammer<span class="st_h">','</span>Pounds nails<span class="st_h">'); <br /> Logger::log('</span>debug<span class="st_h">','</span>database<span class="st_h">','</span>Insert Hammer into to parts table<span class="st_h">'); <br /> $db->query('</span>insert into parts <span class="br0">&#40;</span>part<span class="sy0">,</span> description<span class="br0">&#41;</span> values <br /> &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><span class="st_h">'Drill'</span><span class="sy0">,</span><span class="st_h">'Puts holes in wood'</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> Logger<span class="sy0">::</span><a href="http://www.php.net/log"><span class="kw3">log</span></a><span class="br0">&#40;</span><span class="st_h">'debug'</span><span class="sy0">,</span><span class="st_h">'database'</span><span class="sy0">,</span><span class="st_h">'Insert Drill into to parts table'</span><span class="br0">&#41;</span><span class="sy0">;</span> <br /> <span class="re0">$db</span><span class="sy0">-></span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'insert into parts (part, description) values ('</span>Saw<span class="st_h">','</span>Cuts wood<span class="st_h">'); <br /> Logger::log('</span>debug<span class="st_h">','</span>database<span class="st_h">','</span>Insert Saw into to parts table<span class="st_h">');</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>可以看出执行操作的重复程度。对 Logger::log() 执行的每次调用都有相同的前两个实参。为了解决此问题，我们可以把该方法调用放入闭包并转而针对该闭包执行调用。得到的代码如下所示：</p>
+
+<div class="codecolorer-container php blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="php codecolorer">
+          <span class="co1">//记录 SQL 查询的重构代码&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br /> <span class="re0">$logdb</span> <span class="sy0">=</span> <span class="kw2">function</span> <span class="br0">&#40;</span><span class="re0">$string</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> Logger<span class="sy0">::</span><a href="http://www.php.net/log"><span class="kw3">log</span></a><span class="br0">&#40;</span><span class="st_h">'debug'</span><span class="sy0">,</span><span class="st_h">'database'</span><span class="sy0">,</span><span class="re0">$string</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="br0">&#125;</span><span class="sy0">;</span><br /> <span class="re0">$db</span> <span class="sy0">=</span> <a href="http://www.php.net/mysqli_connect"><span class="kw3">mysqli_connect</span></a><span class="br0">&#40;</span><span class="st0">"server"</span><span class="sy0">,</span><span class="st0">"user"</span><span class="sy0">,</span><span class="st0">"pass"</span><span class="br0">&#41;</span><span class="sy0">;</span> <br /> <span class="re0">$logdb</span><span class="br0">&#40;</span><span class="st_h">'Connected to database'</span><span class="br0">&#41;</span><span class="sy0">;</span> <br /> <span class="re0">$db</span><span class="sy0">-></span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'insert into parts (part, description) values ('</span>Hammer<span class="st_h">','</span>Pounds nails<span class="st_h">'); <br /> $logdb('</span>Insert Hammer into to parts table<span class="st_h">'); <br /> $db->query('</span>insert into parts <span class="br0">&#40;</span>part<span class="sy0">,</span> description<span class="br0">&#41;</span> values <br /> &nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#40;</span><span class="st_h">'Drill'</span><span class="sy0">,</span><span class="st_h">'Puts holes in wood'</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> <span class="re0">$logdb</span><span class="br0">&#40;</span><span class="st_h">'Insert Drill into to parts table'</span><span class="br0">&#41;</span><span class="sy0">;</span> <br /> <span class="re0">$db</span><span class="sy0">-></span><span class="me1">query</span><span class="br0">&#40;</span><span class="st_h">'insert into parts (part, description) values ('</span>Saw<span class="st_h">','</span>Cuts wood<span class="st_h">'); <br /> $logdb('</span>Insert Saw into to parts table<span class="st_h">');</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>整理自：<a href="http://www.ibm.com/developerworks/cn/opensource/os-php-5.3new2/">http://www.ibm.com/developerworks/cn/opensource/os-php-5.3new2/</a><br />
+PS:原文有些不正确的地方，比方说到PHP 5.3.5都不可以通过闭包中的this指针访问类内的成员变量（当然可以通过其他方法实现），文章大部分内容正确，还是“尽信书不如无书”。</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/php">PHP</a> &nbsp;
+				      
+				         <a href="/tags/%E9%97%AD%E5%8C%85">闭包</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

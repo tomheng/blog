@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Google　Chrome OS的背后的事（闲扯Google云计算战略）！ &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>Google　Chrome OS的背后的事（闲扯Google云计算战略）！</h1>
+			  <small>2009-07-11,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        
+
+<div style="width: 610px" class="wp-caption aligncenter">
+  <img title="Google Empire" src="http://blog.searchenginewatch.com/blog/img/google-beta.jpg" alt="Google Empire" width="600" height="300" />
+  
+  <p class="wp-caption-text">
+    Google Empire
+  </p>
+</div>
+
+<p>当我写这篇文章的时候，Google　Chrome OS 早已不是什么新闻了！所以本文不是让大家知道Google Chrome OS，而是让大家和我一起思考一些东西！</p>
+
+<h2 id="span-style-color-ff6600-strong-大家都在用互联网做什么-strong-span:a595f7fd4b3c8ec58d5998520f83b3a6"><span style="color: #ff6600;"><strong>大家都在用互联网做什么？</strong></span></h2>
+
+<p>在Google blog上关于Google　Chrome OS的文章中，谷歌如是说：</p>
+
+<p>We designed <a href="http://www.google.com/chrome">Google </a><a href="http://www.google.com/chrome">Chrome</a> for people who live on the web — searching for information, checking email, catching up on the news, shopping or just staying in touch with friends.</p>
+
+<p><strong>我们可以翻译总结一下：</strong></p>
+
+<p style="padding-left: 30px; ">
+  1）信息检索（ searching for information）
+</p>
+
+<p style="padding-left: 30px; ">
+  2）收发邮件（checking email）
+</p>
+
+<p style="padding-left: 30px; ">
+  3）跟踪时事（catching up on the news,）
+</p>
+
+<p style="padding-left: 30px; ">
+  4）网路购物（shopping）
+</p>
+
+<p style="padding-left: 30px; ">
+  5）联络通信（staying in touch with friends）
+</p>
+
+<p><strong>这些都是互联网的基础应用，几乎涵盖了网民的所有网上行为。Google也一直是精心的提供这些服务，我们来看看Google旗下的服务：</strong></p>
+
+<p style="padding-left: 30px; ">
+  1）Google search
+</p>
+
+<p style="padding-left: 30px; ">
+  2）Gmail
+</p>
+
+<p style="padding-left: 30px; ">
+  3）New search
+</p>
+
+<p style="padding-left: 30px; ">
+  4）Checkout
+</p>
+
+<p style="padding-left: 30px; ">
+  5）Google wave
+</p>
+
+<p><strong>这是Google应用的以下部分，这个暂时称为Google的前端，接下来我们看看Google的后端：</strong></p>
+
+<p style="padding-left: 30px; ">
+  1）GAE
+</p>
+
+<p style="padding-left: 30px; ">
+  2）Chrome
+</p>
+
+<p style="padding-left: 30px; ">
+  3）Google  Chrome OS
+</p>
+
+<p style="padding-left: 30px; ">
+  这些都是Google前端应用的基础和平台。现在应该清楚了Google的战略，Google帝国的每一步都是精心计划的，都是为了云计算的梦想，我们也可以看到Google对云计算是多么感兴趣。
+</p>
+
+<h2 id="span-style-color-ff6600-strong-我们在google的思路基础之上-进一步的猜想一下未来的互联网是个什么样子-strong-span:a595f7fd4b3c8ec58d5998520f83b3a6"><span style="color: #ff6600;"><strong>我们在Google的思路基础之上，进一步的猜想一下未来的互联网是个什么样子：</strong></span></h2>
+
+<p style="padding-left: 30px;">
+  1）OS即web brower,web brower 即OS<br /> 2)desktop app 将被 web app 所取代
+</p>
+
+<p style="padding-left: 30px;">
+  3)云计算将取代端计算
+</p>
+
+<p>未来的操作系统将和浏览器紧密结合，浏览器将变得更加快速，操作系统将变得很小巧。操作系统之所以变得小巧是因为有云计算，那是操作系统不需要做很多的事情，因为桌面应用已经推出了历史舞台，网页应用变得方便实用起来（Google doc 可以替代字处理程序、gmail 可以替代邮件客户端、YouTube 可以替代暴风等等），这时浏览器将获得更多的系统资源，从而为网页应用提供支持。</p>
+
+<p>打开浏览器你就拥有了所有的资源，你看完成你的所有工作。这并不是什么遥不可及的事情，在不远的将来即将成为现实。</p>
+
+<p>附注：昨天发现有人通过Google关键词进入博客，这也是我写本文的原因之一，让类似仁兄可以少翻页。再次佩服那位仁兄的耐心！</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/google">Google</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

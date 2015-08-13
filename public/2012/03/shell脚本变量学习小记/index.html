@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> shell脚本变量学习小记 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>shell脚本变量学习小记</h1>
+			  <small>2012-03-26,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>转载自：<a href="http://blog.csdn.net/love__coder/article/details/6744332">http://blog.csdn.net/love__coder/article/details/6744332</a><br />
+<strong>1、查看所有的shell变量</strong></p>
+
+<p>set</p>
+
+<p><strong>2、查看所有的只读shell变量</strong></p>
+
+<p>readonly</p>
+
+<p><strong>3、变量设置值</strong></p>
+
+<p>格式：var_name=var_value</p>
+
+<p><span style="color: #ff0000;">注意</span>：=连接变量名和变量值，=两侧不能有空格；当值var_value含空格时，需要双引号把var_value包起来</p>
+
+<p><strong>4、输出变量值</strong></p>
+
+<p>echo $var_name</p>
+
+<p>echo ${var_name}</p>
+
+<p><strong>5、变量值连接</strong></p>
+
+<p>echo $var_name1$var_name2</p>
+
+<p><span style="color: #ff0000;">注意</span>: 两个变量之间没有空格</p>
+
+<p><strong>6、查看所有环境变量</strong></p>
+
+<p>env</p>
+
+<p><strong>7、给环境变量设置值</strong></p>
+
+<p>VAR_NAME=VALUE</p>
+
+<p>export VAR_NAME</p>
+
+<p><strong>8、清除变量</strong></p>
+
+<p>unset var_name</p>
+
+<p><strong>9、导出变量到子脚本中</strong></p>
+
+<p>父脚本中定义好变量，然后 export var_name</p>
+
+<p>子脚本中可以使用该变量. $var_name或${var_name}</p>
+
+<p><strong>10、显示脚本执行状态</strong></p>
+
+<p>执行完脚步，输入 echo $?</p>
+
+<p><span style="color: #ff0000;">注意</span>：0，表示成功</p>
+
+<p><strong>11、脚本运行的当前进程id</strong><br />
+$$</p>
+
+<p><strong>12、传递给shell脚本的参数个数</strong><br />
+$#</p>
+
+<p><strong>13、反引号`</strong></p>
+
+<p>设置系统的命令输出到变量</p>
+
+<p>echo &#8220;shell file name is :`basename $0` &#8221;</p>
+
+<p><strong>14、以串行形式，打印当前整个目录</strong></p>
+
+<p>echo *</p>
+
+<p><strong>15、替换运算符</strong>，</p>
+
+<ul>
+<li>1) ${var_name:-def_Val}如果变量var_name存在且为非null，返回该变量的值，否则返回默认值def_Val注意var_name与:之间没有空格，:与-之间可以有空格。主要用途，如果变量未定义，则用默认值.</li>
+<li>2) ${var_name:=val}如果变量var_name存在且为非null，返回该变量的值，否则，把val的值赋给变量var_name，并返回var_name的值val注意var_name与:之间没有空格，:与=之间也不能有空格。</li>
+<li>3)${var_name:?message}，如果变量var_name存在且为非null，返回该变量的值，否则返回该变量的名字var_name:提示信息meesage，并退出当前命令或脚本注意var_name与:之间没有空格，:与?之间也不能有空格。</li>
+<li>4) ${var_name:+val}如果变量var_name存在且为非null，返回val，否则返回null注意var_name与:之间没有空格，:与+之间也不能有空格。</li>
+</ul>
+
+<p><strong>15、返回变量长度</strong></p>
+
+<p>${#val_name}</p>
+
+<p><strong>16、显示所有命令行参数</strong></p>
+
+<p>$* 或 $@</p>
+
+<p><strong>17、算术运算操作 $(())</strong></p>
+
+<p>$((var1 opr var2))</p>
+
+<p>只能是+-*/ 和()运算符，并且只能做整数运算</p>
+
+<p>例如: $((5+1))</p>
+
+<p><strong>18、命令代换$()</strong></p>
+
+<p>类似于 反引号`</p>
+
+<p>例如：echo $(date)</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/shell">shell</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

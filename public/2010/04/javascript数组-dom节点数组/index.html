@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> javascript数组-DOM节点数组 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>javascript数组-DOM节点数组</h1>
+			  <small>2010-04-18,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>最近发现JavaScript还是一门很有意思的语言，值得好好学习一下。前些天调试一个简单程序时，发现一个问题或者说自己犯了一个简单的错误。</p>
+
+<p><strong>下面我举一个简单的例子说明一下遇到的问题：</strong></p>
+
+<p>我有个HTML文档如下</p>
+
+<pre class="brush: html; first-line: 1"><table>
+  
+  
+  
+  <tr>
+    <td>
+      tomheng
+    </td>
+    
+  </tr>
+  
+  
+</table>
+
+
+<table>
+  
+  
+  
+  <tr>
+    <td>
+      住在<a href="http://blog.webfuns.net/">webfuns 趣味互联网</a>
+    </td>
+    
+  </tr>
+  
+  
+</table>
+</pre>
+
+<p>我想要删除里面的table节点元素，注意HTML文档中有两个以上的Table节点于是写了如下的代码。</p>
+
+<pre class="brush: javascript; first-line: 1">tb=document.getElementsByTagName("table");
+  for(var i=0;i=tb.length;i++){
+      document.body.removeChild(tb[i]);
+  }</pre>
+
+<p><strong>问题分析</strong></p>
+
+<p><span style="color: #ff00ff;">有没有发现问题啊？上面的代码是没有错误的，但是就是不能实现我想要的效果，上面的代码不能删除最后一个元素。如果元素多了，你能想出他是怎样删除的吗？</span></p>
+
+<p>我们都知道数组的复制在大多数语言中都是引用传值的，在JavaScript中也不例外，而且数组的存储结构一般都是采用栈的形式，所以上面的问题就很好解释了。tb变量实质上得到的是DOM中的Table节点数组的引用，我们在For循环中删除Table节点元素同样也会反应在tb这个数组中，这样以来，每删除一个元素数组的长度就会发生变化，根据栈结构的特点，元素自动向上弹出，所以我们使用这样的删除方式只能删除索引为奇数的元素。既然知道的了原因，那么解决起来就比较简单了。</p>
+
+<p>** 正确代码如下：**</p>
+
+<pre class="brush:javascript;firt-line:1">tb=document.getElementsByTagName("table");
+  while(tb.length){
+     document.body.removeChild(tb[0]);
+ }
+/*充分利用栈结构的特点，总是删除第一个元素，直到为空*/</pre>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/javascript">JavaScript</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

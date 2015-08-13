@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web安全 on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/web%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in Web安全 on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Oct 2011 06:31:13 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/web%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>【转】Web开发框架安全杂谈</title>
+      <link>http://:1313/tmp/2011/10/%E8%BD%ACweb%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E5%AE%89%E5%85%A8%E6%9D%82%E8%B0%88/</link>
+      <pubDate>Mon, 24 Oct 2011 06:31:13 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/10/%E8%BD%ACweb%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E5%AE%89%E5%85%A8%E6%9D%82%E8%B0%88/</guid>
+      <description>&lt;p&gt;Web开发框架安全杂谈&lt;/p&gt;
+
+&lt;p&gt;EMail: wofeiwo#80sec.com&lt;br /&gt;
+Site: &lt;a href=&#34;http://www.80sec.com&#34;&gt;http://www.80sec.com&lt;/a&gt;&lt;br /&gt;
+Date: 2011-03-14&lt;br /&gt;
+From: &lt;a href=&#34;http://www.80sec.com/&#34;&gt;http://www.80sec.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[ 目录 ]&lt;br /&gt;
+0×00 起&lt;br /&gt;
+0×01 承&lt;br /&gt;
+0×02 转&lt;br /&gt;
+0×03 合&lt;/p&gt;
+
+&lt;p&gt;0×00起&lt;/p&gt;
+
+&lt;p&gt;最近框架漏洞频发，struts任意代码执行、Django csrf token防御绕过、Cakephp代码执行等等各大语言编程框架都相继暴出高危漏洞，这说明对于编程框架的安全问题已经逐渐走入安全工作者的视线。&lt;br /&gt;
+Web开发框架就相当于web应用程序的操作系统，他决定了一个应用程序的模型结构和编程风格。框架上出了漏洞，就如同当年一个rpc远程EXP就走遍全世界windows的时代。&lt;/p&gt;
+
+&lt;p&gt;然而挖掘深层原因，从应用的模型和架构上考虑问题，其实这些框架漏洞都不只是一种偶然，而是一种必然。正是因为框架的模型结构，正因为他们的这种编程风格，才极大的增加了漏洞产生的可能性。&lt;/p&gt;
+
+&lt;p&gt;0×01承&lt;/p&gt;
+
+&lt;p&gt;现代编程框架的几个大特点：&lt;/p&gt;
+
+&lt;p&gt;1、将程序代码分为不同层次，业务开发、前端开发、数据库开发人员各司其职，框架根据需要组装代码、调度执行&lt;br /&gt;
+2、统一化自动化逻辑处理&lt;br /&gt;
+3、常见功能的代码库封装并高度重用&lt;br /&gt;
+4、脚手架功能，常见代码组件自动组装生成。如默认用户系统、默认后台。&lt;/p&gt;
+
+&lt;p&gt;然而就是以上几点广受好评的功能导致了安全薄弱点的产生。&lt;/p&gt;
+
+&lt;p&gt;1、代码调度&lt;br /&gt;
+让我们来先回顾一下WEB应用框架所最常见的MVC模型。&lt;/p&gt;
+
+&lt;p&gt;用户发送一个HTTP请求过来，框架的入口点（一般是route，路由）分析用户请求的url。然后依照url中蕴含的信息分析出用户所要访问的controller、action，从而分发给相应的controller文件中的action函数，执行之；随后controller再将model中的数据结合用户输入数据依照view层中的代码逻辑填充模板，最后view、controller执行完毕，返回用户最后的HTML。&lt;br /&gt;
+整个生命周期是这样的：&lt;/p&gt;
+
+&lt;p&gt;用户请求url-&amp;gt;route分发-&amp;gt;controller接管处理用户输入及业务逻辑-&amp;gt;view层代码执行-&amp;gt;controller返回展现结果&lt;/p&gt;
+
+&lt;p&gt;从上面的流程发现了什么？&lt;br /&gt;
+MVC模型就是一个将程序员分散在M、C、V中的代码寻找并整合在一起执行的过程。那这必然就要牵涉到一个代码调度执行的问题。这里route就是一个非常明显的例子。一个框架这么多代码文件，route每一次调用controller，都需要根据用户输入的url进行匹配并执行用户指定的函数。这里就是一个薄弱点，一个必然绕不过去的问题。&lt;/p&gt;
+
+&lt;p&gt;对应到现实的例子，一个非常明显的例子就是：struts2框架的动态方法调用（DMI）&lt;br /&gt;
+当你访问www.test.com/a!test.action时，struts会根据你的url帮你映射到名为a的controller中名为test的Action方法。而通过修改test的值，我们可以访问a这个类中的所有方法。如果恰好这个方法中含有敏感的信息，攻击者就获得了一切。结合其他技巧，攻击者能够做到的更多。但这就是框架的功能，框架总是要依靠URL中的内容去匹配执行程序代码。&lt;/p&gt;
+
+&lt;p&gt;那么对于PHP的框架呢？仔细想一下，如果PHP需要做分散在不同文件中的代码调度执行，唯一能够实现的方式就是使用require/include函数包含文件。文件名来源于哪里？来源于用户输入的URL。实际上目前市面上的大部分PHP框架也都是这么实现的，Yii，FleaPHP等等。如果对用户的输入没有做好验证，就很容易导致一个本地文件包含漏洞。笔者曾经就在某不知名框架中发现过这样的漏洞，在不涉及应用程序逻辑的情况下，直接获取了系统权限。&lt;/p&gt;
+
+&lt;p&gt;2、统一化逻辑处理&lt;/p&gt;
+
+&lt;p&gt;框架的一大功能就是，通过统一的入口点，可以做一些统一的安全防护、逻辑控制。在软件工程学里的说法，这个叫“面向切面编程”（AOP）。&lt;br /&gt;
+然而我们并不是说这样的统一控制模式不好，但对于这样的统一控制，如果框架设计或实现的不好，就能直接沦陷所有跑在之上的应用。&lt;/p&gt;
+
+&lt;p&gt;这里有一个典型的统一处理导致安全问题的极端的例子：struts2任意代码执行漏洞。&lt;br /&gt;
+漏洞起因是struts2希望能让用户提交的值能够直接注入到程序中的数据对象，而无需手动类型转换并给内部变量赋值等操作。为此struts2专门设计了一个叫做ognl的表达式。通过它，用户提交的参数就能被自动解析为程序上下文中所存在的变量。&lt;br /&gt;
+想想为什么能够自动解析？原因是用户提交的参数被当作自定义语言的代码被解析执行了！只是你并没有意识到这一点而已。于是有心人研究了一下，发现ognl表达式除了参数值注入，还能通过它直接调用Java自身的API。于是，一个巨大的通杀0day就这么诞生了。&lt;br /&gt;
+回想一下，如果struts2没有这么“智能”的自动化、统一化用户输入处理机制，也就不会出现上述的大漏洞了。&lt;/p&gt;
+
+&lt;p&gt;前段时间爆出的Django的csrf token绕过漏洞也是在统一安全处理的设计上出的问题。深究一下，为什么会出现这样的绕过问题？原因就是，框架必须要对所有用户的提交在真正的应用执行前做统一的csrf防范，于是django框架产生的token是保存在cookie中的（老版本和sessionid有关，这个也是保存在cookie中）。对于用户提交的POST请求，表单中增加一项token，框架在获得token值后，与cookie中的正确token值比对，如果相等就通过。然而对于ajax的请求，框架设计者却想当然的认为只要判断X-Requested-With这个Ajax特有的HTTP头即可，根本无需运算比对token。所以，框架对于http头中包含有X-Requested-With域的请求放行。通常情况下，只有ajax的请求浏览器才会带上此自定义域，且浏览器一般无法自定义此字段。&lt;br /&gt;
+结果被人发现可以利用flash+307跳转可以伪造自定义http头，结果就绕过了此防范，导致统一的csrf防护毫无作用。如果应用程序完全依靠框架的统一安全实现，就会受到安全漏洞的威胁。&lt;br /&gt;
+其实Django也很无奈，在它的架构设计中，它通过这个自定义头判断ajax思路上也没有什么问题。可惜在目前连黄瓜都不可靠的年代，就没什么是可靠的了。&lt;/p&gt;
+
+&lt;p&gt;3、常见代码高度封装&lt;/p&gt;
+
+&lt;p&gt;代码的高度封装，对外只暴露几个接口，一行说明书。这必然造成一种现象：普通程序员就像是在搭建一个模型，只要按照说明书组建积木就可以了，不需要知晓其原理，不需要知道为什么要这样做。于是这时候就安全问题就产生了。&lt;/p&gt;
+
+&lt;p&gt;举一个同样在用户输入参数自动化处理方面的例子：在PHP的ZendFramework中，获取用户输入是调用getParam方法，而不是常见PHP程序中分开来的$_GET、$_POST等变量。那么，如果同时在GET、POST、COOKIE、HEADER中提交相同名字的参数，getParam到底获取的是哪一个的值？先后顺序是什么？如果前后可以覆盖，会不会影响到我们自定义的一些统一安全措施？这是一个值得检查的安全薄弱点。&lt;/p&gt;
+
+&lt;p&gt;再举一个struts2的例子：对于常见的文件上传场景，struts提供了一个FileUploadInterceptor拦截器，直接可以在应用逻辑运行前对用户上传文件进行检查。然而在笔者的代码审计经验中，常常发现程序员只对maximumSize（文件大小）和allowedTypes（文件mime-type）进行限制，却放过了最关键的allowedExtensions（扩展名）限制。为什么？笔者检查了一下官方文档，发现在&lt;a href=&#34;http://struts.apache.org/2.0.14/docs/file-upload-interceptor.html#FileUploadInterceptor-Parameters&#34;&gt;struts2.2之前的文档&lt;/a&gt;，都没有给出allowExtensions的说明。或许struts开发者想当然的认为allowedTypes就可以限制上传文件的类型，殊不知只要伪造HTTP包中的mime-type字段，就可以直接上传任意文件。于是开发者也就依照&lt;a href=&#34;http://struts.apache.org/2.x/docs/file-upload.html#FileUpload-FileTypes&#34;&gt;官方的例子&lt;/a&gt;，只限制了allowdTypes，从而导致安全问题的产生。&lt;/p&gt;
+
+&lt;p&gt;高度代码封装的确解决了“重复造轮子”的问题，但是它解决不了程序员的安全意识和懒惰的习惯。或许它设计的很好，或许它实现的也很好，但是只要它组装的不好，就有可能造成问题。&lt;/p&gt;
+
+&lt;p&gt;4、脚手架功能&lt;/p&gt;
+
+&lt;p&gt;Django的脚手架功能是非常好用的。它默认自带了一些app，只要通过几个简单的命令或配置，就可以在不敲一句代码的情况下搭起一个普通网站的脚手架，自带了用户注册、登陆等系统，甚至还有一个默认的管理员后台。&lt;/p&gt;
+
+&lt;p&gt;然而正如上文所说，普通程序员并不了解框架真正做了些什么。他很有可能通过脚手架生成网站后，却直接忘却了程序自带的内容没有去除。当这样的网站上线后。我们发现他是Django所写，那我们就可以直接尝试在url后加入/admin/路径访问，直接猜解后台管理员密码。此外如果框架自带的默认后台出现安全漏洞，甚至可能直接绕过进入后台。&lt;/p&gt;
+
+&lt;p&gt;一旦使用框架默认的组件，就得考虑到框架所带来的默认功能的安全问题。其实这问题可以扩大，tomcat自带的后台、fck编辑器自带的上传组件，都可以说属于此类问题。&lt;/p&gt;
+
+&lt;p&gt;0×02转&lt;/p&gt;
+
+&lt;p&gt;框架的应用是软件开发的必然趋势，本文的目的也不在于抵制框架的使用。但对于框架应用后所带来的新安全问题，安全从业人员需要提高重视，紧跟技术发展，更新知识。对于此，我们能够做点什么？&lt;/p&gt;
+
+&lt;p&gt;1、 对于常见的应用场景，如文件操作、命令行操作、数据库操作、用户权限及认证等，我们需要了解框架的实现，给出相应的安全编码范例。&lt;/p&gt;
+
+&lt;p&gt;框架文档中给出的例子并不一定就是最好的。安全工作者必须对程序员进行安全意识的培训，让他知道如何利用框架的API去安全的组合出常用功能。&lt;/p&gt;
+
+&lt;p&gt;2、 对于应用漏洞挖掘，我们需要扩充字典。&lt;/p&gt;
+
+&lt;p&gt;框架的封装，可能引入更多的危险API或危险特性。在代码审计的过程中，需要将这些内容加入到危险词字典中。&lt;/p&gt;
+
+&lt;p&gt;3、 对于应用漏洞挖掘，由于框架结构所带入的新的安全薄弱点，需要专门对框架的设计及实现做检查，是否存在问题。&lt;/p&gt;
+
+&lt;p&gt;例如PHP框架中代码调度执行的实现、文件上传统一检查的实现、封装的变量获取形式是否可靠等。本文中提到的安全薄弱点只是一个例子，更多的还需要大家的共同挖掘。&lt;/p&gt;
+
+&lt;p&gt;0×03合&lt;/p&gt;
+
+&lt;p&gt;实际上对于一个应用的安全审计归根到底就是个思路问题。笔者一直认为，了解程序员的思路，了解框架的思路，了解应用的思路，这些才是安全审计中最花时间的。而实际上真枪实弹看代码的漏洞挖掘却只占用很小的一部分时间。&lt;br /&gt;
+只有将这些思路融会贯通，在脑中将审计对象进行抽象建模，了解应用需要保护什么，弱点在哪里，才能更为有效和有针对性的进行代码审计、安全防护。&lt;br /&gt;
+最后，非常感谢剑心及空虚浪子心之前的研究成果和意见，对本文的帮助极大&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

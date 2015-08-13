@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>淘宝 on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/%E6%B7%98%E5%AE%9D/</link>
+    <description>Recent content in 淘宝 on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Oct 2010 10:53:45 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/%E6%B7%98%E5%AE%9D/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>又见淘宝钓鱼链接</title>
+      <link>http://:1313/tmp/2010/10/%E5%8F%88%E8%A7%81%E6%B7%98%E5%AE%9D%E9%92%93%E9%B1%BC%E9%93%BE%E6%8E%A5/</link>
+      <pubDate>Sat, 23 Oct 2010 10:53:45 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/10/%E5%8F%88%E8%A7%81%E6%B7%98%E5%AE%9D%E9%92%93%E9%B1%BC%E9%93%BE%E6%8E%A5/</guid>
+      <description>&lt;p&gt;钓鱼链接：&lt;span style=&#34;color: #ff0000;&#34;&gt;&lt;a href=&#34;http://item.taobao.com-mi.info/member/login.jhtml.aspx&#34;&gt;http://item.taobao.com-mi.info/member/login.jhtml.aspx&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;嗯就是这个钓鱼链接，看到了吗，链接长的很像。点开之后页面长的就是一样的，对于很多网民具有很大的迷惑性，害人不浅啊。大家在重要网站填写用户信息时，一定要通过域名区别网站，不要以貌取人。淘宝的域名是www.taobao.com，支付宝的是www.alipay.com。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

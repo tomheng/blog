@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="昨天看了一下HTML的相关知识。发现一个以前没有听说过的问题。就是关于超链接中最后的斜杠问题。这个问题是从w3cschool教程网发现的">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> 超链接优化问题---加上斜杠 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>超链接优化问题---加上斜杠</h1>
+			  <small>2010-03-23,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p><span style="color: #000000;">昨天看了一下HTML的相关知识。发现一个以前没有听说过的问题。就是关于超链接中最后的斜杠问题。这个问题是从</span><a class="wpgallery" title="w3school" href="http://www.w3school.com.cn/" target="_blank"><span style="color: #000000;">w3cschool教程网</span></a><span style="color: #000000;">发现的。原文引用如下：</span></p>
+
+<p><span style="color: #808080;">总是将正斜杠添加到子文件夹。假如你这样书写链接的话：href=&#8221;<a href="http://www.w3school.com.cn/html&amp;#8221;，就会向服务器产生两次">http://www.w3school.com.cn/html&amp;#8221;，就会向服务器产生两次</a> HTTP 请求。这是因为服务器会添加正斜杠到这个地址，然后创建一个新的请求，就像这样：href=&#8221;<a href="http://www.w3school.com.cn/html/&amp;#8221">http://www.w3school.com.cn/html/&amp;#8221</a>;</span></p>
+
+<p><span style="color: #808080;"><strong><span style="color: #000000;">注解：</span></strong></span></p>
+
+<p><span style="color: #808080;"><span style="color: #000000;">1）<span style="color: #333399;">只有在访问根目录或者子文件夹时，正斜杠才会被自动添加</span></span></span></p>
+
+<p><span style="color: #808080;"><span style="color: #000000;">2）<span style="color: #333399;">第二次请求是由服务器自身发起的</span></span></span></p>
+
+<p><span style="color: #808080;"><span style="color: #000000;">因为对服务器还不是很熟悉，所以未做试验证实，不过鉴于W3C的权威性，这个结论还是可信的。但我发现如果在浏览器里输入<a href="http://baidu.com这样的没有最后的正斜杠的域名时。浏览器会自动添加上斜杠，在地址栏真正访问的域名是：http://baidu.com/。">http://baidu.com这样的没有最后的正斜杠的域名时。浏览器会自动添加上斜杠，在地址栏真正访问的域名是：http://baidu.com/。</a></span></span></p>
+
+<p><span style="color: #808080;"><span style="color: #000000;">这个细节对SEO应该没有多大影响。但还是建议域名的最后加上斜杠。</span></span></p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/seo">SEO</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

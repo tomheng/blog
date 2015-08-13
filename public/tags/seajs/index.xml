@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seajs on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/seajs/</link>
+    <description>Recent content in Seajs on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Feb 2012 12:30:57 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/seajs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>this.length &gt;&gt;&gt; 0 的作用(Javascript)？</title>
+      <link>http://:1313/tmp/2012/02/this.length--0-%E7%9A%84%E4%BD%9C%E7%94%A8javascript/</link>
+      <pubDate>Wed, 08 Feb 2012 12:30:57 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/02/this.length--0-%E7%9A%84%E4%BD%9C%E7%94%A8javascript/</guid>
+      <description>&lt;p&gt;在Javascript代码有时候会看到this.length &amp;gt;&amp;gt;&amp;gt; 0 这样的类似代码，那么this.length &amp;gt;&amp;gt;&amp;gt; 0这样的代码有什么用呢？&lt;br /&gt;
+要弄明白this.length &amp;gt;&amp;gt;&amp;gt; 0的作用，关键是要搞清楚 &amp;gt;&amp;gt;&amp;gt; 这个运算符是干什么的？&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在Javascript中代表无符号右移元算符，详细说明见：&lt;a href=&#34;http://www.w3school.com.cn/js/pro_js_operators_bitwise.asp&#34;&gt;ECMAScript 位运算符&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在&lt;a href=&#34;https://github.com&#34;&gt;Github&lt;/a&gt;问了 &lt;strong&gt;&lt;a href=&#34;https://github.com/lifesinger&#34;&gt;lifesinger&lt;/a&gt;&lt;/strong&gt;给出了一个this.length &amp;gt;&amp;gt;&amp;gt; 0 的作用更简易的总结&lt;strong&gt;：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;所有非数值转换成0&lt;/li&gt;
+&lt;li&gt;所有大于等于 0 数取整数部分&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt;update:2012-04-24&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;移位运算分为左移和右移，其中左移运算都是丢弃最高位，在右端补零。而右移预算则分为逻辑右移和算术右移动，逻辑右移在左端补零，算术右移则在左端扑最高有效位的值。&lt;/p&gt;
+
+&lt;p&gt;比如：x = 101101&lt;/p&gt;
+
+&lt;p&gt;x逻辑右移2位：001011&lt;/p&gt;
+
+&lt;p&gt;x算术右移2位：111011&lt;/p&gt;
+
+&lt;p&gt;javascript在这里的无符号右移即逻辑右移动,这个参照了JAVA中关于右移预算的规范。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>seajs 使js开发模块化</title>
+      <link>http://:1313/tmp/2011/12/seajs-%E4%BD%BFjs%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9D%97%E5%8C%96/</link>
+      <pubDate>Sun, 11 Dec 2011 15:33:31 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/12/seajs-%E4%BD%BFjs%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9D%97%E5%8C%96/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;seajs.com&#34;&gt;seajs&lt;/a&gt;一个js类库，主要实现对js的模块化开发。&lt;/p&gt;
+
+&lt;p&gt;对于一个大项目或者是一个需要团队协作的项目，模块化开发&lt;/p&gt;
+
+&lt;p&gt;可以使得对代码的管理更规范和高效。seajs就是为了满足这种需求来的。&lt;/p&gt;
+
+&lt;p&gt;不过我个人可能会更需要js可以按需加载，因为有些类库不是所有的页面都&lt;/p&gt;
+
+&lt;p&gt;需要的，我的预期是js类库只有在需要的时候才去加载。&lt;/p&gt;
+
+&lt;p&gt;seajs可以通过require.async来实现按需加载。&lt;/p&gt;
+
+&lt;p&gt;最近在关注HTML5、CSS3的相关内容，这两个东西确实会给我们带来很不一样的体验。&lt;/p&gt;
+
+&lt;p&gt;还有js也很活跃，后端出了&lt;a href=&#34;http://nodejs.org/&#34;&gt;nodejs&lt;/a&gt;，前段有各种基础类库，还有MVC框架。&lt;/p&gt;
+
+&lt;p&gt;还有在js上发展起来的新语言&lt;a href=&#34;http://jashkenas.github.com/coffee-script/&#34;&gt; coffee script&lt;/a&gt;和&lt;a href=&#34;http://www.dartlang.org/&#34;&gt;dart&lt;/a&gt;,令人目不暇接。&lt;/p&gt;
+
+&lt;p&gt;确实很多东西(&lt;a href=&#34;http://www.zhihu.com/question/19938648&#34;&gt;以论坛为主的网站将如何转型？&lt;/a&gt;)需要从底层变革一下了，因为他们周围的东西已经变了。&lt;/p&gt;
+
+&lt;p&gt;矛盾促使了这样的变革和发展。&lt;/p&gt;
+
+&lt;p&gt;更多内容：seajs.com&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

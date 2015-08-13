@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> 轻松打造自己的Git Server &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>轻松打造自己的Git Server</h1>
+			  <small>2013-10-11,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p><a href="http://blog.webfuns.net/archives/1379.html" title="初识Git">Git</a> 作为分布式的版本管理系统，虽然没有中心Git Server也能很好的工作，但是搭建一个属于自己的Git Server会让自己的代码更安全。其实搭建的步骤非常简单，只需要如下几步就可以享受自己私有的Git Server啦！</p>
+
+<p>当然一切的前提是你要有一个自己Server， 推荐大家试试<a href="http://blog.webfuns.net/archives/1687.html" title="DigitalOcean SSD Cloud  VPS Server 你值得拥有">DigitalOcean SSD Cloud VPS Server</a>，很靠谱。</p>
+
+<p><strong>一、安装Git</strong></p>
+
+<p>用<span style="color: #003366;">sudo apt-get install git-core</span>命令在自己的Server和本地计算机上安装Git，当然如果喜欢也可以自己通过源代码编译安装。</p>
+
+<p><strong>二、建立Git账户</strong></p>
+
+<p>首先在Server端通过<span style="color: #003366;">sudo adduser git</span> 命令添加git账户，然后根据<a href="http://blog.webfuns.net/archives/1468.html" title="SSH实现免密码登录">这篇文章</a>介绍添加ssh公钥。操作完成后，应该可以用命令<span style="color: #003366;">ssh git@server.com</span>直接登录到自己的Server。</p>
+
+<p><strong>三、初始化Server仓库</strong></p>
+
+<ol>
+<li>ssh git@server.com #登录到自己Server</li>
+<li><span style="line-height: 1.714285714; font-size: 1rem;">mkdir myrepo.git #创建测试库目录</span></li>
+<li>cd myrepo.git ; git &#8211;bare init</li>
+</ol>
+
+<p><strong>四、本地检出代码</strong></p>
+
+<ol>
+<li>mkdir myrepo #建立空目录</li>
+<li>git clone git@server.com:myrepo.git #检出代码</li>
+</ol>
+
+<p>over现在一个自己私有的Git Server就建好了，可以自有Git It啦～。</p>
+
+<p>附录：<a href="http://rogerdudler.github.io/git-guide/index.zh.html" title="git - 简易指南">git &#8211; 简易指南</a></p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/git">git</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

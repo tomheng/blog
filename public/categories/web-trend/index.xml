@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Trend on 趣味互联网</title>
+    <link>http://:1313/tmp/categories/web-trend/</link>
+    <description>Recent content in Web Trend on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Aug 2012 16:09:39 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/categories/web-trend/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Google Nexus 7初上手</title>
+      <link>http://:1313/tmp/2012/08/google-nexus-7%E5%88%9D%E4%B8%8A%E6%89%8B/</link>
+      <pubDate>Mon, 06 Aug 2012 16:09:39 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/08/google-nexus-7%E5%88%9D%E4%B8%8A%E6%89%8B/</guid>
+      <description>&lt;p&gt;明知道冲动的冲动消费，不过无可否认，我确实被&lt;a href=&#34;http://www.youtube.com/watch?v=VuC0i4xTyrI&#34;&gt;Goolge IO 2012&lt;/a&gt;上的关于&lt;a href=&#34;http://www.google.com/nexus/#/7&#34;&gt;Google Nexus 7&lt;/a&gt; 和&lt;a href=&#34;https://developer.android.com/about/versions/jelly-bean.html&#34;&gt;Jelly Bean&lt;/a&gt;的演示视频（还有媒体铺天盖地的叫好声）所吸引，最终痛下决心买了Nexus 7。&lt;/p&gt;
+
+&lt;p&gt;8月1日下单时的价格是2175（现货），不过现在掉价掉的好厉害，货是8月4号到手的，正好赶上了周末，疯狂的玩了两天，有一些小小的体会和心得和大家分享。&lt;/p&gt;
+
+&lt;p&gt;整体上感觉是一个物超所值的产品。我的Nexus 7目前没有发现网上说的翘边、亮点、漏光等问题，做工不错，整体手感相当舒服。4.1的系统流畅性确实很好，屏幕看起来也非常舒服。还有值得一提的是系统自带的输入法无论是输入字母还是汉字体验都不错，所以搜狗输入法可以休息了。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;关于25美金&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;关注Nexus 7的朋友都知道，Google会赠送给买家25美金到&lt;a href=&#34;http://www.google.com/wallet/&#34;&gt;Google wallet&lt;/a&gt;账户中。拿到设备后开机引导画面会有要求填写信用卡的信息，不过这里有个小坑，就是只有挂上美国的VPN填上信用卡信息才能得到这25美金。如果没有挂vpn填写信用卡信息，就不会赠送这些钱。但是无论赠送成功与否，Google都会从信用卡扣除约1美金,我的信用卡在这里就多掉了两次钱。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;关于软件&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;虽然Android 平台有了&lt;a href=&#34;http://cn.engadget.com/2012/02/27/google-450-000-android-apps-now-available-to-300-million-device/&#34; title=&#34;Android Market App 数量到达 45 万，Google 进入新的里程碑&#34;&gt;足够量的APP&lt;/a&gt;,但是这些APP大部分都是针对手机开发，所以直接拿到平板上用会问题或者体验不好。不过所幸的是Google自家就提供了很多能够兼容Nexus 7的软件，万幸中的不幸是在我们伟大的祖国这些优秀的软件是无法使用的。所以如果要想用的稍微舒服一点，那么还是准备好一个给力的VPN吧！&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;平板上的Chrome&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在Android 4.1的系统上Chrome开始作为系统默认的浏览器，有个很值得一提的特性是如果你在PC的Chrome上打开的网站在平板可以看到你当前在PC上打开的网站，这个功能我非常喜欢，之前一直有这样的需求。不过平板上的Chrome还不支持安装插件，希望Google再接再厉。&lt;/p&gt;
+
+&lt;p&gt;Google Nexus 7正如Google 所说是专门为Google Play 优化的平板，所以非常适合用来看书、看视频和听歌等，七寸对于我来说是一个理想的平板，适合手持（相对于kindle重量还是大了点）。&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>用HTML制作幻灯片（PPT）</title>
+      <link>http://:1313/tmp/2012/05/%E7%94%A8html%E5%88%B6%E4%BD%9C%E5%B9%BB%E7%81%AF%E7%89%87ppt/</link>
+      <pubDate>Sat, 12 May 2012 11:52:38 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/05/%E7%94%A8html%E5%88%B6%E4%BD%9C%E5%B9%BB%E7%81%AF%E7%89%87ppt/</guid>
+      <description>&lt;p&gt;这周五给公司的同事做了一个HTML的培训，之前也看到过很多HTML的幻灯片，于是借此机会实践了一把，感觉不错！我搜索之后发现下面几个HTML做幻灯片的框架比较好。&lt;/p&gt;
+
+&lt;p&gt;1）&lt;a href=&#34;http://imakewebthings.com/deck.js/&#34; title=&#34;Modern HTML Presentations&#34;&gt;deck.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;deckjs目前提供四个模板，三种页面切换方式，而且支持页面跳转（按下g键），按下M键还可以出现幻灯片的列表。&lt;/p&gt;
+
+&lt;p&gt;2）&lt;a href=&#34;https://code.google.com/p/html5slides/&#34;&gt;html5slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Google I/O 2011就是使用的这个框架做的幻灯片！&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>又拍云推荐码</title>
+      <link>http://:1313/tmp/2012/03/%E5%8F%88%E6%8B%8D%E4%BA%91%E6%8E%A8%E8%8D%90%E7%A0%81/</link>
+      <pubDate>Fri, 16 Mar 2012 11:29:37 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/03/%E5%8F%88%E6%8B%8D%E4%BA%91%E6%8E%A8%E8%8D%90%E7%A0%81/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.upyun.com&#34;&gt;又拍云&lt;/a&gt;&lt;/strong&gt;现在支持推荐码了，使用推荐码可以获得95折的优惠，同时我也会得到一些积分。&lt;/p&gt;
+
+&lt;h4 id=&#34;推荐码列表:52519ce7ba7668f075fdb007281b6aec&#34;&gt;推荐码列表：&lt;/h4&gt;
+
+&lt;div&gt;
+  &lt;div&gt;
+    &lt;div&gt;
+      0450E8F504134BE5
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+
+&lt;p&gt;&lt;div&gt;
+    &lt;div&gt;
+      064F6FF3AAC7F075
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;div&gt;
+      12EC108CA70A3CF1
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;div&gt;
+      40C0EF6FD5B0B6C3
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;div&gt;
+      60D007108FB793A4
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;div&gt;
+      042328F7382E40BB
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;div&gt;
+      2E57809F1271AC7D
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;div&gt;
+      22523F08F31ED730
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;div&gt;
+      1E7796386B48BEB9
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;div&gt;
+      253DF01671490632
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;div&gt;
+      BE2F8800C6D9EB29
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;共20个又拍云推荐码。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HTML5跨浏览器实现总结（HTML5 Cross Browser Polyfills）</title>
+      <link>http://:1313/tmp/2012/02/html5%E8%B7%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E7%8E%B0%E6%80%BB%E7%BB%93html5-cross-browser-polyfills/</link>
+      <pubDate>Wed, 29 Feb 2012 03:33:06 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/02/html5%E8%B7%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E7%8E%B0%E6%80%BB%E7%BB%93html5-cross-browser-polyfills/</guid>
+      <description>&lt;p&gt;在GitHub上发现的好东西，GitHub最近风光无限啊，很多项目都在向上面迁移，俨然就是一个开源项目和程序员的世外桃源。&lt;/p&gt;
+
+&lt;p&gt;这篇文章中总结了SVG、Canvas、Local Storage、Web Sockets、File Api等各个方面的跨浏览器的解决方案总结，如果你想要使用HTML5进行开发，并且希望支持旧的浏览器，那么这个网页绝对有用。&lt;/p&gt;
+
+&lt;p&gt;原文链接：&lt;a href=&#34;https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills&#34;&gt;https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>无主题分享一张图片</title>
+      <link>http://:1313/tmp/2011/11/%E6%97%A0%E4%B8%BB%E9%A2%98%E5%88%86%E4%BA%AB%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Wed, 30 Nov 2011 15:28:08 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/11/%E6%97%A0%E4%B8%BB%E9%A2%98%E5%88%86%E4%BA%AB%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87/</guid>
+      <description>&lt;div id=&#34;attachment_1224&#34; style=&#34;width: 450px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+  &lt;img class=&#34;size-full wp-image-1224&#34; title=&#34;venn-diagram&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2011/11/venn-diagram.png&#34; alt=&#34;&#34; width=&#34;440&#34; height=&#34;431&#34; /&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    猜猜中间哪个是什么？
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;p style=&#34;text-align: center;&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>创意型互联网广告形式-内文广告</title>
+      <link>http://:1313/tmp/2010/05/%E5%88%9B%E6%84%8F%E5%9E%8B%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E5%BD%A2%E5%BC%8F-%E5%86%85%E6%96%87%E5%B9%BF%E5%91%8A/</link>
+      <pubDate>Tue, 04 May 2010 16:46:51 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/05/%E5%88%9B%E6%84%8F%E5%9E%8B%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E5%BD%A2%E5%BC%8F-%E5%86%85%E6%96%87%E5%B9%BF%E5%91%8A/</guid>
+      <description>
+
+&lt;div id=&#34;attachment_649&#34; style=&#34;width: 275px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+  &lt;a href=&#34;http://blog.webfuns.net/wp-content/uploads/2010/05/in-text.jpg&#34;&gt;&lt;img class=&#34;size-full wp-image-649 &#34; title=&#34;这就是内文广告&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2010/05/in-text.jpg&#34; alt=&#34;&#34; width=&#34;265&#34; height=&#34;44&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    这就是内文广告
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p style=&#34;text-align: left;&#34;&gt;
+  最近这两天发现两种比较有创意的广告形式，一个是内文广告，另一个是验证码广告。本文主要介绍内文广告。
+&lt;/p&gt;
+
+&lt;h3 id=&#34;span-style-color-008000-内文广告的定义-span:63ed5df667d2252a1209b1b6f2f4be7b&#34;&gt;&lt;span style=&#34;color: #008000;&#34;&gt;内文广告的定义&lt;/span&gt;&lt;/h3&gt;
+
+&lt;p&gt;内文广告（&lt;span style=&#34;color: #ff6600;&#34;&gt;In Text Advertising&lt;/span&gt;)是互联网最新的智能化广告模式。主要在文章中，以文字链接和触发的方式实现超文本连接，当用户的鼠标悬停在网页的某些特定关键字上时，就会弹出相关的广告和信息窗口，引导用户点击广告。也叫内文关键字广告、文中广告。一般内文广告与正常链接的区别是，内文广告具有双下划线。&lt;/p&gt;
+
+&lt;h3 id=&#34;span-style-color-008000-内文广告的历史-span:63ed5df667d2252a1209b1b6f2f4be7b&#34;&gt;&lt;span style=&#34;color: #008000;&#34;&gt;内文广告的历史&lt;/span&gt;&lt;/h3&gt;
+
+&lt;p&gt;内文广告国内先行者是&lt;a class=&#34;wpgallery&#34; title=&#34; 宏界传媒&#34; href=&#34;http://www.vogate.com/&#34; target=&#34;_blank&#34;&gt;宏界传媒&lt;/a&gt;发明，国外的主要是&lt;a class=&#34;wpgallery&#34; href=&#34;http://www.vibrantmedia.com&#34; target=&#34;_blank&#34;&gt;Vibrant&lt;/a&gt;、&lt;a class=&#34;wpgallery&#34; href=&#34;http://www.hotwords.com.br/&#34; target=&#34;_blank&#34;&gt; HOTWords&lt;/a&gt;、&lt;a class=&#34;wpgallery&#34; href=&#34;http://www.infolinks.com/&#34; target=&#34;_blank&#34;&gt;Infolinks&lt;/a&gt; 和 &lt;a class=&#34;wpgallery&#34; href=&#34;http://www.kontera.com&#34; target=&#34;_blank&#34;&gt;Kontera&lt;/a&gt;。可以查阅到一个比较早的内文广告实例是英文的，未做翻译。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;In 1982, to increase the sagging sales for Reese&amp;#8217;s Pieces, Hershey&amp;#8217;s accepted a product placement deal in Steven Spielberg&amp;#8217;s &amp;#8220;E.T.&amp;#8221;. After Elliot used Reese&amp;#8217;s Pieces to lure E.T. from his hiding place, Reese&amp;#8217;s Pieces experienced a 65% increase in sales and succeeded in reinvigorating the brand. Though this wasn&amp;#8217;t the first case of product placement, it is one of the best examples of increasing sales and supporting brand marketing objectives through contextually relevant product placement.&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;span-style-color-008000-内文广告的优势-span:63ed5df667d2252a1209b1b6f2f4be7b&#34;&gt;&lt;span style=&#34;color: #008000;&#34;&gt;内文广告的优势&lt;/span&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;不占用网页额外的空间（其实是不可能的，显示出来以后是要占据空间，其实网页是三维的）&lt;/li&gt;
+&lt;li&gt;针对性强&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;span-style-color-008000-内文广告的劣势-span:63ed5df667d2252a1209b1b6f2f4be7b&#34;&gt;&lt;span style=&#34;color: #008000;&#34;&gt;内文广告的劣势&lt;/span&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;破坏用户体验，在某种程度上是一种欺骗，用户悬停在关键词上之后不知道将要显示的是广告还是相关的辅助信息&lt;/li&gt;
+&lt;li&gt;破坏了导航的概念，对于网站之间流量传递形成阻碍&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;One of misery design’s most insidious recent examples is the idea of embedding links to advertising on the actual words of an article using a service like IntelliTxt. By sullying the very concept of navigation, such ads not only damage the user experience on the host site, they poison the well for all websites. Such links make users even less likely to navigate sites, and more likely to turn to trusted search engines to guide them to the next page&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;破坏网站的形象&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt;总结：&lt;/span&gt;内文广告概念比较新颖，却和传统链接概念存在一定的冲突。传统链接定位的是有价值的内容，而内文广告链接定位的则是商业信息。因为大多数网民还不知道正常链接和内文广告链接在表现上的区别（下划线不同），所以当用户把鼠标悬停在关键词之上的时候，无法确定背后是什么信息，而心里上希望是有价值的内容。所以如果内文广告和正常链接同时出现在文章内容中，那么势必会影响用户体验，从而对网站整体的信誉产生消极的影响，也许这就是内文广告没有得到广泛支持的原因吧！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>死链的检测查询工具和解决方法</title>
+      <link>http://:1313/tmp/2010/04/%E6%AD%BB%E9%93%BE%E7%9A%84%E6%A3%80%E6%B5%8B%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 08 Apr 2010 15:26:58 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/04/%E6%AD%BB%E9%93%BE%E7%9A%84%E6%A3%80%E6%B5%8B%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;p&gt;在网站中存在死链不但对于搜索引擎不友好，而且也是用户非常讨厌的，相信无论谁在打开一个链接等待N久之后被告知无法访问的时候都会产生强烈的反感情绪，会对那个网站失去兴趣。所以对SEO优化者或者网站编辑人员，预防和减少死链都是一件很重要的工作，此外我们还需要有一些检测网站死链的工具和解决死链的方法。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;检测死链的工具：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1）如果你把自己的网站提交到&lt;a class=&#34;wpgallery&#34; title=&#34; 网站管理员中心&#34; href=&#34;https://www.google.com/webmasters/tools/home?hl=zh-CN&#34; target=&#34;_blank&#34;&gt;Google网站管理员工具&lt;/a&gt;中，那么在网站管理员工具中Google会记录下索引你的网站过程中所遇到的死链。&lt;/p&gt;
+
+&lt;p&gt;2）&lt;a class=&#34;wpgallery&#34; href=&#34;http://down.zzbaike.com/download/Xune-2098.html&#34; target=&#34;_blank&#34;&gt;Xune &lt;/a&gt;是一个免费的桌面软件，会检测您整个网站的所有链接，并告诉您哪些是好的、哪些是坏掉的、哪些是超时的以及哪些是暂时无法连接上的，然后还会生成一份详细的报告给您。&lt;/p&gt;
+
+&lt;p&gt;3)Linkpatch.com 　您注册了之后把一段代码复制粘贴到您的404 模板(404.php)，然后您的博客一旦出现404 页面，Linkpatch 就会把这个消息通过邮件发送给您，算是错误报告吧。&lt;/p&gt;
+
+&lt;p&gt;4）Broken Link Checker(&lt;a href=&#34;http://wordpress.org/extend/plugins/broken-link-checker/&#34;&gt;http://wordpress.org/extend/plugins/broken-link-checker/&lt;/a&gt;) 　　Broken Link Checker 是一个WordPress 插件，也是我目前最喜欢的死链接检测软件。它的优势在于不仅可以检测所有文章的死链接和重置链接，而且还可以直接在 WordPress 后台对这些链接进行修改。不过有一个不足的地方是，它只在您的WordPress 后台开着的时候才会检测，大懒虫一个。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;解决方法&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;找到死链之后，就是去修改了，如果死链很多，那将是一件很头大的事情。所以最关键的还是要学会预防死链的产生，预防死链产生主要从以下几方面入手。&lt;/p&gt;
+
+&lt;p&gt;1）网站结构要事先确定好，不要等上线之后做出太大的调整，这样极易产生死链&lt;/p&gt;
+
+&lt;p&gt;2）一般情况下不要进行&lt;a class=&#34;wpgallery&#34; title=&#34;搜索引擎友好的Wordpress更换域名过程和注意事项&#34; href=&#34;http://blog.webfuns.net/archives/380.html&#34; target=&#34;_blank&#34;&gt;域名的迁移&lt;/a&gt;，如果一定要这样做那么注意做好301重定向&lt;/p&gt;
+
+&lt;p&gt;3）外联的添加要慎重，尤其是国内的站点，生死瞬息间。&lt;/p&gt;
+
+&lt;p&gt;4）定期进行死链检测，检测之后立马进行修正&lt;/p&gt;
+
+&lt;p&gt;5）设计一个SEO良好的404页面&lt;/p&gt;
+
+&lt;p&gt;6）最好不要使用图床，还是上传到自己的空间最安全&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DOCTYPE怎么支持html5</title>
+      <link>http://:1313/tmp/2010/01/doctype%E6%80%8E%E4%B9%88%E6%94%AF%E6%8C%81html5/</link>
+      <pubDate>Mon, 11 Jan 2010 11:53:08 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/01/doctype%E6%80%8E%E4%B9%88%E6%94%AF%E6%8C%81html5/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Document_Type_Declaration&#34; target=&#34;_blank&#34;&gt;DOCTYPE&lt;/a&gt;即DTD，文档类型定义。通常来说他决定了浏览器选用什么样的布局模式来显示网页。选用不同的&lt;strong&gt;DOCTYPE&lt;/strong&gt;通常会对网页的布局和书写规则产生影响。现在比较常用的XHTML 1.0的DOCTYPE主要有三种。&lt;/p&gt;
+
+&lt;p&gt;1）&lt;strong&gt;过度类型&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table style=&#34;background: #c2c7ce;&#34; border=&#34;0&#34; cellspacing=&#34;0&#34; cellpadding=&#34;2&#34; width=&#34;577&#34;&gt;
+  &lt;tr&gt;
+    &lt;td width=&#34;575&#34; valign=&#34;top&#34;&gt;
+      &lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;!DOCTYPE html PUBLIC &amp;#8220;-//W3C//DTD XHTML 1.0 Transitional//EN&amp;#8221; &amp;#8220;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&amp;#8221;&gt;&lt;/span&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;这是一种不是很严格的DOCTYPE,一些不被推荐的标签也可以使用。现在大多数的网页都在使用这种类型。&lt;/p&gt;
+
+&lt;p&gt;2）严格类型&lt;/p&gt;
+
+&lt;table style=&#34;background: #c2c7ce;&#34; border=&#34;0&#34; cellspacing=&#34;0&#34; cellpadding=&#34;2&#34; width=&#34;577&#34;&gt;
+  &lt;tr&gt;
+    &lt;td width=&#34;575&#34; valign=&#34;top&#34;&gt;
+      &lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;!DOCTYPE html PUBLIC &amp;#8220;-//W3C//DTD XHTML 1.0 Transitional//EN&amp;#8221; &amp;#8220;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&amp;#8221;&gt;&lt;/span&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;这种要求比较严格不允许使用表现性的标签，如&lt;hr/&gt;。标签的书写必须符合规定。&lt;/p&gt;
+
+&lt;p&gt;3）框架类型&lt;/p&gt;
+
+&lt;table style=&#34;background: #c2c7ce;&#34; border=&#34;0&#34; cellspacing=&#34;0&#34; cellpadding=&#34;2&#34; width=&#34;577&#34;&gt;
+  &lt;tr&gt;
+    &lt;td width=&#34;575&#34; valign=&#34;top&#34;&gt;
+      &lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;!DOCTYPE html PUBLIC &amp;#8220;-//W3C//DTD XHTML 1.0 Frameset//EN&amp;#8221; &amp;#8220;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&amp;#8221;&gt;&lt;/span&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;一种支持框架的DOCTYPE。&lt;/p&gt;
+
+&lt;p&gt;此外还有支持XHML4.01的DTD和适合手机浏览器的DTD，参见&lt;a href=&#34;http://en.wikipedia.org/wiki/Document_Type_Declaration&#34; target=&#34;_blank&#34;&gt;维基百科的DOCTYPE的介绍&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;那么如何让我们的网站支持仍处于开发阶段的HTML5呢？方法很简单，使用如下的类型，那么我们的网站就可以支持&lt;a href=&#34;http://blog.webfuns.net/archives/352.html&#34; target=&#34;_blank&#34;&gt;HTML5&lt;/a&gt;啦，同时向后兼容。&lt;/p&gt;
+
+&lt;table style=&#34;background: #86d1f8;&#34; border=&#34;0&#34; cellspacing=&#34;0&#34; cellpadding=&#34;2&#34; width=&#34;400&#34;&gt;
+  &lt;tr&gt;
+    &lt;td width=&#34;400&#34; valign=&#34;top&#34;&gt;
+      &lt;strong&gt;&lt;!DOCTYPE HTML&gt;&lt;/strong&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;就这么简单网站就可以支持HTML5啦，很简单的书写方式，相对于老式的DOCTYPE，这个更容易记忆。关键是这样的类型我们现在就可以使用，如此短的定义正合Google这种大流量网站的&lt;/p&gt;
+
+&lt;p&gt;心意。除了Google以为，现在使用这种类型的网站还有&lt;a href=&#34;http://www.taobao.com&#34; target=&#34;_blank&#34;&gt;淘宝&lt;/a&gt;。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>实时网页程序简单介绍</title>
+      <link>http://:1313/tmp/2010/01/%E5%AE%9E%E6%97%B6%E7%BD%91%E9%A1%B5%E7%A8%8B%E5%BA%8F%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Sat, 02 Jan 2010 16:13:49 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/01/%E5%AE%9E%E6%97%B6%E7%BD%91%E9%A1%B5%E7%A8%8B%E5%BA%8F%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&lt;p&gt;实时网页程序&lt;/p&gt;
+
+&lt;p&gt;在传统的网页中客户端总是主动的向服务器端索要信息，然后服务器端才把客户端请求的信息发送回来。在这种模式中服务器端是被动的，服务器只能去响应客户端的请求，即只有客户端发起请求，服务器才会作出响应；客户端如果没有任何请求，无论服务器端发生了什么都不会去通知客户端。&lt;/p&gt;
+
+&lt;p&gt;而实时网页程序要实现的则是服务器端的主动推送能力，即服务端可以随时向客户端推送必要的信息，这样就使得服务器端具有了一定的主动性。这种特性对一些应用和程序是必要的，比如twitter这种网络引用，每时每刻都有新的信息产生，如果服务器端不能主动地推送信息给客户端，那么用户就要不断地去刷新网页（为了获取信息用户付出了很多的时间），这无疑增加了用户使用twitter的成本，降低了&lt;a href=&#34;http://www.twitter.com&#34; target=&#34;_blank&#34;&gt;twitter&lt;/a&gt;本身的价值。而如果服务端具有一定的推送能力，那么用户就可以把用在刷新上的时间剩下来，去做其他的更有意义的事情，比如去偷个菜什么的。还有一个重要的应用就是网页游戏，这里的网页游戏指的是那些具有即时交互性的游戏（像传统的桌面网游一样），在这种情境下，服务器端的推送能力就变得尤为重要。此外实时网页程序也是互联网发展的重要方向，如果web能够友好的实现服务器端的推送，那么网页应用打败桌面软件的一天指日可待，&lt;a href=&#34;http://blog.webfuns.net/archives/149.html&#34; target=&#34;_blank&#34;&gt;chrome os&lt;/a&gt;将会大放光芒。&lt;/p&gt;
+
+&lt;p&gt;基于以上几点，我对实时网页程序产生的兴趣。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HTML5新特性学习-自定义数据</title>
+      <link>http://:1313/tmp/2009/12/html5%E6%96%B0%E7%89%B9%E6%80%A7%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Wed, 09 Dec 2009 16:07:35 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/12/html5%E6%96%B0%E7%89%B9%E6%80%A7%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE/</guid>
+      <description>&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;此文章属翻译作品，如果看的不通顺或者看不懂，请翻看原文！&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;&lt;span style=&#34;color: #000000;&#34;&gt;&lt;strong&gt;原文&lt;span style=&#34;color: #000000;&#34;&gt;链接&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;&lt;span style=&#34;color: #000000;&#34;&gt;：&lt;/span&gt;&lt;/span&gt;&lt;a class=&#34;wpgallery&#34; title=&#34;HTML 5 data- Attributes&#34; href=&#34;http://ejohn.org/blog/html-5-data-attributes/ &#34; target=&#34;_blank&#34;&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;HTML 5 data- Attributes&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;自定义数据属性是在HTML5中新加入的一个特性。对于规范来说，好像有点怪异&amp;#8211;但他的确提供了一些便利。&lt;/p&gt;
+
+&lt;p&gt;简单来说，自定义数据属性规范规定任何以data-开头的属性都将被视为私有数据的存储区域（&amp;#8221;私有&amp;#8221;在这里的意思是最终用户无法看到他-他不会影响页面的布局和表现）&lt;/p&gt;
+
+&lt;p&gt;这允许你书写有效的HTML标记的同时，嵌入数据到你的网页中去。简单示例如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;li &lt;/span&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;class&lt;/span&gt;=&amp;#8221;&lt;span style=&#34;color: #ff00ff;&#34;&gt;user&lt;/span&gt;&amp;#8221;   &lt;span style=&#34;color: #008000;&#34;&gt;data-name&lt;/span&gt;=&amp;#8221;&lt;span style=&#34;color: #ff00ff;&#34;&gt;John Resig&lt;/span&gt;&amp;#8221;  &lt;span style=&#34;color: #008000;&#34;&gt;data-city&lt;/span&gt;=&amp;#8221;&lt;span style=&#34;color: #ff00ff;&#34;&gt;Boston&lt;/span&gt;&amp;#8221; &lt;span style=&#34;color: #008000;&#34;&gt;data-lang&lt;/span&gt;=&amp;#8221;&lt;span style=&#34;color: #ff00ff;&#34;&gt;js&lt;/span&gt;&amp;#8221;  &lt;span style=&#34;color: #008000;&#34;&gt;data-food&lt;/span&gt;=&amp;#8221;&lt;span style=&#34;color: #ff00ff;&#34;&gt;Bacon&lt;/span&gt;&amp;#8220;&lt;span style=&#34;color: #0000ff;&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt; &lt;b&gt;&lt;/span&gt;John says:&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;/b&gt; &lt;span&gt;&lt;/span&gt;Hello, how are you?&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;&lt;/li&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;上面的代码完全符合HTML5的规范。对所有的javascript开发者来说这是一个很受欢迎的新特性。一直以来我们都在需求一种最好的用有效地方式添加元数据到htmL元素的方法，框架用各种不同的方式去解决这一问题。一下是两种解决方案：&lt;/p&gt;
+
+&lt;p&gt;1）使用HTML，但自定义DTD。&lt;/p&gt;
+
+&lt;p&gt;2）使用XHTML，与特定的命名空间。&lt;/p&gt;
+
+&lt;p&gt;The addition of this prefix completely routes around both issues (including any extra markup for validation or needing to be valid XHTML) with this effective addition.&lt;/p&gt;
+
+&lt;p&gt;On top of this a simple JavaScript API is presented to access these attribute values (in addition to the normal get/setAttribute):&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #003366;&#34;&gt;var &lt;/span&gt;user = document.&lt;span style=&#34;color: #008000;&#34;&gt;getElementsByTagName&lt;/span&gt;&lt;span style=&#34;color: #008000;&#34;&gt;(&lt;/span&gt;&amp;#8220;li&amp;#8221;&lt;span style=&#34;color: #008000;&#34;&gt;)[&lt;/span&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000;&#34;&gt;]&lt;/span&gt;;&lt;br /&gt;
+&lt;span style=&#34;color: #003366;&#34;&gt;var&lt;/span&gt; pos = &lt;span style=&#34;color: #ff0000;&#34;&gt;&lt;/span&gt;, span = user.&lt;span style=&#34;color: #008000;&#34;&gt;getElementsByTagName(&lt;/span&gt;&amp;#8220;span&amp;#8221;&lt;span style=&#34;color: #008000;&#34;&gt;)[&lt;/span&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000;&#34;&gt;]&lt;/span&gt;;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #003366;&#34;&gt;var&lt;/span&gt; phrases = &lt;span style=&#34;color: #008000;&#34;&gt;[&lt;/span&gt;&lt;br /&gt;
+&lt;span style=&#34;color: #008000;&#34;&gt; {&lt;/span&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;name&lt;/span&gt;: &amp;#8220;&lt;span style=&#34;color: #3366ff;&#34;&gt;city&lt;/span&gt;&amp;#8220;, &lt;span style=&#34;color: #0000ff;&#34;&gt;prefix&lt;/span&gt;: &amp;#8220;&lt;span style=&#34;color: #3366ff;&#34;&gt;I am from&lt;/span&gt; &amp;#8220;&lt;span style=&#34;color: #008000;&#34;&gt;}&lt;/span&gt;,&lt;br /&gt;
+&lt;span style=&#34;color: #008000;&#34;&gt; {&lt;/span&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;name&lt;/span&gt;: &amp;#8220;&lt;span style=&#34;color: #3366ff;&#34;&gt;food&lt;/span&gt;&amp;#8220;, &lt;span style=&#34;color: #0000ff;&#34;&gt;prefix&lt;/span&gt;: &amp;#8220;&lt;span style=&#34;color: #3366ff;&#34;&gt;I like to eat&lt;/span&gt; &amp;#8220;&lt;span style=&#34;color: #008000;&#34;&gt;}&lt;/span&gt;,&lt;br /&gt;
+&lt;span style=&#34;color: #008000;&#34;&gt; {&lt;/span&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;name&lt;/span&gt;: &amp;#8220;&lt;span style=&#34;color: #3366ff;&#34;&gt;lang&lt;/span&gt;&amp;#8220;, &lt;span style=&#34;color: #0000ff;&#34;&gt;prefi&lt;/span&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;x&lt;/span&gt;: &amp;#8220;&lt;span style=&#34;color: #3366ff;&#34;&gt;I like to program in&lt;/span&gt; &amp;#8220;&lt;span style=&#34;color: #008000;&#34;&gt;}&lt;/span&gt;&lt;br /&gt;
+&lt;span style=&#34;color: #008000;&#34;&gt;]&lt;/span&gt;;&lt;/p&gt;
+
+&lt;p&gt;user.&lt;span style=&#34;color: #008000;&#34;&gt;addEventListener&lt;/span&gt;&lt;span style=&#34;color: #008000;&#34;&gt;( &lt;/span&gt;&amp;#8220;click&amp;#8221;,&lt;span style=&#34;color: #003366;&#34;&gt; function&lt;/span&gt;&lt;span style=&#34;color: #008000;&#34;&gt;(){&lt;/span&gt;&lt;br /&gt;
+&lt;span style=&#34;color: #003366;&#34;&gt; var&lt;/span&gt; phrase = phrases&lt;span style=&#34;color: #008000;&#34;&gt;[&lt;/span&gt; pos++ &lt;span style=&#34;color: #008000;&#34;&gt;]&lt;/span&gt;;&lt;br /&gt;
+&lt;span style=&#34;color: #008000;&#34;&gt; // Use the .dataset property&lt;/span&gt;&lt;br /&gt;
+span.&lt;span style=&#34;color: #008000;&#34;&gt;innerHTML &lt;/span&gt;= phrase.&lt;span style=&#34;color: #008000;&#34;&gt;prefix&lt;/span&gt; + user.&lt;span style=&#34;color: #008000;&#34;&gt;dataset[&lt;/span&gt; phrase.&lt;span style=&#34;color: #008000;&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color: #008000;&#34;&gt;&lt;span style=&#34;color: #008000;&#34;&gt; &lt;/span&gt;]&lt;/span&gt;;&lt;br /&gt;
+&lt;span style=&#34;color: #008000;&#34;&gt;}&lt;/span&gt;,&lt;span style=&#34;color: #003366;&#34;&gt; false&lt;/span&gt;&lt;span style=&#34;color: #008000;&#34;&gt;)&lt;/span&gt;;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #008000;&#34;&gt;&lt;span style=&#34;color: #000000;&#34;&gt;这种.dataset用法看起来很像.attributes的用法（但是他只是作为key-value 对），由于现在还没浏览器实现这一DOM特性，对他的需求并不是很大-因此上面的代码可以被替代为：&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #008000;&#34;&gt;&lt;span style=&#34;color: #000000;&#34;&gt;span.&lt;span style=&#34;color: #008000;&#34;&gt;innerHTML&lt;/span&gt; = phrase.&lt;span style=&#34;color: #008000;&#34;&gt;prefix&lt;/span&gt; + user.&lt;span style=&#34;color: #008000;&#34;&gt;getAttribute&lt;/span&gt;&lt;span style=&#34;color: #008000;&#34;&gt;(&lt;/span&gt;&amp;#8220;data-&amp;#8221; + phrase.&lt;span style=&#34;color: #008000;&#34;&gt;name )&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;我认为最令人兴奋的是我们可以在所有的浏览器去实现这些特性之前就可以使用它们。现在在你的网页上使用这种特性，那你可以很明确的知道他们在未来可以继续有效。当HTML验证完全整合到&lt;a class=&#34;wpgallery&#34; title=&#34;w3c&#34; href=&#34;http://www.w3.org&#34; target=&#34;_blank&#34;&gt;W3C&lt;/a&gt;的认证当中的时候，你的网站讲兼容他们（当然，假设你已经通过HTML5的验证并且正在使用HTML5的Doctype）&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>twitter中文版-twitter本地化现状</title>
+      <link>http://:1313/tmp/2009/11/twitter%E4%B8%AD%E6%96%87%E7%89%88-twitter%E6%9C%AC%E5%9C%B0%E5%8C%96%E7%8E%B0%E7%8A%B6/</link>
+      <pubDate>Mon, 23 Nov 2009 11:53:24 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/11/twitter%E4%B8%AD%E6%96%87%E7%89%88-twitter%E6%9C%AC%E5%9C%B0%E5%8C%96%E7%8E%B0%E7%8A%B6/</guid>
+      <description>&lt;p&gt;&lt;a class=&#34;wpgallery&#34; title=&#34;twitter&#34; href=&#34;http://twitter.com&#34; target=&#34;_blank&#34;&gt;twitter&lt;/a&gt;在美国和其他的国家发展的是如日中天，而twitter本地化即&lt;a class=&#34;wpgallery&#34; title=&#34;twitter中文社区一周热点播报&#34; href=&#34;http://blog.webfuns.net/archives/79.html&#34; target=&#34;_blank&#34;&gt;twitter中文&lt;/a&gt;克隆版的发展却是沟沟坎坎。&lt;/p&gt;
+
+&lt;p&gt;1）&lt;strong&gt;twitter本地化一代&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;2006年5月，twitter上线。那时候还不叫twitter叫Twttr,后来在2006年秋季的时候，Twttr正式更名为Twitter。后来经过几个引爆性的事件使得twitter在山姆大叔那里声明鹊起，后来陆陆续续有中文版的twitter诞生了，其中的&lt;span style=&#34;background-color: #ffffff;&#34;&gt;代表者有饭否、嘀咕、腾讯滔滔等等还有一些没有诞生就夭折的版本。饭否和嘀咕是两个做的影响比较大的，后来他们都不能访问了。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;background-color: #ffffff;&#34;&gt;2）&lt;strong&gt;twitter本地化二代&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;background-color: #ffffff;&#34;&gt;09年下半年逐渐又兴起了一个twitter模仿的高潮，&lt;a class=&#34;wpgallery&#34; title=&#34;新浪微博&#34; href=&#34;http://t.sina.com.cn&#34; target=&#34;_blank&#34;&gt;新浪微博&lt;/a&gt;算是吆喝的最大的一个，而且现在已经有了一定的用户群体，新浪的广告也是twitter中文版中打的最多的一个，在&lt;a class=&#34;wpgallery&#34; title=&#34;网址之家&#34; href=&#34;http://hao123.com&#34; target=&#34;_blank&#34;&gt;hao123&lt;/a&gt;，google的twitter关键词搜索页面都很容易看到新浪微薄的广告。虽然很能炒，但我没看出什么使我提起兴趣的地方，所以虽然注册了一个&lt;a class=&#34;wpgallery&#34; title=&#34;tomheng profile&#34; href=&#34;http://blog.webfuns.net/about-tomheng-profile&#34; target=&#34;_blank&#34;&gt;tomheng&lt;/a&gt;的帐号但却没怎么用过。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;background-color: #ffffff;&#34;&gt;twitter是一直被模仿但却从未被超越，twitter中文版虽然也出了不少，但却都没有真正的做到家，模仿应该只去模仿别人的形式而应该去看看twitter创意的思想和出发点，为什么他们能做出如此优秀的互联网应用，而我们不能。一味的模仿将使我们越来越找不到自己的方向，总是被牵这鼻子走。希望国内的模仿者能有所创新，能过提供给我们更好的应用服务。&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SAE又一个互联网开放平台</title>
+      <link>http://:1313/tmp/2009/11/sae%E5%8F%88%E4%B8%80%E4%B8%AA%E4%BA%92%E8%81%94%E7%BD%91%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0/</link>
+      <pubDate>Tue, 17 Nov 2009 16:10:33 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/11/sae%E5%8F%88%E4%B8%80%E4%B8%AA%E4%BA%92%E8%81%94%E7%BD%91%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0/</guid>
+      <description>&lt;p&gt;近期&lt;a class=&#34;wpgallery&#34; title=&#34;趣味互联网&#34; href=&#34;http://blog.webfuns.net&#34; target=&#34;_blank&#34;&gt;互联网&lt;/a&gt;&lt;strong&gt;开放平台&lt;/strong&gt;又发生了一件不大不小的事情，新浪开始对&lt;a class=&#34;wpgallery&#34; title=&#34;sina app engine&#34; href=&#34;http://sae.sina.com.cn&#34; target=&#34;_blank&#34;&gt;SAE&lt;/a&gt;(sina app engine)&lt;a class=&#34;wpgallery&#34; title=&#34;互联网开放平台&#34; href=&#34;http://blog.webfuns.net/archives/285.html&#34; target=&#34;_blank&#34;&gt;开放平台&lt;/a&gt;开始进行内侧，SAE是新浪推出的新的分布式应用环境。Sina App Engine是基于PHP的Web应用开发和运行平台.致力于为广大SAE开发者提供简单高效的分布式应用环境 。现在SAE还只是Alpha版,测试也只是内部测试，公司以外的人很难得到邀请码。&lt;a class=&#34;wpgallery&#34; title=&#34;Sina App Engine Blog&#34; href=&#34;http://blog.sina.com.cn&#34; target=&#34;_blank&#34;&gt;官方博客&lt;/a&gt;消息：SAE可能在明年1月份发布正式版。&lt;br /&gt;
+&lt;strong&gt;SAE开放平台支持的服务：&lt;/strong&gt;&lt;br /&gt;
+PHP 5.3.0&lt;br /&gt;
+Mysql 5.0.86&lt;br /&gt;
+Memcache&lt;br /&gt;
+Fetch URL&lt;br /&gt;
+Cron Jobs&lt;br /&gt;
+图片处理&lt;br /&gt;
+Php和mysql自然不用说，后面的四项服务还是挺诱人的。Memcache做缓存，Cron Jobs可以做事务程序。&lt;br /&gt;
+SAE开放平台的出现无论是模仿秀（和gae的名字都很想）还是概念炒作，这都不重要，重要的是他发出了一个强烈的信号，大家都认识到了开放平台和云是趋势。&lt;/p&gt;
+
+&lt;p&gt;关于SAE开放平台我最关心的有两个问题：&lt;span style=&#34;color: #ff0000;&#34;&gt;备案和收费&lt;/span&gt;。备案问题如果不解决，SAE很难取得大的成就，至少很难获得广泛的用户群。免费是不可能的，收费就要有个标准，如何收费，价格如何，这些都是关怀开发者(&lt;a href=&#34;http://blog.webfuns.net/about-tomheng-profile&#34;&gt;tomheng &lt;/a&gt;也是个开发者）利益的问题。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> 没了Google Reader还可以这样玩RSS &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>没了Google Reader还可以这样玩RSS</h1>
+			  <small>2013-06-26,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        
+
+<p>好吧，这应该算是一篇“辞旧迎新”的文章。</p>
+
+<h4 id="rss-1:e41a79d0367748f2d0e8d3863b88fa1e"><a href="https://zh.wikipedia.org/wiki/RSS">RSS</a>？</h4>
+
+<p>RSS 是Really Simple Syndication的简写，意思就是 “聚合真的很简单”。RSS（简易信息聚合）是一种消息来源格式规范，用以聚合经常发布更新数据的网站，例如博客文章、新闻、音频或视频的网摘。RSS文件（或称做摘要、网络摘要、或频更新，提供到频道）包含了全文或是节录的文字，再加上发用者所订阅之网摘布数据和授权的元数据。</p>
+
+<p>从上面可以看出RSS就是一种信息聚合的格式规范，从这个意义上来说，我不认为RSS会随着Google Reader的关闭而逐渐消亡。其实随着科技的进步和发展，信息会变得越来越分散，认为获取有价值信息的 成本也会随之提高，这就是不断出现的信息聚合工具的价值所在。一个能为人们提供价值的东西，怎么会无缘无故的衰亡呢？</p>
+
+<h4 id="google-reader-2:e41a79d0367748f2d0e8d3863b88fa1e"><a href="http://zh.wikipedia.org/wiki/Google%E9%98%85%E8%AF%BB%E5%99%A8">Google Reader </a>？</h4>
+
+<p>Google阅读器（Google Reader）是Google公司旗下一个基于网络的聚合器，能在线或者离线阅读Atom和RSS。英文版的Google Reader于2005年10月7日通过Google实验室发布，2007年9月17日成为正式版。中文版的Google阅读器大约在2007年9月18日左右发布。<br />
+2013年3月13日Google宣布，作为第二个春季大扫除计划之一，Google阅读器因用户数量逐年下降，将于2013年7月1日终止服务，用户有3个多月的时间导出自己的数据。</p>
+
+<p>就我的体验来讲，Google Reader确实给我带来了实在的价值，尤其是读书那会。那时的闲暇时间也比较多，所以会长时间的泡在GR上，看各种牛人“山呼海啸”，也算是一种享受了。很不幸的是这样一个优秀的工具要离我们而去，就像很多美好的事物一样。</p>
+
+<h4 id="五车书-3:e41a79d0367748f2d0e8d3863b88fa1e"><a href="http://126.am/fbooks">五车书</a>？</h4>
+
+<p>是我的一个实现项目，源于6月初离职找工作。离职的事情比较突然，一时没有想好自己下一步应该怎么办？所以自己不想盲目的去找工作，就像要不要出去玩一下放松放松，后来一项五一刚出玩过一次，再说也没有好的地方去。一个偶然的瞬间想到是不是可以把RSS的微信两个东西结合起来，弄成个类似阅读器的东西。</p>
+
+<p>接下来就用了两天的时间做了个原型，验证了下自己的想法，发现确实是可以实现的。随后就又投入了几天的时间，前后整个项目零星投入差不多2周时间。现在总算到了勉强可用的程度，于是想分享出来。</p>
+
+<p>五车书主要分两个部分，一个就是微信公号的接口部分，也就是在微信内实现和用户的交互。第二部是做了一个简单的可以管理和添加订阅的网站。</p>
+
+<p>本来的设想是挺好的，可以实现完全的微信内管理，不过现在有些条件还不成熟，项目目前只是可用离易用还有比较大的差距。有很多可以实现的好的Idea目前无法实现，期待微信5.0出来后可以带来更好好玩的功能。</p>
+
+<p>如果感兴趣可以扫描下面的二维码或者在微信内搜索fbooks添加好友。</p>
+
+<p><img class="alignnone" alt="" src="http://wucheshu.sinaapp.com/public/images/qrcode_middle.jpg" width="258" height="258" /></p>
+
+<p>&nbsp;</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/rss">RSS</a> &nbsp;
+				      
+				         <a href="/tags/%E4%BA%94%E8%BD%A6%E4%B9%A6">五车书</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

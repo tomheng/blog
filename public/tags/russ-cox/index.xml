@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Russ Cox on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/russ-cox/</link>
+    <description>Recent content in Russ Cox on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Jun 2015 08:35:04 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/russ-cox/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Golang多版本共存方案</title>
+      <link>http://:1313/tmp/2015/06/golang%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Fri, 12 Jun 2015 08:35:04 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/06/golang%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98%E6%96%B9%E6%A1%88/</guid>
+      <description>&lt;p&gt;如果你是一个狂热的Golang爱好者，也许你会同时使用两个或两个以上的Golang版本。那么这时候怎么实现呢？&lt;/p&gt;
+
+&lt;p&gt;这里提供一个Russ cox的方案。这个方案是在Google Group里看到的，但是我现在已经找不到具体是哪个链接了。&lt;/p&gt;
+
+&lt;div class=&#34;codecolorer-container bash blackboard&#34; style=&#34;overflow:auto;white-space:nowrap;&#34;&gt;
+  &lt;table cellspacing=&#34;0&#34; cellpadding=&#34;0&#34;&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;line-numbers&#34;&gt;
+        &lt;div&gt;
+          1&lt;br /&gt;2&lt;br /&gt;3&lt;br /&gt;4&lt;br /&gt;5&lt;br /&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;div class=&#34;bash codecolorer&#34;&gt;
+          &lt;span class=&#34;co0&#34;&gt;#file:/usr/bin/go1.4&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;co0&#34;&gt;#!/bin/bash&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw3&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;re2&#34;&gt;GOROOT&lt;/span&gt;=&lt;span class=&#34;re1&#34;&gt;$HOME&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;go1.4&lt;br /&gt; &lt;span class=&#34;kw3&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;re2&#34;&gt;PATH&lt;/span&gt;=&lt;span class=&#34;re1&#34;&gt;$HOME&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;go1.4&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;bin:&lt;span class=&#34;re1&#34;&gt;$PATH&lt;/span&gt;&lt;br /&gt; &lt;span class=&#34;kw3&#34;&gt;exec&lt;/span&gt; &lt;span class=&#34;re1&#34;&gt;$GOROOT&lt;/span&gt;&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;bin&lt;span class=&#34;sy0&#34;&gt;/&lt;/span&gt;go &lt;span class=&#34;st0&#34;&gt;&#34;$@&#34;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;历史稳定版本可以这样处理，然后把开发版本作为默认的。&lt;/p&gt;
+
+&lt;p&gt;all done.&lt;/p&gt;
+
+&lt;p&gt;另：&lt;a href=&#34;https://twitter.com/_rsc&#34;&gt;Russ cox &lt;/a&gt;已经成为我的偶像啦&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

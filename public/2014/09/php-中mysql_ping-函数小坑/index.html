@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> PHP 中mysql_ping 函数小坑 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>PHP 中mysql_ping 函数小坑</h1>
+			  <small>2014-09-12,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>官方文档是这样介绍的：</p>
+
+<blockquote>
+<p>mysql_ping() 检查到服务器的连接是否正常。如果断开，则自动尝试连接。本函数可用于空闲很久的脚本来检查服务器是否关闭了连接，如果有必要则重新连接上。如果到服务器的连接可用则 mysql_ping() 返回 TRUE，否则返回 FALSE。</p>
+</blockquote>
+
+<p>看一眼可能会以为mysql_ping 就两个返回值（TRUE | FALSE),但是实际情况是还有第三个返回值。这个问题官方文档下方是有人评论的，而且是在七年前:(</p>
+
+<div class="codecolorer-container php blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="php codecolorer">
+          <span class="co1">//When checking if a $resource works...</span><br /> <span class="co1">//be prepared that mysql_ping returns NULL as long as $resource is no correct mysql resource.</span><br /> <span class="re0">$resource</span> <span class="sy0">=</span><span class="kw4">NULL</span><span class="sy0">;</span><br /> <a href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a> <span class="sy0">=</span> <span class="sy0">@</span><a href="http://www.php.net/mysql_ping"><span class="kw3">mysql_ping</span></a><span class="br0">&#40;</span><span class="re0">$resource</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> <span class="co2"># showing NULL<br /> </span><span class="co1">//This could be used to decide of a current $resource is a mysql or a mysqli connection when //nothing else is available to do that...</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>越来越觉着PHP是个玩具型的东西。。。</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/php%E5%9F%BA%E7%A1%80">PHP基础</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

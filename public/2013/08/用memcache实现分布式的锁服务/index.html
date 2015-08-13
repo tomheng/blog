@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> 用Memcache实现分布式的锁服务 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>用Memcache实现分布式的锁服务</h1>
+			  <small>2013-08-04,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>一般情况下我们都用Memcache作为一个分布式的key/value缓存服务器，其实Memcache也可以实一些外门邪道的功能比如作为分布式锁来用。</p>
+
+<p>原理其实非常简单就是memecach_add的时候，如果添加的key已经存在那么后面的添加就会失败。设想在高并发的场景下，如果存在被竞争的资源，我们就可以利用这个小trick来对资源加锁。知道了原理实现起来非常简单，下面是我初步实现的代码。</p>
+
+<div class="codecolorer-container php blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />31<br />32<br />33<br />34<br />35<br />36<br />37<br />38<br />39<br />40<br />41<br />42<br />43<br />44<br />45<br />46<br />47<br />48<br />49<br />50<br />51<br />52<br />53<br />54<br />55<br />56<br />57<br />58<br />59<br />60<br />61<br />62<br />63<br />64<br />65<br />66<br />67<br />68<br />69<br />70<br />71<br />72<br />73<br />74<br />75<br />76<br />77<br />78<br />79<br />80<br />81<br />82<br />83<br />84<br />85<br />86<br />87<br />88<br />89<br />90<br />91<br />92<br />93<br />94<br />95<br />96<br />97<br />98<br />99<br />100<br />101<br />102<br />103<br />104<br />105<br />106<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="php codecolorer">
+          <span class="kw2"><?php</span><br /> <br /> <span class="co4">/**<br /> &nbsp;* 锁服务(用Memcache模拟锁)<br /> &nbsp;* Author: tomheng<zhm20070928@gmail.com><br /> &nbsp;* gist: https://gist.github.com/tomheng/6149779<br /> &nbsp;*/</span><br /> <br /> <span class="kw2">class</span> Lock<span class="br0">&#123;</span><br /> <br /> &nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$mc</span> <span class="sy0">=</span> <span class="kw4">null</span><span class="sy0">;</span><br /> &nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$key_prefix</span> <span class="sy0">=</span> <span class="st0">"memcache_lock_service_key_"</span><span class="sy0">;</span><br /> &nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$all_lock_names</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$expiration</span> <span class="sy0">=</span> <span class="nu0">60</span><span class="sy0">;</span> <span class="co1">//one min</span><br /> &nbsp; &nbsp; <span class="kw2">private</span> <span class="re0">$max_block_time</span> <span class="sy0">=</span> <span class="nu0">15</span><span class="sy0">;</span> <span class="co1">//最长的阻塞时间</span><br /> &nbsp; &nbsp; <span class="co4">/**<br /> &nbsp; &nbsp; &nbsp;* [__construct description]<br /> &nbsp; &nbsp; &nbsp;*/</span><br /> &nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __construct<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><a href="http://www.php.net/function_exists"><span class="kw3">function_exists</span></a><span class="br0">&#40;</span><span class="st_h">'memcache_init'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-></span><span class="me1">mc</span> <span class="sy0">=</span> <a href="http://www.php.net/memcache_connect"><span class="kw3">memcache_connect</span></a><span class="br0">&#40;</span><span class="st_h">'memcache_host'</span><span class="sy0">,</span> <span class="nu0">11211</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br /> &nbsp; &nbsp; <span class="br0">&#125;</span><br /> <br /> &nbsp; &nbsp; <span class="co4">/**<br /> &nbsp; &nbsp; &nbsp;* [get_key description]<br /> &nbsp; &nbsp; &nbsp;* @param &nbsp;[type] $name [description]<br /> &nbsp; &nbsp; &nbsp;* @return [type] &nbsp; &nbsp; &nbsp; [description]<br /> &nbsp; &nbsp; &nbsp;*/</span><br /> &nbsp; &nbsp; <span class="kw2">private</span> <span class="kw2">function</span> get_key<span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$key</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-></span><span class="me1">key_prefix</span><span class="sy0">.</span><span class="re0">$name</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$key</span><span class="sy0">;</span><br /> &nbsp; &nbsp; <span class="br0">&#125;</span><br /> <br /> &nbsp; &nbsp; <span class="co4">/**<br /> &nbsp; &nbsp; &nbsp;* 捕获锁<br /> &nbsp; &nbsp; &nbsp;* @param &nbsp;[type] $name [description]<br /> &nbsp; &nbsp; &nbsp;* @return [type] &nbsp; &nbsp; &nbsp; [description]<br /> &nbsp; &nbsp; &nbsp;*/</span><br /> &nbsp; &nbsp; <span class="kw2">public</span> &nbsp;<span class="kw2">function</span> begin<span class="br0">&#40;</span><span class="re0">$name</span><span class="sy0">,</span> <span class="re0">$block</span> <span class="sy0">=</span> <span class="kw4">true</span><span class="br0">&#41;</span><br /> &nbsp; &nbsp; <span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">mc</span> <span class="sy0">||</span> <span class="sy0">!</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$max_block_time</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-></span><span class="me1">max_block_time</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$key</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-></span><span class="me1">get_key</span><span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">do</span><span class="br0">&#123;</span> <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$re</span> <span class="sy0">=</span> <a href="http://www.php.net/memcache_add"><span class="kw3">memcache_add</span></a><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">mc</span><span class="sy0">,</span> <span class="re0">$key</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="re0">$this</span><span class="sy0">-></span><span class="me1">expiration</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$re</span> <span class="sy0">==</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-></span><span class="me1">all_lock_names</span><span class="br0">&#91;</span><span class="re0">$name</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//$this->debug();</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">break</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="kw1">else</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//dolog('Lock failed '.$name);</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//echo '#'.PHP_EOL;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//sleep(1);</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="kw1">while</span><span class="br0">&#40;</span><span class="re0">$block</span> <span class="sy0">&&</span> <span class="re0">$max_block_time</span><span class="sy0">--</span> <span class="sy0">&&</span> <span class="sy0">!</span><a href="http://www.php.net/sleep"><span class="kw3">sleep</span></a><span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$re</span><span class="sy0">;</span><br /> &nbsp; &nbsp; <span class="br0">&#125;</span><br /> <br /> &nbsp; &nbsp; <span class="co4">/**<br /> &nbsp; &nbsp; &nbsp;* 释放锁<br /> &nbsp; &nbsp; &nbsp;*/</span><br /> &nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> release<span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">mc</span> <span class="sy0">||</span> <span class="sy0">!</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$key</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-></span><span class="me1">get_key</span><span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$re</span> <span class="sy0">=</span> <a href="http://www.php.net/memcache_delete"><span class="kw3">memcache_delete</span></a><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">mc</span><span class="sy0">,</span> <span class="re0">$key</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$re</span> <span class="sy0">==</span> <span class="kw4">true</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://www.php.net/unset"><span class="kw3">unset</span></a><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">all_lock_names</span><span class="br0">&#91;</span><span class="re0">$name</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="re0">$re</span><span class="sy0">;</span><br /> &nbsp; &nbsp; <span class="br0">&#125;</span><br /> <br /> &nbsp; &nbsp; <span class="co4">/**<br /> &nbsp; &nbsp; &nbsp;* 释放所有的锁<br /> &nbsp; &nbsp; &nbsp;*/</span><br /> &nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> __destruct<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">mc</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">false</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">all_lock_names</span> <span class="kw1">as</span> <span class="re0">$name</span> <span class="sy0">=></span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co2"># code...<br /> </span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$this</span><span class="sy0">-></span><span class="me1">release</span><span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br /> &nbsp; &nbsp; <span class="br0">&#125;</span><br /> <br /> &nbsp; &nbsp; <span class="co4">/**<br /> &nbsp; &nbsp; &nbsp;* 调试<br /> &nbsp; &nbsp; &nbsp;* @return [type] [description]<br /> &nbsp; &nbsp; &nbsp;*/</span><br /> &nbsp; &nbsp; <span class="kw2">public</span> <span class="kw2">function</span> debug<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://www.php.net/var_dump"><span class="kw3">var_dump</span></a><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">all_lock_names</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">all_lock_names</span> <span class="kw1">as</span> <span class="re0">$name</span> <span class="sy0">=></span> <span class="re0">$value</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$key</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-></span><span class="me1">get_key</span><span class="br0">&#40;</span><span class="re0">$name</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">mc</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$value</span> <span class="sy0">=</span> <a href="http://www.php.net/memcache_get"><span class="kw3">memcache_get</span></a><span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-></span><span class="me1">mc</span><span class="sy0">,</span> <span class="re0">$key</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="kw1">else</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">$value</span> <span class="sy0">=</span> <span class="st0">"no such lock "</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">echo</span> <span class="st0">"Lock name:<span class="es4">$key</span>, value:<span class="es4">{$value}</span>"</span><span class="sy0">.</span>PHP_EOL<span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br /> &nbsp; &nbsp; <span class="br0">&#125;</span><br /> <span class="br0">&#125;</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/memcache">memcache</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

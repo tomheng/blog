@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> 如何设置一个严格30分钟过期的Session &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>如何设置一个严格30分钟过期的Session</h1>
+			  <small>2012-01-10,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>问题是<a href="http://t.sina.com.cn/laruence">Laruence</a>在微博上提出的:</p>
+
+<blockquote>
+<p>我在面试的时候, 经常会问一个问题: “如何设置一个30分钟过期的Session?”, 大家不要觉得看似简单, 这里面包含的知识多着呢, 特别适合考察基本功是否扎实, 谁来回答试试? 呵呵</p>
+</blockquote>
+
+<p>说实话，如果是面试我的话，我回答不好。我找了一下stackoverflow发现有人讨论过同样的问题，<a href="http://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes">How do I expire a PHP session after 30 minutes?</a>，看了一下<a href="http://stackoverflow.com/users/53114/gumbo">Gumbo</a>回复应该是最好的。过了不久Laruence也整理了一篇<a href="http://www.laruence.com/2012/01/10/2469.html">文章</a>，讲的更全面一些。 Gumbo说的对，要回到好这个问题只要弄清楚<strong><a href="http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime">session.gc_maxlifetime</a></strong>和*<strong><em><a href="http://php.net/manual/en/session.configuration.php#ini.session.cookie-lifetime">session.cookie_lifetime</a></em></strong>*这两个配置的原理就可以了。 <strong>session.gc_maxlifetime</strong>这个时间是指的Session过多少时间会被session GC回收。这里需要主要以下几点</p>
+
+<ul>
+<li>GC启动本身是有概率的（ <a href="http://www.php.net/manual/en/session.configuration.php#ini.session.gc-probability">session.gc_probability</a>和<a href="http://www.php.net/manual/en/session.configuration.php#ini.session.gc-divisor">session.gc_divisor</a>）</li>
+<li>不同的脚本具有不同的 session.gc_maxlifetime 数值但是共享了同一个地方存储会话数据，则具有最小数值的脚本会清理数据。此情况下，与 session.save_path 一起使用本指令</li>
+<li>GC和这个时间比较的时候是用的sesssion文件的mtime（ &gt;PHP 4.2.3）而不是atime</li>
+</ul>
+
+<p><strong>session.cookie_lifetime</strong></p>
+
+<p>这个是Server发送给浏览器的cookie过期时间</p>
+
+<p>所以只要明白了这两个配置的原理，那么这个问题至少会回答及格（我认为）。</p>
+
+<p>所以手册很重要，不管是哪种技术，如果把手册研究一篇，搞懂80%以上，那么不是大牛也是个高级工程师鸟。</p>
+
+<p>&nbsp;</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/php%E5%9F%BA%E7%A1%80">PHP基础</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> js方式外部调用wordpress文章插件Ecall更新1.12.7版本 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>js方式外部调用wordpress文章插件Ecall更新1.12.7版本</h1>
+			  <small>2009-12-06,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>js方式外部调用<a class="wpgallery" title="wordpress" href="http://wordpress.org" target="_blank">wordpress</a>文章插件Ecall已更新到1.12.7版本</p>
+
+<p>下载 <a class="wpgallery" title="js外部调用wordpress文章" href="http://wordpress.org/extend/plugins/ecall/" target="_blank">wordpress Ecall</a> <a title="wordpress插件Ecall-js方式外部调用wordpress文章" href="http://blog.webfuns.net/archives/313.html" target="_blank">插件主页</a></p>
+
+<p><span style="color: #ff6600;"><strong>更新日志</strong></span></p>
+
+<p>（1）<strong>调整了cid为0时的bug。修改后cid=0和隐藏分类组合可以使wordpress站外调用更灵活</strong></p>
+
+<p>目前cid有以下几种用法。</p>
+
+<p>A)<span style="color: #008080;">cid=某个分类的id</span></p>
+
+<p>示例：</p>
+
+<p><span style="color: #0000ff;"><script type=&#8217;text/javascript&#8217; src=&#8217;http://blog.webfuns.net/api.php?key=b32154b43d6332afcb130b3a633c6ce4&cid=7&rows=6&#8242;></script></span></p>
+
+<p>这样可以实现站外调用某个具体分类下的文章</p>
+
+<p>B)<span style="color: #008080;">cid=0 不隐藏任何分类</span></p>
+
+<p><span style="color: #0000ff;"><script type=&#8217;text/javascript&#8217; src=&#8217;http://blog.webfuns.net/api.php?key=b32154b43d6332afcb130b3a633c6ce4&cid=0&rows=6&#8242;></script></span></p>
+
+<p>这样可以站外调用所有的分类下的文章</p>
+
+<p>C)<span style="color: #008080;">cid=0 隐藏某些分类</span></p>
+
+<p>以趣味互联网为例：</p>
+
+<p>Google(cid=1)</p>
+
+<p>WordPress(cid=2）</p>
+
+<p>LAMP（cid=3)</p>
+
+<p>My Project(cid=4)</p>
+
+<p>如果把Google隐藏了，</p>
+
+<p><span style="color: #0000ff;"><script type=&#8217;text/javascript&#8217; src=&#8217;http://blog.webfuns.net/api.php?key=b32154b43d6332afcb130b3a633c6ce4&cid=0&rows=6&#8242;></script></span></p>
+
+<p>这样站外调用将显示Wordpress、LAMP、My Project三个分类下的文章</p>
+
+<p>如果再把Wordpress隐藏了，就显示LAMP、My Project两个分类下的文章，以此类推，如果全部隐藏了，就不会显示任何调用。</p>
+
+<p>2)  <strong>增加了错误提示</strong></p>
+
+<p>3)  <strong>修复了Cache time 无法设置为空的问题</strong></p>
+
+<p>4）<strong>修复了隐藏目录不能全部同时取消的问题</strong></p>
+
+<p>5）<strong>模板中不再支持content调用</strong></p>
+
+<p>原因是大文本调用容易出现不可预测的字符，从而导致js调用出错，此外大文本的外部调用浪费系统资源且价值不是很大。</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/javascript">JavaScript</a> &nbsp;
+				      
+				         <a href="/tags/wordpress">WordPress</a> &nbsp;
+				      
+				         <a href="/tags/%E6%8F%92%E4%BB%B6">插件</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

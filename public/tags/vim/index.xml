@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/vim/</link>
+    <description>Recent content in Vim on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Apr 2012 01:55:56 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>设置vim自动识别文件编码</title>
+      <link>http://:1313/tmp/2012/04/%E8%AE%BE%E7%BD%AEvim%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB%E6%96%87%E4%BB%B6%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Sun, 08 Apr 2012 01:55:56 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2012/04/%E8%AE%BE%E7%BD%AEvim%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB%E6%96%87%E4%BB%B6%E7%BC%96%E7%A0%81/</guid>
+      <description>&lt;p&gt;默认的vim是使用UTF-8打开文件，如果文件的编码不是UTF-8就会用latin-1(ASCII)编码打开文件，而window系的文件大多会是GB*文件，所以打开此类文件容易出现乱码问题。我们可以给VIM提供一个自动尝试编码列表，那么就可以实现VIM自动识别编码，避免乱码问题。&lt;/p&gt;
+
+&lt;p&gt;在~/.vimrc文件中加入：&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;可以用set fileencoding命令查看VIM是用什么编码打开的文件，如果你打开GB*类文件会发现vim使用了&lt;a href=&#34;http://zh.wikipedia.org/wiki/GBK&#34;&gt;cp936&lt;/a&gt;编码打开文件。&lt;/p&gt;
+
+&lt;p&gt;如果想要查看文件的编码，可以安装enca命令&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #0000ff;&#34;&gt;sudo apt-get install enca&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>转: vim复制拷贝技巧</title>
+      <link>http://:1313/tmp/2011/07/%E8%BD%AC-vim%E5%A4%8D%E5%88%B6%E6%8B%B7%E8%B4%9D%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Sat, 16 Jul 2011 05:42:17 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/07/%E8%BD%AC-vim%E5%A4%8D%E5%88%B6%E6%8B%B7%E8%B4%9D%E6%8A%80%E5%B7%A7/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;如何用vi 复制第5行到第10行并粘贴到第12行之后？&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;方法1：&lt;br /&gt;
+光标放到第五行，&lt;br /&gt;
+输入：y6y&lt;br /&gt;
+光标放到第12行，&lt;br /&gt;
+输入：p&lt;/p&gt;
+
+&lt;p&gt;方法2：&lt;br /&gt;
+命令行模式下输入&lt;br /&gt;
+:5,10 co 12&lt;/p&gt;
+
+&lt;p&gt;方法3：&lt;br /&gt;
+我一般都是&lt;br /&gt;
+先移到第五行 d6&lt;br /&gt;
+p&lt;br /&gt;
+再移到12行&lt;br /&gt;
+p&lt;/p&gt;
+
+&lt;p&gt;延伸一下, 有时候不想费劲看多少行或复制大量行时，可以使用标签来替代&lt;/p&gt;
+
+&lt;p&gt;光标移到起始行，输入ma&lt;br /&gt;
+光标移到结束行，输入mb&lt;br /&gt;
+光标移到粘贴行，输入mc&lt;/p&gt;
+
+&lt;p&gt;然后 :&amp;#8217;a,&amp;#8217;b co &amp;#8216;c&lt;/p&gt;
+
+&lt;p&gt;把 co 改成 m 就成剪切了&lt;/p&gt;
+
+&lt;p&gt;那删除呢&lt;/p&gt;
+
+&lt;p&gt;是不是5,10 de&lt;br /&gt;
+刚才试了试，的确可以&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;也可以把大量的代码保存到一个文件，然后在另一个文件里打开需要拷贝的代码。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在文件一：&lt;br /&gt;
+光标移到起始行，输入ma&lt;br /&gt;
+光标移到结束行，输入mb&lt;br /&gt;
+然后:&amp;#8217;a, &amp;#8216;b w filename&lt;/p&gt;
+
+&lt;p&gt;在文件二：&lt;br /&gt;
+光标移到需要赋值的行，输入：&lt;br /&gt;
+:r filename&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;行拷贝还有一个比较简单的方法：&lt;/strong&gt;&lt;br /&gt;
+操作如下：&lt;br /&gt;
+找到要复制的行，键盘按下shift+v， 然后用方向键上下或j h 移动想要copy的行，然后按下y&lt;/p&gt;
+
+&lt;p&gt;在移动到目的行，按下p即完成拷贝多行。这种方法适合没有行号的多行copy。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Vi 提供了文本移动和复制命令，用户利用这些指令可以方便的复制字符、文字、行还有文本块。&lt;/strong&gt;&lt;br /&gt;
+有关的命令如下：&lt;br /&gt;
+yy 将当前行复制到缓冲区&lt;br /&gt;
+yw 将当前单词复制到缓冲区&lt;br /&gt;
+y1 将光标处的一个字符复制到缓冲区&lt;br /&gt;
+p 将缓冲区的信息粘贴到光标的后面&lt;br /&gt;
+：行号1 ，行号2 copy 行号3                                  将行号1到行号2的内容复制到行号3所在行的后面。&lt;br /&gt;
+：行号1 ，行号2 move 行号3                                     将行号1到行号2的文本内容移动到行号3所在行的后面。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vim 学习</title>
+      <link>http://:1313/tmp/2011/07/vim-%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 01 Jul 2011 16:32:09 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/07/vim-%E5%AD%A6%E4%B9%A0/</guid>
+      <description>&lt;p&gt;最近正在试着使用Vim来做文本编辑器，发现这个东西确实比较适合用来变成，不想其他的IDE一样庞大儿臃肿。今天发现IBM开发者网站上有三篇介绍使用Vim的文章，在此先记录下来，等有时间慢慢学习，现在偶要去做其他事情。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Vim学习&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ibm.com/developerworks/cn/linux/l-tip-vim1/index.html&#34;&gt;&lt;strong&gt;Vim 实用技术，第 1 部分: 实用技巧&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;本系列文章分三部分详细阐述了 Vim 的使用技巧、插件、定制。第一部分主要是深入分析了 Vim 的使用。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[&lt;/strong&gt;Vim 实用技术，第 2 部分: 常用插件&lt;strong&gt;]&lt;a href=&#34;http://www.ibm.com/developerworks/cn/linux/l-tip-vim2/index.html&#34;&gt;2&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;第一部分介绍了一些基本的 Vim 使用技巧。掌握这些技巧可以很大地提高编辑效率，但是 Vim 的强大功能并不仅限于此。Vim 还可以通过“插件”来进行功能扩展。精确地说，是通过脚本来进行扩展，脚本类型有插件、语法加亮、配色方案、文件类型检测等多种。大部分的脚本都是由 Vim 的用户写的，解决了用户身边的问题，使 Vim 变得更加有用。本章将介绍最常用的一些脚本，其中除了一个属于“语法加亮”脚本外，其它都属于“插件”类型。关于如何写脚本的一些基础知识将在下一部分进行一些介绍。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[&lt;/strong&gt;Vim 实用技术，第 3 部分: 定制 Vim&lt;strong&gt;]&lt;a href=&#34;http://www.ibm.com/developerworks/cn/linux/l-tip-vim3/index.html&#34;&gt;3&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;前面两部分讲的都是如何使用现有的 Vim 系统，本部分则会通过实例来讲如何定制 Vim 的行为。良好的定制可以让使用 Vim 变得更为得心应手；同时，在掌握了基本的定制之后，也许你就会想进一步写一些自己的 Vim 脚本，从而真正地成为一个 Vim 专家。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ibm.com/developerworks/cn/views/linux/libraryview.jsp?type_by=%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0&amp;amp;view_by=search&amp;amp;search_by=Vim+%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF&#34;&gt;https://www.ibm.com/developerworks/cn/views/linux/libraryview.jsp?type_by=%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0&amp;amp;view_by=search&amp;amp;search_by=Vim+%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

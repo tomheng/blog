@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Table on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/table/</link>
+    <description>Recent content in Table on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 Feb 2011 16:08:47 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/table/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>DOM中表格的操作方法总结</title>
+      <link>http://:1313/tmp/2011/02/dom%E4%B8%AD%E8%A1%A8%E6%A0%BC%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sat, 26 Feb 2011 16:08:47 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/02/dom%E4%B8%AD%E8%A1%A8%E6%A0%BC%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description>
+
+&lt;p&gt;最近公司内的项目用到了表格，于是和表格较上了劲。如果相对表格进行自如的操作就要对表格的方法和属性有一个详细的了解，其中之一就是要知道如何DOM为我们提供哪些操作表格方法。&lt;/p&gt;
+
+&lt;p&gt;君欲善其事，必先利其器！&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DOM中表格的操作方法总结&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;table-元素的方法如下:ca9af9dc5f38ae7330e464cc5b2ce311&#34;&gt;&lt;table/&gt;元素的方法如下：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;caption：指向&lt;caption/&gt;元素（如果存在）；&lt;/li&gt;
+&lt;li&gt;tBodies：&lt;tbody/&gt;元素的集合；&lt;/li&gt;
+&lt;li&gt;tFoot：指向&lt;tfoot/&gt;元素（如果存在）；&lt;/li&gt;
+&lt;li&gt;tHead：指向&lt;thead/&gt;元素（如果存在）；&lt;/li&gt;
+&lt;li&gt;rows：表格中所有行的集合；&lt;/li&gt;
+&lt;li&gt;createTHead()：创建&lt;thead/&gt;元素并将其放入表格；&lt;/li&gt;
+&lt;li&gt;createTFoot()：创建&lt;tfoot/&gt;元素并将其放入表格；&lt;/li&gt;
+&lt;li&gt;createCaption()：创建&lt;caption/&gt;元素并将其放入表格；&lt;/li&gt;
+&lt;li&gt;deleteTHead()：删除&lt;thead/&gt;元素；&lt;/li&gt;
+&lt;li&gt;deleteTFoot()：删除&lt;tfoot/&gt;元素；&lt;/li&gt;
+&lt;li&gt;deleteCaption()：删除&lt;caption/&gt;元素；&lt;/li&gt;
+&lt;li&gt;deleteRow(position)：删除指定位置上的行；&lt;/li&gt;
+&lt;li&gt;insertRow(position)：在rows集合中指定的位置上插入一新行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;tbody-元素的方法如下:ca9af9dc5f38ae7330e464cc5b2ce311&#34;&gt;&lt;tbody/&gt;元素的方法如下：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rows：&lt;tbody/&gt;中所有行的集合；&lt;/li&gt;
+&lt;li&gt;deleteRow(position)：删除指定位置上的行；&lt;/li&gt;
+&lt;li&gt;insertRow(position)：在rows集合中指定的位置上插入一新行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;tr-元素的方法如下:ca9af9dc5f38ae7330e464cc5b2ce311&#34;&gt;&lt;tr/&gt;元素的方法如下：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;cells：&lt;tr/&gt;元素中所有的单元格的集合；&lt;/li&gt;
+&lt;li&gt;deleteCell(position)：删除给定位置上的单元格；&lt;/li&gt;
+&lt;li&gt;insertCell(position)：在Cells集合的给定位置上插入一个新的单元格。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;**&lt;br /&gt;
+**&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

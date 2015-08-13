@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Linux 设置网卡（IP 网关 DNS）信息命令 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>Linux 设置网卡（IP 网关 DNS）信息命令</h1>
+			  <small>2010-08-13,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p><strong><span style="color: #ff0000;">环境：vmware  cent0s 5.5</span></strong></p>
+
+<p>一、<strong>命令行方式</strong></p>
+
+<p><strong>·</strong>）设置IP</p>
+
+<p><span style="color: #3366ff;">ifconfig </span>eth0  192.168.0.99  <span style="color: #3366ff;">netmask</span> 255.255.255.0  <span style="color: #3366ff;">up</span></p>
+
+<p><span style="color: #000000;">注释：eth0 网卡名称</span></p>
+
+<p><span style="color: #000000;">192.168.0.99  ip地址</span></p>
+
+<p><span style="color: #000000;">255.255.255.0 子网掩码</span></p>
+
+<p>·）设置网关</p>
+
+<p><span style="color: #3366ff;">route add default gw</span> 192.168.01</p>
+
+<p>PS：<span style="color: #ff0000;">通过以上命令设置的信息，可以即时生效，但是重启系统之后失效</span></p>
+
+<p>·)设置DNS域名服务器</p>
+
+<p>echo &#8220;nameserver 8.8.8.8 &#8220;&gt;&gt; /etc/resolv.conf</p>
+
+<p>二、<strong>直接修改配置文件</strong></p>
+
+<p>·）配置IP的文件是<span style="color: #0000ff;">/etc/sysconfig/network-scripts/ifcfg-eth0</span></p>
+
+<p>IPADDR=192.168.0.66</p>
+
+<p>NETMASK=255.255.255.0</p>
+
+<p>·）配置网关的文件是 <span style="color: #0000ff;">/etc/sysconfig/network</span></p>
+
+<p>GATEWAY=192.168.0.2</p>
+
+<p>PS:<span style="color: #ff0000;">重新启动网络配置</span></p>
+
+<p><span style="color: #0000ff;">/etc/init.d/network restart</span></p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/linux">Linux</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

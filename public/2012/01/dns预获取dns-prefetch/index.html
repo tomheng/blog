@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> DNS预获取（dns-prefetch） &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>DNS预获取（dns-prefetch）</h1>
+			  <small>2012-01-16,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>今天翻看twitter的源码的时候看到了一下内容：</p>
+
+<p><span style="color: #0000ff;"><link rel=&#8221;dns-prefetch&#8221; href=&#8221;http://a0.twimg.com&#8221;/></span></p>
+
+<p><span style="color: #0000ff;"><link rel=&#8221;dns-prefetch&#8221; href=&#8221;http://a1.twimg.com&#8221;/></span></p>
+
+<p><span style="color: #0000ff;"><link rel=&#8221;dns-prefetch&#8221; href=&#8221;http://a2.twimg.com&#8221;/></span></p>
+
+<p><span style="color: #0000ff;"><link rel=&#8221;dns-prefetch&#8221; href=&#8221;http://a3.twimg.com&#8221;/></span></p>
+
+<p><span style="color: #0000ff;"><link rel=&#8221;dns-prefetch&#8221; href=&#8221;http://api.twitter.com&#8221;/></span></p>
+
+<p>查阅了相关资料，知道DNS Prefetch也就是DNS预获取，也是前段优化的一部分。在前段优化中关于DNS的有两点：一是减少DNS的请求次数，第二个就是进行DNS预先获取。</p>
+
+<p>DNS Prefetch 已经被下面的浏览器支持</p>
+
+<ul>
+<li>Firefox: 3.5+</li>
+<li>Chrome: Supported</li>
+<li>Safari 5+</li>
+<li>Opera: Unknown</li>
+<li>IE: 9 (called &#8220;Pre-resolution&#8221; on blogs.msdn.com)</li>
+</ul>
+
+<p>默认情况下浏览器会对页面中和当前域名（正在浏览网页的域名）不在同一个域的域名进行预获取，并且缓存结果，这就是隐式的DNS Prefetch。如果想对页面中没有出现的域进行预获取，那么就要使用显示的DNS　Prefetch了，也就是使用link标签：</p>
+
+<p><span style="color: #0000ff;"><link rel=&#8221;dns-prefetch&#8221; href=&#8221;http://api.twitter.com&#8221;/></span></p>
+
+<p>DNS Prefetch应该尽量的放在网页的前面，推荐放在<meta charset=&#8221;/>后面。</p>
+
+<p>PS:可以通过下面的标签禁止隐式的DNS Prefetch。<br />
+<span style="color: #0000ff;"><meta http-equiv=&#8221;x-dns-prefetch-control&#8221; content=&#8221;off&#8221;></span></p>
+
+<p>内容整理自：<a href="https://github.com/h5bp/html5-boilerplate/wiki/DNS-Prefetching">DNS-Prefetching</a></p>
+
+<p>参考：<br />
+<a href="http://www.dbanotes.net/web/dns_prefetching.html">网站优化应重视 DNS 预获取(DNS Prefetching)</a></p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/dns">DNS</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

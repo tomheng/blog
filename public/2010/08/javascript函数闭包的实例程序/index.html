@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> JavaScript函数闭包的实例程序 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>JavaScript函数闭包的实例程序</h1>
+			  <small>2010-08-06,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>最近在学习JavaScript，一直感觉这个语言很诡异，和其他的语言有些不同。最近暑假期间补充知识，正好来学习一下。今天提供一个关于JavaScript中函数闭包的一个实例程序。先来解释下什么是函数闭包:</p>
+
+<blockquote>
+<p><strong>函数闭包</strong>-即函数定义和函数表达式位于另一个函数的函数体内。而且，这些内部函数可以访问它们所在的外部函数中声明的所有局部变量、参数和声明的其他内部函数。当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。也就是说，内部函数会在外部函数返回后被执行。而当这个内部函数执行时，它仍然必需访问其外部函数的局部变量、参数以及其他内部函数。</p>
+</blockquote>
+
+<div>
+  下面的两个实例程序的作用是给一组标签添加鼠标事件函数，当点击一个节点是，弹出一个对话框显示节点的序号。
+</div>
+
+<div>
+  <strong>实例一</strong>：未利用函数闭包错误的实例
+</div>
+
+<div>
+  <div>
+    var add_the_handlers=function (nodes){
+  </div>
+  
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"> </span>var i;
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"> </span>for(i=0;i<nodes.length;i++){
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"> </span> nodes[i].onclick=function(e){
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"> </span>alert(i);<span style="white-space: pre;"> </span>
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"> </span> };
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"> </span>}
+  </div></p>
+
+<p><div id="_mcePaste">
+    }
+  </div></p>
+
+<p><div id="_mcePaste">
+    add_the_handlers(document.getElementsByTagName(&#8220;div&#8221;));
+  </div></p>
+
+<p><div>
+    <strong>实例二：</strong>利用函数闭包正确的实例
+  </div>
+</div></p>
+
+<div>
+  <div>
+    var add_the_handlers=function (nodes){
+  </div>
+  
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"> </span>var i;
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"> </span>for(i=0;i<nodes.length;i++){
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"> </span> nodes[i].onclick=<span style="color: #ff0000;">function(i){</span>
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"><span style="color: #ff0000;"> </span></span><span style="color: #ff0000;"> //alert(i);</span>
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"><span style="color: #ff0000;"> </span></span><span style="color: #ff0000;"> return function (e){</span>
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"><span style="color: #ff0000;"> </span></span><span style="color: #ff0000;"> alert(i);</span>
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"><span style="color: #ff0000;"> </span></span><span style="color: #ff0000;"> };</span>
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"><span style="color: #ff0000;"> </span></span><span style="color: #ff0000;"> }(i);</span>
+  </div></p>
+
+<p><div id="_mcePaste">
+    <span style="white-space: pre;"> </span>}
+  </div></p>
+
+<p><div id="_mcePaste">
+    }
+  </div></p>
+
+<p><div id="_mcePaste">
+    add_the_handlers(document.getElementsByTagName(&#8220;div&#8221;));
+  </div></p>
+
+<p><div>
+    <span style="color: #3366ff;">PS:学习笔记只用，不做深入解释（<span style="color: #808080;">功力不够，继续修炼</span>）。</span>
+  </div>
+</div></p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/javascript">JavaScript</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

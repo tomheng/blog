@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> [转]GC学习笔记 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>[转]GC学习笔记</h1>
+			  <small>2015-04-28,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        
+
+<p>这是我公司同事的GC学习笔记，写得蛮详细的，由浅入深，循序渐进，让人一看就懂，特转到这里。</p>
+
+<p>一、GC特性以及各种GC的选择<br />
+1、垃圾回收器的特性<br />
+2、对垃圾回收器的选择<br />
+2.1 连续 VS. 并行<br />
+2.2 并发 VS. stop-the-world<br />
+2.3 压缩 VS. 不压缩 VS. 复制<br />
+二、GC性能指标<br />
+三、分代回收<br />
+四、J2SE 5.0的HotSpot JVM上的GC学习 &#8211; 分代、GC类型、快速分配<br />
+五、J2SE 5.0的HotSpot JVM上的GC学习 &#8211; SerialGC<br />
+六、J2SE 5.0的HotSpot JVM上的GC学习 &#8211; ParallelGC<br />
+七、J2SE 5.0的HotSpot JVM上的GC学习 &#8211; ParallelCompactingGC<br />
+八、J2SE 5.0的HotSpot JVM上的GC学习 &#8211; CMS GC<br />
+九、启动参数学习示例</p>
+
+<h3 id="1-gc特性以及各种gc的选择:5821ec96f2e556abbdcf79cb49babe8b">1. GC特性以及各种GC的选择</h3>
+
+<h4 id="1-1-垃圾回收器的特性:5821ec96f2e556abbdcf79cb49babe8b">1.1 垃圾回收器的特性</h4>
+
+<p>该回收的对象一定要回收，不该回收的对象一定不能回收<br />
+一定要有效，并且要快！尽可能少的暂停应用的运行<br />
+需要在时间，空间，回收频率这三个要素中平衡<br />
+内存碎片的问题（一种解决内存碎片的方法，就是压缩）<br />
+可扩展性和可伸缩性（内存的分配和回收，不应该成为跑在多核多线程应用上的瓶颈）<br />
+对垃圾回收器的选择</p>
+
+<h4 id="1-2-连续-vs-并行:5821ec96f2e556abbdcf79cb49babe8b">1.2 连续 VS. 并行</h4>
+
+<p>连续垃圾回收器，即使在多核的应用中，在回收时，也只有一个核被利用。<br />
+但并行GC会使用多核，GC任务会被分离成多个子任务，然后这些子任务在各个CPU上并行执行。<br />
+并行GC的好处是让GC的时间减少，但缺点是增加了复杂度，并且存在产生内存碎片的可能。</p>
+
+<h4 id="1-3-并发-vs-stop-the-world:5821ec96f2e556abbdcf79cb49babe8b">1.3 并发 VS. stop-the-world</h4>
+
+<p>当使用stop-the-world 方式的GC在执行时，整个应用会暂停住的。<br />
+而并发是指GC可以和应用一起执行，不用stop the world。<br />
+一般的说，并发GC可以做到大部分的运行时间，是可以和应用并发的，但还是有一些小任务，不得不短暂的stop the world。<br />
+stop the world 的GC相对简单，因为heap被冻结，对象的活动也已经停止。但缺点是可能不太满足对实时性要求很高的应用。<br />
+相应的，并发GC的stop the world时间非常短，并且需要做一些额外的事情，因为并发的时候，对象的引用状态有可能发生改变的。<br />
+所以，并发GC需要花费更多的时间，并且需要较大的heap。</p>
+
+<h4 id="1-4-压缩-vs-不压缩-vs-复制:5821ec96f2e556abbdcf79cb49babe8b">1.4 压缩 VS. 不压缩 VS. 复制</h4>
+
+<p>在GC确定内存中哪些是有用的对象，哪些是可回收的对象之后，他就可以压缩内存，把拥有的对象放到一起，并把剩下的内存进行清理。<br />
+在压缩之后，分配对象就会快很多，并且内存指针可以很快的指向下一个要分配的内存地址。<br />
+一个不压缩的GC，就原地把不被引用的对象回收，他并没有对内存进行压缩。好处就是回收的速度变快了；缺点呢，就是产生了碎片。<br />
+一般来说，在有碎片的内存上分配一个对象的代价要远远大于在没有碎片的内存上分配。<br />
+另外的选择是使用一个复制算法的GC，他是把所有被引用的对象复制到另外一个内存区域中。<br />
+使用复制GC的好处就是，原来的内存区域，就可以被毫无顾忌的清空了。但缺点也很明显，需要更多的内存，以及额外的时间来复制。</p>
+
+<h3 id="2-gc性能指标:5821ec96f2e556abbdcf79cb49babe8b">2. GC性能指标</h3>
+
+<p>几个评估GC性能的指标<br />
+吞吐量 应用花在非GC上的时间百分比<br />
+GC负荷 与吞吐量相反，指应用花在GC上的时间百分比<br />
+暂停时间 应用花在GC stop-the-world 的时间<br />
+GC频率 顾名思义<br />
+Footprint 一些资源大小的测量，比如堆的大小<br />
+反应速度 从一个对象变成垃圾道这个对象被回收的时间<br />
+一个交互式的应用要求暂停时间越少越好，然而，一个非交互性的应用，当然是希望GC负荷越低越好。<br />
+一个实时系统对暂停时间和GC负荷的要求，都是越低越好。<br />
+一个嵌入式系统当然希望Footprint越小越好。</p>
+
+<h3 id="3-分代回收:5821ec96f2e556abbdcf79cb49babe8b">3. 分代回收</h3>
+
+<h4 id="3-1-什么是分代:5821ec96f2e556abbdcf79cb49babe8b">3.1 什么是分代</h4>
+
+<p>当使用分代回收技术，内存会被分为几个代（generation）。也就是说，按照对象存活的年龄，把对象放到不同的代中。<br />
+使用最广泛的代，应属年轻代和年老代了。<br />
+根据各种GC算法的特征，可以相应的被应用到不同的代中。<br />
+研究发现：<br />
+大部分的对象在分配后不久，就不被引用了。也就是，他们在很早就挂了。<br />
+只有很少的对象熬过来了。<br />
+年轻代的GC相当的频繁，高效率并且快。因为年轻代通常比较小，并且很多对象都是不被引用的。<br />
+如果年轻代的对象熬过来了，那么就晋级到年老代中了。如图：</p>
+
+<p><img class="aligncenter size-full wp-image-1898" src="http://blog.webfuns.net/wp-content/uploads/2015/04/0_1302698633x4qU.png" alt="0_1302698633x4qU" width="412" height="351" /></p>
+
+<p>通常年老代要比年轻代大，而且增长也比较慢。所以GC在年老代发生的频率非常低，不过一旦发生，就会占据较长的时间。</p>
+
+<h4 id="3-2-总结:5821ec96f2e556abbdcf79cb49babe8b">3.2 总结</h4>
+
+<p>年轻代通常使用时间占优的GC，因为年轻代的GC非常频繁<br />
+年老代通常使用善于处理大空间的GC，因为年老代的空间大，GC频率低</p>
+
+<h3 id="4-j2se-5-0的hotspot-jvm上的gc学习-8211-分代-gc类型-快速分配:5821ec96f2e556abbdcf79cb49babe8b">4. J2SE 5.0的HotSpot JVM上的GC学习 &#8211; 分代、GC类型、快速分配</h3>
+
+<p>J2SE5.0 update 6 的HotSpot上有4个GC。</p>
+
+<h4 id="4-1-hotspot上的分代:5821ec96f2e556abbdcf79cb49babe8b">4.1 HotSpot上的分代</h4>
+
+<p>分成三部分：年轻代、年老代、永久代<br />
+很多的对象一开始是分配在年轻代的，这些对象在熬过了一定次数的young gc之后，就进入了年老代。同时，一些比较大的对象，一开始就可能被直接分配到年老代中（因为年轻代比较小嘛）。</p>
+
+<h4 id="4-2-年轻代:5821ec96f2e556abbdcf79cb49babe8b">4.2 年轻代</h4>
+
+<p>年轻代也进行划分，划分成：一个Eden和两个survivor。如下图：</p>
+
+<p><img class="aligncenter size-full wp-image-1901" src="http://blog.webfuns.net/wp-content/uploads/2015/04/0_130269864310w6.png" alt="0_130269864310w6" width="529" height="309" /></p>
+
+<p>大部分的对象被直接分配到年轻代的eden区（之前已经提到了是，很大的对象会被直接分配到年老代中），<br />
+survivor区里面放至少熬过一个YGC的对象，在survivor里面的对象，才有机会被考虑提升到年老代中。<br />
+同一时刻，两个survivor只被使用一个，另外一个是用来进行复制GC时使用的。</p>
+
+<h4 id="4-3-gc类型:5821ec96f2e556abbdcf79cb49babe8b">4.3 GC类型</h4>
+
+<p>年轻代的GC叫young GC，有时候也叫 minor GC。年老代或者永久代的GC，叫 full GC，也叫major GC。<br />
+也就是说，所有的代都会进行GC。<br />
+一般的，首先是进行年轻代的GC，（使用针对年轻代的GC），然后是年老代和永久代使用相同的GC。如果要压缩（解决内存碎片问题），每个代需要分别压缩。<br />
+有时候，如果年老区本身就已经很满了，满到无法放下从survivor熬出来的对象，那么，YGC就不会再次触发，而是会使用FullGC对整个堆进行GC（除了CMS这种GC，因为CMS不能对年轻代进行GC）</p>
+
+<h4 id="4-4-快速分配内存:5821ec96f2e556abbdcf79cb49babe8b">4.4 快速分配内存</h4>
+
+<p>多线程进行对象建立的时候，在为对象分配内存的时候，就应该保证线程安全，为此，就应该进入全局锁。但全局锁是非常消耗性能的。<br />
+为此，HotSpot引入了Thread Local Allocation Buffers （TLAB）技术，这种技术的原理就是为每个线程分配一个缓冲，用来分配线程自己的对象。<br />
+每个线程只使用自己的TLAB，这样，就保证了不用使用全局锁。当TLAB不够用的时候，才需要使用全局锁。但这时候对锁的时候，频率已经相当的低了。<br />
+为了减少TLAB对空间的消耗，分配器也想了很多方法，平均来说，TLAB占用Eden区的不到1%。</p>
+
+<h3 id="5-j2se-5-0的hotspot-jvm上的gc学习-8211-serialgc:5821ec96f2e556abbdcf79cb49babe8b">5. J2SE 5.0的HotSpot JVM上的GC学习 &#8211; SerialGC</h3>
+
+<h4 id="5-1-串行gc:5821ec96f2e556abbdcf79cb49babe8b">5.1 串行GC</h4>
+
+<p>串行GC，只使用单个CPU，并且会stop the world。</p>
+
+<h5 id="5-1-1-young-的串行gc:5821ec96f2e556abbdcf79cb49babe8b">5.1.1 young 的串行GC</h5>
+
+<p>如下图：</p>
+
+<p><img class="aligncenter size-full wp-image-1902" src="http://blog.webfuns.net/wp-content/uploads/2015/04/0_13026986774jY9.png" alt="0_13026986774jY9" width="538" height="282" /></p>
+
+<p>当发生ygc的时候，Eden和From的survivor区会将被引用的对象复制到To这个survivor种。<br />
+如果有些对象在To survivor放不下，则直接升级到年老区。<br />
+当YGC完成后，内存情况如下图：</p>
+
+<p><img class="aligncenter size-full wp-image-1903" src="http://blog.webfuns.net/wp-content/uploads/2015/04/0_1302698666kzzx.png" alt="0_1302698666kzzx" width="536" height="349" /></p>
+
+<h5 id="5-1-2-old区的串行gc:5821ec96f2e556abbdcf79cb49babe8b">5.1.2 old区的串行GC</h5>
+
+<p>年老区和永久区使用的是Mark-Sweep-Compact的算法。<br />
+mark阶段是对有引用的对象进行标识<br />
+sweep是对垃圾进行清理<br />
+compact对把活着的对象进行迁移，解决内存碎片的问题<br />
+如下图：</p>
+
+<p><img class="aligncenter size-full wp-image-1902" src="http://blog.webfuns.net/wp-content/uploads/2015/04/0_13026986774jY9.png" alt="0_13026986774jY9" width="538" height="282" /></p>
+
+<h4 id="5-2-何时使用串行收集器:5821ec96f2e556abbdcf79cb49babe8b">5.2 何时使用串行收集器</h4>
+
+<p>串行GC适用于对暂停时间要求不严，在客户端下使用。</p>
+
+<h4 id="5-3-串行收集器的选择:5821ec96f2e556abbdcf79cb49babe8b">5.3 串行收集器的选择</h4>
+
+<p>在J2SE5.0上，在非 server 模式下，JVM自动选择串行收集器。<br />
+也可以显示进行选择，在java启动参数中增加： -XX:+UseSerialGC 。</p>
+
+<h3 id="6-j2se-5-0的hotspot-jvm上的gc学习-8211-parallelgc:5821ec96f2e556abbdcf79cb49babe8b">6. J2SE 5.0的HotSpot JVM上的GC学习 &#8211; ParallelGC</h3>
+
+<h4 id="6-1-并行gc:5821ec96f2e556abbdcf79cb49babe8b">6.1 并行GC</h4>
+
+<p>现在已经有很多java应用跑在多核的机器上了。<br />
+并行的GC，也称作吞吐量GC，这种GC把多个CPU都用上了，不让CPU再空转。</p>
+
+<h4 id="6-2-ygc的并行gc:5821ec96f2e556abbdcf79cb49babe8b">6.2 YGC的并行GC</h4>
+
+<p>YGC的情况，还是使用stop-the-world + 复制算法的GC。<br />
+只不过是不再串行，而是充分利用多个CPU，减少GC负荷，增加吞吐量。<br />
+如下图，串行YGC和并行YGC的比较：</p>
+
+<p><img class="aligncenter size-full wp-image-1907" src="http://blog.webfuns.net/wp-content/uploads/2015/04/0_1302698681Noun.png" alt="0_1302698681Noun" width="671" height="386" /></p>
+
+<h4 id="6-3-年老区的并行gc:5821ec96f2e556abbdcf79cb49babe8b">6.3 年老区的并行GC</h4>
+
+<p>也是和串行GC一样，在年老区和永久区使用Mark-Sweep-Compact，利用多核增加了吞吐量和减少GC负荷。</p>
+
+<h4 id="6-4-何时使用并行gc:5821ec96f2e556abbdcf79cb49babe8b">6.4 何时使用并行GC</h4>
+
+<p>对跑在多核的机器上，并且对暂停时间要求不严格的应用。因为频率较低，但是暂停时间较长的Full GC还是会发生的。</p>
+
+<h4 id="6-5-选择并行gc:5821ec96f2e556abbdcf79cb49babe8b">6.5 选择并行GC</h4>
+
+<p>在server模式下，并行GC会被自动选择。<br />
+或者可以显式选择并行GC，加启动JVM时加上参数： -XX:UseParallelGC</p>
+
+<h3 id="7-j2se-5-0的hotspot-jvm上的gc学习-8211-parallelcompactinggc:5821ec96f2e556abbdcf79cb49babe8b">7. J2SE 5.0的HotSpot JVM上的GC学习 &#8211; ParallelCompactingGC</h3>
+
+<h4 id="7-1-parallel-compacting-gc:5821ec96f2e556abbdcf79cb49babe8b">7.1 Parallel Compacting GC</h4>
+
+<p>parallelCompactingGC是在J2SE5.0 update6 引入的。<br />
+parallel compacting GC 与 parallel GC的不同地方，是在年老区的收集使用了一个新的算法。并且以后，parallel compacting GC 会取代 parallem GC的。</p>
+
+<h4 id="7-2-ygc的并行压缩gc:5821ec96f2e556abbdcf79cb49babe8b">7.2 YGC的并行压缩GC</h4>
+
+<p>与并行GC使用的算法一样：stop-the-world 和 复制。</p>
+
+<h4 id="7-3-年老区的并行压缩gc:5821ec96f2e556abbdcf79cb49babe8b">7.3 年老区的并行压缩GC</h4>
+
+<p>他将把年老区和永久区从逻辑上划分成等大的区域。<br />
+分为三个阶段：<br />
+标记阶段，使用多线程对存在引用的对象进行并行标记。<br />
+分析阶段，GC对各个区域进行分析，GC认为，在经过上次GC后，越左边的区域，有引用的对象密度要远远大于右边的区域。所以就从左往右分析，当某个区域的密度达到一个值的时候，就认为这是一个临界区域，所以这个临界区域左边的区域，将不会进行压缩，而右边的区域，则会进行压缩。<br />
+压缩阶段，多各个需要压缩的区域进行并行压缩。</p>
+
+<h4 id="7-4-什么时候使用并行压缩gc:5821ec96f2e556abbdcf79cb49babe8b">7.4 什么时候使用并行压缩GC</h4>
+
+<p>同样的，适合在多核的机器上；并且此GC在FGC的时候，暂停时间会更短。<br />
+可以使用参数 -XX:ParallelGCThreads=n 来指定并行的线程数。</p>
+
+<h4 id="7-5-开启并行压缩gc:5821ec96f2e556abbdcf79cb49babe8b">7.5 开启并行压缩GC</h4>
+
+<p>使用参数 -XX:+UseParallelOldGC</p>
+
+<h3 id="8-j2se-5-0的hotspot-jvm上的gc学习-8211-cms-gc:5821ec96f2e556abbdcf79cb49babe8b">8. J2SE 5.0的HotSpot JVM上的GC学习 &#8211; CMS GC</h3>
+
+<h4 id="8-1-concurrent-mark-sweep-gc:5821ec96f2e556abbdcf79cb49babe8b">8.1 Concurrent mark sweep GC</h4>
+
+<p>很多应用对响应时间的要求要大于吞吐量。<br />
+YGC并不暂停多少时间，但FGC对时间的暂用还是很长的。特别是在年老区使用的空间较多时。<br />
+因此， HotSpot引入了一个叫做CMS的收集器，也叫低延时收集器。</p>
+
+<h4 id="8-2-cms的ygc:5821ec96f2e556abbdcf79cb49babe8b">8.2 CMS的YGC</h4>
+
+<p>与并行GC同样的方式： stop-the-world 加上 copy。</p>
+
+<h4 id="8-3-cms的fgc:5821ec96f2e556abbdcf79cb49babe8b">8.3 CMS的FGC</h4>
+
+<p>CMS的FGC在大部分是和应用程序一起并发的！<br />
+CMS在FGC的时候，一开始需要做一个短暂的暂停，这个阶段称为最初标记：识别所有被引用的对象。<br />
+在并发标记时候，会和应用程序一起运行。<br />
+因为并发标记是和程序一起运行的，所以在并发标记结束的时候，不能保证所有被引用的对象都被标记，<br />
+为了解决这个问题，GC又进行了一次暂停，这个阶段称为：重标识（remark）。<br />
+在这个过程中，GC会重新对在并发标阶段时候有修改的对象做标记。<br />
+因为remark的暂停要大于最初标记，所以在这时候，需要使用多线程来并行标记。<br />
+在上述动作完成之后，就可以保证所有被引用的对象都被标记了。<br />
+因此，并发清理阶段就可以并发的收集垃圾了。<br />
+下图是serial gc 和 CMS gc 的对比：</p>
+
+<p><img class="aligncenter size-full wp-image-1908" src="http://blog.webfuns.net/wp-content/uploads/2015/04/0_1302698685pEKJ.png" alt="0_1302698685pEKJ" width="678" height="459" /></p>
+
+<p>因为要增加很多额外的动作，比如对被引用的对象重新标记，增加了CMS的工作量，所以他的GC负荷也相应的增加。<br />
+CMS是唯一没有进行压缩的GC。如下图：</p>
+
+<p><img class="aligncenter size-full wp-image-1909" src="http://blog.webfuns.net/wp-content/uploads/2015/04/0_1302698687O5F5.png" alt="0_1302698687O5F5" width="604" height="247" /></p>
+
+<p>没有压缩，对于GC的过程，是节约了时间。但因此产生了内存碎片，所以对于新对象在年老区的分配，就产生了速度上的影响，<br />
+当然，也就包括了对YGC时间的影响了。<br />
+CMS的另一个缺点，就是他需要的堆比较大，因为在并发标记的时候和并发清除的时候，应用程序很有可能在不断产生新的对象，而垃圾又还没有被删除。<br />
+另外，在最初标记之后的并发标记时，原先被引用的对象，有可能变成垃圾。但在这一次的GC中，这是没有被删除的。这种垃圾叫做：漂流垃圾。<br />
+最后，由于没有进行压缩，由此而带来了内存碎片。<br />
+为了解决这个问题，CMS对热点object大小进行了统计，并且估算之后的需求，然后把空闲的内存进行拆分或者合并来满足后续的需求。<br />
+与其他的GC不同，CMS并不在年老区满了之后才开始GC，他需要提前进行GC，用以满足在GC同时需要额外的内存。<br />
+如果在GC的同时，内存不能满足要求了，则GC就变成了并行GC或者串行GC。<br />
+为了防止这种情况，会根据上一次GC的统计来确定启动时间。<br />
+或者是当年老区超过初始容量的话，CMS GC就会启动。<br />
+初始容量的设置可以在JVM启动时增加参数： -XX:CMSInitiatingOccupancyFraction=n<br />
+n是一个百分比，默认值为68。<br />
+总之，CMS比并行GC花费了更少的暂停时间，但是牺牲了吞吐量，以及需要更大的堆区。</p>
+
+<h4 id="8-4-额外模式:5821ec96f2e556abbdcf79cb49babe8b">8.4 额外模式</h4>
+
+<p>为了防止在并发标记的时候，GC线程长期占用CPU，CMS可以把并发标记的时候停下来，把cpu让给应用程序。<br />
+收集器会想并发标记分解成很小的时间串任务，在YGC之间来执行。<br />
+这个功能对于机器的CPU个数少，但又想降低暂停时间的应用来说，非常有用。</p>
+
+<h4 id="8-5-何时使用cms:5821ec96f2e556abbdcf79cb49babe8b">8.5 何时使用CMS</h4>
+
+<p>当CPU资源较空闲，并且需要很低的暂停时间时，可以选择CMS。比如 web servers。</p>
+
+<h4 id="8-6-选择cms:5821ec96f2e556abbdcf79cb49babe8b">8.6 选择CMS</h4>
+
+<p>选择CMS GC： 增加参数 -XX:UseConcMarkSweepGC<br />
+开启额外模式： 增加参数 -XX:+CMSIncreamentalMode</p>
+
+<h3 id="9-结合线上启动参数学习:5821ec96f2e556abbdcf79cb49babe8b">9. 结合线上启动参数学习</h3>
+
+<p>线上的启动参数<br />
+-Dprogram.name=run.sh -Xmx2g -Xms2g -Xmn256m -XX:PermSize=128m -Xss256k -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dcom.sun.management.config.file=/home/admin/web-deploy/conf/jmx/jmx_monitor_management.properties -Djboss.server.home.dir=/home/admin/web-deploy/jboss_server -Djboss.server.home.url=file:/home/admin/web-deploy/jboss_server -Dapplication.codeset=GBK -Ddatabase.codeset=ISO-8859-1 -Ddatabase.logging=false -Djava.endorsed.dirs=/usr/alibaba/jboss/lib/endorsed</p>
+
+<p>其中：<br />
+-Xmx2g -Xms2g 表示堆为2G<br />
+-Xmn256m 表示新生代为 256m<br />
+-Xss256k 设置每个线程的堆栈大小。JDK5.0以后每个线程堆栈大小为1M，以前每个线程堆栈大小为256K。更具应用的线程所需内存大小进行调整。在相同物理内存下，减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的，不能无限生成，经验值在3000~5000左右<br />
+-XX:PermSize=128m 表示永久区为128m<br />
+-XX:+DisableExplicitGC 禁用显示的gc，程序程序中使用System.gc()中进行垃圾回收，使用这个参数后系统自动将 System.gc() 调用转换成一个空操作<br />
+-XX:+UseConcMarkSweepGC 表示使用CMS<br />
+-XX:+CMSParallelRemarkEnabled 表示并行remark<br />
+-XX:+UseCMSCompactAtFullCollection 表示在FGC之后进行压缩，因为CMS默认不压缩空间的。<br />
+-XX:+UseCMSInitiatingOccupancyOnly 表示只在到达阀值的时候，才进行CMS GC<br />
+-XX:CMSInitiatingOccupancyFraction=70 设置阀值为70%，默认为68%。<br />
+-XX:+UseCompressedOops JVM优化之压缩普通对象指针（CompressedOops），通常64位JVM消耗的内存会比32位的大1.5倍，这是因为对象指针在64位架构下，长度会翻倍（更宽的寻址）。对于那些将要从32位平台移植到64位的应用来说，平白无辜多了1/2的内存占用，这是开发者不愿意看到的。幸运的是，从JDK 1.6 update14开始，64 bit JVM正式支持了 -XX:+UseCompressedOops 这个可以压缩指针，起到节约内存占用的新参数.<br />
+关于-XX:+UseCMSInitiatingOccupancyOnly 和 -XX:CMSInitiatingOccupancyFraction ，详细解释见下：<br />
+The concurrent collection generally cannot be sped up but it can be started earlier.<br />
+A concurrent collection starts running when the percentage of allocated space in the old generation crosses a threshold. This threshold is calculated based on general experience with the concurrent collector. If full collections are occurring, the concurrent collections may need to be started earlier. The command line flag CMSInitiatingOccupancyFraction can be used to set the level at which the collection is started. Its default value is approximately 68%. The command line to adjust the value is<br />
+-XX:CMSInitiatingOccupancyFraction= The concurrent collector also keeps statistics on the promotion rate into the old generation for the application and makes a prediction on when to start a concurrent collection based on that promotion rate and the available free space in the old generation. Whereas the use of CMSInitiatingOccupancyFraction must be conservative to avoid full collections over the life of the application, the start of a concurrent collection based on the anticipated promotion adapts to the changing requirements of the application. The statistics that are used to calculate the promotion rate are based on the recent concurrent collections. The promotion rate is not calculated until at least one concurrent collection has completed so at least the first concurrent collection has to be initiated because the occupancy has reached CMSInitiatingOccupancyFraction . Setting CMSInitiatingOccupancyFraction to 100 would not cause only the anticipated promotion to be used to start a concurrent collection but would rather cause only non-concurrent collections to occur since a concurrent collection would not start until it was already too late. To eliminate the use of the anticipated promotions to start a concurrent collection set UseCMSInitiatingOccupancyOnly to true.<br />
+-XX:+UseCMSInitiatingOccupancyOnly<br />
+关于内存管理完整详细信息，请查看这份文档：<a href="http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf">http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf</a></p>
+
+<p>原文：<a href="http://blog.csdn.net/fenglibing/article/details/6321453">http://blog.csdn.net/fenglibing/article/details/6321453</a></p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/gc">GC</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

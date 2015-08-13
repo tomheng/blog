@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> this.length &gt;&gt;&gt; 0 的作用(Javascript)？ &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>this.length &gt;&gt;&gt; 0 的作用(Javascript)？</h1>
+			  <small>2012-02-08,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>在Javascript代码有时候会看到this.length &gt;&gt;&gt; 0 这样的类似代码，那么this.length &gt;&gt;&gt; 0这样的代码有什么用呢？<br />
+要弄明白this.length &gt;&gt;&gt; 0的作用，关键是要搞清楚 &gt;&gt;&gt; 这个运算符是干什么的？</p>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<p>在Javascript中代表无符号右移元算符，详细说明见：<a href="http://www.w3school.com.cn/js/pro_js_operators_bitwise.asp">ECMAScript 位运算符</a>。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+<p>在<a href="https://github.com">Github</a>问了 <strong><a href="https://github.com/lifesinger">lifesinger</a></strong>给出了一个this.length &gt;&gt;&gt; 0 的作用更简易的总结<strong>：</strong></p>
+
+<ul>
+<li>所有非数值转换成0</li>
+<li>所有大于等于 0 数取整数部分</li>
+</ul>
+
+<p><span style="color: #ff0000;">update:2012-04-24</span></p>
+
+<p>移位运算分为左移和右移，其中左移运算都是丢弃最高位，在右端补零。而右移预算则分为逻辑右移和算术右移动，逻辑右移在左端补零，算术右移则在左端扑最高有效位的值。</p>
+
+<p>比如：x = 101101</p>
+
+<p>x逻辑右移2位：001011</p>
+
+<p>x算术右移2位：111011</p>
+
+<p>javascript在这里的无符号右移即逻辑右移动,这个参照了JAVA中关于右移预算的规范。</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/javascript">JavaScript</a> &nbsp;
+				      
+				         <a href="/tags/seajs">seajs</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

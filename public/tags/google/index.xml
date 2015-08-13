@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google on 趣味互联网</title>
+    <link>http://:1313/tmp/tags/google/</link>
+    <description>Recent content in Google on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Jun 2010 14:05:33 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>历史上的今天（为Google作史）-2010</title>
+      <link>http://:1313/tmp/2010/06/%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E4%BB%8A%E5%A4%A9%E4%B8%BAgoogle%E4%BD%9C%E5%8F%B2-2010/</link>
+      <pubDate>Fri, 04 Jun 2010 14:05:33 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2010/06/%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E4%BB%8A%E5%A4%A9%E4%B8%BAgoogle%E4%BD%9C%E5%8F%B2-2010/</guid>
+      <description>&lt;div id=&#34;attachment_679&#34; style=&#34;width: 199px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+  &lt;a href=&#34;http://blog.webfuns.net/wp-content/uploads/2010/06/mei-you-wang.png&#34;&gt;&lt;img class=&#34;size-full wp-image-679&#34; title=&#34;今日谷歌热榜&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2010/06/mei-you-wang.png&#34; alt=&#34;&#34; width=&#34;189&#34; height=&#34;277&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    今日谷歌热榜
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;p style=&#34;text-align: center;&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>google-基于用户行为分析的搜索</title>
+      <link>http://:1313/tmp/2009/11/google-%E5%9F%BA%E4%BA%8E%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E5%88%86%E6%9E%90%E7%9A%84%E6%90%9C%E7%B4%A2/</link>
+      <pubDate>Sat, 21 Nov 2009 05:04:26 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/11/google-%E5%9F%BA%E4%BA%8E%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E5%88%86%E6%9E%90%E7%9A%84%E6%90%9C%E7%B4%A2/</guid>
+      <description>&lt;p&gt;在关键词搜索领域google 的搜索技术是非常优秀，搜索体验也是很好的。据说google会记录用户的搜索行为，基于用户搜索行为进行分析，然后返回个性化的搜索结果，也就是说不同的人在同一时间搜索同一个关键词有可能得出不同的搜索结果。&lt;/p&gt;
+
+&lt;p&gt;今天测试一下，确实是这样的。我分别在新装的&lt;a class=&#34;wpgallery&#34; title=&#34;google chrome os&#34; href=&#34;http://blog.webfuns.net/archives/149.html&#34; target=&#34;_blank&#34;&gt;chrome os&lt;/a&gt;里（chrome os是今天刚装也就是说google不会有任何关于我搜索习惯的记录）和我本地的电脑同时搜索&lt;a class=&#34;wpgallery&#34; title=&#34;tomheng&#34; href=&#34;http://blog.webfuns.net/about-tomheng-profile&#34; target=&#34;_blank&#34;&gt;tomhen&lt;/a&gt;g这个关键词，返回的结果确实有一些小的差别，见下图。&lt;/p&gt;
+
+&lt;div id=&#34;attachment_296&#34; style=&#34;width: 340px&#34; class=&#34;wp-caption alignleft&#34;&gt;
+  &lt;a rel=&#34;attachment wp-att-296&#34; href=&#34;http://blog.webfuns.net/archives/295.html/tomheng_chrome0s&#34;&gt;&lt;img class=&#34;size-medium wp-image-296    &#34; title=&#34;chrome os中的显示结果&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2009/11/tomheng_chrome0s-300x253.jpg&#34; alt=&#34;chrome os中的显示结果&#34; width=&#34;330&#34; height=&#34;253&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    chrome os中的显示结果
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;attachment_297&#34; style=&#34;width: 340px&#34; class=&#34;wp-caption alignleft&#34;&gt;
+  &lt;a rel=&#34;attachment wp-att-297&#34; href=&#34;http://blog.webfuns.net/archives/295.html/tomheng&#34;&gt;&lt;img class=&#34;size-medium wp-image-297   &#34; title=&#34;tomheng 在本机的搜索结果&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2009/11/tomheng-300x266.jpg&#34; alt=&#34;tomheng 在本机的搜索结果&#34; width=&#34;330&#34; height=&#34;256&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    tomheng 在本机的搜索结果
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在我本地电脑的twitter的占有前两个位置，但在chrome os里只占有第一个位置。在chrome os的搜索结果应该就是真实的排名结果。而在本地电脑的结果是根据我平时的上网习惯和搜索行为得出的优化结果，因为我平时和&lt;a href=&#34;http://twitter.com&#34;&gt;twitter&lt;/a&gt;走的比较近一些,在&lt;a class=&#34;wpgallery&#34; title=&#34;twitter中文社区一周热点&#34; href=&#34;http://blog.webfuns.net/archives/79.html&#34; target=&#34;_blank&#34;&gt;twitter中文&lt;/a&gt;社区潜水。所以如果我搜索的关键词返回的结果中含有twitter网站的索引，那么google会认为twitter上的信息对我更有价值，应该获得更好的排名。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>迟来的wave邀请，我得到了8个wave邀请名额</title>
+      <link>http://:1313/tmp/2009/11/%E8%BF%9F%E6%9D%A5%E7%9A%84wave%E9%82%80%E8%AF%B7%E6%88%91%E5%BE%97%E5%88%B0%E4%BA%868%E4%B8%AAwave%E9%82%80%E8%AF%B7%E5%90%8D%E9%A2%9D/</link>
+      <pubDate>Fri, 13 Nov 2009 10:55:29 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/11/%E8%BF%9F%E6%9D%A5%E7%9A%84wave%E9%82%80%E8%AF%B7%E6%88%91%E5%BE%97%E5%88%B0%E4%BA%868%E4%B8%AAwave%E9%82%80%E8%AF%B7%E5%90%8D%E9%A2%9D/</guid>
+      <description>&lt;p&gt;坚持写博客真的不容易，最近忙着做网站，N久没有更新&lt;a class=&#34;wpgallery&#34; title=&#34;趣味互联网&#34; href=&#34;http://blog.webfuns.net&#34; target=&#34;_blank&#34;&gt;趣味互联网&lt;/a&gt;了。今天抽出些时间，随便写点什么。希望以后可以多写一些东西，长时间的不写东西，脑子都快成木头了。&lt;/p&gt;
+
+&lt;p&gt;今天打开google wave发现我也能发送wave邀请了，不过现在wave邀请都快成白菜价了，也不是什么稀罕物件了，如果有网友需要的话，可以&lt;a class=&#34;wpgallery&#34; title=&#34;tomheng&#34; href=&#34;http://blog.webfuns.net/about-tomheng-profile&#34; target=&#34;_blank&#34;&gt;联系我&lt;/a&gt;索要wave邀请。&lt;img class=&#34;alignright&#34; title=&#34;wave&#34; src=&#34;http://www.ignitesocialmedia.com/uploads/Image/google-wave-logo.png&#34; alt=&#34;&#34; width=&#34;256&#34; height=&#34;256&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;拿到wave邀请是半个月前的事情了，使用了一段时间，现在说一下我的感觉吧！&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;（1）wave-&lt;strong&gt;实时聊天&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这是我最感兴趣的，这个功能用网页来实现确实不容易。因为现在http的链接都是无状态的，只有浏览器主动发送请求，服务器才会作出响应。而实现即时聊天的关键就是要服务器主动向浏览器推送消息，所以用浏览器实现即时聊天，虽然说有很多方法，但是成本都比较高。不知道wave是如何实现的，等忙过这一段时间，就去好好了解一些&lt;a href=&#34;http://blog.webfuns.net/archives/240.html&#34;&gt;wave&lt;/a&gt;的原理。&lt;/p&gt;
+
+&lt;p&gt;（2）wave-&lt;strong&gt;javascript&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;打开waves网页的源文件你会发现大部分都是javascript代码，google历来是非常偏爱javascript,最近还开放了javascript代码库。&lt;/p&gt;
+
+&lt;p&gt;(3)wave-&lt;strong&gt;htm5和css3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;wave中运用了大量的html5和css3的新特性，在这两个可以改变互联网的新标准还没有完成的时候，waves就已经让我们看到了他们巨大的威力，相信当html5和css3真正到来的时候，必将巨大的提升互联网的功用，给我们带来全新的上网体验。&lt;/p&gt;
+
+&lt;p&gt;（4）wave-&lt;strong&gt;速度慢&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;waves还是会经常卡死，速度也很慢，不过这都没有关系，任何一个产品都需要一个不断完善的过程，waves已经给我描绘了一个未来网络的美好画面，我们有理由相信wave会做的更好。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Google　Chrome OS的背后的事（闲扯Google云计算战略）！</title>
+      <link>http://:1313/tmp/2009/07/googlechrome-os%E7%9A%84%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8B%E9%97%B2%E6%89%AFgoogle%E4%BA%91%E8%AE%A1%E7%AE%97%E6%88%98%E7%95%A5/</link>
+      <pubDate>Sat, 11 Jul 2009 06:20:44 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/07/googlechrome-os%E7%9A%84%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8B%E9%97%B2%E6%89%AFgoogle%E4%BA%91%E8%AE%A1%E7%AE%97%E6%88%98%E7%95%A5/</guid>
+      <description>
+
+&lt;div style=&#34;width: 610px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+  &lt;img title=&#34;Google Empire&#34; src=&#34;http://blog.searchenginewatch.com/blog/img/google-beta.jpg&#34; alt=&#34;Google Empire&#34; width=&#34;600&#34; height=&#34;300&#34; /&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    Google Empire
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;当我写这篇文章的时候，Google　Chrome OS 早已不是什么新闻了！所以本文不是让大家知道Google Chrome OS，而是让大家和我一起思考一些东西！&lt;/p&gt;
+
+&lt;h2 id=&#34;span-style-color-ff6600-strong-大家都在用互联网做什么-strong-span:a595f7fd4b3c8ec58d5998520f83b3a6&#34;&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;&lt;strong&gt;大家都在用互联网做什么？&lt;/strong&gt;&lt;/span&gt;&lt;/h2&gt;
+
+&lt;p&gt;在Google blog上关于Google　Chrome OS的文章中，谷歌如是说：&lt;/p&gt;
+
+&lt;p&gt;We designed &lt;a href=&#34;http://www.google.com/chrome&#34;&gt;Google &lt;/a&gt;&lt;a href=&#34;http://www.google.com/chrome&#34;&gt;Chrome&lt;/a&gt; for people who live on the web — searching for information, checking email, catching up on the news, shopping or just staying in touch with friends.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;我们可以翻译总结一下：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  1）信息检索（ searching for information）
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  2）收发邮件（checking email）
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  3）跟踪时事（catching up on the news,）
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  4）网路购物（shopping）
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  5）联络通信（staying in touch with friends）
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;这些都是互联网的基础应用，几乎涵盖了网民的所有网上行为。Google也一直是精心的提供这些服务，我们来看看Google旗下的服务：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  1）Google search
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  2）Gmail
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  3）New search
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  4）Checkout
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  5）Google wave
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;这是Google应用的以下部分，这个暂时称为Google的前端，接下来我们看看Google的后端：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  1）GAE
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  2）Chrome
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  3）Google  Chrome OS
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px; &#34;&gt;
+  这些都是Google前端应用的基础和平台。现在应该清楚了Google的战略，Google帝国的每一步都是精心计划的，都是为了云计算的梦想，我们也可以看到Google对云计算是多么感兴趣。
+&lt;/p&gt;
+
+&lt;h2 id=&#34;span-style-color-ff6600-strong-我们在google的思路基础之上-进一步的猜想一下未来的互联网是个什么样子-strong-span:a595f7fd4b3c8ec58d5998520f83b3a6&#34;&gt;&lt;span style=&#34;color: #ff6600;&#34;&gt;&lt;strong&gt;我们在Google的思路基础之上，进一步的猜想一下未来的互联网是个什么样子：&lt;/strong&gt;&lt;/span&gt;&lt;/h2&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  1）OS即web brower,web brower 即OS&lt;br /&gt; 2)desktop app 将被 web app 所取代
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  3)云计算将取代端计算
+&lt;/p&gt;
+
+&lt;p&gt;未来的操作系统将和浏览器紧密结合，浏览器将变得更加快速，操作系统将变得很小巧。操作系统之所以变得小巧是因为有云计算，那是操作系统不需要做很多的事情，因为桌面应用已经推出了历史舞台，网页应用变得方便实用起来（Google doc 可以替代字处理程序、gmail 可以替代邮件客户端、YouTube 可以替代暴风等等），这时浏览器将获得更多的系统资源，从而为网页应用提供支持。&lt;/p&gt;
+
+&lt;p&gt;打开浏览器你就拥有了所有的资源，你看完成你的所有工作。这并不是什么遥不可及的事情，在不远的将来即将成为现实。&lt;/p&gt;
+
+&lt;p&gt;附注：昨天发现有人通过Google关键词进入博客，这也是我写本文的原因之一，让类似仁兄可以少翻页。再次佩服那位仁兄的耐心！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>twitter中文社区一周热点播报</title>
+      <link>http://:1313/tmp/2009/06/twitter%E4%B8%AD%E6%96%87%E7%A4%BE%E5%8C%BA%E4%B8%80%E5%91%A8%E7%83%AD%E7%82%B9%E6%92%AD%E6%8A%A5/</link>
+      <pubDate>Sat, 27 Jun 2009 05:47:26 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/06/twitter%E4%B8%AD%E6%96%87%E7%A4%BE%E5%8C%BA%E4%B8%80%E5%91%A8%E7%83%AD%E7%82%B9%E6%92%AD%E6%8A%A5/</guid>
+      <description>
+
+&lt;p style=&#34;margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+  &lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt; &lt;/span&gt;
+&lt;/p&gt;
+
+&lt;div style=&#34;width: 138px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+  &lt;img src=&#34;http://lh4.ggpht.com/_snYfzP9cqCY/SkWuI0DPfBI/AAAAAAAAAMc/qJln5uVxn7g/s128/virgle_logo_final_hi-res.png&#34; alt=&#34;google.com was fooled&#34; width=&#34;128&#34; height=&#34;107&#34; /&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    google.com was fooled
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;span-style-color-000000-font-size-10-5pt-font-family-宋体-一-span-style-color-ff00ff-2009-6-24-晚-google-com旗下的gmail-adsense等服务全面沦陷-span-span-span-style-color-000000-font-size-10-5pt-font-family-宋体-span:e855206fb5945a52169a60349fc2514c&#34;&gt;&lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;一、&lt;span style=&#34;color: #ff00ff;&#34;&gt;2009-6-24 晚 Google.com旗下的gmail 、adsense等服务全面沦陷&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt; &lt;/span&gt;&lt;/h2&gt;
+
+&lt;p style=&#34;margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+  &lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;&lt;strong&gt;1&lt;/strong&gt;）&lt;/span&gt;&lt;span style=&#34;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;GFW 第一定律：只要是 “用户产生内容”(User-generated content, UGC) 的国外网站都会被和谐。 GFW 第二定律：只要是被和谐的网站，国内一定会有个克隆版。 GFW 第三定律：没有被和谐的网站一定不是同类竞争者中最出色的。&lt;/span&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;a href=&#34;http://twitter.com/Fenng&#34;&gt;&lt;span style=&#34;color: #000000; font-weight: bold; font-style: normal; font-size: 10.5pt; font-family: 宋体; text-decoration: underline;&#34;&gt;Fenng&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span style=&#34;color: #000000; font-weight: bold; font-style: normal; font-size: 10.5pt; font-family: 宋体; text-decoration: underline;&#34;&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt; @twitter&lt;/span&gt;&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+  &lt;span style=&#34;color: #000000; font-weight: bold; font-style: normal; font-size: 10.5pt; font-family: 宋体; text-decoration: underline;&#34;&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;br /&gt; &lt;/span&gt;&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+  &lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;&lt;strong&gt;2&lt;/strong&gt;）&lt;/span&gt;&lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;所谓不折腾，有三点：1. 你们不要折腾。2. 让我们来折腾。 3. 你们若要折腾，我们就折腾你们。 &lt;/span&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;a href=&#34;http://twitter.com/hutuworm&#34;&gt;&lt;span style=&#34;font-weight: bold; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;hutuworm&lt;/span&gt;&lt;/a&gt;@twitter.com&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+  &lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;br /&gt; &lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+  &lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;&lt;strong&gt;3&lt;/strong&gt;）&lt;/span&gt;&lt;span style=&#34;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;互联网是你们的，也是我们的，但归根结底是他们的。&lt;/span&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;a href=&#34;http://twitter.com/jixin&#34;&gt;&lt;span style=&#34;color: #000000; font-weight: bold; font-style: normal; font-size: 10.5pt; font-family: 宋体; text-decoration: underline;&#34;&gt;jixin&lt;/span&gt;&lt;/a&gt;&lt;span style=&#34;color: #000000; font-weight: bold; font-style: normal; font-size: 10.5pt; font-family: 宋体; text-decoration: underline;&#34;&gt; @twitter&lt;/span&gt;&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+  &lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;span style=&#34;color: #000000; font-weight: bold; font-style: normal; font-size: 10.5pt; font-family: 宋体; text-decoration: underline;&#34;&gt;&lt;br /&gt; &lt;/span&gt;&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+  &lt;p style=&#34;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+    &lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;&lt;strong&gt;4&lt;/strong&gt;）&lt;/span&gt;&lt;span style=&#34;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;有句话不得不说，昨晚google被墙，大家觉得天塌下来了，但全中国99%的人，大城市95%的人不受影响。根本不会出乱子。现在大家能做的就是团结起来，分享快速安全的穿墙和备份方式&lt;/span&gt;&lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;a href=&#34;http://twitter.com/terryxxy&#34;&gt;&lt;span style=&#34;font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;terryxxy&lt;/span&gt;&lt;/a&gt;&lt;span style=&#34;font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt; @twitter.com&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+
+&lt;p&gt;&lt;p style=&#34;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+    &lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;span style=&#34;font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;&lt;br /&gt; &lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p style=&#34;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+    &lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;&lt;strong&gt;5&lt;/strong&gt;）&lt;/span&gt;&lt;span style=&#34;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;防民之口，甚于防川。 周厉王猜到了故事的开头，可是他是否猜到了故事的结局？&lt;/span&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;a href=&#34;mailto:jinghuaz@twitter.com&#34;&gt;&lt;span style=&#34;color: #000000; font-weight: bold; font-style: normal; font-size: 10.5pt; font-family: 宋体; text-decoration: underline;&#34;&gt;jinghuaz&lt;/span&gt;&lt;span style=&#34;color: #000000; font-weight: bold; font-style: normal; font-size: 10.5pt; font-family: 宋体; text-decoration: underline;&#34;&gt; &lt;/span&gt;&lt;/a&gt;&lt;span style=&#34;color: #000000; font-weight: bold; font-style: normal; font-size: 10.5pt; font-family: 宋体; text-decoration: underline;&#34;&gt;@twitter.com&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p style=&#34;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+    &lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;span style=&#34;color: #000000; font-weight: bold; font-style: normal; font-size: 10.5pt; font-family: 宋体; text-decoration: underline;&#34;&gt;&lt;br /&gt; &lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p style=&#34;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+    &lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;&lt;strong&gt;6&lt;/strong&gt;）&lt;/span&gt;&lt;span style=&#34;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;Google被封，中国的IT界技术水准要下降一大截！有谁写程序不用Google用Baidu搜的？这样一封，所有技术人员都只存一个人生目标了：移民！/受影响的岂知IT界，不知明天新闻界的怎么写新闻，尤其是写国际新闻滴人。这个我有发言权。&lt;/span&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;span style=&#34;font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://twitter.com/xdanger&#34;&gt;&lt;span style=&#34;font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;xdanger&lt;/span&gt;&lt;/a&gt;&lt;span style=&#34;font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt; &lt;/span&gt;&lt;span style=&#34;font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;@twitter&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p style=&#34;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+    &lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;span style=&#34;font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;&lt;br /&gt; &lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p style=&#34;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+    &lt;span style=&#34;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;&lt;strong&gt;7&lt;/strong&gt;）&lt;/span&gt;&lt;span style=&#34;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;【权威版本】一位谷歌中国高层刚刚跟我说：「今天gfw升级，增加了新功能，可以随时或随机调整开关」——同学们，长路漫漫呢！&lt;/span&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;a href=&#34;http://twitter.com/izlmichael&#34;&gt;&lt;span style=&#34;font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;izlmichael&lt;/span&gt;&lt;/a&gt;&lt;span style=&#34;font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt; @twitter.com&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p style=&#34;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+    &lt;p style=&#34;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&#34;&gt;
+      &lt;span style=&#34;color: #00ccff;&#34;&gt;&lt;span style=&#34;font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&#34;&gt;&lt;br /&gt; &lt;/span&gt;&lt;/span&gt;
+    &lt;/p&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div style=&amp;quot;border:1px solid #D1DCDF&amp;quot;&amp;gt;
+  &amp;lt;p style=&amp;quot;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&amp;quot;&amp;gt;
+    &amp;lt;span style=&amp;quot;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt; &amp;lt;span style=&amp;quot;color: #000000;&amp;quot;&amp;gt; &amp;lt;span style=&amp;quot;color: #ff6600;&amp;quot;&amp;gt; 这次事件在中文twitter社区绝对可以算是一个热点话题！刚得知此消息的时候，推友们情绪都有些激动，在twitter上疯狂开骂。四五个小时之后，有些地方的Google服务可以访问了，推友们的情绪也宣泄的差不多了！事件渐渐平息下去了。&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/p&amp;gt;
+
+  &amp;lt;p style=&amp;quot;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&amp;quot;&amp;gt;
+    &amp;lt;span style=&amp;quot;color: #ff6600;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt; 现在以平静的心态来看看这次Google事件（包括之前CCAV 陷害谷歌在内），受影响的gmail、 google、 reader、 adsense 、picasa 等Google高端服务的用户大都是一些web高级用户，而这种高级用户在中国3亿多网民中的比例是极其小的！因此对大多数网民来讲他们甚至不知道此事，于是也就注定了推友们的喊话只是一种情感宣泄，不可能改变任何东西，某些人也不会在意我们的感受，他们将依然继续修复完善那堵黑墙，我们也将继续我们的翻墙运动，并且继续鄙视、唾骂他们。&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/p&amp;gt;
+
+  &amp;lt;p style=&amp;quot;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&amp;quot;&amp;gt;
+    &amp;lt;span style=&amp;quot;color: #ff6600;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt; 从另一个方面我们也看到了Google用户的粘性有多大，当然这是基于Google优质的服务。这次事件也提醒我们，如果有一天Google的服务没有，我们的互联网生活将受到多大的影响呢！在任何行业一家独大都不是什么好事情，最好的例子就是在中国的通信领域！且不说在缺乏竞争的环境中的成长问题和服务质量问题，就说如果这种寡头倒下了，带来的有可能就是一场灾难！&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/p&amp;gt;
+
+  &amp;lt;p style=&amp;quot;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&amp;quot;&amp;gt;
+    &amp;lt;span style=&amp;quot;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt;附：open DNS: &amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #222222; font-weight: normal; font-style: normal; font-size: 9.5pt; font-family: &#39;Arial&#39;;&amp;quot;&amp;gt;208.67.222.220&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #222222; font-weight: normal; font-style: normal; font-size: 9.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #222222; font-weight: normal; font-style: normal; font-size: 9.5pt; font-family: &#39;Arial&#39;;&amp;quot;&amp;gt;208.67.220.222&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;font-size: 10.5pt; font-family: &#39;Times New Roman&#39;;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt;
+  &amp;lt;/p&amp;gt;
+
+  &amp;lt;p style=&amp;quot;padding: 0pt; margin-bottom: 0pt; margin-top: 0pt; text-align: justify; line-height: 150%; vertical-align: baseline;&amp;quot;&amp;gt;
+    &amp;lt;span style=&amp;quot;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt;DNS&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt;:&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt; 202.96.209.6 &amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #000000; font-weight: normal; font-style: normal; font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt;202.96.209.134&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #000000; font-size: 10.5pt; font-family: &#39;宋体&#39;;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt;
+  &amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>历史上的今天（为Google作史）</title>
+      <link>http://:1313/tmp/2009/06/%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E4%BB%8A%E5%A4%A9%E4%B8%BAgoogle%E4%BD%9C%E5%8F%B2/</link>
+      <pubDate>Thu, 04 Jun 2009 04:21:13 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2009/06/%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E4%BB%8A%E5%A4%A9%E4%B8%BAgoogle%E4%BD%9C%E5%8F%B2/</guid>
+      <description>&lt;div&gt;
+  &lt;span style=&#34;font-size: 10.5pt; font-family: &#39;Times New Roman&#39;; mso-spacerun: &#39;yes&#39;;&#34;&gt;&lt;span style=&#34;color: #ff0000;font-size:16px;&#34;&gt;&lt;/p&gt; 
+  
+  &lt;div style=&#34;width: 92px&#34; class=&#34;wp-caption alignleft&#34;&gt;
+    &lt;img title=&#34;相信了吧&#34; src=&#34;http://lh4.ggpht.com/_snYfzP9cqCY/SidGaBcAiPI/AAAAAAAAAIQ/m8VIXGtMZ6M/s128/6.4.jpg&#34; alt=&#34;相信了吧&#34; width=&#34;82&#34; height=&#34;128&#34; /&gt;
+    
+    &lt;p class=&#34;wp-caption-text&#34;&gt;
+      相信了吧
+    &lt;/p&gt;
+  &lt;/div&gt;
+  
+
+&lt;p&gt;&lt;p&gt;
+    今&lt;/span&gt;天看到网上的历史上的今天的网页，突然有了个无聊的想法，给谷歌也做个&amp;#8221;史记&amp;#8221;，记录谷歌今天的搜索上升最快的关键字。搭建就以无聊的心情去看我这边无聊的博志吧！&lt;/span&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;
+  &amp;lt;span style=&amp;quot;font-size: 10.5pt; font-family: &#39;Times New Roman&#39;; mso-spacerun: &#39;yes&#39;;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;1）一下是历史发生的所谓的大事啊！列举几个（肯定不全奥，未经历史考证，不能保证准确性，见谅）&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; 
+
+  &amp;lt;p class=&amp;quot;p0&amp;quot; style=&amp;quot;margin-top: 0pt; margin-bottom: 0pt;&amp;quot;&amp;gt;
+    &amp;lt;table border=&amp;quot;0&amp;quot;&amp;gt;
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1922年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          邓肯式的舞蹈风靡欧美
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1925年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          -广州发生滇桂军叛乱
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1928年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          张作霖在皇姑屯被炸身亡
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1940年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          敦刻尔克大撤退
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1940年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          英法军队敦刻尔克大撤退结束 
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1942年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          中途岛之战爆发
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1944年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          盟军攻克罗马
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1946年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          庇隆当选阿根廷总统 
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1961年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          被英国侵占的片马归还我国
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1985年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          中国政府决定裁军100万
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1985年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          全国政社分开建立乡政府的工作结束 
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1990年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          美国首次实行安乐死
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1991年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          阿尔巴尼亚政府更迭
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+
+      &amp;lt;tr&amp;gt;
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          1998年
+        &amp;lt;/td&amp;gt;
+
+        &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+          我国互联网用户突破一百万
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+    &amp;lt;/table&amp;gt;
+
+    &amp;lt;p&amp;gt;
+      &amp;lt;strong&amp;gt;2）这是Google今天上升最快的关键字。看起来大家今天搜的东西都挺无聊的！（有图片为证，我不撒谎）&amp;lt;/strong&amp;gt;
+    &amp;lt;/p&amp;gt;
+
+    &amp;lt;p class=&amp;quot;p0&amp;quot; style=&amp;quot;margin-top: 0pt; margin-bottom: 0pt;&amp;quot;&amp;gt;
+      &amp;lt;table border=&amp;quot;0&amp;quot;&amp;gt;
+        &amp;lt;tr&amp;gt;
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            我是冠军！
+          &amp;lt;/td&amp;gt;
+
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            本钢集团6名失踪员工的名单
+          &amp;lt;/td&amp;gt;
+        &amp;lt;/tr&amp;gt;
+
+        &amp;lt;tr&amp;gt;
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            我是亚军
+          &amp;lt;/td&amp;gt;
+
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            欧元对人民币的汇率
+          &amp;lt;/td&amp;gt;
+        &amp;lt;/tr&amp;gt;
+
+        &amp;lt;tr&amp;gt;
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            季军也行
+          &amp;lt;/td&amp;gt;
+
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            张悬 makiyo
+          &amp;lt;/td&amp;gt;
+        &amp;lt;/tr&amp;gt;
+
+        &amp;lt;tr&amp;gt;
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            4
+          &amp;lt;/td&amp;gt;
+
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            张悬 绯闻
+          &amp;lt;/td&amp;gt;
+        &amp;lt;/tr&amp;gt;
+
+        &amp;lt;tr&amp;gt;
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            5
+          &amp;lt;/td&amp;gt;
+
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            6月4日
+          &amp;lt;/td&amp;gt;
+        &amp;lt;/tr&amp;gt;
+
+        &amp;lt;tr&amp;gt;
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            6
+          &amp;lt;/td&amp;gt;
+
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            黑匣子是什么
+          &amp;lt;/td&amp;gt;
+        &amp;lt;/tr&amp;gt;
+
+        &amp;lt;tr&amp;gt;
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            7
+          &amp;lt;/td&amp;gt;
+
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            历史上的今天
+          &amp;lt;/td&amp;gt;
+        &amp;lt;/tr&amp;gt;
+
+        &amp;lt;tr&amp;gt;
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            8
+          &amp;lt;/td&amp;gt;
+
+          &amp;lt;td width=&amp;quot;284&amp;quot; valign=&amp;quot;top&amp;quot;&amp;gt;
+            20周年
+          &amp;lt;/td&amp;gt;
+        &amp;lt;/tr&amp;gt;
+      &amp;lt;/table&amp;gt;
+
+      &amp;lt;p&amp;gt;
+         
+      &amp;lt;/p&amp;gt;
+
+      &amp;lt;p&amp;gt;
+        &amp;lt;!--EndFragment--&amp;gt;
+      &amp;lt;/p&amp;gt;
+
+      &amp;lt;p&amp;gt;
+        &amp;lt;!--EndFragment--&amp;gt;
+      &amp;lt;/p&amp;gt;
+
+      &amp;lt;p&amp;gt;
+        &amp;lt;/span&amp;gt;
+      &amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> placeholder在非标准（IE)浏览器的实现 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>placeholder在非标准（IE)浏览器的实现</h1>
+			  <small>2011-11-26,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <p>题目写得好拗口啊:)</p>
+
+<p>placeholder是HTML5的一个新特性，今天在考虑如何提示表单输入内容格式的时候，左思右想还是把提示内容放在input中最好。刚开始还不知道有placeholder这个东西，想要找一些js实现同样的效果，不久就发现原来HTML5中有placeholder这个标签属性，恰好支持这种效果。</p>
+
+<p>高兴了没有一会，万恶的IE就把我拉回了现实。</p>
+
+<p>方法就是比问题要多，找了N多用JS实现的placeholder的效果，最后发现一个相对完美的实现。</p>
+
+<p>源码：</p>
+
+<div class="codecolorer-container javascript blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />31<br />32<br />33<br />34<br />35<br />36<br />37<br />38<br />39<br />40<br />41<br />42<br />43<br />44<br />45<br />46<br />47<br />48<br />49<br />50<br />51<br />52<br />53<br />54<br />55<br />56<br />57<br />58<br />59<br />60<br />61<br />62<br />63<br />64<br />65<br />66<br />67<br />68<br />69<br />70<br />71<br />72<br />73<br />74<br />75<br />76<br />77<br />78<br />79<br />80<br />81<br />82<br />83<br />84<br />85<br />86<br />87<br />88<br />89<br />90<br />91<br />92<br />93<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="javascript codecolorer">
+          <span class="co1">// HTML5 placeholder plugin version 1.01</span><br /> <span class="co1">// Copyright (c) 2010-The End of Time, Mike Taylor, http://miketaylr.com</span><br /> <span class="co1">// MIT Licensed: http://www.opensource.org/licenses/mit-license.php</span><br /> <span class="co1">//</span><br /> <span class="co1">// Enables cross-browser HTML5 placeholder for inputs, by first testing</span><br /> <span class="co1">// for a native implementation before building one.</span><br /> <span class="co1">//</span><br /> <span class="co1">//</span><br /> <span class="co1">// USAGE: </span><br /> <span class="co1">//$('input[placeholder]').placeholder();</span><br /> <br /> <span class="co1">// <input type="text" placeholder="username"></span><br /> <span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span>$<span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; <span class="co1">//feature detection</span><br /> &nbsp; <span class="kw2">var</span> hasPlaceholder <span class="sy0">=</span> <span class="st0">'placeholder'</span> <span class="kw1">in</span> document.<span class="me1">createElement</span><span class="br0">&#40;</span><span class="st0">'input'</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; <br /> &nbsp; <span class="co1">//sniffy sniff sniff -- just to give extra left padding for the older</span><br /> &nbsp; <span class="co1">//graphics for type=email and type=url</span><br /> &nbsp; <span class="kw2">var</span> isOldOpera <span class="sy0">=</span> $.<span class="me1">browser</span>.<span class="me1">opera</span> <span class="sy0">&&</span> $.<span class="me1">browser</span>.<span class="me1">version</span> <span class="sy0"><</span> <span class="nu0">10.5</span><span class="sy0">;</span><br /> <br /> &nbsp; $.<span class="me1">fn</span>.<span class="me1">placeholder</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span>options<span class="br0">&#41;</span> <span class="br0">&#123;</span><br /> &nbsp; &nbsp; <span class="co1">//merge in passed in options, if any</span><br /> &nbsp; &nbsp; <span class="kw2">var</span> options <span class="sy0">=</span> $.<span class="me1">extend</span><span class="br0">&#40;</span><span class="br0">&#123;</span><span class="br0">&#125;</span><span class="sy0">,</span> $.<span class="me1">fn</span>.<span class="me1">placeholder</span>.<span class="me1">defaults</span><span class="sy0">,</span> options<span class="br0">&#41;</span><span class="sy0">,</span><br /> &nbsp; &nbsp; <span class="co1">//cache the original 'left' value, for use by Opera later</span><br /> &nbsp; &nbsp; o_left <span class="sy0">=</span> options.<span class="me1">placeholderCSS</span>.<span class="me1">left</span><span class="sy0">;</span><br /> &nbsp; <br /> &nbsp; &nbsp; <span class="co1">//first test for native placeholder support before continuing</span><br /> &nbsp; &nbsp; <span class="co1">//feature detection inspired by ye olde jquery 1.4 hawtness, with paul irish</span><br /> &nbsp; &nbsp; <span class="kw1">return</span> <span class="br0">&#40;</span>hasPlaceholder<span class="br0">&#41;</span> <span class="sy0">?</span> <span class="kw1">this</span> <span class="sy0">:</span> <span class="kw1">this</span>.<span class="me1">each</span><span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; <span class="co1">//TODO: if this element already has a placeholder, exit</span><br /> &nbsp; &nbsp; <br /> &nbsp; &nbsp; &nbsp; <span class="co1">//local vars</span><br /> &nbsp; &nbsp; &nbsp; <span class="kw2">var</span> $this <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="kw1">this</span><span class="br0">&#41;</span><span class="sy0">,</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputVal <span class="sy0">=</span> $.<span class="me1">trim</span><span class="br0">&#40;</span>$this.<span class="me1">val</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputWidth <span class="sy0">=</span> $this.<span class="me1">width</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputHeight <span class="sy0">=</span> $this.<span class="me1">height</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span><br /> <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//grab the inputs id for the <label @for>, or make a new one from the Date</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputId <span class="sy0">=</span> <span class="br0">&#40;</span><span class="kw1">this</span>.<span class="me1">id</span><span class="br0">&#41;</span> <span class="sy0">?</span> <span class="kw1">this</span>.<span class="me1">id</span> <span class="sy0">:</span> <span class="st0">'placeholder'</span> <span class="sy0">+</span> <span class="br0">&#40;</span><span class="sy0">+</span><span class="kw2">new</span> Date<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholderText <span class="sy0">=</span> $this.<span class="me1">attr</span><span class="br0">&#40;</span><span class="st0">'placeholder'</span><span class="br0">&#41;</span><span class="sy0">,</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder <span class="sy0">=</span> $<span class="br0">&#40;</span><span class="st0">'<label for='</span><span class="sy0">+</span> inputId <span class="sy0">+</span><span class="st0">'>'</span><span class="sy0">+</span> placeholderText <span class="sy0">+</span> <span class="st0">'</label>'</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//stuff in some calculated values into the placeholderCSS object</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.<span class="me1">placeholderCSS</span><span class="br0">&#91;</span><span class="st0">'width'</span><span class="br0">&#93;</span> <span class="sy0">=</span> inputWidth<span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.<span class="me1">placeholderCSS</span><span class="br0">&#91;</span><span class="st0">'height'</span><span class="br0">&#93;</span> <span class="sy0">=</span> inputHeight<span class="sy0">;</span><br /> <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// adjust position of placeholder </span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.<span class="me1">placeholderCSS</span>.<span class="me1">left</span> <span class="sy0">=</span> <span class="br0">&#40;</span>isOldOpera <span class="sy0">&&</span> <span class="br0">&#40;</span><span class="kw1">this</span>.<span class="me1">type</span> <span class="sy0">==</span> <span class="st0">'email'</span> <span class="sy0">||</span> <span class="kw1">this</span>.<span class="me1">type</span> <span class="sy0">==</span> <span class="st0">'url'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">?</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">'11%'</span> <span class="sy0">:</span> o_left<span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder.<span class="me1">css</span><span class="br0">&#40;</span>options.<span class="me1">placeholderCSS</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; <br /> &nbsp; &nbsp; &nbsp; <span class="co1">//place the placeholder</span><br /> &nbsp; &nbsp; &nbsp; $this.<span class="me1">wrap</span><span class="br0">&#40;</span>options.<span class="me1">inputWrapper</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; $this.<span class="me1">attr</span><span class="br0">&#40;</span><span class="st0">'id'</span><span class="sy0">,</span> inputId<span class="br0">&#41;</span>.<span class="me1">after</span><span class="br0">&#40;</span>placeholder<span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; <br /> &nbsp; &nbsp; &nbsp; <span class="co1">//if the input isn't empty</span><br /> &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>inputVal<span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; placeholder.<span class="me1">hide</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; <br /> &nbsp; &nbsp; &nbsp; <span class="co1">//hide placeholder on focus</span><br /> &nbsp; &nbsp; &nbsp; $this.<span class="kw3">focus</span><span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span>$.<span class="me1">trim</span><span class="br0">&#40;</span>$this.<span class="me1">val</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder.<span class="me1">hide</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; <br /> &nbsp; &nbsp; &nbsp; <span class="co1">//show placeholder if the input is empty</span><br /> &nbsp; &nbsp; &nbsp; $this.<span class="kw3">blur</span><span class="br0">&#40;</span><span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span>$.<span class="me1">trim</span><span class="br0">&#40;</span>$this.<span class="me1">val</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder.<span class="me1">show</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span><br /> &nbsp; <span class="br0">&#125;</span><span class="sy0">;</span><br /> &nbsp; <br /> &nbsp; <span class="co1">//expose defaults</span><br /> &nbsp; $.<span class="me1">fn</span>.<span class="me1">placeholder</span>.<span class="me1">defaults</span> <span class="sy0">=</span> <span class="br0">&#123;</span><br /> &nbsp; &nbsp; <span class="co1">//you can pass in a custom wrapper</span><br /> &nbsp; &nbsp; inputWrapper<span class="sy0">:</span> <span class="st0">'<span style="position:relative"></span>'</span><span class="sy0">,</span><br /> &nbsp; <br /> &nbsp; &nbsp; <span class="co1">//more or less just emulating what webkit does here</span><br /> &nbsp; &nbsp; <span class="co1">//tweak to your hearts content</span><br /> &nbsp; &nbsp; placeholderCSS<span class="sy0">:</span> <span class="br0">&#123;</span><br /> &nbsp; &nbsp; &nbsp; <span class="st0">'font'</span><span class="sy0">:</span><span class="st0">'0.75em sans-serif'</span><span class="sy0">,</span> <br /> &nbsp; &nbsp; &nbsp; <span class="st0">'color'</span><span class="sy0">:</span><span class="st0">'#bababa'</span><span class="sy0">,</span> <br /> &nbsp; &nbsp; &nbsp; <span class="st0">'position'</span><span class="sy0">:</span> <span class="st0">'absolute'</span><span class="sy0">,</span> <br /> &nbsp; &nbsp; &nbsp; <span class="st0">'left'</span><span class="sy0">:</span><span class="st0">'5px'</span><span class="sy0">,</span><br /> &nbsp; &nbsp; &nbsp; <span class="st0">'top'</span><span class="sy0">:</span><span class="st0">'3px'</span><span class="sy0">,</span> <br /> &nbsp; &nbsp; &nbsp; <span class="st0">'overflow-x'</span><span class="sy0">:</span> <span class="st0">'hidden'</span><br /> &nbsp; &nbsp; <span class="br0">&#125;</span><br /> &nbsp; <span class="br0">&#125;</span><span class="sy0">;</span><br /> <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="br0">&#40;</span>jQuery<span class="br0">&#41;</span><span class="sy0">;</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>源码：<a href="https://github.com/miketaylr/jQuery-html5-placeholder/blob/master/html5placeholder.jquery.js">https://github.com/miketaylr/jQuery-html5-placeholder/blob/master/html5placeholder.jquery.js</a></p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/html5">HTML5</a> &nbsp;
+				      
+				         <a href="/tags/javascript">JavaScript</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

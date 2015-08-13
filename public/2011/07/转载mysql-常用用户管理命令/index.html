@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> 【转载】MySQL 常用用户管理命令 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>【转载】MySQL 常用用户管理命令</h1>
+			  <small>2011-07-04,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        <div class="codecolorer-container bash blackboard" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />31<br />32<br />33<br />34<br />35<br />36<br />37<br />38<br />39<br />40<br />41<br />42<br />43<br />44<br />45<br />46<br />47<br />48<br />49<br />50<br />51<br />52<br />53<br />54<br />55<br />56<br />57<br />58<br />59<br />60<br />61<br />62<br />63<br />64<br />65<br />66<br />67<br />68<br />69<br />70<br />71<br />72<br />73<br />74<br />75<br />76<br />77<br />78<br />79<br />80<br />81<br />82<br />83<br />84<br />85<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="bash codecolorer">
+          <span class="nu0">1</span>、添加用户<br /> <br /> 本机访问权限：<br /> mysql<span class="sy0">></span> GRANT ALL PRIVILEGES ON <span class="sy0">*</span>.<span class="sy0">*</span> TO <span class="st_h">'username'</span><span class="sy0">@</span><span class="st_h">'localhost'</span><br /> -<span class="sy0">></span> IDENTIFIED BY <span class="st_h">'password'</span> WITH GRANT OPTION;<br /> 远程访问权限：<br /> mysql<span class="sy0">></span> GRANT ALL PRIVILEGES ON <span class="sy0">*</span>.<span class="sy0">*</span> TO <span class="st_h">'username'</span><span class="sy0">@</span><span class="st_h">'%'</span><br /> -<span class="sy0">></span> IDENTIFIED BY <span class="st_h">'password'</span> WITH GRANT OPTION;<br /> 另外还有一种方法是直接Insert INTO user，注意这种方法之后需要 FLUSH PRIVILEGES 让服务器重读授权表。<br /> <br /> insert into user<span class="br0">&#40;</span>host,user,password,ssl_cipher,x509_issuer,x509_subject<span class="br0">&#41;</span><br /> values<span class="br0">&#40;</span>‘localhost’,<span class="st_h">'xff’,password(‘xff’),”,”,”);<br /> FLUSH PRIVILEGES;<br /> note：1）必须要加上ssl_cipher,x509_issuer,x509_subject三列，以为其默认值不为空（数据库版本为：5.0.51b）<br /> 2）FLUSH PRIVILEGES重载授权表，使权限更改生效<br /> 3）mysql是通过User表，Db表，Host表，Tables_priv 表，Columns_priv 表这5张表实现用户权限控制，均可以通过直接对这些表的操作以达到对用户的管理<br /> <br /> 2、删除用户<br /> <br /> drop user admin@localhost;（@不加默认为“%”）<br /> <br /> 3、权限回收<br /> revoke delete on test.* from admin@'</span>localhost<span class="st_h">';<br /> <br /> 4、创建用户授权一起实现<br /> grant select,insert,update,delete on *.* to '</span>admin2′<span class="sy0">@</span><span class="st_h">'%'</span><br /> identified by ‘admin2′ with grant option;<br /> note：在mysql中，如果<span class="sy0">@</span>后面的登录范围不同，帐号可以一样<br /> <br /> <span class="nu0">5</span>、限制用户资源<br /> <br /> mysql<span class="sy0">></span> GRANT ALL ON customer.<span class="sy0">*</span> TO <span class="st_h">'francis'</span><span class="sy0">@</span><span class="st_h">'localhost'</span><br /> -<span class="sy0">></span> IDENTIFIED BY <span class="st_h">'frank'</span><br /> -<span class="sy0">></span> WITH MAX_QUERIES_PER_HOUR <span class="nu0">20</span> <br /> -<span class="sy0">></span> MAX_UPDATES_PER_HOUR <span class="nu0">10</span><br /> -<span class="sy0">></span> MAX_CONNECTIONS_PER_HOUR <span class="nu0">5</span> <br /> -<span class="sy0">></span> MAX_USER_CONNECTIONS <span class="nu0">2</span>;<br /> <br /> <br /> <span class="nu0">6</span>、用户密码设置<br /> <br /> 使用mysqladmin：<br /> shell<span class="sy0">></span> mysqladmin <span class="re5">-u</span> user_name <span class="re5">-h</span> host_name password <span class="st0">"newpwd"</span><br /> 或在mysql里执行语句：<br /> mysql<span class="sy0">></span> SET PASSWORD FOR <span class="st_h">'username'</span><span class="sy0">@</span><span class="st_h">'%'</span><br /> = PASSWORD<span class="br0">&#40;</span><span class="st_h">'password'</span><span class="br0">&#41;</span>;<br /> 如果只是更改自己的密码，则：<br /> mysql<span class="sy0">></span> SET PASSWORD = PASSWORD<span class="br0">&#40;</span>‘password’<span class="br0">&#41;</span>;<br /> 在全局级别使用GRANT USAGE语句<span class="br0">&#40;</span>在<span class="sy0">*</span>.<span class="sy0">*</span><span class="br0">&#41;</span>来指定某个账户的密码:<br /> mysql<span class="sy0">></span> GRANT USAGE ON <span class="sy0">*</span>.<span class="sy0">*</span> TO <span class="st_h">'username'</span><span class="sy0">@</span><span class="st_h">'%'</span><br /> IDENTIFIED BY <span class="st_h">'password'</span>;<br /> 或直接修改MySQL库表：<br /> mysql<span class="sy0">></span> UPDATE user SET Password = PASSWORD<span class="br0">&#40;</span><span class="st_h">'bagel'</span><span class="br0">&#41;</span><br /> -<span class="sy0">></span> WHERE Host = <span class="st_h">'%'</span> AND User = <span class="st_h">'francis'</span>;<br /> mysql<span class="sy0">></span> FLUSH PRIVILEGES;<br /> <br /> 修改root密码：<br /> update mysql.user <span class="kw1">set</span> <span class="re2">password</span>=password<span class="br0">&#40;</span>‘passw0rd’<span class="br0">&#41;</span> where <span class="re2">user</span>=’root’;<br /> FLUSH PRIVILEGES;<br /> <br /> <span class="nu0">7</span>、关于加密<br /> mysql<span class="sy0">></span> <span class="kw1">select</span> PASSWORD<span class="br0">&#40;</span><span class="st_h">'password'</span><span class="br0">&#41;</span>;<br /> +-------------------------------------------+<br /> <span class="sy0">|</span> PASSWORD<span class="br0">&#40;</span><span class="st_h">'password'</span><span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy0">|</span><br /> +-------------------------------------------+<br /> <span class="sy0">|</span> <span class="sy0">*</span>2470C0C06DEE42FD1618BB99005ADCA2EC9D1E19 <span class="sy0">|</span><br /> +-------------------------------------------+<br /> <span class="nu0">1</span> row <span class="kw1">in</span> <span class="kw1">set</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span><br /> <br /> mysql<span class="sy0">></span> <span class="kw1">select</span> MD5<span class="br0">&#40;</span><span class="st_h">'hello'</span><span class="br0">&#41;</span>;<br /> +----------------------------------+<br /> <span class="sy0">|</span> MD5<span class="br0">&#40;</span><span class="st_h">'hello'</span><span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">|</span><br /> +----------------------------------+<br /> <span class="sy0">|</span> 5d41402abc4b2a76b9719d911017c592 <span class="sy0">|</span><br /> +----------------------------------+<br /> <span class="nu0">1</span> row <span class="kw1">in</span> <span class="kw1">set</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span><br /> <br /> mysql<span class="sy0">></span> <span class="kw1">select</span> SHA1<span class="br0">&#40;</span><span class="st_h">'abc'</span><span class="br0">&#41;</span>;<br /> <br /> -<span class="sy0">></span> <span class="st_h">'a9993e364706816aba3e25717850c26c9cd0d89d'</span><br /> <br /> SHA1<span class="br0">&#40;</span><span class="br0">&#41;</span>是为字符串算出一个 SHA1 <span class="nu0">160</span>比特检查和，如RFC <span class="nu0">3174</span> <span class="br0">&#40;</span>安全散列算法<span class="br0">&#41;</span>中所述。<br /> <br /> <span class="nu0">8</span>、授权精确到列<br /> grant <span class="kw1">select</span> <span class="br0">&#40;</span>cur_url,pre_url<span class="br0">&#41;</span> on test.abc to admin<span class="sy0">@</span>localhost;
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>原文：<a href="http://www.ha97.com/4109.html">http://www.ha97.com/4109.html</a></p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/mysql">MySQL</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 

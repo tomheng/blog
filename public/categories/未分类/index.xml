@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>未分类 on 趣味互联网</title>
+    <link>http://:1313/tmp/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/</link>
+    <description>Recent content in 未分类 on 趣味互联网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 Apr 2015 14:46:43 +0000</lastBuildDate>
+    <atom:link href="http://:1313/tmp/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>[转]Go Data Structures</title>
+      <link>http://:1313/tmp/2015/04/%E8%BD%ACgo-data-structures/</link>
+      <pubDate>Thu, 30 Apr 2015 14:46:43 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2015/04/%E8%BD%ACgo-data-structures/</guid>
+      <description>
+
+&lt;p class=&#34;lp&#34;&gt;
+  When explaining Go to new programmers, I&amp;#8217;ve found that it often helps to explain what Go values look like in memory, to build the right intuition about which operations are expensive and which are not. This post is about basic types, structs, arrays, and slices.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-types:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;Basic types&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;#8217;s start with some simple examples:&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  &lt;img class=&#34;aligncenter size-full wp-image-1913&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata1.png&#34; alt=&#34;godata1&#34; width=&#34;409&#34; height=&#34;303&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  The variable &lt;em&gt;i&lt;/em&gt; has type &lt;em&gt;int&lt;/em&gt;, represented in memory as a single 32-bit word. (All these pictures show a 32-bit memory layout; in the current implementations, only the pointer gets bigger on a 64-bit machine—&lt;em&gt;int&lt;/em&gt; is still 32 bits—though an implementation could choose to use 64 bits instead.)
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  The variable &lt;em&gt;j&lt;/em&gt; has type &lt;em&gt;int32&lt;/em&gt;, because of the explicit conversion. Even though &lt;em&gt;i&lt;/em&gt; and &lt;em&gt;j&lt;/em&gt; have the same memory layout, they have different types: the assignment &lt;em&gt;i = j&lt;/em&gt; is a type error and must be written with an explicit conversion: &lt;em&gt;i = int(j)&lt;/em&gt;.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  The variable &lt;em&gt;f&lt;/em&gt; has type &lt;em&gt;float&lt;/em&gt;, which the current implementations represent as a 32-bit floating-point value. It has the same memory footprint as the &lt;em&gt;int32&lt;/em&gt; but a different internal layout.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;structs-and-pointers:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;Structs and pointers&lt;/h2&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Now things start to pick up. The variable &lt;em&gt;bytes&lt;/em&gt; has type &lt;em&gt;[5]byte&lt;/em&gt;, an array of 5 &lt;em&gt;byte&lt;/em&gt;s. Its memory representation is just those 5 bytes, one after the other, like a C array. Similarly, &lt;em&gt;primes&lt;/em&gt;is an array of 4 &lt;em&gt;int&lt;/em&gt;s.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Go, like C but unlike Java, gives the programmer control over what is and is not a pointer. For example, this type definition:
+&lt;/p&gt;
+
+&lt;pre class=&#34;indent&#34;&gt;type Point struct { X, Y int }
+&lt;/pre&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  defines a simple struct type named &lt;em&gt;Point&lt;/em&gt;, represented as two adjacent &lt;em&gt;int&lt;/em&gt;s in memory.
+&lt;/p&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  &lt;img class=&#34;aligncenter size-full wp-image-1914&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata1a.png&#34; alt=&#34;godata1a&#34; width=&#34;285&#34; height=&#34;151&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  The &lt;a href=&#34;http://golang.org/doc/go_spec.html#Composite_literals&#34;&gt;composite literal syntax&lt;/a&gt; &lt;em&gt;Point{10, 20}&lt;/em&gt; denotes an initialized &lt;em&gt;Point&lt;/em&gt;. Taking the address of a composite literal denotes a pointer to a freshly allocated and initialized &lt;em&gt;Point&lt;/em&gt;. The former is two words in memory; the latter is a pointer to two words in memory.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Fields in a struct are laid out side by side in memory.
+&lt;/p&gt;
+
+&lt;pre class=&#34;indent&#34;&gt;type Rect1 struct { Min, Max Point }
+type Rect2 struct { Min, Max *Point }&lt;/pre&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-1915&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata1b.png&#34; alt=&#34;godata1b&#34; width=&#34;443&#34; height=&#34;151&#34; /&gt;&lt;/p&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  &lt;em&gt;Rect1&lt;/em&gt;, a struct with two &lt;em&gt;Point&lt;/em&gt; fields, is represented by two &lt;em&gt;Point&lt;/em&gt;s—four ints—in a row. &lt;em&gt;Rect2&lt;/em&gt;, a struct with two &lt;em&gt;*Point&lt;/em&gt; fields, is represented by two &lt;em&gt;*Point&lt;/em&gt;s.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Programmers who have used C probably won&amp;#8217;t be surprised by the distinction between &lt;em&gt;Point&lt;/em&gt; fields and &lt;em&gt;*Point&lt;/em&gt; fields, while programmers who have only used Java or Python (or &amp;#8230;) may be surprised by having to make the decision. By giving the programmer control over basic memory layout, Go provides the ability to control the total size of a given collection of data structures, the number of allocations, and the memory access patterns, all of which are important for building systems that perform well.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;strings:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;Strings&lt;/h2&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  With those preliminaries, we can move on to more interesting data types.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  &lt;img class=&#34;aligncenter size-full wp-image-1916&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata2.png&#34; alt=&#34;godata2&#34; width=&#34;264&#34; height=&#34;151&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p class=&#34;lp&#34;&gt;
+  (The gray arrows denote pointers that are present in the implementation but not directly visible in programs.)
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  A &lt;em&gt;string&lt;/em&gt; is represented in memory as a 2-word structure containing a pointer to the string data and a length. Because the &lt;em&gt;string&lt;/em&gt; is immutable, it is safe for multiple strings to share the same storage, so &lt;a href=&#34;http://www.blogger.com/post-edit.g?blogID=8082954141980125536&amp;postID=65253524121904390&#34;&gt;slicing&lt;/a&gt; &lt;em&gt;s&lt;/em&gt; results in a new 2-word structure with a potentially different pointer and length that still refers to the same byte sequence. This means that slicing can be done without allocation or copying, making string slices as efficient as passing around explicit indexes.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  (As an aside, there is a &lt;a href=&#34;http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4513622&#34;&gt;well-known gotcha&lt;/a&gt; in Java and other languages that when you slice a string to save a small piece, the reference to the original keeps the entire original string in memory even though only a small amount is still needed. Go has this gotcha too. The alternative, which we tried &lt;a href=&#34;http://code.google.com/p/go/source/detail?r=70fa38e5a5bb&#34;&gt;and rejected&lt;/a&gt;, is to make string slicing so expensive—an allocation and a copy—that most programs avoid it.)
+&lt;/p&gt;
+
+&lt;h2 id=&#34;slices:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;Slices&lt;/h2&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-1917&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata3.png&#34; alt=&#34;godata3&#34; width=&#34;470&#34; height=&#34;151&#34; /&gt;&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  A &lt;a href=&#34;http://golang.org/doc/effective_go.html#slices&#34;&gt;slice&lt;/a&gt; is a reference to a section of an array. In memory, it is a 3-word structure contaning a pointer to the first element, the length of the slice, and the capacity. The length is the upper bound for indexing operations like &lt;em&gt;x[i]&lt;/em&gt; while the capacity is the upper bound for slice operations like &lt;em&gt;x[i:j]&lt;/em&gt;.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Like slicing a string, slicing an array does not make a copy: it only creates a new structure holding a different pointer, length, and capacity. In the example, evaluating the composite literal&lt;em&gt;[]int{2, 3, 5, 7, 11}&lt;/em&gt; creates a new array containing the five values and then sets the fields of the slice &lt;em&gt;x&lt;/em&gt; to describe that array. The slice expression &lt;em&gt;x[1:3]&lt;/em&gt; does not allocate more data: it just writes the fields of a new slice structure to refer to the same backing store. In the example, the length is 2—&lt;em&gt;y[0]&lt;/em&gt; and &lt;em&gt;y[1]&lt;/em&gt; are the only valid indexes—but the capacity is 4—&lt;em&gt;y[0:4]&lt;/em&gt; is a valid slice expression. (See &lt;a href=&#34;http://golang.org/doc/effective_go.html#slices&#34;&gt;Effective Go&lt;/a&gt; for more about length and capacity and how slices are used.)
+&lt;/p&gt;
+
+&lt;p&gt;Because slices are multiword structures, not pointers, the slicing operation does not need to allocate memory, not even for the slice header, which can usually be kept on the stack. This representation makes slices about as cheap to use as passing around explicit pointer and length pairs in C. Go originally represented a slice as a pointer to the structure shown above, but doing so meant that every slice operation allocated a new memory object. Even with a fast allocator, that creates a lot of unnecessary work for the garbage collector, and we found that, as was the case with strings above, programs avoided slicing operations in favor of passing explicit indices. Removing the indirection and the allocation made slices cheap enough to avoid passing explicit indices in most cases.&lt;/p&gt;
+
+&lt;h2 id=&#34;new-and-make:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;New and Make&lt;/h2&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  Go has two data structure creation functions: &lt;em&gt;new&lt;/em&gt; and &lt;em&gt;make&lt;/em&gt;. The distinction is a common early point of confusion but seems to quickly become natural. The basic distinction is that&lt;em&gt;new(T)&lt;/em&gt; returns a &lt;em&gt;*T&lt;/em&gt;, a pointer that Go programs can dereference implicitly (the black pointers in the diagrams), while &lt;em&gt;make(T, &lt;/em&gt;&lt;i&gt;args&lt;/i&gt;&lt;em&gt;)&lt;/em&gt; returns an ordinary &lt;em&gt;T&lt;/em&gt;, not a pointer. Often that &lt;em&gt;T&lt;/em&gt; has inside it some implicit pointers (the gray pointers in the diagrams). &lt;em&gt;New&lt;/em&gt; returns a pointer to zeroed memory, while &lt;em&gt;make&lt;/em&gt; returns a complex structure.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  &lt;img class=&#34;aligncenter size-full wp-image-1918&#34; src=&#34;http://blog.webfuns.net/wp-content/uploads/2015/04/godata4.png&#34; alt=&#34;godata4&#34; width=&#34;470&#34; height=&#34;627&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;There is a way to unify these two, but it would be a significant break from the C and C++ tradition: define &lt;em&gt;make(*T)&lt;/em&gt; to return a pointer to a newly allocated &lt;em&gt;T&lt;/em&gt;, so that the current&lt;em&gt;new(Point)&lt;/em&gt; would be written &lt;em&gt;make(*Point)&lt;/em&gt;. We tried this for a few days but decided it was too different from what people expected of an allocation function.&lt;/p&gt;
+
+&lt;h2 id=&#34;coming-soon-8230:b059c0fef419e9705bbdc8ad0002c1c2&#34;&gt;Coming soon&amp;#8230;&lt;/h2&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  This has already gotten a bit long. Interface values, maps, and channels will have to wait for future posts.
+&lt;/p&gt;
+
+&lt;p class=&#34;pp&#34;&gt;
+  原文：http://research.swtch.com/godata
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DOM中表格的操作方法总结</title>
+      <link>http://:1313/tmp/2011/02/dom%E4%B8%AD%E8%A1%A8%E6%A0%BC%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sat, 26 Feb 2011 16:08:47 +0000</pubDate>
+      
+      <guid>http://:1313/tmp/2011/02/dom%E4%B8%AD%E8%A1%A8%E6%A0%BC%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description>
+
+&lt;p&gt;最近公司内的项目用到了表格，于是和表格较上了劲。如果相对表格进行自如的操作就要对表格的方法和属性有一个详细的了解，其中之一就是要知道如何DOM为我们提供哪些操作表格方法。&lt;/p&gt;
+
+&lt;p&gt;君欲善其事，必先利其器！&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DOM中表格的操作方法总结&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;table-元素的方法如下:ca9af9dc5f38ae7330e464cc5b2ce311&#34;&gt;&lt;table/&gt;元素的方法如下：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;caption：指向&lt;caption/&gt;元素（如果存在）；&lt;/li&gt;
+&lt;li&gt;tBodies：&lt;tbody/&gt;元素的集合；&lt;/li&gt;
+&lt;li&gt;tFoot：指向&lt;tfoot/&gt;元素（如果存在）；&lt;/li&gt;
+&lt;li&gt;tHead：指向&lt;thead/&gt;元素（如果存在）；&lt;/li&gt;
+&lt;li&gt;rows：表格中所有行的集合；&lt;/li&gt;
+&lt;li&gt;createTHead()：创建&lt;thead/&gt;元素并将其放入表格；&lt;/li&gt;
+&lt;li&gt;createTFoot()：创建&lt;tfoot/&gt;元素并将其放入表格；&lt;/li&gt;
+&lt;li&gt;createCaption()：创建&lt;caption/&gt;元素并将其放入表格；&lt;/li&gt;
+&lt;li&gt;deleteTHead()：删除&lt;thead/&gt;元素；&lt;/li&gt;
+&lt;li&gt;deleteTFoot()：删除&lt;tfoot/&gt;元素；&lt;/li&gt;
+&lt;li&gt;deleteCaption()：删除&lt;caption/&gt;元素；&lt;/li&gt;
+&lt;li&gt;deleteRow(position)：删除指定位置上的行；&lt;/li&gt;
+&lt;li&gt;insertRow(position)：在rows集合中指定的位置上插入一新行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;tbody-元素的方法如下:ca9af9dc5f38ae7330e464cc5b2ce311&#34;&gt;&lt;tbody/&gt;元素的方法如下：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rows：&lt;tbody/&gt;中所有行的集合；&lt;/li&gt;
+&lt;li&gt;deleteRow(position)：删除指定位置上的行；&lt;/li&gt;
+&lt;li&gt;insertRow(position)：在rows集合中指定的位置上插入一新行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;tr-元素的方法如下:ca9af9dc5f38ae7330e464cc5b2ce311&#34;&gt;&lt;tr/&gt;元素的方法如下：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;cells：&lt;tr/&gt;元素中所有的单元格的集合；&lt;/li&gt;
+&lt;li&gt;deleteCell(position)：删除给定位置上的单元格；&lt;/li&gt;
+&lt;li&gt;insertCell(position)：在Cells集合的给定位置上插入一个新的单元格。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;**&lt;br /&gt;
+**&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> DOM中表格的操作方法总结 &middot; 趣味互联网 </title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="generator" content="Hugo 0.15-DEV" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="趣味互联网">
+	
+    
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="stylesheet" href="http://:1313/tmp//css/typo.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/style.css">
+    <link rel="stylesheet" href="http://:1313/tmp//css/codecolorer.css">
+	
+	<link href="" rel="alternate" type="application/rss+xml" title="趣味互联网" />
+  	<script type="text/javascript" src="http://:1313/tmp//js/jquery-2.1.4.min.js"></script>
+  </head>
+ <body class="typo">
+	  <div id="wrapper">
+		  <div class="box">
+			  <div class="header">
+			  <h1>DOM中表格的操作方法总结</h1>
+			  <small>2011-02-26,&nbsp;					Tom Heng
+,&nbsp; <a href="http://:1313/tmp/">趣味互联网</a></small>
+		 	  </div>
+			  <div class="main">
+				  <div class="catelog" style="display:none;">
+	  			  <ol id="table">
+	  			    <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+	  			    <li><a href="#section2">排版实例</a>
+	  			      <ul>
+	  			        <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+	  			        <li><a href="#section2-2">例2：英文排版</a></li>
+	  			      </ul>
+	  			    </li>
+	  			    <li><a href="#section3">附录</a>
+	  			      <ul>
+	  			        <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+	  			        <li><a href="#appendix2">开源许可</a></li>
+	  			      </ul>
+	  			    </li>
+	  			  </ol>
+				  </div>
+				  <div class="content">
+		        
+
+<p>最近公司内的项目用到了表格，于是和表格较上了劲。如果相对表格进行自如的操作就要对表格的方法和属性有一个详细的了解，其中之一就是要知道如何DOM为我们提供哪些操作表格方法。</p>
+
+<p>君欲善其事，必先利其器！</p>
+
+<p><strong>DOM中表格的操作方法总结</strong></p>
+
+<h5 id="table-元素的方法如下:ca9af9dc5f38ae7330e464cc5b2ce311"><table/>元素的方法如下：</h5>
+
+<ul>
+<li>caption：指向<caption/>元素（如果存在）；</li>
+<li>tBodies：<tbody/>元素的集合；</li>
+<li>tFoot：指向<tfoot/>元素（如果存在）；</li>
+<li>tHead：指向<thead/>元素（如果存在）；</li>
+<li>rows：表格中所有行的集合；</li>
+<li>createTHead()：创建<thead/>元素并将其放入表格；</li>
+<li>createTFoot()：创建<tfoot/>元素并将其放入表格；</li>
+<li>createCaption()：创建<caption/>元素并将其放入表格；</li>
+<li>deleteTHead()：删除<thead/>元素；</li>
+<li>deleteTFoot()：删除<tfoot/>元素；</li>
+<li>deleteCaption()：删除<caption/>元素；</li>
+<li>deleteRow(position)：删除指定位置上的行；</li>
+<li>insertRow(position)：在rows集合中指定的位置上插入一新行。</li>
+</ul>
+
+<h5 id="tbody-元素的方法如下:ca9af9dc5f38ae7330e464cc5b2ce311"><tbody/>元素的方法如下：</h5>
+
+<ul>
+<li>rows：<tbody/>中所有行的集合；</li>
+<li>deleteRow(position)：删除指定位置上的行；</li>
+<li>insertRow(position)：在rows集合中指定的位置上插入一新行。</li>
+</ul>
+
+<h5 id="tr-元素的方法如下:ca9af9dc5f38ae7330e464cc5b2ce311"><tr/>元素的方法如下：</h5>
+
+<ul>
+<li>cells：<tr/>元素中所有的单元格的集合；</li>
+<li>deleteCell(position)：删除给定位置上的单元格；</li>
+<li>insertCell(position)：在Cells集合的给定位置上插入一个新的单元格。</li>
+</ul>
+
+<p>**<br />
+**</p>
+
+					</div>
+			  </div>
+			  <div class="footer">
+				  标签: 
+				         <a href="/tags/htm">HTM</a> &nbsp;
+				      
+				         <a href="/tags/table">table</a> &nbsp;
+				      
+			  </div>
+	  	 </div>
+	</div>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	  });
+	}); 
+	</script>
+   </body>
+</html>
+ 
