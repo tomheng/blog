@@ -1,6 +1,5 @@
 +++
 date = "2015-08-15T18:26:20+08:00"
-draft = true
 title = "开始使用静态博客引擎和markdown"
 tags = ["静态博客", "Hugo"]
 +++
