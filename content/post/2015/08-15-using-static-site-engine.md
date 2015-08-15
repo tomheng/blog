@@ -2,9 +2,7 @@
 date = "2015-08-15T18:26:20+08:00"
 draft = true
 title = "开始使用静态博客引擎和markdown"
-tags:
-  - 静态博客
-  - Hugo
+tags = ["静态博客", "Hugo"]
 +++
 
 经过一番折腾终于切换到了静态博客系统。传统的博客系统如[wordpress](https://wordpress.org)，虽然方便灵活、功能强大，但是还是过于“厚重”了。现在时兴的静态博客比较简洁、轻量，还能很好的和[Markdown](http://daringfireball.net/projects/markdown/)结合，让人更加集中于写作本书。
