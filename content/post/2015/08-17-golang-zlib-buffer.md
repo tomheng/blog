@@ -13,7 +13,7 @@ tags = ["Golang", "Zlib"]
 buffer，经过一番探索之后终于找到了一个解决方案。就是利用buffer.Buffered方法和Zlib中如果传入的是一个buffer，
 那么就直接利用此buffer，不会再创建一个buffer。
 
-~~~
+~~~go
 //InflateZlib unbuffered io
 func InflateZlib(r *io.SectionReader, len int) (bs []byte, err error) {
 	var out bytes.Buffer
