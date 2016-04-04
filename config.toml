@@ -1,4 +1,4 @@
-baseurl="http://blog.webfuns.net"
+baseurl="https://blog.webfuns.net"
 languageCode = "en-us"
 title="趣味互联网"
 Paginate=10
